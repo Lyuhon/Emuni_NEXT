@@ -7,6 +7,11 @@ const nextConfig = {
                 hostname: "emuni.uz",
                 pathname: "**", // Разрешить любой путь
             },
+            {
+                protocol: "http",
+                hostname: "next.emu.web-perfomance.uz",
+                pathname: "**", // Разрешить любой путь
+            },
         ],
     },
 };

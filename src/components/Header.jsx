@@ -24,6 +24,8 @@ export default function Header() {
         { name: "Новости", href: "/news" },
         { name: "Наши кампусы", href: "/campus" },
         { name: "Клинические базы", href: "/clinic-base" },
+        { name: "Баклавриат", href: "/napravleniya" },
+        { name: "Вакансии", href: "/vacancy" },
 
         // { name: "Medical Foundation", href: "/medical-foundation" },
         // { name: "Вакансии", href: "/vacancies" },
@@ -33,7 +35,7 @@ export default function Header() {
     ];
 
     return (
-        <header className="fixed top-0 w-full bg-[#5f1464] z-50 shadow-md">
+        <header className="fixed top-0 w-full bg-[#5f1464] z-[1000] shadow-md">
             <div className="max-w-screen-xl mx-auto px-4 py-[40px] md:px-8 h-16 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/">
