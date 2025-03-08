@@ -26,6 +26,8 @@ export default function Header() {
         { name: "Клинические базы", href: "/clinic-base" },
         { name: "Баклавриат", href: "/napravleniya" },
         { name: "Вакансии", href: "/vacancy" },
+        { name: "Фотогаллерея", href: "/photogallery" },
+
 
         // { name: "Medical Foundation", href: "/medical-foundation" },
         // { name: "Вакансии", href: "/vacancies" },
