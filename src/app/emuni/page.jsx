@@ -299,7 +299,7 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
                 variants={fadeIn}
-                className="py-6 md:py-20 px-4 relative overflow-hidden"
+                className="py-6 md:py-20 px-4 relative overflow-hidden bg-[#FFFFFF]"
             >
                 {/* Background decorative elements - без анимации для шара */}
                 <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-[#f7eef7] rounded-bl-full opacity-50 z-0 hidden md:block"></div>

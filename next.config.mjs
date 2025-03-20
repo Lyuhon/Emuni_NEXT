@@ -13,8 +13,9 @@ const nextConfig = {
                 pathname: "**", // Разрешить любой путь
             },
         ],
+        deviceSizes: [320, 640, 750, 828, 1080, 1200], // Ограничиваем ширину
+        imageSizes: [16, 32, 48, 64, 96], // Для маленьких изображений
     },
 };
 
 export default nextConfig;
-

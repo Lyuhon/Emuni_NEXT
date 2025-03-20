@@ -475,7 +475,7 @@ const TeacherSlider = () => {
     ];
 
     return (
-        <div className="relative max-w-5xl mx-auto py-12">
+        <div className="relative max-w-5xl mx-auto py-12 bg-[#FFFFFF]">
             {/* Swiper слайдер */}
             <Swiper
                 modules={[Navigation, Autoplay]}
