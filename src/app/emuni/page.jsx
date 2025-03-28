@@ -71,10 +71,10 @@ export default function Home() {
                             {/* <div className="absolute -top-8 -left-8 w-16 h-16 rounded-full bg-white opacity-90 md:flex hidden items-center justify-center text-[#631463] font-bold text-xl">
                                 EMU
                             </div> */}
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                            <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                                 EMU University <br />
                                 приём на<br />
-                                <u>2025–2026</u> год
+                                <span className='text-5xl md:text-5xl lg:text-6xl'>2025–2026 год</span>
                             </h1>
                         </div>
                         <p className="text-xl mb-8 opacity-90 max-w-lg">
@@ -281,7 +281,7 @@ export default function Home() {
                                     <p className="text-gray-600 mb-6 text-sm">{course.description}</p>
                                     <div className="flex justify-between items-center">
                                         <span className="text-xs font-medium bg-[#f7eef7] text-[#631463] py-1 px-3 rounded-full">Популярный курс</span>
-                                        <button className="text-[#631463] font-medium text-sm flex items-center hover:underline">
+                                        <button className="text-[#631463] font-medium text-sm flex items-center hover:underline hidden">
                                             Узнать больше
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -315,15 +315,15 @@ export default function Home() {
                         transition={{ duration: 0.5 }}
                         className="text-center max-w-2xl mx-auto mb-8 md:mb-16"
                     >
-                        <div className="inline-block mb-3 md:mb-4">
+                        {/* <div className="inline-block mb-3 md:mb-4">
                             <div className="h-1 w-16 md:w-20 bg-gradient-to-r from-[#631463] to-[#8a3c8a] rounded-full mx-auto"></div>
-                        </div>
+                        </div> */}
                         <h2 className="text-3xl md:text-5xl font-bold text-gray-900 relative z-10 mb-3 md:mb-5">
                             Выбирайте лучшее для своего будущего!
                         </h2>
-                        <p className="text-gray-600 text-base md:text-lg">
+                        {/* <p className="text-gray-600 text-base md:text-lg">
                             Наш университет, основанный в 2020 году, уже стал лидером в медицинском образовании. Мы — <b>«Лучший медицинский университет 2024»</b> и <b>«Лучший негосударственный университет».</b> Присоединяйтесь к нам, чтобы получить качественное образование и достичь успеха!
-                        </p>
+                        </p> */}
                     </motion.div>
 
                     <div className="flex flex-col md:flex-row gap-8 md:gap-12 mb-10 md:mb-16 items-center">
@@ -358,7 +358,7 @@ export default function Home() {
                             transition={{ duration: 0.6 }}
                             className="md:w-1/2 flex flex-col justify-center"
                         >
-                            <div className="border-l-4 border-[#631463] pl-3 md:pl-6 mb-5 md:mb-8">
+                            {/* <div className="border-l-4 border-[#631463] pl-3 md:pl-6 mb-5 md:mb-8">
                                 <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Индивидуальный подход к каждому</h3>
                                 <p className="text-sm md:text-base text-gray-600">
                                     Наша программа учитывает индивидуальные особенности каждого студента,
@@ -379,6 +379,13 @@ export default function Home() {
                                 <p className="text-sm md:text-base text-gray-600">
                                     Наши программы признаются ведущими университетами мира,
                                     что обеспечивает нашим выпускникам широкие возможности для дальнейшего образования.
+                                </p>
+                            </div> */}
+
+                            <div className="border-l-4 border-[#8a3c8a] pl-3 md:pl-6 mb-5 md:mb-8">
+                                <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Современные методики обучения</h3>
+                                <p className="text-sm md:text-base text-gray-600">
+                                    Наш университет, основанный в 2020 году, уже стал лидером в медицинском образовании. Мы — <b>«Лучший медицинский университет 2024»</b> и <b>«Лучший негосударственный университет».</b> Присоединяйтесь к нам, чтобы получить качественное образование и достичь успеха!
                                 </p>
                             </div>
                         </motion.div>
@@ -935,18 +942,18 @@ export default function Home() {
                                 </div>
 
                                 <h3 className="text-xl font-bold mb-4 group-hover:text-[#631463] transition-colors duration-300">
-                                    Гарантированная подготовка к поступлению
+                                    Студенческое сообщество
                                 </h3>
 
                                 <p className="text-gray-600 mb-4">
-                                    Мы гарантируем, что после прохождения курсов ваши знания и навыки будут на уровне, необходимом для обучения в CAU, и вы будете зачислены в университет автоматически, без вступительных экзаменов.
+                                    Наша дружная комьюнити даёт возможность заводить полезные знакомства, участвовать в научных кружках и клубах по интересам, а также реализовывать собственные инициативы. Мы поддерживаем активное взаимодействие и взаимопомощь, чтобы каждый студент мог раскрыть свой потенциал и укрепить лидерские качества.
                                 </p>
 
                                 <div className="flex justify-between items-center">
                                     <span className="text-xs font-medium bg-[#f7eef7] text-[#631463] py-1 px-3 rounded-full">Гарантия 100%</span>
                                     <motion.button
                                         whileHover={{ x: 5 }}
-                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline"
+                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline hidden"
                                     >
                                         Подробнее
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -979,18 +986,18 @@ export default function Home() {
                                 </div>
 
                                 <h3 className="text-xl font-bold mb-4 group-hover:text-[#631463] transition-colors duration-300">
-                                    Индивидуальный подход
+                                    Дополнительные курсы английского языка
                                 </h3>
 
                                 <p className="text-gray-600 mb-4">
-                                    Подбор учебных предметов в зависимости от ваших академических целей и уровня подготовки, с акцентом на развитие слабых сторон и устранение пробелов в знаниях.
+                                    Мы предлагаем специальные программы, которые помогут укрепить языковые навыки и уверенно ориентироваться в академической среде. Интерактивные занятия, практика разговорной речи и изучение профильной лексики позволяют студентам быстрее адаптироваться и успешно взаимодействовать с преподавателями и международными партнёрами.
                                 </p>
 
                                 <div className="flex justify-between items-center">
                                     <span className="text-xs font-medium bg-[#f7eef7] text-[#631463] py-1 px-3 rounded-full">Персонализация</span>
                                     <motion.button
                                         whileHover={{ x: 5 }}
-                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline"
+                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline hidden"
                                     >
                                         Подробнее
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1023,18 +1030,18 @@ export default function Home() {
                                 </div>
 
                                 <h3 className="text-xl font-bold mb-4 group-hover:text-[#631463] transition-colors duration-300">
-                                    Интерактивное обучение
+                                    Современные методики обучения
                                 </h3>
 
                                 <p className="text-gray-600 mb-4">
-                                    Помимо лекций вас ждут интерактивные сессии и практические занятия, которые помогут вам лучше усвоить материал, развить уверенность в общении и применять знания на практике.
+                                    Мы объединяем традиционные академические практики с инновационными технологиями, делая образовательный процесс интерактивным, увлекательным и по-настоящему эффективным. Это позволяет студентам глубже осваивать материал и успешно применять полученные знания на практике.
                                 </p>
 
                                 <div className="flex justify-between items-center">
                                     <span className="text-xs font-medium bg-[#f7eef7] text-[#631463] py-1 px-3 rounded-full">Интерактивность</span>
                                     <motion.button
                                         whileHover={{ x: 5 }}
-                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline"
+                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline hidden"
                                     >
                                         Подробнее
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1067,18 +1074,18 @@ export default function Home() {
                                 </div>
 
                                 <h3 className="text-xl font-bold mb-4 group-hover:text-[#631463] transition-colors duration-300">
-                                    Опытные преподаватели и современные лаборатории
+                                    Развитие клинического мышления
                                 </h3>
 
                                 <p className="text-gray-600 mb-4">
-                                    Учебный процесс проходит под руководством профессионалов с использованием новейшего оборудования, что обеспечивает практический опыт и готовность применять теоретические знания.
+                                    Учебная программа ориентирована на формирование у будущих врачей навыков глубокого анализа клинических случаев и умения быстро принимать обоснованные решения. Такой подход помогает эффективно справляться с профессиональными вызовами, обеспечивая высокое качество и безопасность медицинской помощи.
                                 </p>
 
                                 <div className="flex justify-between items-center">
                                     <span className="text-xs font-medium bg-[#f7eef7] text-[#631463] py-1 px-3 rounded-full">Экспертность</span>
                                     <motion.button
                                         whileHover={{ x: 5 }}
-                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline"
+                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline hidden"
                                     >
                                         Подробнее
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1111,18 +1118,18 @@ export default function Home() {
                                 </div>
 
                                 <h3 className="text-xl font-bold mb-4 group-hover:text-[#631463] transition-colors duration-300">
-                                    Гибкий учебный график и онлайн обучение
+                                    Квалифицированные преподаватели и передовые лаборатории
                                 </h3>
 
                                 <p className="text-gray-600 mb-4">
-                                    Наши курсы легко вписываются в ваш график, позволяя совмещать учебу с другими делами. Благодаря <strong>онлайн-формату</strong> вы можете учиться в удобное время из любой точки мира.
+                                    Учебный процесс ведётся под руководством экспертов, которые используют современное оборудование и инновационные методы обучения. Это даёт студентам глубокие практические навыки и уверенность в применении теоретических знаний.
                                 </p>
 
                                 <div className="flex justify-between items-center">
                                     <span className="text-xs font-medium bg-[#f7eef7] text-[#631463] py-1 px-3 rounded-full">Гибкость</span>
                                     <motion.button
                                         whileHover={{ x: 5 }}
-                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline"
+                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline hidden"
                                     >
                                         Подробнее
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1155,18 +1162,18 @@ export default function Home() {
                                 </div>
 
                                 <h3 className="text-xl font-bold mb-4 group-hover:text-[#631463] transition-colors duration-300">
-                                    Развитие критического и аналитического мышления
+                                    Удобная локация и современные кампусы
                                 </h3>
 
                                 <p className="text-gray-600 mb-4">
-                                    Программа направлена на всестороннее развитие, чтобы вы были готовы к дальнейшему обучению и карьерным вызовам, эффективно анализировали сложные задачи и находили оптимальные решения.
+                                    EMU University располагает двумя комфортными кампусами: один предназначен для медицинских направлений, а второй — для обучения бизнесу и социальным наукам. Каждый кампус оснащён современными аудиториями, лабораториями и зонами отдыха, обеспечивая благоприятную среду для учёбы, исследований и развития студентов.
                                 </p>
 
                                 <div className="flex justify-between items-center">
                                     <span className="text-xs font-medium bg-[#f7eef7] text-[#631463] py-1 px-3 rounded-full">Развитие</span>
                                     <motion.button
                                         whileHover={{ x: 5 }}
-                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline"
+                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline hidden"
                                     >
                                         Подробнее
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">

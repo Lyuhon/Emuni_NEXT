@@ -49,12 +49,12 @@ export default function Header() {
                     {/* Right Section */}
                     <div className="flex items-center space-x-4">
                         {/* Registration Button */}
-                        <button
+                        {/* <button
                             onClick={() => setIsPopupOpen(true)}
                             className="hidden md:block px-4 py-2 bg-white text-[#5f1464] rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
                         >
                             Регистрация
-                        </button>
+                        </button> */}
 
                         {/* Social Icons */}
                         <div className="flex space-x-2">
@@ -83,6 +83,13 @@ export default function Header() {
                         <a href="#" className="text-white hover:text-gray-200 transition-colors">
                             <MapPin className="w-5 h-5" />
                         </a>
+
+                        <button
+                            onClick={() => setIsPopupOpen(true)}
+                            className="hidden md:block px-4 py-2 bg-white text-[#5f1464] rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
+                        >
+                            Подать заявку
+                        </button>
 
                         {/* Mobile Menu Button */}
                         <button
