@@ -9,6 +9,8 @@ import TestimonialsSection from './TestimonialsSection';
 
 import Price from './Price';
 import Faq from './Faq';
+import Stats from './Stats';
+import LicenseSection from './LicenseSection';
 import ProgramsSlider from './ProgramsSlider';
 
 
@@ -483,17 +485,15 @@ export default function Home() {
                         </div>
                     </motion.section>
 
-
-
-
                     {/* Программы обучения */}
                     <ProgramsSlider />
-
-
 
                 </div>
             </motion.section>
 
+            <LicenseSection />
+
+            <Stats />
 
             {/* Требования к поступающим - новый дизайн */}
             <section className="hidden py-8 md:py-24 px-4 bg-white relative">
@@ -866,7 +866,7 @@ export default function Home() {
                                 whileTap={{ scale: 0.95 }}
                                 className="bg-white text-[#631463] py-3 px-8 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition-all duration-300 flex items-center"
                             >
-                                Зарегистрироваться
+                                Подать заявку
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-5 w-5 ml-2"
@@ -905,7 +905,7 @@ export default function Home() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7 }}
-                        className="text-center max-w-3xl mx-auto mb-20"
+                        className="text-center max-w-3xl mx-auto mb-8 md:mb-20"
                     >
                         <div className="inline-block relative mb-6">
                             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 relative z-10">
@@ -1206,6 +1206,9 @@ export default function Home() {
 
             {/* Обучайтесь у лучших преподавателей */}
             {/* <Teachers /> */}
+
+
+
             <TestimonialsSection />
 
 
