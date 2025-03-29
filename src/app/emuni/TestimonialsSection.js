@@ -927,7 +927,7 @@ const TestimonialsSection = () => {
                 </div>
 
                 {/* Паралакс с текстовыми отзывами */}
-                <div ref={testimonialsRef} className="relative overflow-hidden pb-[20px]">
+                <div ref={testimonialsRef} className="hidden relative overflow-hidden pb-[20px]">
                     {/* Верхний ряд (движение вправо) */}
                     <motion.div
                         style={{ x: topRowX }}

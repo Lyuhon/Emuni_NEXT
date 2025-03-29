@@ -7,6 +7,10 @@ import { useState } from 'react';
 import Teachers from './Teachers';
 import TestimonialsSection from './TestimonialsSection';
 
+import Testimon1 from './Testimon1';
+import Testimon2 from './Testimon2';
+
+
 import Price from './Price';
 import Faq from './Faq';
 import Stats from './Stats';
@@ -1197,7 +1201,7 @@ export default function Home() {
                             whileTap={{ scale: 0.95 }}
                             className="bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white py-4 px-10 rounded-full font-semibold shadow-lg transition-all duration-300 text-lg"
                         >
-                            Начать обучение сейчас
+                            Подать заявку
                         </motion.button>
                     </motion.div>
                 </div>
@@ -1210,6 +1214,11 @@ export default function Home() {
 
 
             <TestimonialsSection />
+
+            <Testimon1 />
+
+            {/* <Testimon2 /> */}
+
 
 
             {/* <Price /> */}
