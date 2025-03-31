@@ -82,6 +82,7 @@ export default function Home() {
                             <span className='font-[500] text-1xl md:text-2xl lg:text-3xl'>
                                 EMU University <br />
                                 приём на 2025–2026 год<br />
+                                Образование высокого уровня — твой ключ к успеху.
                             </span>
 
 
@@ -111,7 +112,7 @@ export default function Home() {
                             <motion.button
                                 whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255, 215, 0, 0.5)" }}
                                 whileTap={{ scale: 0.95 }}
-                                className="mt-8 py-4 px-10 bg-gradient-to-b from-[#f7e282] via-[#dbb845] to-[#c69026] text-[#4a1942] font-bold rounded-full shadow-xl border-2 border-[#f1d875] transition-all duration-300 text-lg"
+                                className="py-4 px-10 bg-gradient-to-b from-[#f7e282] via-[#dbb845] to-[#c69026] text-[#4a1942] font-bold rounded-full shadow-xl border-2 border-[#f1d875] transition-all duration-300 text-lg"
                             >
                                 Подать заявку
                             </motion.button>
@@ -153,6 +154,175 @@ export default function Home() {
                 {/* <div className="absolute bottom-0 left-0 right-0 h-8 bg-white"></div> */}
             </motion.section>
 
+
+
+
+            {/* Goal Section */}
+            {/* <motion.section
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={fadeIn}
+                className="py-20 px-4 relative"
+            > */}
+            {/* Background decorative elements */}
+            {/* <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-[#f7eef7] rounded-bl-full opacity-50 z-0"></div>
+                <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-[#f7eef7] rounded-tr-full opacity-30 z-0"></div>
+
+                <div className="max-w-screen-xl container mx-auto relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5 }}
+                        className="text-center max-w-2xl mx-auto mb-16"
+                    >
+                        <div className="inline-block mb-4">
+                            <div className="h-1 w-20 bg-gradient-to-r from-[#631463] to-[#8a3c8a] rounded-full mx-auto"></div>
+                        </div>
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 relative z-10 mb-[20px]">
+                            Сделайте первый шаг на пути к своей цели
+                        </h2>
+                        <p className="text-gray-600 text-lg">
+                            Наша подготовительная программа — это комплексный подход к успешному
+                            поступлению в ведущие университеты мира
+                        </p>
+                    </motion.div>
+
+                    <div className="flex flex-col md:flex-row gap-12 mb-16 items-center">
+                        <motion.div
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6 }}
+                            className="md:w-1/2"
+                        >
+                            <div className="relative">
+                                <Image
+                                    src="https://emuni.uz/wp-content/uploads/2023/01/1-1.jpg"
+                                    alt="Student in lab"
+                                    width={600}
+                                    height={350}
+                                    className="rounded-xl shadow-xl w-full h-auto z-10 relative"
+                                />
+                                <div className="absolute -bottom-4 -right-4 h-full w-full bg-[#631463] rounded-xl z-0"></div>
+                                <div className="absolute top-6 -left-6 p-6 bg-white shadow-lg rounded-lg z-20 max-w-xs transform rotate-3">
+                                    <div className="flex items-center mb-2">
+                                        <div className="w-3 h-3 rounded-full bg-[#631463] mr-2"></div>
+                                        <h3 className="font-bold text-lg text-[#631463]">95%</h3>
+                                    </div>
+                                    <p className="text-sm text-gray-600">наших студентов успешно поступают в университет EMU</p>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6 }}
+                            className="md:w-1/2 flex flex-col justify-center"
+                        >
+                            <div className="border-l-4 border-[#631463] pl-6 mb-8">
+                                <h3 className="text-xl font-bold text-gray-800 mb-3">Индивидуальный подход к каждому</h3>
+                                <p className="text-gray-600">
+                                    Наша программа учитывает индивидуальные особенности каждого студента,
+                                    предлагая персонализированные планы обучения и регулярную обратную связь от преподавателей.
+                                </p>
+                            </div>
+
+                            <div className="border-l-4 border-[#8a3c8a] pl-6 mb-8">
+                                <h3 className="text-xl font-bold text-gray-800 mb-3">Современные методики обучения</h3>
+                                <p className="text-gray-600">
+                                    Мы сочетаем традиционные подходы с инновационными технологиями,
+                                    делая процесс обучения интерактивным, увлекательным и эффективным.
+                                </p>
+                            </div>
+
+                            <div className="border-l-4 border-[#f7eef7] pl-6">
+                                <h3 className="text-xl font-bold text-gray-800 mb-3">Международное признание</h3>
+                                <p className="text-gray-600">
+                                    Наши программы признаются ведущими университетами мира,
+                                    что обеспечивает нашим выпускникам широкие возможности для дальнейшего образования.
+                                </p>
+                            </div>
+                        </motion.div>
+                    </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="mb-12"
+                    >
+                        <h3 className="text-2xl md:text-3xl font-bold text-center mb-10 text-[#631463]">Наши курсы</h3>
+                    </motion.div>
+
+                    <motion.div
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.1 }}
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                    >
+                        {[
+                            {
+                                title: "Математика",
+                                description: "Основные математические концепции: алгебра, геометрия, тригонометрия, статистика. Для будущих инженеров и экономистов.",
+                                icon: "https://emuni.uz/wp-content/uploads/2024/07/calculator.png",
+                                color: "from-[#631463] to-[#8a3c8a]",
+                                iconBg: "bg-[#762876]"
+                            },
+                            {
+                                title: "Английский язык",
+                                description: "Развитие всех языковых навыков: разговорная речь, аудирование, чтение и письмо. Акцент на академический английский.",
+                                icon: "https://emuni.uz/wp-content/uploads/2024/02/speech.png",
+                                color: "from-[#8a3c8a] to-[#631463]",
+                                iconBg: "bg-[#762876]"
+
+                            },
+                            {
+                                title: "Химия",
+                                description: "Структура атомов, химические реакции, органическая и неорганическая химия. Для будущих медиков и стоматологов.",
+                                icon: "http://next.emu.web-perfomance.uz/wp-content/uploads/2025/03/chemistry.png",
+                                color: "from-[#631463] to-[#8a3c8a]",
+                                iconBg: "bg-[#762876]"
+
+                            },
+                            {
+                                title: "Биология",
+                                description: "Основы клеточной структуры, генетики, физиологии и экологии. Подготовка для студентов медицины и естественных наук.",
+                                icon: "http://next.emu.web-perfomance.uz/wp-content/uploads/2025/03/leave.png",
+                                color: "from-[#8a3c8a] to-[#631463]",
+                                iconBg: "bg-[#762876]"
+
+                            }
+                        ].map((course, index) => (
+                            <motion.div
+                                key={index}
+                                variants={fadeIn}
+                                whileHover={{ y: -10, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                                className="bg-white rounded-lg shadow-lg overflow-hidden"
+                            >
+                                <div className={`h-2 w-full bg-gradient-to-r ${course.color}`}></div>
+                                <div className="p-6">
+                                    <div className={`w-14 h-14 ${course.iconBg} rounded-lg mb-4 flex items-center justify-center`}>
+                                        <Image src={course.icon} alt={course.title} width={30} height={30} />
+                                    </div>
+                                    <h3 className="text-xl font-bold mb-3 text-gray-800">{course.title}</h3>
+                                    <p className="text-gray-600 mb-6 text-sm">{course.description}</p>
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-xs font-medium bg-[#f7eef7] text-[#631463] py-1 px-3 rounded-full">Популярный курс</span>
+                                        <button className="text-[#631463] font-medium text-sm flex items-center hover:underline hidden">
+                                            Узнать больше
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
+            </motion.section> */}
 
 
             {/* Goal Section */}
@@ -217,6 +387,29 @@ export default function Home() {
                             transition={{ duration: 0.6 }}
                             className="md:w-1/2 flex flex-col justify-center"
                         >
+                            {/* <div className="border-l-4 border-[#631463] pl-3 md:pl-6 mb-5 md:mb-8">
+                                <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Индивидуальный подход к каждому</h3>
+                                <p className="text-sm md:text-base text-gray-600">
+                                    Наша программа учитывает индивидуальные особенности каждого студента,
+                                    предлагая персонализированные планы обучения и регулярную обратную связь от преподавателей.
+                                </p>
+                            </div>
+
+                            <div className="border-l-4 border-[#8a3c8a] pl-3 md:pl-6 mb-5 md:mb-8">
+                                <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Современные методики обучения</h3>
+                                <p className="text-sm md:text-base text-gray-600">
+                                    Мы сочетаем традиционные подходы с инновационными технологиями,
+                                    делая процесс обучения интерактивным, увлекательным и эффективным.
+                                </p>
+                            </div>
+
+                            <div className="border-l-4 border-[#f7eef7] pl-3 md:pl-6">
+                                <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Международное признание</h3>
+                                <p className="text-sm md:text-base text-gray-600">
+                                    Наши программы признаются ведущими университетами мира,
+                                    что обеспечивает нашим выпускникам широкие возможности для дальнейшего образования.
+                                </p>
+                            </div> */}
 
                             <div className="border-l-4 border-[#8a3c8a] pl-3 md:pl-6 mb-5 md:mb-8">
                                 <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Современные методики обучения</h3>
@@ -232,100 +425,98 @@ export default function Home() {
 
 
 
+                    {/* ПРЕИМУЩЕСТВА */}
 
-
-                </div>
-            </motion.section>
-
-            {/* ПРЕИМУЩЕСТВА */}
-
-            <motion.section
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={fadeIn}
-                className="py-6 md:py-20 px-4 relative bg-gradient-to-b from-white via-[#f7eef7] to-white overflow-hidden"
-            >
-                {/* Декоративные элементы */}
-                <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-[#631463] opacity-5 blur-3xl"></div>
-                <div className="absolute bottom-10 left-20 w-80 h-80 rounded-full bg-[#8a3c8a] opacity-5 blur-3xl"></div>
-                <div className="absolute top-1/3 left-1/4 w-8 h-8 rounded-full bg-[#631463] opacity-15"></div>
-
-                <div className="max-w-screen-xl container mx-auto relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5 }}
-                        className="text-center max-w-3xl mx-auto mb-16"
-                    >
-                        <div className="inline-block mb-4">
-                            <div className="h-1 w-20 bg-gradient-to-r from-[#631463] to-[#8a3c8a] rounded-full mx-auto"></div>
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                            Преимущества обучения
-                        </h2>
-                        <p className="text-gray-600 text-lg">
-                            Узнайте, почему EMU University — это ваш лучший выбор для успешного будущего
-                        </p>
-                    </motion.div>
-
-                    <motion.div
-                        variants={staggerContainer}
+                    <motion.section
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, amount: 0.1 }}
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                        viewport={{ once: true, amount: 0.3 }}
+                        variants={fadeIn}
+                        className="py-20 px-4 relative bg-gradient-to-b from-white via-[#f7eef7] to-white overflow-hidden"
                     >
-                        {[
-                            {
-                                title: "Международные связи",
-                                description: "Мы активно сотрудничаем с зарубежными университетами, обеспечивая студентам доступ к передовым методикам и опыту мировых специалистов.",
-                                icon: "https://emuni.uz/wp-content/uploads/2024/02/speech.png",
-                                number: "01",
-                            },
-                            {
-                                title: "Сильная практическая база",
-                                description: "Университет располагает крупнейшим количеством клинических баз и партнёрств с больницами, что даёт возможность получать практические навыки в реальных условиях.",
-                                icon: "http://next.emu.web-perfomance.uz/wp-content/uploads/2025/03/chemistry.png",
-                                number: "02",
-                            },
-                            {
-                                title: "Стажировки в ведущих клиниках",
-                                description: "Наши студенты проходят практику в местных и частных учреждениях, а также участвуют в дополнительных стажировках дважды в год для расширения горизонтов.",
-                                icon: "http://next.emu.web-perfomance.uz/wp-content/uploads/2025/03/leave.png",
-                                number: "03",
-                            },
-                            {
-                                title: "Широкие возможности финансирования",
-                                description: "В 2025–2026 году доступно 20 государственных грантов, более 200 грантов учредителей и стипендии для поступающих.",
-                                icon: "https://emuni.uz/wp-content/uploads/2024/07/calculator.png",
-                                number: "04",
-                            },
-                        ].map((advantage, index) => (
+                        {/* Декоративные элементы */}
+                        <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-[#631463] opacity-5 blur-3xl"></div>
+                        <div className="absolute bottom-10 left-20 w-80 h-80 rounded-full bg-[#8a3c8a] opacity-5 blur-3xl"></div>
+                        <div className="absolute top-1/3 left-1/4 w-8 h-8 rounded-full bg-[#631463] opacity-15"></div>
+
+                        <div className="max-w-screen-xl container mx-auto relative z-10">
                             <motion.div
-                                key={index}
-                                variants={fadeIn}
-                                whileHover={{ y: -10, boxShadow: "0 20px 25px -5px rgba(99, 20, 99, 0.1)" }}
-                                className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300"
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.5 }}
+                                className="text-center max-w-3xl mx-auto mb-16"
                             >
-                                <div className="h-2 w-full bg-gradient-to-r from-[#631463] to-[#8a3c8a]"></div>
-                                <div className="p-6">
-                                    <div className="w-16 h-16 bg-[#f7eef7] rounded-full flex items-center justify-center mb-6">
-                                        <span className="text-2xl font-bold bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-transparent bg-clip-text">
-                                            {advantage.number}
-                                        </span>
-                                    </div>
-                                    <h3 className="text-xl font-bold text-gray-800 mb-3">{advantage.title}</h3>
-                                    <p className="text-gray-600 text-sm">{advantage.description}</p>
+                                <div className="inline-block mb-4">
+                                    <div className="h-1 w-20 bg-gradient-to-r from-[#631463] to-[#8a3c8a] rounded-full mx-auto"></div>
                                 </div>
+                                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                                    Преимущества обучения
+                                </h2>
+                                <p className="text-gray-600 text-lg">
+                                    Узнайте, почему EMU University — это ваш лучший выбор для успешного будущего
+                                </p>
                             </motion.div>
-                        ))}
-                    </motion.div>
+
+                            <motion.div
+                                variants={staggerContainer}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, amount: 0.1 }}
+                                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                            >
+                                {[
+                                    {
+                                        title: "Международные связи",
+                                        description: "Мы активно сотрудничаем с зарубежными университетами, обеспечивая студентам доступ к передовым методикам и опыту мировых специалистов.",
+                                        icon: "https://emuni.uz/wp-content/uploads/2024/02/speech.png",
+                                        number: "01",
+                                    },
+                                    {
+                                        title: "Сильная практическая база",
+                                        description: "Университет располагает крупнейшим количеством клинических баз и партнёрств с больницами, что даёт возможность получать практические навыки в реальных условиях.",
+                                        icon: "http://next.emu.web-perfomance.uz/wp-content/uploads/2025/03/chemistry.png",
+                                        number: "02",
+                                    },
+                                    {
+                                        title: "Стажировки в ведущих клиниках",
+                                        description: "Наши студенты проходят практику в местных и частных учреждениях, а также участвуют в дополнительных стажировках дважды в год для расширения горизонтов.",
+                                        icon: "http://next.emu.web-perfomance.uz/wp-content/uploads/2025/03/leave.png",
+                                        number: "03",
+                                    },
+                                    {
+                                        title: "Широкие возможности финансирования",
+                                        description: "В 2025–2026 году доступно 20 государственных грантов, более 200 грантов учредителей и стипендии для поступающих.",
+                                        icon: "https://emuni.uz/wp-content/uploads/2024/07/calculator.png",
+                                        number: "04",
+                                    },
+                                ].map((advantage, index) => (
+                                    <motion.div
+                                        key={index}
+                                        variants={fadeIn}
+                                        whileHover={{ y: -10, boxShadow: "0 20px 25px -5px rgba(99, 20, 99, 0.1)" }}
+                                        className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300"
+                                    >
+                                        <div className="h-2 w-full bg-gradient-to-r from-[#631463] to-[#8a3c8a]"></div>
+                                        <div className="p-6">
+                                            <div className="w-16 h-16 bg-[#f7eef7] rounded-full flex items-center justify-center mb-6">
+                                                <span className="text-2xl font-bold bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-transparent bg-clip-text">
+                                                    {advantage.number}
+                                                </span>
+                                            </div>
+                                            <h3 className="text-xl font-bold text-gray-800 mb-3">{advantage.title}</h3>
+                                            <p className="text-gray-600 text-sm">{advantage.description}</p>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </motion.div>
+                        </div>
+                    </motion.section>
+
+                    {/* Программы обучения */}
+                    <ProgramsSlider />
+
                 </div>
             </motion.section>
-
-            {/* Программы обучения */}
-            <ProgramsSlider />
 
             <LicenseSection />
 
@@ -640,23 +831,6 @@ export default function Home() {
                                         </div>
                                         <p className="text-gray-700">
                                             Мы принимаем национальный сертификат, а также международные сертификаты, подтверждающие знание языка (например, IELTS, TOEFL и т. д.). Если на выбранном факультете предусмотрен вступительный экзамен по соответствующему языку, абитуриент, имеющий такой сертификат, может быть освобождён от сдачи данного экзамена.
-                                        </p>
-                                    </div>
-
-                                    <div className="flex items-start">
-                                        <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#631463] mr-3 mt-0.5">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-4 w-4"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                            >
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                            </svg>
-                                        </div>
-                                        <p className="text-gray-700">
-                                            Также мы принимаем на обучение по второй специальности. Зачисление осуществляется на основании результатов собеседования. Приглашаем всех желающих расширить свои профессиональные горизонты!
                                         </p>
                                     </div>
                                 </div>
@@ -1085,7 +1259,7 @@ export default function Home() {
 
             <Testimon1 />
 
-            {/* <Testimon2 /> */}
+            <Testimon2 />
 
 
 

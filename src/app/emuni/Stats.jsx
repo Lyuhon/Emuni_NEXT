@@ -231,7 +231,7 @@ const Stats = () => {
                     transition={{ duration: 0.5 }}
                     className="flex flex-col md:flex-row items-center mb-12 md:mb-16"
                 >
-                    <div className="md:w-2/5 mb-8 md:mb-0">
+                    <div className="w-[100%] md:w-2/5 mb-8 md:mb-0">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#631463] leading-tight mb-4">
                             Академическое<br />превосходство с<br />глобальной<br />перспективой
                         </h2>
@@ -242,9 +242,9 @@ const Stats = () => {
                         <p className="text-gray-600 text-base md:text-lg mb-6">
                             EMU University — один из самых быстроразвивающихся университетов в стране. Мы гордимся нашими высококачественными академическими программами.
                         </p>
-                        <p className="text-gray-600 text-base md:text-lg mb-6">
+                        {/* <p className="text-gray-600 text-base md:text-lg mb-6">
                             Университет объединяет различные факультеты и развивает междисциплинарные направления науки, инженерии, бизнеса, медицины, стоматологии и управления гостиничным бизнесом.
-                        </p>
+                        </p> */}
                         <a href="#" className="text-[#631463] font-medium hover:underline inline-flex items-center group">
                             Наша миссия и видение
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
