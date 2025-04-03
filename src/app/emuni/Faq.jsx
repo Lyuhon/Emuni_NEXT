@@ -171,7 +171,7 @@ const FAQSection = () => {
                         </p>
 
                         <motion.a
-                            href="https://t.me/emuni"
+                            href="https://t.me/emu_universityuz"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="inline-flex items-center justify-center bg-[#0088cc] text-white py-3 px-6 rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-300"

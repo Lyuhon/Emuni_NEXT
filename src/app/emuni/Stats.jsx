@@ -215,7 +215,7 @@ const Stats = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeIn}
-            className="py-16 md:py-24 px-4 relative overflow-hidden bg-white"
+            className="py-16 md:py-24 md:pb-6 px-4 relative overflow-hidden bg-white"
         >
             {/* Декоративные элементы внутри контейнера */}
             <div className="max-w-screen-xl container mx-auto relative z-10">

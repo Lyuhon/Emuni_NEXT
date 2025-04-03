@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Teachers from './Teachers';
 import TestimonialsSection from './TestimonialsSection';
 
@@ -42,6 +42,35 @@ const staggerContainer = {
 };
 
 export default function Home() {
+
+    // Добавьте эти состояния и эффекты в компонент:
+    const [position, setPosition] = useState(0);
+    const [glowIntensity, setGlowIntensity] = useState(0);
+    const [pulseSize, setPulseSize] = useState(1);
+
+    useEffect(() => {
+        // Угловой градиент
+        const interval = setInterval(() => {
+            setPosition((prev) => (prev >= 360 ? 0 : prev + 3));
+        }, 40);
+
+        // Пульсация свечения
+        const glowInterval = setInterval(() => {
+            setGlowIntensity((prev) => Math.abs(Math.sin(Date.now() / 1000)));
+        }, 50);
+
+        // Пульсация размера
+        const pulseInterval = setInterval(() => {
+            setPulseSize((prev) => 1 + 0.03 * Math.sin(Date.now() / 500));
+        }, 50);
+
+        return () => {
+            clearInterval(interval);
+            clearInterval(glowInterval);
+            clearInterval(pulseInterval);
+        };
+    }, []);
+
     return (
         <div className="min-h-screen font-sans">
 
@@ -75,14 +104,11 @@ export default function Home() {
                         transition={{ duration: 0.7 }}
                     >
                         <div className="relative">
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                                Выбирай будущее, достойное тебя.
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 leading-tight">
+                                Выбирай будущее, достойное тебя
                             </h1>
 
-                            <span className='font-[500] text-1xl md:text-2xl lg:text-3xl'>
-                                EMU University <br />
-                                приём на 2025–2026 год<br />
-                            </span>
+
 
 
                             {/* <div className="absolute -top-8 -left-8 w-16 h-16 rounded-full bg-white opacity-90 md:flex hidden items-center justify-center text-[#631463] font-bold text-xl">
@@ -108,10 +134,23 @@ export default function Home() {
                                 Подать заявку
                             </motion.button> */}
 
+                            {/* https://claude.ai/chat/019a1e84-354b-45bc-8174-ad7a9bc589ea */}
                             <motion.button
-                                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255, 215, 0, 0.5)" }}
+                                whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="mt-8 py-4 px-10 bg-gradient-to-b from-[#f7e282] via-[#dbb845] to-[#c69026] text-[#4a1942] font-bold rounded-full shadow-xl border-2 border-[#f1d875] transition-all duration-300 text-lg"
+                                animate={{ scale: pulseSize }}
+                                transition={{ duration: 0.2 }}
+                                className="mt-8 mb-10 py-4 px-10 text-[#4a1942] font-bold rounded-full shadow-xl border-2 border-[#f1d875] transition-all duration-300 text-lg"
+                                style={{
+                                    background: `linear-gradient(${position}deg, 
+      #f7e282 0%, 
+      #e4c254 25%, 
+      #f3d651 50%, 
+      #dbb845 75%,
+      #f7e282 100%)`,
+                                    boxShadow: `0 5px 15px rgba(198, 144, 38, 0.5),
+               0 0 ${20 + glowIntensity * 20}px rgba(247, 226, 130, ${0.5 + glowIntensity * 0.3})`
+                                }}
                             >
                                 Подать заявку
                             </motion.button>
@@ -124,6 +163,11 @@ export default function Home() {
                                 Узнать больше
                             </motion.button> */}
                         </div>
+
+                        <span className='font-[500] text-base md:base lg:text-lg'>
+                            EMU University приём на 2025–2026 год
+                        </span>
+
                     </motion.div>
 
                     <motion.div
@@ -161,7 +205,7 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
                 variants={fadeIn}
-                className="py-6 md:py-20 px-4 relative overflow-hidden bg-[#FFFFFF]"
+                className="py-6 md:py-20 md:pb-8 px-4 relative overflow-hidden bg-[#FFFFFF]"
             >
                 {/* Background decorative elements - без анимации для шара */}
                 <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-[#f7eef7] rounded-bl-full opacity-50 z-0 hidden md:block"></div>
@@ -219,9 +263,9 @@ export default function Home() {
                         >
 
                             <div className="border-l-4 border-[#8a3c8a] pl-3 md:pl-6 mb-5 md:mb-8">
-                                <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Современные методики обучения</h3>
-                                <p className="text-sm md:text-base text-gray-600">
-                                    Наш университет, основанный в 2020 году, уже стал лидером в медицинском образовании. Мы — <b>«Лучший медицинский университет 2024»</b> и <b>«Лучший негосударственный университет».</b> Присоединяйтесь к нам, чтобы получить качественное образование и достичь успеха!
+                                <h3 className="text-lg md:text-3xl font-bold text-gray-800 mb-2 md:mb-3">Современные методики обучения</h3>
+                                <p className="text-sm md:text-xl text-gray-600">
+                                    Наш университет, основанный в 2020 году, уже стал лидером в медицинском образовании. Мы — <b className='text-[#ddb74b]'>«Лучший медицинский университет 2024»</b> и <b className='text-[#ddb74b]'>«Лучший негосударственный университет».</b> Присоединяйтесь к нам, чтобы получить качественное образование и достичь успеха!
                                 </p>
                             </div>
                         </motion.div>
@@ -244,7 +288,7 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
                 variants={fadeIn}
-                className="py-6 md:py-20 px-4 relative bg-gradient-to-b from-white via-[#f7eef7] to-white overflow-hidden"
+                className="py-6 md:py-6 px-4 relative bg-gradient-to-b from-white via-[#f7eef7] to-white overflow-hidden"
             >
                 {/* Декоративные элементы */}
                 <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-[#631463] opacity-5 blur-3xl"></div>
@@ -539,7 +583,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <section className="py-8 md:py-24 px-4 bg-white relative">
+            <section className="py-8 md:py-24 md:pb-6 px-4 bg-white relative">
                 {/* Декоративные элементы */}
                 <div className="absolute top-0 right-0 w-1/3 h-2/3 bg-[#f7eef7] opacity-30 rounded-bl-[100px] -z-10"></div>
                 <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-[#f7eef7] opacity-20 rounded-tr-[100px] -z-10"></div>
@@ -759,7 +803,7 @@ export default function Home() {
 
 
             {/* Поддерживаем и помогаем прийти к результату - улучшенная версия */}
-            <section className="py-24 px-4 relative overflow-hidden bg-gradient-to-b from-white via-[#f7eef7] to-white">
+            <section className="py-10 md:py-24 md:pb-6 px-4 relative overflow-hidden bg-gradient-to-b from-white via-[#f7eef7] to-white">
                 {/* Декоративные элементы */}
                 <div className="absolute top-40 right-10 w-64 h-64 rounded-full bg-[#631463] opacity-5 blur-3xl"></div>
                 <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-[#631463] opacity-5 blur-3xl"></div>
