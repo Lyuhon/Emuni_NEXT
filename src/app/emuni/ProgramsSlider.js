@@ -23,7 +23,7 @@ const ProgramsSlider = () => {
     useEffect(() => {
         const fetchPrograms = async () => {
             try {
-                const response = await fetch('http://next.emu.web-perfomance.uz/wp-json/acf/v3/pages/81209');
+                const response = await fetch('https://next.emu.web-perfomance.uz/wp-json/acf/v3/pages/81209');
                 const data = await response.json();
 
                 // Медицинские направления
