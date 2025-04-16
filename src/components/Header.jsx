@@ -3,7 +3,7 @@
 
 import React, { useState } from "react";
 import Link from 'next/link';
-import Popup from './Popup'; // Импортируем новый компонент
+import Popup from './Popup_uz'; // Импортируем новый компонент
 import {
     MapPin,
     Telegram,
@@ -26,6 +26,10 @@ export default function Header() {
         { name: "Вакансии", href: "/vacancy" },
         { name: "Фотогаллерея", href: "/photogallery" },
         { name: "Научный журнал", href: "/journal" },
+        { name: "Техникум EMU", href: "https://texnikum.emuni.uz/" },
+        // { name: "Medical Foundation", href: "/pre-courses/" },
+        { name: "Как нас найти", href: "/contacts" },
+        { name: "Гранты", href: "/grants" },
         { name: "FAQ", href: "/faq" },
     ];
 
@@ -121,7 +125,7 @@ export default function Header() {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:block bg-[#5f1464] py-3 border-t-[2px] border-white">
-                    <ul className="justify-center max-w-screen-xl mx-auto px-4 flex justify-start space-x-4 text-white text-sm">
+                    <ul className="max-w-screen-xl mx-auto px-4 flex flex-wrap justify-center gap-x-4 gap-y-2.5 text-white text-sm">
                         {menuItems.map((item) => (
                             <li key={item.name}>
                                 <a

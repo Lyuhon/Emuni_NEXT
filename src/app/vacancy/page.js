@@ -1,3 +1,4 @@
+// vacancy/page.js
 import React from 'react';
 import { Mail, MapPin, Clock, Award, CheckCircle, Send, Calendar, BookOpen, Users } from 'lucide-react';
 
@@ -20,7 +21,7 @@ const VacanciesPage = () => {
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
             <div className="relative h-80 flex items-center justify-center overflow-hidden" style={{
-                background: `linear-gradient(rgba(99, 20, 99, 0.85), rgba(99, 20, 99, 0.95)), url('https://emuni.uz/wp-content/uploads/2022/06/vakansiya-new-2-min.webp')`,
+                background: `linear-gradient(rgba(99, 20, 99, 0.60), rgba(99, 20, 99, 0.70)), url('https://emuni.uz/wp-content/uploads/2022/06/vakansiya-new-2-min.webp')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}>

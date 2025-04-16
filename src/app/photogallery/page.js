@@ -2,7 +2,7 @@ import GalleryAccordion from './GalleryAccordion';
 
 async function fetchGalleryData() {
     try {
-        const res = await fetch('http://next.emu.web-perfomance.uz/wp-json/acf/v3/pages/81192', {
+        const res = await fetch('https://next.emu.web-perfomance.uz/wp-json/acf/v3/pages/81192', {
             next: { revalidate: 43200 }, // ISR: кеш на 12 часов (43200 секунд)
             headers: {
                 'Content-Type': 'application/json',

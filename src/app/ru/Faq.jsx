@@ -14,7 +14,7 @@ const FAQSection = () => {
         {
             id: 2,
             question: '2. Сколько студентов обучаются в одной группе?',
-            answer: 'В одной группе максимальное количество студентов достигает 12 человек.'
+            answer: 'В одной группе максимальное количество студентов достигает 15 человек.'
         },
         {
             id: 3,
@@ -87,7 +87,7 @@ const FAQSection = () => {
     };
 
     return (
-        <section className="py-4 md:py-16 px-4 bg-white">
+        <section id='faq-section' className="py-4 md:py-16 px-4 bg-white">
             <div className="container mx-auto max-w-4xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

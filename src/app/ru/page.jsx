@@ -4,22 +4,26 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import Teachers from './Teachers';
 import TestimonialsSection from './TestimonialsSection';
 
 import Testimon1 from './Testimon1';
-import Testimon2 from './Testimon2';
-
-
-import Price from './Price';
 import Faq from './Faq';
 import Stats from './Stats';
 import LicenseSection from './LicenseSection';
 import ProgramsSlider from './ProgramsSlider';
-import ProgramsSlider_rediz from './ProgramsSlider_rediz';
-
 import FixedPhoneButton from './FixedPhoneButton';
+import GrantsSlider from './GrantsSlider';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+import Header from "/src/components/Header";
+import Footer from "/src/components/Footer";
+
+
+import PartnersSlider from './partnersSlider';
 
 
 
@@ -75,13 +79,14 @@ export default function Home() {
 
     return (
         <div className="min-h-screen font-sans">
+            <Header />
 
             {/* Hero Section */}
             <motion.section
                 initial="hidden"
                 animate="visible"
                 variants={fadeIn}
-                className="relative bg-gradient-to-br from-[#631463] to-[#8a3c8a] text-white py-20 md:py-32 overflow-hidden md:mt-[0px] mt-[-50px]"
+                className="md:hidden flex relative bg-gradient-to-br from-[#631463] to-[#8a3c8a] text-white py-20 md:py-32 overflow-hidden md:mt-[0px] mt-[-50px]"
             >
                 {/* Decorative elements */}
                 <div className="absolute inset-0 overflow-hidden">
@@ -128,13 +133,6 @@ export default function Home() {
                             Образование высокого уровня — твой ключ к успеху.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            {/* <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="bg-white text-[#631463] py-3 px-8 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                            >
-                                Подать заявку
-                            </motion.button> */}
 
                             {/* https://claude.ai/chat/019a1e84-354b-45bc-8174-ad7a9bc589ea */}
                             <motion.button
@@ -142,14 +140,14 @@ export default function Home() {
                                 whileTap={{ scale: 0.95 }}
                                 animate={{ scale: pulseSize }}
                                 transition={{ duration: 0.2 }}
-                                className="mt-8 mb-10 py-4 px-10 text-[#4a1942] font-bold rounded-full shadow-xl border-2 border-[#f1d875] transition-all duration-300 text-lg"
+                                className="pop-form-trigger mt-8 mb-10 py-4 px-10 text-[#4a1942] font-bold rounded-full shadow-xl border-2 border-[#f1d875] transition-all duration-300 text-lg"
                                 style={{
                                     background: `linear-gradient(${position}deg, 
-      #f7e282 0%, 
-      #e4c254 25%, 
-      #f3d651 50%, 
-      #dbb845 75%,
-      #f7e282 100%)`,
+                                    #f7e282 0%, 
+                                    #e4c254 25%, 
+                                    #f3d651 50%, 
+                                    #dbb845 75%,
+                                    #f7e282 100%)`,
                                     boxShadow: `0 5px 15px rgba(198, 144, 38, 0.5),
                0 0 ${20 + glowIntensity * 20}px rgba(247, 226, 130, ${0.5 + glowIntensity * 0.3})`
                                 }}
@@ -157,13 +155,6 @@ export default function Home() {
                                 Подать заявку
                             </motion.button>
 
-                            {/* <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="bg-transparent border-2 border-white text-white py-3 px-8 rounded-full font-semibold hover:bg-white/10 transition-all duration-300"
-                            >
-                                Узнать больше
-                            </motion.button> */}
                         </div>
 
                         <span className='font-[500] text-base md:base lg:text-lg'>
@@ -180,7 +171,7 @@ export default function Home() {
                     >
                         <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
                             <Image
-                                src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/02/capmus-slide-main-1.jpg"
+                                src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/1200x900-emu-web-2-min.jpg"
                                 alt="Student"
                                 width={600}
                                 height={400}
@@ -199,6 +190,79 @@ export default function Home() {
                 {/* <div className="absolute bottom-0 left-0 right-0 h-8 bg-white"></div> */}
             </motion.section>
 
+            {/* ФОН КАРТИНКА 2 */}
+            <motion.section
+                initial="hidden"
+                animate="visible"
+                variants={fadeIn}
+                className="hidden md:flex items-center relative min-h-[600px] md:min-h-[700px] py-20 md:py-32 overflow-hidden"
+                style={{
+                    backgroundImage: `url('http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/emu_hero_banner-scaled.webp')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'right 0 bottom 10%',
+                }}
+            >
+                {/* Overlay с более светлым наложением */}
+                {/* <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/30 to-black/10"></div> */}
+
+                {/* Decorative elements */}
+                <div className="absolute inset-0 overflow-hidden">
+                    <svg width="100%" height="100%" className="absolute top-0 left-0 opacity-5">
+                        <defs>
+                            <pattern id="smallGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+                                <path d="M 30 0 L 0 0 0 30" fill="none" stroke="white" strokeWidth="0.5" />
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#smallGrid)" />
+                    </svg>
+                    <div className="absolute top-20 right-20 w-48 h-48 rounded-full bg-white/10 blur-3xl"></div>
+                    <div className="absolute bottom-20 left-20 w-64 h-64 rounded-full bg-white/5 blur-3xl"></div>
+                </div>
+
+                <div className="max-w-screen-xl container mx-auto px-4 flex items-center justify-start relative z-10">
+                    <motion.div
+                        className="bg-[#00000030] backdrop-blur-md p-8 rounded-xl border border-white/20 text-white max-w-lg"
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7 }}
+                    >
+                        <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold mb-6 leading-tight">
+                            Выбирай будущее, достойное тебя
+                        </h1>
+
+                        <p className="text-lg md:text-xl mb-8 opacity-90">
+                            Качественное образование в Университете EMU — ваш ключ к успеху
+                        </p>
+
+                        <div className="flex flex-wrap gap-4 items-center">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                animate={{ scale: pulseSize }}
+                                transition={{ duration: 0.2 }}
+                                className="pop-form-trigger py-4 px-10 font-bold rounded-full shadow-xl transition-all duration-300 text-lg"
+                                style={{
+                                    background: `linear-gradient(${position}deg, #f7e282 0%, #e4c254 25%, #f3d651 50%, #dbb845 75%, #f7e282 100%)`,
+                                    color: '#4a1942',
+                                    boxShadow: `0 5px 15px rgba(198, 144, 38, 0.4)`,
+                                }}
+                            >
+                                Подать заявку
+                            </motion.button>
+
+                            <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+                                <span className="text-sm md:text-base font-medium">
+                                    EMU University приём на 2025–2026 год
+                                </span>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </motion.section>
+            {/* ФОН КАРТИНКА 2 */}
+
+
+            <Stats />
 
 
             {/* Goal Section */}
@@ -238,23 +302,88 @@ export default function Home() {
                             transition={{ duration: 0.6 }}
                             className="md:w-1/2 w-full"
                         >
-                            <div className="relative mx-auto max-w-md md:max-w-none">
-                                <Image
-                                    src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/03/vaucher_photo.webp"
-                                    alt="Student in lab"
-                                    width={600}
-                                    height={350}
-                                    className="rounded-xl shadow-xl w-full h-auto z-10 relative"
-                                />
-                                <div className="absolute -bottom-2 md:-bottom-4 -right-2 md:-right-4 h-full w-full bg-[#631463] rounded-xl z-0"></div>
-                                <div className="hidden absolute top-4 md:top-6 -left-3 md:-left-6 p-3 md:p-6 bg-white shadow-lg rounded-lg z-20 max-w-[150px] md:max-w-xs transform rotate-3">
-                                    <div className="flex items-center mb-1 md:mb-2">
-                                        <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-[#631463] mr-1 md:mr-2"></div>
-                                        <h3 className="font-bold text-base md:text-lg text-[#631463]">95%</h3>
+                            <Swiper
+                                modules={[Navigation, Autoplay]}
+                                spaceBetween={20}
+                                slidesPerView={1}
+                                navigation={{
+                                    nextEl: '.swiper-button-next-custom',
+                                    prevEl: '.swiper-button-prev-custom',
+                                }}
+                                autoplay={{
+                                    delay: 500000,
+                                    disableOnInteraction: false,
+                                }}
+                                className="relative mx-auto max-w-md md:max-w-none"
+                            >
+                                {/* Слайд 1: Первая картинка */}
+                                <SwiperSlide className="p-[20px_20px_20px_30px]">
+                                    <div className="relative">
+                                        <Image
+                                            src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/trgfnic5sz5c7ozhs5pc.jpg"
+                                            alt="Student in lab"
+                                            width={600}
+                                            height={350}
+                                            className="rounded-xl shadow-xl w-full h-auto z-10 relative"
+                                        />
+                                        <div className="absolute -bottom-2 md:-bottom-4 -right-2 md:-right-4 h-full w-full bg-[#631463] rounded-xl z-0"></div>
                                     </div>
-                                    <p className="text-xs md:text-sm text-gray-600">наших студентов успешно поступают в университет EMU</p>
+                                </SwiperSlide>
+
+                                {/* Слайд 2: Вторая картинка (замените URL на ваш) */}
+                                <SwiperSlide className="p-[20px_20px_20px_30px]">
+                                    <div className="relative">
+                                        <Image
+                                            src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/80-1737974836-rpst2023-post-material-large.webp" // Замените на реальный URL
+                                            alt="Another image"
+                                            width={600}
+                                            height={350}
+                                            className="rounded-xl shadow-xl w-full h-auto z-10 relative"
+                                        />
+                                        <div className="absolute -bottom-2 md:-bottom-4 -right-2 md:-right-4 h-full w-full bg-[#631463] rounded-xl z-0"></div>
+                                    </div>
+                                </SwiperSlide>
+
+                                {/* Слайд 3: YouTube видео */}
+                                <SwiperSlide className="p-[20px_20px_20px_30px]">
+                                    <div className="relative">
+                                        <iframe
+                                            src="https://www.youtube.com/embed/xsXxaNVimk0"
+                                            title="YouTube video"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            className="rounded-xl shadow-xl w-full h-[210px] md:h-[350px] z-10 relative"
+                                        ></iframe>
+                                        <div className="absolute -bottom-2 md:-bottom-4 -right-2 md:-right-4 h-full w-full bg-[#631463] rounded-xl z-0"></div>
+                                    </div>
+                                </SwiperSlide>
+
+                                {/* Кастомные кнопки навигации */}
+                                <div style={{ border: '2px solid #f7eef7', background: '#883088' }}
+                                    className="swiper-button-prev-custom absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2 z-20 w-10 h-10 bg-[#631463] rounded-full flex items-center justify-center cursor-pointer">
+                                    <svg
+                                        className="w-5 h-5 text-white"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
+                                    </svg>
                                 </div>
-                            </div>
+                                <div style={{ border: '2px solid #f7eef7', background: '#883088' }}
+                                    className="swiper-button-next-custom absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2 z-20 w-10 h-10 bg-[#631463] rounded-full flex items-center justify-center cursor-pointer">
+                                    <svg
+                                        className="w-5 h-5 text-white"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </div>
+                            </Swiper>
                         </motion.div>
 
                         <motion.div
@@ -272,12 +401,6 @@ export default function Home() {
                             </div>
                         </motion.div>
                     </div>
-
-
-
-
-
-
 
 
                 </div>
@@ -373,12 +496,9 @@ export default function Home() {
             {/* Программы обучения */}
             <ProgramsSlider />
 
-            <ProgramsSlider_rediz />
-
-
             <LicenseSection />
 
-            <Stats />
+            {/* <Stats /> */}
 
             {/* Требования к поступающим - новый дизайн */}
             <section className="hidden py-8 md:py-24 px-4 bg-white relative">
@@ -426,22 +546,6 @@ export default function Home() {
                                 <h3 className="text-2xl font-bold mb-4 text-[#631463]">Уровень образования</h3>
 
                                 <div className="mt-6 space-y-4">
-                                    {/* <div className="flex items-start">
-                                        <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#631463] mr-3 mt-0.5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                            </svg>
-                                        </div>
-                                        <p className="text-gray-700">10-11 класс школы</p>
-                                    </div>
-                                    <div className="flex items-start">
-                                        <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#631463] mr-3 mt-0.5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                            </svg>
-                                        </div>
-                                        <p className="text-gray-700">Последний курс лицея или колледжа</p>
-                                    </div> */}
                                     <div className="flex items-start">
                                         <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#631463] mr-3 mt-0.5">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -492,11 +596,6 @@ export default function Home() {
                                             Определяется согласно Общей европейской системе оценки владения языком (CEFR)
                                         </p>
                                     </div>
-                                    {/* <div className="absolute bottom-0 right-0 w-20 h-20 opacity-10">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#631463" className="w-full h-full">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                                        </svg>
-                                    </div> */}
                                 </div>
 
                                 <div className="mt-6 space-y-4">
@@ -542,7 +641,7 @@ export default function Home() {
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white py-3 px-6 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center w-full mb-6"
+                                    className="pop-form-trigger bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white py-3 px-6 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center w-full mb-6"
                                 >
                                     Подать заявку
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -633,34 +732,7 @@ export default function Home() {
                                 <h3 className="text-2xl font-bold mb-4 text-[#631463]">Уровень образования</h3>
 
                                 <div className="mt-6 space-y-4">
-                                    {/* <div className="flex items-start">
-                                        <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#631463] mr-3 mt-0.5">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-4 w-4"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                            >
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                            </svg>
-                                        </div>
-                                        <p className="text-gray-700">10-11 класс школы</p>
-                                    </div>
-                                    <div className="flex items-start">
-                                        <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#631463] mr-3 mt-0.5">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-4 w-4"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                            >
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                            </svg>
-                                        </div>
-                                        <p className="text-gray-700">Последний курс лицея или колледжа</p>
-                                    </div> */}
+
                                     <div className="flex items-start">
                                         <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#631463] mr-3 mt-0.5">
                                             <svg
@@ -763,10 +835,10 @@ export default function Home() {
                             <p className="text-lg text-center mb-6 max-w-md">
                                 Заполните форму регистрации, и мы пригласим вас на ближайший экзамен!
                             </p>
-                            <motion.button
+                            {/* <motion.button
                                 whileHover={{ scale: 1.05, boxShadow: "0 15px 30px -5px rgba(0, 0, 0, 0.3)" }}
                                 whileTap={{ scale: 0.95 }}
-                                className="hidden bg-white text-[#631463] py-3 px-8 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition-all duration-300 flex items-center"
+                                className="pop-form-trigger hidden bg-white text-[#631463] py-3 px-8 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition-all duration-300 flex items-center"
                             >
                                 Подать заявку
                                 <svg
@@ -778,12 +850,12 @@ export default function Home() {
                                 >
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                 </svg>
-                            </motion.button>
+                            </motion.button> */}
 
                             <motion.button
                                 whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255, 215, 0, 0.5)" }}
                                 whileTap={{ scale: 0.95 }}
-                                className="flex items-center py-4 px-10 bg-gradient-to-b from-[#f7e282] via-[#dbb845] to-[#c69026] text-[#4a1942] font-bold rounded-full shadow-xl border-2 border-[#f1d875] transition-all duration-300 text-lg"
+                                className="z-[90] pop-form-trigger flex items-center py-4 px-10 bg-gradient-to-b from-[#f7e282] via-[#dbb845] to-[#c69026] text-[#4a1942] font-bold rounded-full shadow-xl border-2 border-[#f1d875] transition-all duration-300 text-lg"
                             >
                                 Подать заявку
 
@@ -808,7 +880,7 @@ export default function Home() {
 
 
             {/* Поддерживаем и помогаем прийти к результату - улучшенная версия */}
-            <section className="py-10 md:py-24 md:pb-6 px-4 relative overflow-hidden bg-gradient-to-b from-white via-[#f7eef7] to-white">
+            <section id="mission_support" className="py-10 md:py-24 md:pb-6 px-4 relative overflow-hidden bg-gradient-to-b from-white via-[#f7eef7] to-white">
                 {/* Декоративные элементы */}
                 <div className="absolute top-40 right-10 w-64 h-64 rounded-full bg-[#631463] opacity-5 blur-3xl"></div>
                 <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-[#631463] opacity-5 blur-3xl"></div>
@@ -1113,9 +1185,21 @@ export default function Home() {
                         className="text-center mt-16"
                     >
                         <motion.button
-                            whileHover={{ scale: 1.05, boxShadow: "0 15px 30px -5px rgba(99, 20, 99, 0.2)" }}
+                            whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white py-4 px-10 rounded-full font-semibold shadow-lg transition-all duration-300 text-lg"
+                            animate={{ scale: pulseSize }}
+                            transition={{ duration: 0.2 }}
+                            className="pop-form-trigger mb-10 py-4 px-10 text-[#4a1942] font-bold rounded-full shadow-xl border-2 border-[#f1d875] transition-all duration-300 text-lg"
+                            style={{
+                                background: `linear-gradient(${position}deg, 
+                                    #f7e282 0%, 
+                                    #e4c254 25%, 
+                                    #f3d651 50%, 
+                                    #dbb845 75%,
+                                    #f7e282 100%)`,
+                                boxShadow: `0 5px 15px rgba(198, 144, 38, 0.5),
+                                0 0 ${20 + glowIntensity * 20}px rgba(247, 226, 130, ${0.5 + glowIntensity * 0.3})`
+                            }}
                         >
                             Подать заявку
                         </motion.button>
@@ -1124,25 +1208,20 @@ export default function Home() {
                 </div>
             </section>
 
+            <GrantsSlider />
 
-            {/* Обучайтесь у лучших преподавателей */}
-            {/* <Teachers /> */}
-
-
-
-            <TestimonialsSection />
+            {/* <TestimonialsSection /> */}
 
             <Testimon1 />
 
-            {/* <Testimon2 /> */}
+            <PartnersSlider />
 
-
-
-            {/* <Price /> */}
-
-            <Faq />
+            {/* <Faq /> */}
 
             <FixedPhoneButton />
+
+            <Footer />
+
 
         </div >
     );
