@@ -22,8 +22,8 @@ import 'swiper/css/navigation';
 import Header from "/src/components/Header";
 import Footer from "/src/components/Footer";
 
-
-import PartnersSlider from './partnersSlider';
+import PartnersSlider from './PartnersSlider';
+import RectorAppealSlider from './RectorAppealSlider';
 
 
 
@@ -79,7 +79,7 @@ export default function Home() {
 
     return (
         <div className="min-h-screen font-sans">
-            <Header />
+            {/* <Header /> */}
 
             {/* Hero Section */}
             <motion.section
@@ -413,7 +413,7 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
                 variants={fadeIn}
-                className="py-6 md:py-6 px-4 relative bg-gradient-to-b from-white via-[#f7eef7] to-white overflow-hidden"
+                className="py-6 md:py-6 md:mb-16 px-4 relative bg-gradient-to-b from-white via-[#f7eef7] to-white overflow-hidden"
             >
                 {/* Декоративные элементы */}
                 <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-[#631463] opacity-5 blur-3xl"></div>
@@ -492,6 +492,10 @@ export default function Home() {
                     </motion.div>
                 </div>
             </motion.section>
+
+
+            <RectorAppealSlider />
+
 
             {/* Программы обучения */}
             <ProgramsSlider />
@@ -1216,11 +1220,13 @@ export default function Home() {
 
             <PartnersSlider />
 
+            {/* <RectorAppealSlider /> */}
+
             {/* <Faq /> */}
 
             <FixedPhoneButton />
 
-            <Footer />
+            {/* <Footer /> */}
 
 
         </div >

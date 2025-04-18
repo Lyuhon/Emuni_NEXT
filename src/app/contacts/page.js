@@ -420,7 +420,7 @@
 //     );
 // }
 
-
+// contacts/page.js
 import ContactInfo from './ContactInfo';
 
 export default async function ContactsPage() {

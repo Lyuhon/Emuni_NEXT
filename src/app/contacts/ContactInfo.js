@@ -1,3 +1,5 @@
+// contacts/contactsIfo.js
+
 'use client';
 
 import React, { useState } from 'react';
@@ -176,7 +178,7 @@ const ContactInfo = ({ locations, brandColor, brandColorLighter }) => {
                         {isValidMapPosition ? (
                             <iframe
                                 key={`${currentLocation.mapPosition.lat}-${currentLocation.mapPosition.lng}`} // Force re-render on location change
-                                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAkExBVA9XezEkEVe_Zb4gMgB31_WfonkQ&q=${currentLocation.mapPosition.lat},${currentLocation.mapPosition.lng}&zoom=${currentLocation.zoom}`}
+                                src={`https://maps.google.com/maps?q=${currentLocation.mapPosition.lat},${currentLocation.mapPosition.lng}&z=${currentLocation.zoom}&output=embed`}
                                 className="absolute top-0 left-0 w-full h-full"
                                 frameBorder="0"
                                 style={{ border: 0 }}

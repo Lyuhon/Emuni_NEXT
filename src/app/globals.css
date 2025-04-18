@@ -150,3 +150,138 @@ body {
 #directions_slider .swiper-slide {
   height: auto;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* wysiwyg */
+.wysiwyg-content {
+  /* font-family: 'Roboto', 'Arial', sans-serif; */
+  color: #333;
+  line-height: 1.6;
+}
+
+.wysiwyg-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.wysiwyg-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.wysiwyg-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 2.25rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.3;
+}
+
+.wysiwyg-content h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.wysiwyg-content h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.wysiwyg-content h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.wysiwyg-content h6 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.wysiwyg-content ul,
+.wysiwyg-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.wysiwyg-content ul {
+  list-style-type: disc;
+}
+
+.wysiwyg-content ol {
+  list-style-type: decimal;
+}
+
+.wysiwyg-content li {
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+}
+
+.wysiwyg-content a {
+  color: #631463;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.wysiwyg-content a:hover {
+  color: #8a3c8a;
+}
+
+.wysiwyg-content blockquote {
+  border-left: 4px solid #631463;
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+.wysiwyg-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+}
+
+.wysiwyg-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.wysiwyg-content table td,
+.wysiwyg-content table th {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+}
+
+.wysiwyg-content table th {
+  background-color: #f7eef7;
+  font-weight: 600;
+}
+
+.wysiwyg-content hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid #ddd;
+}

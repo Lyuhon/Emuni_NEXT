@@ -92,7 +92,7 @@ const LicenseSection = () => {
                 }}
             ></motion.div>
 
-            <motion.div
+            {/* <motion.div
                 className="absolute bottom-1/3 right-20 w-8 h-8 bg-white opacity-10 rounded-full"
                 animate={{
                     y: [0, 20, 0],
@@ -103,7 +103,7 @@ const LicenseSection = () => {
                     repeat: Infinity,
                     repeatType: "reverse"
                 }}
-            ></motion.div>
+            ></motion.div> */}
 
             <motion.div
                 className="absolute top-1/2 right-1/4 w-16 h-3 bg-white opacity-10 rounded-full transform rotate-45"
@@ -129,15 +129,15 @@ const LicenseSection = () => {
                     >
                         <div className="bg-white p-4 md:p-8 rounded-2xl shadow-2xl relative">
                             {/* Декоративные элементы вокруг слайдера */}
-                            <div className="absolute -top-4 -left-4 w-12 h-12 bg-white/20 rounded-full backdrop-blur-md"></div>
-                            <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-white/20 rounded-full backdrop-blur-md"></div>
+                            {/* <div className="absolute -top-4 -left-4 w-12 h-12 bg-white/20 rounded-full backdrop-blur-md"></div>
+                            <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-white/20 rounded-full backdrop-blur-md"></div> */}
 
                             <Swiper
                                 modules={[Navigation, Autoplay]}
                                 spaceBetween={30}
                                 slidesPerView={1}
                                 navigation
-                                autoplay={{ delay: 5000 }}
+                                // autoplay={{ delay: 5000 }}
                                 loop={true}
                                 className="license-swiper"
                             >
