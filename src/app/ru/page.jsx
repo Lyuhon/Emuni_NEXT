@@ -1220,8 +1220,6 @@ export default function Home() {
 
             <PartnersSlider />
 
-            {/* <RectorAppealSlider /> */}
-
             {/* <Faq /> */}
 
             <FixedPhoneButton />
