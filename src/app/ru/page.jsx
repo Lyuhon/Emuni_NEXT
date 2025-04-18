@@ -19,8 +19,8 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import Header from "/src/components/Header";
-import Footer from "/src/components/Footer";
+// import Header from "/src/components/Header";
+// import Footer from "/src/components/Footer";
 
 import PartnersSlider from './PartnersSlider';
 import RectorAppealSlider from './RectorAppealSlider';
