@@ -125,7 +125,7 @@ export default function Header() {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:block bg-[#5f1464] py-3 border-t-[2px] border-white">
-                    <ul className="max-w-screen-xl mx-auto px-4 flex flex-wrap justify-center gap-x-4 gap-y-2.5 text-white text-sm">
+                    <ul className="max-w-screen-xl- mx-auto px-4 flex flex-wrap justify-center gap-x-4 gap-y-2.5 text-white text-sm">
                         {menuItems.map((item) => (
                             <li key={item.name}>
                                 <a

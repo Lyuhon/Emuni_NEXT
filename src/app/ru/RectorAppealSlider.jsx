@@ -120,13 +120,13 @@ const RectorAppealSlider = () => {
                                         <p className="font-bold text-lg md:text-xl">Гайбуллаев Элбек Азизбекович</p>
                                         <p className="text-white/80">Founder / CEO EMU University</p>
                                     </div>
-                                    <div className="w-24 h-16 opacity-80">
+                                    {/* <div className="w-24 h-16 opacity-80">
                                         <img
                                             src="/signature.png"
                                             alt="Подпись"
                                             className="w-full h-full object-contain"
                                         />
-                                    </div>
+                                    </div> */}
                                 </div>
                             </motion.div>
                         </div>

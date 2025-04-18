@@ -76,7 +76,7 @@ const TeacherSlider = () => {
                 }}
                 loop={true} // Бесконечный скролл
                 autoplay={{
-                    delay: 5000,
+                    delay: 500000,
                     disableOnInteraction: false,
                 }}
                 onBeforeInit={(swiper) => {

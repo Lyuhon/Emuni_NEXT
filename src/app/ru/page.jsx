@@ -8,7 +8,7 @@ import TestimonialsSection from './TestimonialsSection';
 
 import Testimon1 from './Testimon1';
 import Faq from './Faq';
-import Stats from './Stats';
+import Stats from './StatsRedesign';
 import LicenseSection from './LicenseSection';
 import ProgramsSlider from './ProgramsSlider';
 import FixedPhoneButton from './FixedPhoneButton';
@@ -24,7 +24,13 @@ import 'swiper/css/navigation';
 
 import PartnersSlider_Home from './PartnersSlider_Home';
 import RectorAppealSlider from './RectorAppealSlider';
+import StudTestimonRedesign from './StudTestimonRedesign';
+import Recall from './Recall';
 
+
+
+
+import Teachers from './Teachers';
 
 
 // Animations
@@ -691,6 +697,7 @@ export default function Home() {
                 </div>
             </section>
 
+
             <section className="py-8 md:py-24 md:pb-6 px-4 bg-white relative">
                 {/* Декоративные элементы */}
                 <div className="absolute top-0 right-0 w-1/3 h-2/3 bg-[#f7eef7] opacity-30 rounded-bl-[100px] -z-10"></div>
@@ -880,6 +887,7 @@ export default function Home() {
 
 
 
+            <Recall />
 
 
 
@@ -1216,7 +1224,9 @@ export default function Home() {
 
             {/* <TestimonialsSection /> */}
 
-            <Testimon1 />
+            {/* <Testimon1 /> */}
+
+            <StudTestimonRedesign />
 
             <PartnersSlider_Home />
 
