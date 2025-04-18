@@ -22,7 +22,7 @@ import 'swiper/css/navigation';
 // import Header from "/src/components/Header";
 // import Footer from "/src/components/Footer";
 
-import PartnersSlider from './PartnersSlider';
+import PartnersSlider_Home from './PartnersSlider_Home';
 import RectorAppealSlider from './RectorAppealSlider';
 
 
@@ -1218,7 +1218,7 @@ export default function Home() {
 
             <Testimon1 />
 
-            <PartnersSlider />
+            <PartnersSlider_Home />
 
             {/* <Faq /> */}
 
