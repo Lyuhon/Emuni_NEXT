@@ -58,7 +58,7 @@ import DirectionsClient from './DirectionsClient';
 
 async function fetchDirections() {
     const res = await fetch('http://next.emu.web-perfomance.uz/wp-json/acf/v3/pages/11857', {
-        next: { revalidate: 43200 }, // ISR: обновление каждые 12 часов
+        next: { revalidate: 3600 }, // ISR: обновление каждые 1 часов
     });
     if (!res.ok) throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`);
     const data = await res.json();
@@ -93,8 +93,8 @@ async function fetchDirections() {
                     // { label: 'Длительность', value: item.duration || 'Не указано' },
                     // { label: 'Практика', value: item.practice_hours || 'Не указано' },
                     // { label: 'Предметов', value: (item.key_subjects || []).length.toString() || 'Не указано' },
-                    { label: 'Стоиомсть за семестр', value: item.duration || 'Не указано' },
-                    { label: 'Стоиомсть за учебный год', value: item.practice_hours || 'Не указано' },
+                    { label: 'Стоиомсть за семестр', value: item.semester_price || 'Не указано' },
+                    { label: 'Стоиомсть за учебный год', value: item.full_price || 'Не указано' },
                 ],
                 title_icon: item.title_icon || '/default-image.png',
             };
