@@ -337,11 +337,10 @@ export default function BlogPage() {
     // Категории для сайдбара
     const categories = [
         { id: "all", name: "Все статьи" },
-        { id: "education", name: "Образование" },
-        { id: "science", name: "Наука" },
-        { id: "medicine", name: "Медицина" },
-        { id: "student-life", name: "Студенческая жизнь" },
+        { id: "grants", name: "Гранты" },
+        { id: "education", name: "Образования" },
         { id: "events", name: "События" },
+        { id: "science", name: "Наука" },
     ];
 
     // Пример постов блога
@@ -364,7 +363,7 @@ export default function BlogPage() {
             id: 3,
             title: "Как стать врачом мечты?",
             image: "https://emuni.uz/wp-content/uploads/2025/01/oxford-weidenfeld-and-hoffmann-scholarship-2-1024x1024.png",
-            category: "medicine",
+            category: "grants",
             description: "Путь от студента ЕМУ до профессионала в белом халате.",
         },
         {
@@ -378,7 +377,7 @@ export default function BlogPage() {
             id: 5,
             title: "Студенческий фестиваль науки",
             image: "https://emuni.uz/wp-content/uploads/2025/01/oxford-weidenfeld-and-hoffmann-scholarship-2-1024x1024.png",
-            category: "student-life",
+            category: "grants",
             description: "Как студенты ЕМУ превращают науку в праздник.",
         },
         {
@@ -399,14 +398,14 @@ export default function BlogPage() {
             id: 8,
             title: "Будущее медицины в Узбекистане",
             image: "https://emuni.uz/wp-content/uploads/2025/01/oxford-weidenfeld-and-hoffmann-scholarship-2-1024x1024.png",
-            category: "medicine",
+            category: "grants",
             description: "Тренды и перспективы для студентов-медиков.",
         },
         {
             id: 9,
             title: "Вечеринка первокурсников",
             image: "https://emuni.uz/wp-content/uploads/2025/01/oxford-weidenfeld-and-hoffmann-scholarship-2-1024x1024.png",
-            category: "student-life",
+            category: "grants",
             description: "Как ЕМУ встречает новых студентов с размахом.",
         },
     ];

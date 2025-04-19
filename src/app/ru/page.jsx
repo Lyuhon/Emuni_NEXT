@@ -13,6 +13,8 @@ import LicenseSection from './LicenseSection';
 import ProgramsSlider from './ProgramsSlider';
 import FixedPhoneButton from './FixedPhoneButton';
 import GrantsSlider from './GrantsSlider';
+import CallActionSection from './CallActionSection';
+
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
@@ -271,6 +273,7 @@ export default function Home() {
             <Stats />
 
 
+
             {/* Goal Section */}
             <motion.section
                 initial="hidden"
@@ -504,7 +507,8 @@ export default function Home() {
 
 
             {/* Программы обучения */}
-            <ProgramsSlider />
+            {/* <ProgramsSlider /> */}
+            <CallActionSection />
 
             <LicenseSection />
 
@@ -1220,11 +1224,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <GrantsSlider />
-
-            {/* <TestimonialsSection /> */}
-
-            {/* <Testimon1 /> */}
+            {/* <GrantsSlider /> */}
 
             <StudTestimonRedesign />
 

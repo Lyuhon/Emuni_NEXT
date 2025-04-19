@@ -18,7 +18,7 @@ export default function Footer() {
                     <div>
                         <div className="flex items-center mb-4">
                             <img
-                                src="https://emuni.uz/wp-content/uploads/2024/07/emu-logo_2024_min.webp"
+                                src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/new_emu_logo-min.png"
                                 alt="EMU University Logo"
                                 width={180} // Немного увеличил для футера
                                 height={50}

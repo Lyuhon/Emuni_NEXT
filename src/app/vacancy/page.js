@@ -1,6 +1,6 @@
 // vacancy/page.js
 import React from 'react';
-import { Mail, MapPin, Clock, Award, CheckCircle, Send, Calendar, BookOpen, Users } from 'lucide-react';
+import { Mail, MapPin, Clock, Award, CheckCircle, Send, Calendar, BookOpen, Users, PartyPopper } from 'lucide-react';
 
 const VacanciesPage = () => {
     // Фирменные цвета
@@ -14,7 +14,9 @@ const VacanciesPage = () => {
         { title: "Оплачиваемый отпуск", icon: <Calendar size={24} /> },
         { title: "Официальное трудоустройство", icon: <CheckCircle size={24} /> },
         { title: "Социальный пакет", icon: <Users size={24} /> },
-        { title: "Стажировки за рубежом", icon: <MapPin size={24} /> }
+        { title: "Стажировки за рубежом", icon: <MapPin size={24} /> },
+        { title: "Корпоративные мероприятия", icon: <PartyPopper size={24} /> }
+
     ];
 
     return (
@@ -33,7 +35,7 @@ const VacanciesPage = () => {
                         Станьте частью нашей команды профессионалов в ведущем медицинском университете
                     </p>
                 </div>
-                <div className="absolute bottom-0 left-0 w-full overflow-hidden transform rotate-180 z-[100] mb-[-1px]">
+                <div className="absolute bottom-0 left-0 w-full overflow-hidden transform rotate-180 z-[1000] mb-[-1px]">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12">
                         <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#f8f9fa" opacity=".8"></path>
                         <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="#f8f9fa" opacity=".5"></path>
@@ -89,6 +91,10 @@ const VacanciesPage = () => {
                     </div>
 
                     <div className="p-5 bg-gray-50 rounded-lg mb-6">
+                        <p>Тимбилдинги, праздники, выезды за город</p>
+                    </div>
+
+                    <div className="p-5 bg-gray-50 rounded-lg mb-6">
                         <p>Социальный пакет (специальный льготные услуги на все виды медицинских и диагностических услуг в в сети многопрофильных клиник EMU)</p>
                     </div>
 
@@ -103,7 +109,7 @@ const VacanciesPage = () => {
                             <Send size={24} className="mr-3" style={{ color: brandColor }} />
                             <span>Отправляйте Ваши CV (объективку) и краткую информацию о себе отправьте на:</span>
                         </div>
-                        <div>
+                        <div className='flex flex-wrap'>
                             <a href="mailto:vacancy_emuni@emuni.uz" className="font-bold text-lg hover:underline" style={{ color: brandColor }}>vacancy_emuni@emuni.uz</a>,&nbsp;
                             <a href="mailto:hr@emuni.uz" className="font-bold text-lg hover:underline" style={{ color: brandColor }}>hr@emuni.uz</a>
                         </div>
@@ -121,13 +127,13 @@ const VacanciesPage = () => {
 
                     <p className="mb-6">Наша команда активно работает по созданию базы для переподготовки и повышения квалификации врачей и педагогов. В скором времени будут доступны курсы по краткосрочному повышению квалификации.</p>
 
-                    <div className="mb-8 overflow-hidden rounded-lg shadow-md">
+                    {/* <div className="mb-8 overflow-hidden rounded-lg shadow-md">
                         <img
                             src="https://emuni.uz/wp-content/uploads/2023/05/emu-1536x856.jpg"
                             alt="Команда EMU University"
                             className="w-full h-auto object-cover"
                         />
-                    </div>
+                    </div> */}
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div className="bg-purple-50 p-6 rounded-lg border-t-4" style={{ borderColor: brandColor }}>

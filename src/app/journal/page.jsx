@@ -1,3 +1,5 @@
+// journal/page.jsx
+
 'use client'
 import React, { useState } from 'react';
 import { Book, BookOpen, Download, FileText, Users, ChevronRight, Menu, Images } from 'lucide-react';
@@ -161,27 +163,19 @@ const JournalPage = () => {
                             <div className="relative z-10 w-full md:w-1/2 flex justify-center md:justify-end">
                                 <div className="relative w-56 h-72 md:w-72 md:h-96 transform hover:scale-105 transition-transform duration-300">
                                     {/* Book Cover */}
+                                    {/* Book Cover */}
                                     <div className="absolute inset-0 bg-gradient-to-r from-[#5f1464] to-[#7a407f] rounded-lg shadow-2xl transform perspective-1000 rotate-y-5 animate-book-hover">
-                                        <div className="absolute inset-2 bg-white rounded-lg p-6 flex flex-col justify-between">
-                                            {/* Book Content */}
-                                            <div className="space-y-4">
-                                                <div className="w-1/3 h-6 bg-gray-200 rounded animate-pulse" />
-                                                <div className="w-2/3 h-4 bg-gray-100 rounded animate-pulse delay-100" />
-                                                <div className="w-1/2 h-4 bg-gray-100 rounded animate-pulse delay-200" />
-                                            </div>
-                                            <div className="flex justify-center">
-                                                <div className="w-20 h-20 bg-[#5f1464]/10 rounded-full flex items-center justify-center">
-                                                    <Book className="w-10 h-10 text-[#5f1464] animate-bounce" />
-                                                </div>
-                                            </div>
-                                            <div className="space-y-2">
-                                                <div className="w-full h-3 bg-gray-100 rounded animate-pulse delay-300" />
-                                                <div className="w-2/3 h-3 bg-gray-100 rounded animate-pulse delay-400" />
-                                            </div>
+                                        <div className="absolute inset-2 bg-white rounded-lg overflow-hidden">
+                                            {/* Изображение обложки журнала */}
+                                            <img
+                                                src="https://emuni.uz/wp-content/uploads/2023/06/image_2023-06-14_10-55-50.png"
+                                                alt="Обложка журнала"
+                                                className="w-full h-full object-cover"
+                                            />
                                         </div>
                                     </div>
                                     {/* Book Pages */}
-                                    <div className="absolute inset-y-4 -right-2 w-8 bg-white rounded-r-lg transform origin-left rotate-y-40 shadow-xl" />
+                                    {/* <div className="absolute inset-y-4 -right-2 w-8 bg-white rounded-r-lg transform origin-left rotate-y-40 shadow-xl" /> */}
                                 </div>
 
                                 {/* Floating Elements */}

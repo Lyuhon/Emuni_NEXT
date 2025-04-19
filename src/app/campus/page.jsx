@@ -358,7 +358,7 @@
 
 
 
-// app/campuses/page.jsx
+// app/campus/page.jsx
 import React from "react";
 import CampusSlider from "./CampusSlider";
 import CampusContactInfo from "./CampusContactInfo";

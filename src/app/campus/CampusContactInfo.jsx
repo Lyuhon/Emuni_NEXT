@@ -1,8 +1,14 @@
 // app/components/CampusContactInfo.jsx
 import React from "react";
-import { MapPin } from "lucide-react";
+import { MapPin, ExternalLink } from "lucide-react";
 
 export default function CampusContactInfo({ title, location, phone, mapUrl }) {
+    // Координаты для кнопки такси (вы можете добавить их в пропсы или использовать фиксированные)
+    const coordinates = {
+        lat: 41.2794427, // Примерные координаты из mapUrl
+        lng: 69.2385207  // Примерные координаты из mapUrl
+    };
+
     return (
         <div className="bg-white rounded-xl shadow-md p-6 mt-[40px]">
             <p className="text-gray-700">
@@ -26,6 +32,17 @@ export default function CampusContactInfo({ title, location, phone, mapUrl }) {
                     referrerPolicy="no-referrer-when-downgrade"
                     className="rounded-lg shadow-md"
                 ></iframe>
+
+                {/* Кнопка вызова такси */}
+                <a
+                    href={`https://3.redirect.appmetrica.yandex.com/route?end-lat=${coordinates.lat}&end-lon=${coordinates.lng}&appmetrica_tracking_id=1178268795219780156`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-gradient-to-r from-[#5f1464] to-[#8a3c8a] text-white font-bold py-3 px-4 rounded-md shadow-md hover:shadow-lg transition-all text-center mt-4"
+                >
+                    <ExternalLink size={18} className="inline mr-2" />
+                    Заказать такси
+                </a>
             </div>
         </div>
     );

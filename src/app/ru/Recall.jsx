@@ -38,27 +38,35 @@ const ConsultationBlock = () => {
 
     return (
         <section className="py-16 md:py-24 bg-white overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-lg">
                     {/* Левая часть - изображение */}
                     <div className="w-full md:w-1/2 relative h-64 md:h-auto">
                         <Image
-                            src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/recall-section.webp" // Замените на ваше изображение
+                            src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/contacts-banner-2.webp" // Замените на ваше изображение
                             alt="Консультация специалиста"
                             fill
-                            className="object-cover"
+                            className="object-cover object-left-center"
                         />
                         {/* Градиентный оверлей для лучшей читаемости текста на изображении */}
                         <div className="absolute inset-0 bg-gradient-to-r from-[#631463]/30 to-transparent"></div>
 
                         {/* Декоративные элементы */}
-                        <div className="absolute bottom-6 left-6 p-4 bg-white/90 rounded-lg shadow-md max-w-xs hidden md:block">
-                            <p className="text-[#631463] font-semibold">Профессиональная консультация для абитуриентов</p>
+                        <div className="absolute top-6 left-6 p-5 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg max-w-xs hidden md:block border-l-4 border-[#631463] transform -rotate-1">
+                            <div className="flex items-start space-x-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#631463] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                </svg>
+                                <div>
+                                    <h3 className="text-lg font-bold text-[#631463] mb-1">Профессиональная консультация для абитуриентов</h3>
+                                    <p className="text-gray-600 text-sm">Ответим на все вопросы о поступлении</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     {/* Правая часть - форма */}
-                    <div className="w-full md:w-1/2 p-8 md:p-12 bg-white">
+                    <div className="w-full md:w-1/2 p-8 md:p-8 bg-white">
                         <div className="max-w-md mx-auto">
                             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Получите бесплатную консультацию</h2>
                             <div className="h-1 w-20 bg-[#631463] mb-6"></div>
@@ -121,18 +129,15 @@ const ConsultationBlock = () => {
 
                             {/* Блок с Телеграм */}
                             <div className="mt-8 pt-6 border-t border-gray-200">
-                                <p className="text-gray-600 mb-3">
+                                <p className="inline text-gray-600 mb-3 mr-[10px]">
                                     Если вам удобнее, вы можете написать нам в Телеграм для получения консультации:
                                 </p>
                                 <a
                                     href="https://t.me/your_telegram" // Замените на вашу ссылку
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center text-[#631463] font-medium hover:underline"
+                                    className="inline text-[#631463] font-medium hover:underline"
                                 >
-                                    {/* <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.14 19.018c-.237 0-.47-.033-.696-.08l-3.24.815 1.075-3.12c-.668-.602-1.096-1.457-1.096-2.415 0-1.828 1.58-3.313 3.524-3.313 1.942 0 3.524 1.486 3.524 3.313s-1.582 3.313-3.524 3.313h-.567V19.018zm5.034-3.966c.258-.507.398-1.078.398-1.675 0-2.235-1.992-4.05-4.45-4.05s-4.45 1.815-4.45 4.05 1.992 4.05 4.45 4.05c.51 0 .996-.086 1.453-.25l.89.57-2.82 1.115 1.38-3.536.08-.273z" />
-                                    </svg> */}
                                     Написать в Телеграм
                                 </a>
                             </div>
