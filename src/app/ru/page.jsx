@@ -891,7 +891,6 @@ export default function Home() {
 
 
 
-            <Recall />
 
 
 
@@ -1229,6 +1228,8 @@ export default function Home() {
             <StudTestimonRedesign />
 
             <PartnersSlider_Home />
+
+            <Recall />
 
             {/* <Faq /> */}
 
