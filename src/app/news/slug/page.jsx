@@ -1,4 +1,4 @@
-// app/blog/[id]/page.jsx
+// app/blog/[slug]/page.jsx
 "use client";
 import React from "react";
 import { Clock, Eye, ChevronRight } from "lucide-react";

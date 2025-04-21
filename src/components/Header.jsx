@@ -382,7 +382,7 @@ export default function Header() {
         { name: "Фотогаллерея", name_uz: "Fotogalereya", href: "/photogallery", href_uz: "/uz/photogallery" },
         { name: "Научный журнал", name_uz: "Ilmiy jurnal", href: "/journal", href_uz: "/uz/journal" },
         { name: "Техникум EMU", name_uz: "EMU texnikumi", href: "https://texnikum.emuni.uz/", href_uz: "https://texnikum.emuni.uz/" },
-        { name: "Новости", name_uz: "Yangiliklar", href: "/news", href_uz: "/uz/news" },
+        { name: "Новости", name_uz: "Yangiliklar", href: "/blog", href_uz: "/uz/news" },
         { name: "Гранты", name_uz: "Grantlar", href: "/grants", href_uz: "/uz/grants" },
         { name: "Как нас найти", name_uz: "Bizni qanday topish mumkin", href: "/contacts", href_uz: "/uz/contacts" },
         { name: "FAQ", name_uz: "FAQ", href: "/faq", href_uz: "/uz/faq" },
@@ -410,7 +410,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="fixed top-0 w-full bg-[#5f1464] z-[10000] shadow-md">
+            <header className="fixed top-0 w-full bg-[#5f1464] z-[8000] shadow-md">
                 <div className="max-w-screen-xl mx-auto px-4 py-[40px] md:px-8 h-16 flex items-center justify-between">
                     {/* Logo */}
                     <Link href={isUzLang ? "/uz" : "/"}>

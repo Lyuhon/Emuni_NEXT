@@ -39,11 +39,11 @@ const TestimonialSlider = () => {
                     // Преобразуем данные из API в формат, подходящий для компонента
                     const formattedTestimonials = data.acf.otzyv.map((item, index) => ({
                         id: index + 1,
-                        name: item.fio_uz || '',
-                        program: item.fakultet_uz || '',
-                        testimonial: item.otzyv_studenta_uz || '',
+                        name: item.fio_ru || '',
+                        program: item.fakultet_ru || '',
+                        testimonial: item.otzyv_studenta_ru || '',
                         image: item.izobrazhenie?.url || '/api/placeholder/400/500',
-                        year: item.podpis_year_uz || '',
+                        year: item.podpis_year_ru || '',
                         achievement: '' // В API нет поля для достижений, можно оставить пустым или удалить из шаблона
                     }));
 
@@ -67,7 +67,7 @@ const TestimonialSlider = () => {
         return (
             <section>
                 <div className="relative max-w-5xl mx-auto py-12 px-3 bg-[#FFFFFF] text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#631463] mb-4">Sharhlar yuklanmoqda...</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-[#631463] mb-4">Загрузка отзывов...</h2>
                     <div className="w-24 h-1 bg-[#631463] mx-auto"></div>
                 </div>
             </section>
@@ -79,7 +79,7 @@ const TestimonialSlider = () => {
         return (
             <section>
                 <div className="relative max-w-5xl mx-auto py-12 px-3 bg-[#FFFFFF] text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#631463] mb-4">Sharhlarni yuklashda xatolik yuz berdi</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-[#631463] mb-4">Ошибка загрузки отзывов</h2>
                     <div className="w-24 h-1 bg-[#631463] mx-auto mb-6"></div>
                     <p className="text-gray-700">Произошла ошибка при загрузке отзывов. Пожалуйста, попробуйте позже.</p>
                 </div>
@@ -92,7 +92,7 @@ const TestimonialSlider = () => {
         return (
             <section>
                 <div className="relative max-w-5xl mx-auto py-12 px-3 bg-[#FFFFFF] text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#631463] mb-4">Talabalarimizdan fikr-mulohazalar</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-[#631463] mb-4">Отзывы наших студентов</h2>
                     <div className="w-24 h-1 bg-[#631463] mx-auto mb-6"></div>
                     <p className="text-gray-700">В настоящее время отзывы отсутствуют.</p>
                 </div>
@@ -105,7 +105,7 @@ const TestimonialSlider = () => {
             <div className="relative max-w-5xl mx-auto py-12 px-3 bg-[#FFFFFF]">
                 {/* Заголовок секции */}
                 <div className="text-center mb-10">
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#631463] mb-4">Talabalarimizdan fikr-mulohazalar</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-[#631463] mb-4">Отзывы наших студентов</h2>
                     <div className="w-24 h-1 bg-[#631463] mx-auto"></div>
                 </div>
 
@@ -191,14 +191,14 @@ const TestimonialSlider = () => {
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5 text-[#631463] mr-1 md:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905a3.61 3.61 0 01-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
                                             </svg>
-                                            <span className="text-xs md:text-sm text-gray-700">Universitetni tavsiya qiladi</span>
+                                            <span className="text-xs md:text-sm text-gray-700">Рекомендует университет</span>
                                         </div>
 
                                         <div className="bg-gray-100 rounded-full px-3 md:px-4 py-1 md:py-2 flex items-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5 text-[#631463] mr-1 md:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                                             </svg>
-                                            <span className="text-xs md:text-sm text-gray-700">Talabalar hayotining faol ishtirokchisi</span>
+                                            <span className="text-xs md:text-sm text-gray-700">Активный участник студенческой жизни</span>
                                         </div>
                                     </div>
                                 </div>
