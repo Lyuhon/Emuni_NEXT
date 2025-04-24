@@ -280,7 +280,7 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
                 variants={fadeIn}
-                className="py-6 md:py-20 md:pb-8 px-4 relative overflow-hidden bg-[#FFFFFF]"
+                className="hidden py-6 md:py-20 md:pb-8 px-4 relative overflow-hidden bg-[#FFFFFF]"
             >
                 {/* Background decorative elements - без анимации для шара */}
                 <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-[#f7eef7] rounded-bl-full opacity-50 z-0 hidden md:block"></div>
@@ -414,6 +414,162 @@ export default function Home() {
 
                 </div>
             </motion.section>
+
+
+
+            <motion.section
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={{
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1, transition: { duration: 0.5 } }
+                }}
+                className="py-10 md:py-20 px-4 relative overflow-hidden bg-white min-h-screen md:min-h-[90vh]"
+            >
+                {/* Декоративный полукруг */}
+                <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-[#631463]/5 rounded-tl-[100%]"></div>
+
+                <div className="max-w-screen-xl container mx-auto relative z-10 px-4">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white text-center py-4 md:py-6 rounded-lg mb-8 md:mb-12"
+                    >
+                        <h2 className="text-2xl md:text-4xl font-bold">
+                            Выбирайте лучшее для своего будущего!
+                        </h2>
+                        <p className="text-sm md:text-base mt-2 opacity-80">
+                            EMU University – ваш путь к успеху
+                        </p>
+                    </motion.div>
+
+                    <div className="flex flex-col-reverse md:flex-row gap-8 md:gap-12 items-center">
+                        <motion.div
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="w-full md:w-1/2 flex flex-col justify-center"
+                        >
+                            <div className="relative pl-4 md:pl-8">
+                                <div className="absolute left-0 top-0 h-full w-1 bg-[#ddb74b]"></div>
+                                <h3 className="text-lg md:text-2xl font-semibold text-[#631463] mb-3">
+                                    Современные методики обучения
+                                </h3>
+                                <p className="text-sm md:text-base text-gray-600 mb-4">
+                                    С 2020 года EMU University лидирует в медицинском образовании. Мы удостоены наград <span className="text-[#ddb74b] font-semibold">«Лучший медицинский университет 2024»</span> и <span className="text-[#ddb74b] font-semibold">«Лучший негосударственный университет».</span>
+                                </p>
+                                <div className="space-y-3 text-sm md:text-base text-gray-600">
+                                    <div className="flex items-start">
+                                        <svg className="w-5 h-5 text-[#8a3c8a] mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <p>Международные программы и партнёрства с ведущими университетами.</p>
+                                    </div>
+                                    <div className="flex items-start">
+                                        <svg className="w-5 h-5 text-[#8a3c8a] mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <p>Современные кампусы с передовыми лабораториями.</p>
+                                    </div>
+                                    <div className="flex items-start">
+                                        <svg className="w-5 h-5 text-[#8a3c8a] mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <p>Карьерные перспективы в мировой индустрии.</p>
+                                    </div>
+                                </div>
+                                <motion.div
+                                    initial={{ width: 0 }}
+                                    whileInView={{ width: '100%' }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 1.5, ease: 'easeInOut' }}
+                                    className="h-1 bg-[#8a3c8a] mt-6 rounded-full"
+                                >
+                                    <div className="h-full bg-[#ddb74b] rounded-full" style={{ width: '75%' }}></div>
+                                </motion.div>
+                                <p className="text-xs md:text-sm text-gray-500 mt-2">Студентов: 2500+ и растём!</p>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="w-full md:w-1/2 flex flex-col items-end"
+                        >
+                            <div className="relative rounded-lg overflow-hidden shadow-xl w-full">
+                                <video
+                                    playsInline
+                                    autoPlay
+                                    muted
+                                    loop
+                                    preload="auto"
+                                    className="w-full h-auto"
+                                >
+                                    <source src="https://emuni.uz/wp-content/uploads/2025/04/rolik.mp4" type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div className="absolute top-0 left-0 w-16 h-16 bg-[#631463]/20 rounded-br-full"></div>
+                            </div>
+                            <motion.a
+                                href="https://apply.emuni.uz/ru"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6 }}
+                                whileHover={{ y: -4, boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)' }}
+                                className="mt-4 w-fit ml-auto md:ml-auto relative px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white rounded-lg text-sm md:text-base text-center overflow-hidden group"
+                            >
+                                <span className="relative z-10 flex items-center justify-center">
+                                    Подать заявку
+                                    <motion.svg
+                                        animate={{ x: [0, 4, 0] }}
+                                        transition={{ repeat: Infinity, duration: 1.5 }}
+                                        className="w-4 h-4 md:w-5 md:h-5 ml-2"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                                    </motion.svg>
+                                </span>
+                                <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
+                                <motion.div
+                                    animate={{ scale: [1, 1.02, 1] }}
+                                    transition={{ repeat: Infinity, duration: 2 }}
+                                    className="absolute inset-0 bg-gradient-to-r from-[#631463]/50 to-[#8a3c8a]/50 rounded-lg"
+                                ></motion.div>
+                            </motion.a>
+                        </motion.div>
+                    </div>
+                </div>
+
+                <style jsx global>{`
+                @media (max-width: 767px) {
+                    .text-2xl {
+                        font-size: 1.5rem;
+                    }
+                    .text-sm {
+                        font-size: 0.875rem;
+                    }
+                    .py-10 {
+                        padding-top: 2rem;
+                        padding-bottom: 2rem;
+                    }
+                    .min-h-screen {
+                        min-height: 100vh;
+                    }
+                }
+            `}</style>
+            </motion.section>
+
+
+
 
             {/* ПРЕИМУЩЕСТВА */}
 
@@ -702,192 +858,7 @@ export default function Home() {
             </section>
 
 
-            <section className="py-8 md:py-24 md:pb-6 px-4 bg-white relative">
-                {/* Декоративные элементы */}
-                <div className="absolute top-0 right-0 w-1/3 h-2/3 bg-[#f7eef7] opacity-30 rounded-bl-[100px] -z-10"></div>
-                <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-[#f7eef7] opacity-20 rounded-tr-[100px] -z-10"></div>
 
-                <div className="max-w-screen-xl container mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 0.8 }}
-                        className="text-center mb-16"
-                    >
-                        <div className="inline-block relative">
-                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 relative z-10">
-                                Требования к поступающим
-                            </h2>
-                        </div>
-                        <p className="text-gray-600 text-lg max-w-3xl mx-auto mt-6">
-                            Для поступления необходимо соответствовать нескольким критериям. Пожалуйста, убедитесь, что все условия выполнены — мы готовы поддержать вас на каждом этапе!
-                        </p>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-                        {/* Уровень образования */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            whileHover={{
-                                y: -10,
-                                boxShadow: "0 25px 50px -12px rgba(99, 20, 99, 0.25)",
-                            }}
-                            className="relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 lg:col-span-2"
-                        >
-                            <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-[#631463] to-[#8a3c8a]"></div>
-                            <div className="p-8">
-                                <div className="w-16 h-16 bg-[#f7eef7] rounded-full flex items-center justify-center mb-6">
-                                    <span className="text-2xl font-bold bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-transparent bg-clip-text">
-                                        01
-                                    </span>
-                                </div>
-
-                                <h3 className="text-2xl font-bold mb-4 text-[#631463]">Уровень образования</h3>
-
-                                <div className="mt-6 space-y-4">
-
-                                    <div className="flex items-start">
-                                        <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#631463] mr-3 mt-0.5">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-4 w-4"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                            >
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                            </svg>
-                                        </div>
-                                        <p className="text-gray-700">Наличие аттестата о среднем образовании</p>
-                                    </div>
-                                    <div className="flex items-start">
-                                        <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#631463] mr-3 mt-0.5">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-4 w-4"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                            >
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                            </svg>
-                                        </div>
-                                        <p className="text-gray-700">
-                                            Мы принимаем национальный сертификат, а также международные сертификаты, подтверждающие знание языка (например, IELTS, TOEFL и т. д.). Если на выбранном факультете предусмотрен вступительный экзамен по соответствующему языку, абитуриент, имеющий такой сертификат, может быть освобождён от сдачи данного экзамена.
-                                        </p>
-                                    </div>
-
-                                    <div className="flex items-start">
-                                        <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#631463] mr-3 mt-0.5">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-4 w-4"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                            >
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                            </svg>
-                                        </div>
-                                        <p className="text-gray-700">
-                                            Также мы принимаем на обучение по второй специальности. Зачисление осуществляется на основании результатов собеседования. Приглашаем всех желающих расширить свои профессиональные горизонты!
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className="absolute bottom-0 right-0 w-24 h-24 opacity-10">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="#631463"
-                                        className="w-full h-full"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={1}
-                                            d="M12 14l9-5-9-5-9 5 9 5z"
-                                        />
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={1}
-                                            d="M12 14l9-5-9-5-9 5 9 5zM12 14v10"
-                                        />
-                                    </svg>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* Призыв к действию */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            className="relative bg-gradient-to-r from-[#631463] to-[#8a3c8a] rounded-2xl shadow-lg overflow-hidden transition-all duration-300 p-8 text-white flex flex-col items-center justify-center lg:col-span-1"
-                        >
-                            <div className="absolute inset-0 opacity-10">
-                                <svg width="100%" height="100%" className="absolute top-0 left-0">
-                                    <defs>
-                                        <pattern id="smallGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-                                            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="white" strokeWidth="0.5" />
-                                        </pattern>
-                                    </defs>
-                                    <rect width="100%" height="100%" fill="url(#smallGrid)" />
-                                </svg>
-                            </div>
-                            <div className="w-16 h-16 bg-[#f7eef7] rounded-full flex items-center justify-center mb-6">
-                                <span className="text-2xl font-bold bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-transparent bg-clip-text">
-                                    02
-                                </span>
-                            </div>
-                            <h3 className="text-2xl md:text-3xl font-bold text-center mb-4">
-                                Всего <span className="text-yellow-300">1 минута</span> до твоего первого шага!
-                            </h3>
-                            <p className="text-lg text-center mb-6 max-w-md">
-                                Заполните форму регистрации, и мы пригласим вас на ближайший экзамен!
-                            </p>
-                            {/* <motion.button
-                                whileHover={{ scale: 1.05, boxShadow: "0 15px 30px -5px rgba(0, 0, 0, 0.3)" }}
-                                whileTap={{ scale: 0.95 }}
-                                className="pop-form-trigger hidden bg-white text-[#631463] py-3 px-8 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition-all duration-300 flex items-center"
-                            >
-                                Подать заявку
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5 ml-2"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </motion.button> */}
-
-                            <motion.button
-                                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255, 215, 0, 0.5)" }}
-                                whileTap={{ scale: 0.95 }}
-                                className="z-[90] pop-form-trigger flex items-center py-4 px-10 bg-gradient-to-b from-[#f7e282] via-[#dbb845] to-[#c69026] text-[#4a1942] font-bold rounded-full shadow-xl border-2 border-[#f1d875] transition-all duration-300 text-lg"
-                            >
-                                Подать заявку
-
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5 ml-2"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </motion.button>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
 
 
 

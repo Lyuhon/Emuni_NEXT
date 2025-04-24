@@ -5,6 +5,9 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { MapPin, Award, CheckCircle, Send, Calendar, BookOpen, Users } from 'lucide-react';
 
+import GrantsSlider from './GrantsSlider';
+
+
 // Animations and variants
 const fadeIn = {
     hidden: { opacity: 0 },
@@ -136,9 +139,10 @@ const SupportFundPage = () => {
                     </div>
                 </motion.div>
 
-                {/* Image Gallery */}
-
             </div>
+
+            {/* Image Gallery */}
+            <GrantsSlider />
         </div>
     );
 };

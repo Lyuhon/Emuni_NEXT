@@ -24,6 +24,8 @@ import RectorAppealSlider from './RectorAppealSlider';
 import RectorAppealSlider_2 from './RectorAppealSlider_2';
 import RectorAppealSlider_3 from './RectorAppealSlider_3';
 import RectorAppealSlider_4 from './RectorAppealSlider_4';
+import RectorAppealSlider_5 from './RectorAppealSlider_5';
+
 
 import AwardsSection from './AwardsSection';
 
@@ -97,7 +99,7 @@ export default function Home() {
 
 
 
-            <StudTestimonRedesign />
+            {/* <StudTestimonRedesign /> */}
 
 
 
@@ -478,9 +480,9 @@ export default function Home() {
             </motion.section>
 
 
-            <CallActionSection />
+            {/* <CallActionSection />
 
-            <CallActionSection_2 />
+            <CallActionSection_2 /> */}
 
 
             <RectorAppealSlider />
@@ -491,6 +493,12 @@ export default function Home() {
             <RectorAppealSlider_2 />
 
             <RectorAppealSlider_3 />
+
+            <RectorAppealSlider_4 />
+
+            <RectorAppealSlider_5 />
+
+
 
 
 

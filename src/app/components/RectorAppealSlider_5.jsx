@@ -52,7 +52,7 @@ const RectorAppealSection = () => {
             {/* Фоновое изображение */}
             <div className="absolute inset-0">
                 <img
-                    src="http://emuni.uz/wp-content/uploads/2025/04/emu-banner-1-min.png"
+                    src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/22-min-scaled.jpg"
                     alt="EMU University Banner"
                     className="w-full h-full object-cover object-[80%_50%] transform translate-y-[var(--parallax, 0)]"
                 />
