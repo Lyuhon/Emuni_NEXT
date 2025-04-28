@@ -207,7 +207,7 @@ const ConsultationBlock = () => {
                         <div className="absolute inset-0 bg-gradient-to-r from-[#631463]/30 to-transparent"></div>
 
                         {/* Декоративные элементы - выровненные по верху и по центру горизонтально */}
-                        <div className="absolute inset-x-0 top-8 flex justify-center">
+                        <div className="hidden absolute inset-x-0 top-8 flex justify-center">
                             <div className="p-5 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg w-full max-w-md mx-6 border-l-4 border-[#631463] transform -rotate-1">
                                 <div className="flex flex-col items-center text-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#631463] mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">

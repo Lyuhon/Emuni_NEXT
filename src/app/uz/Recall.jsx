@@ -52,7 +52,7 @@ const ConsultationBlock = () => {
                         <div className="absolute inset-0 bg-gradient-to-r from-[#631463]/30 to-transparent"></div>
 
                         {/* Декоративные элементы */}
-                        <div className="absolute top-6 left-6 p-5 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg max-w-xs hidden md:block border-l-4 border-[#631463] transform -rotate-1">
+                        {/* <div className="hidden absolute top-6 left-6 p-5 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg max-w-xs hidden md:block border-l-4 border-[#631463] transform -rotate-1">
                             <div className="flex items-start space-x-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#631463] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -62,7 +62,7 @@ const ConsultationBlock = () => {
                                     <p className="text-gray-600 text-sm">Qabul bo‘yicha barcha savollarga javob beramiz</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Правая часть - форма */}

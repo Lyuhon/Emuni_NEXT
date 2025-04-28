@@ -1,5 +1,5 @@
 'use client';
-
+import GrantsSlider from './GrantsSlider';
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -115,6 +115,9 @@ const SupportFundPage = () => {
 
                 {/* Image Gallery */}
             </div>
+
+            <GrantsSlider />
+
         </div>
     );
 };
