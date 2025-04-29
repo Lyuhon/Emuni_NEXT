@@ -1,0 +1,87 @@
+@keyframes book-hover {
+
+    0%,
+    100% {
+        transform: perspective(1000px) rotateY(5deg) translateY(0px);
+    }
+
+    50% {
+        transform: perspective(1000px) rotateY(8deg) translateY(-10px);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-book-hover {
+    animation: book-hover 6s infinite ease-in-out;
+}
+
+.animate-float {
+    animation: float 4s infinite ease-in-out;
+}
+
+.animate-float-delay {
+    animation: float 4s infinite ease-in-out 1s;
+}
+
+.animate-float-delay-2 {
+    animation: float 4s infinite ease-in-out 2s;
+}
+
+.animate-fade-in {
+    animation: fade-in 0.5s ease-in;
+}

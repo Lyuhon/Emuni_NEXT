@@ -1188,14 +1188,20 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                                 )}
 
                                 {/* Блок с ценами для бизнес-направлений */}
-                                {activeTab === 'business' && currentBusinessDirection?.stats && (
+                                {activeTab === 'business' && (
                                     <div className="grid grid-cols-2 gap-3 mb-8">
-                                        {currentBusinessDirection.stats.map((stat, idx) => (
-                                            <div key={idx} className="bg-gray-50 rounded-lg p-4 text-center border border-gray-200">
-                                                <p className="text-xl font-bold" style={{ color: brandColor }}>{stat.value}</p>
-                                                <p className="text-gray-600 text-sm">{stat.label}</p>
-                                            </div>
-                                        ))}
+                                        <div className="bg-gray-50 rounded-lg p-4 text-center border border-gray-200">
+                                            <p className="text-xl font-bold" style={{ color: brandColor }}>
+                                                {acf?.accordion_repeater_2?.find(item => item.accordion_title === activeDirection)?.semester_price || 'Не указано'}
+                                            </p>
+                                            <p className="text-gray-600 text-sm">Стоимость за семестр</p>
+                                        </div>
+                                        <div className="bg-gray-50 rounded-lg p-4 text-center border border-gray-200">
+                                            <p className="text-xl font-bold" style={{ color: brandColor }}>
+                                                {acf?.accordion_repeater_2?.find(item => item.accordion_title === activeDirection)?.full_price || 'Не указано'}
+                                            </p>
+                                            <p className="text-gray-600 text-sm">Стоимость за учебный год</p>
+                                        </div>
                                     </div>
                                 )}
 
