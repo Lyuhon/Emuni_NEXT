@@ -141,7 +141,7 @@ const Stats = () => {
                         className="grid grid-cols-1 md:grid-cols-2 gap-6"
                     >
                         <Counter
-                            target="2200"
+                            target="2500"
                             suffix="+"
                             title="Счастливых студентов"
                             icon={
@@ -151,7 +151,7 @@ const Stats = () => {
                             }
                         />
                         <Counter
-                            target="300"
+                            target="350"
                             suffix="+"
                             title="Квалифицированных преподавателей"
                             icon={

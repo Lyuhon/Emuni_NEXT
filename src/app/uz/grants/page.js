@@ -52,6 +52,11 @@ const SupportFundPage = () => {
                 </div>
             </div>
 
+
+            {/* Image Gallery */}
+            <GrantsSlider />
+
+
             {/* Main Content */}
             <div className="max-w-screen-xl mx-auto px-6 py-12">
                 {/* Main Title Section */}
@@ -76,7 +81,7 @@ const SupportFundPage = () => {
                             alt="EMU Qo'llab-quvvatlash Fondi logotipi"
                             width={1200}
                             height={800}
-                            className="object-contain"
+                            className="object-contain rounded-lg"
                         />
                     </div>
 
@@ -115,8 +120,6 @@ const SupportFundPage = () => {
 
                 {/* Image Gallery */}
             </div>
-
-            <GrantsSlider />
 
         </div>
     );

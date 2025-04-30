@@ -2,12 +2,8 @@
 'use client'
 import React from "react";
 import Image from "next/image";
-import {
-    Telegram,
-    Instagram,
-    Facebook,
-    Youtube,
-} from "lucide-react";
+import { SiInstagram, SiTelegram, SiFacebook, SiYoutube } from 'react-icons/si';
+
 
 export default function Footer() {
     return (
@@ -22,10 +18,17 @@ export default function Footer() {
                                 alt="EMU University Logo"
                                 width={180} // Немного увеличил для футера
                                 height={50}
-                                className="object-contain"
+                                className="md:hidden block object-contain"
+                            />
+                            <img
+                                src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/emuni-footer-logo.png"
+                                alt="EMU University Logo"
+                                width={546} // Немного увеличил для футера
+                                height={623}
+                                className="hidden md:block w-[70%] object-contain"
                             />
                         </div>
-                        <p className="text-sm">
+                        <p className="hidden text-sm">
                             Посещаемость сегодня: 205
                             <br />
                             Посещаемость за неделю: 1594
@@ -56,23 +59,17 @@ export default function Footer() {
                             >
                                 <Telegram className="w-5 h-5" />
                             </a> */}
-                            <a
-                                href="#"
-                                className="text-white hover:text-gray-200 transition-colors"
-                            >
-                                <Instagram className="w-5 h-5" />
+                            <a href="https://t.me/emuintash" className="text-white hover:text-gray-200 transition-colors">
+                                <SiTelegram className="w-5 h-5" />
                             </a>
-                            <a
-                                href="#"
-                                className="text-white hover:text-gray-200 transition-colors"
-                            >
-                                <Facebook className="w-5 h-5" />
+                            <a href="https://instagram.com/emu_university" className="text-white hover:text-gray-200 transition-colors">
+                                <SiInstagram className="w-5 h-5" />
                             </a>
-                            <a
-                                href="#"
-                                className="text-white hover:text-gray-200 transition-colors"
-                            >
-                                <Youtube className="w-5 h-5" />
+                            <a href="https://www.facebook.com/European-Medical-University-100381125622674" className="text-white hover:text-gray-200 transition-colors">
+                                <SiFacebook className="w-5 h-5" />
+                            </a>
+                            <a href="https://youtube.com/channel/UC_qXV-RChHnDVP0OPhdYnQQ" className="text-white hover:text-gray-200 transition-colors">
+                                <SiYoutube className="w-5 h-5" />
                             </a>
                         </div>
                         <br />

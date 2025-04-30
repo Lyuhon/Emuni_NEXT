@@ -55,6 +55,11 @@ const SupportFundPage = () => {
                 </div>
             </div>
 
+
+            {/* Image Gallery */}
+            <GrantsSlider />
+
+
             {/* Main Content */}
             <div className="max-w-screen-xl mx-auto px-6 py-12">
                 {/* Main Title Section */}
@@ -73,14 +78,14 @@ const SupportFundPage = () => {
                         МОЛОДЫХ И ПРЕУСПЕВАЮЩИХ СТУДЕНТОВ
                     </h2>
 
-                    <div className="flex justify-center mb-10">
+                    {/* <div className="flex justify-center mb-10">
                         <div className="bg-[#ff3a57] text-white py-4 px-8 rounded-lg shadow-md">
                             <p className="text-lg font-bold text-center">ФОНД<br />ПОДДЕРЖКИ<br />EMU</p>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Circular Benefits */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                    {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
                         <div className="relative p-6">
                             <div className="rounded-full border-4 border-[#8232c8] p-1 mx-auto w-64 h-64 flex items-center justify-center">
                                 <div className="bg-[#ff3a57] rounded-full w-48 h-48 flex items-center justify-center text-white p-4">
@@ -104,6 +109,16 @@ const SupportFundPage = () => {
                                 </div>
                             </div>
                         </div>
+                    </div> */}
+
+                    <div className="flex justify-center mb-10">
+                        <Image
+                            src="https://emuni.uz/wp-content/uploads/2022/07/Grant-min.png" // Замените на реальный URL изображения
+                            alt="EMU Qo'llab-quvvatlash Fondi logotipi"
+                            width={1200}
+                            height={800}
+                            className="object-contain rounded-lg"
+                        />
                     </div>
 
                     {/* Policy Details */}
@@ -141,8 +156,6 @@ const SupportFundPage = () => {
 
             </div>
 
-            {/* Image Gallery */}
-            <GrantsSlider />
         </div>
     );
 };

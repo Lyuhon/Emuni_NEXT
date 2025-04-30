@@ -270,7 +270,6 @@ export default function Home() {
             {/* ФОН КАРТИНКА 2 */}
 
 
-            <Stats />
 
 
 
@@ -417,6 +416,8 @@ export default function Home() {
 
 
 
+
+
             <motion.section
                 initial="hidden"
                 whileInView="visible"
@@ -425,7 +426,7 @@ export default function Home() {
                     hidden: { opacity: 0 },
                     visible: { opacity: 1, transition: { duration: 0.5 } }
                 }}
-                className="py-10 md:py-20 px-4 relative overflow-hidden bg-white min-h-screen md:min-h-[90vh]"
+                className="py-10 md:py-20 px-4 relative overflow-hidden bg-white -min-h-screen -md:min-h-[90vh]"
             >
                 {/* Декоративный полукруг */}
                 <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-[#631463]/5 rounded-tl-[100%]"></div>
@@ -569,6 +570,7 @@ export default function Home() {
             </motion.section>
 
 
+            <Stats />
 
 
             {/* ПРЕИМУЩЕСТВА */}

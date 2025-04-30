@@ -995,7 +995,7 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
             icon: <Beaker size={24} />,
         },
         {
-            title: 'Гарантия трудоустройства',
+            title: 'Помощь в трудоустройстве',
             description: 'Поддержка в построении карьере',
             icon: <Award size={24} />,
         },
@@ -1033,7 +1033,7 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
     return (
         <div className="bg-gray-50 min-h-screen font-sans">
             {/* Hero Section с фоновым изображением */}
-            <div className="relative h-80 flex items-center justify-center overflow-hidden" style={{ background: `linear-gradient(rgba(99, 20, 99, 0.39), rgba(99, 20, 99, 0.66)), url('https://emuni.uz/wp-content/uploads/2022/07/pricing-hero.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="relative h-80 flex items-center justify-center overflow-hidden" style={{ background: `linear-gradient(rgba(99, 20, 99, 0.39), rgba(99, 20, 99, 0.66)), url('https://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/bakalavriat-hero.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black to-transparent opacity-20"></div>
                 <div className="text-center z-10 px-4 mb-10">
                     <h1 className="text-5xl font-bold text-white mb-4">Направления</h1>
