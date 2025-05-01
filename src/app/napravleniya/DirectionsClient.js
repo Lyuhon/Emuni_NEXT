@@ -1072,13 +1072,22 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
 
                 {/* Tabs - стилизованные */}
                 <div className="mb-10">
-                    <div className="inline-flex p-1 bg-gray-100 rounded-lg">
+                    <div className="inline-flex p-2 bg-gray-100 rounded-xl">
                         {tabs.map((tab) => (
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
-                                className="py-3 px-8 rounded-lg font-medium transition-all"
-                                style={{ backgroundColor: activeTab === tab.id ? brandColor : 'transparent', color: activeTab === tab.id ? 'white' : '#666' }}
+                                className={`py-3 px-8 rounded-lg font-medium transition-all duration-300 border-2 ${activeTab === tab.id
+                                    ? 'text-white'
+                                    : 'bg-white hover:border-opacity-100'
+                                    }`}
+                                style={{
+                                    backgroundColor: activeTab === tab.id ? brandColor : 'white',
+                                    color: activeTab === tab.id ? 'white' : '#666',
+                                    borderColor: activeTab === tab.id ? brandColor : brandColor,
+                                    borderOpacity: activeTab === tab.id ? '1' : '0.5',
+                                    margin: '0 4px'
+                                }}
                             >
                                 {tab.name}
                             </button>

@@ -906,7 +906,6 @@ export default function Home() {
 
 
 
-            <Recall />
 
 
 
@@ -1248,7 +1247,7 @@ export default function Home() {
 
             <PartnersSlider_Home />
 
-            {/* <Faq /> */}
+            <Recall />
 
             <FixedPhoneButton />
 
