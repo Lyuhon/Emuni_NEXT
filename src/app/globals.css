@@ -296,3 +296,11 @@ body {
 .direction-fetch-text img {
   display: none;
 }
+
+
+
+
+/*СКРЫТИЕ БЕДЖА ВТОРОЙ СМЕНЫ ВНУТРИ БЛОКА 1*/
+.info_first_shift .second_shift_badge {
+  display: none;
+}
