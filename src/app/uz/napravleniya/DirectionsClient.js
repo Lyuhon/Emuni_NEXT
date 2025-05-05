@@ -28,10 +28,12 @@ export default function DirectionsClient({ directions, directionContent, zaochka
     const [activeTab, setActiveTab] = useState('medical');
 
     // Фирменные цвета
-    const brandColor = '#631463';
-    const brandColorLight = '#8a3c8a';
-    const brandColorLighter = '#f7eef7';
-
+    // const brandColor = '#631463';
+    // const brandColorLight = '#8a3c8a';
+    // const brandColorLighter = '#f7eef7';
+    const brandColor = '#6b0e55';         // Основной — глубокий пурпурно-розовый
+    const brandColorLight = '#9c3f84';    // Светлее — более мягкий, но всё ещё насыщенный
+    const brandColorLighter = '#f6eaf2';  // Самый светлый — почти белый с розовым оттенком
     // Преимущества
     const advantages = [
         {
@@ -119,7 +121,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
         // Проверяем наличие меток и добавляем их
         if (data['1_smena'] === true) {
             badges.push(
-                <div key="1_smena" className="flex items-center bg-[#ffe0ac] text-[#f59e0b] px-3 py-[2px] rounded-full text-xs font-medium">
+                <div key="1_smena" className="whitespace-nowrap flex items-center bg-[#ffe0ac] text-[#f59e0b] px-3 py-[2px] rounded-full text-xs font-medium">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-3 w-3 mr-1">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -262,7 +264,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                 {/* <h4 className="text-lg font-medium mb-3" style={{ color: brandColor }}>Стоимость для 2-й смены</h4> */}
                 {/* Бейджи для 2 смены */}
                 {renderBadges2Smena(data)}
-                <div className="grid grid-cols-2 gap-3 mb-8">
+                <div className="grid md:grid-cols-2 gap-3 mb-8">
                     <div className="bg-gray-50 rounded-lg p-4 text-center border border-gray-200">
                         <p className="text-xl font-bold" style={{ color: brandColor }}>
                             {data.semester_price_2_smena || 'Не указано'}
@@ -500,7 +502,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                                 <p className="text-white text-opacity-80 relative z-10 max-w-2xl">EMU universiteti bilan yuqori malakali mutaxassisga aylaning!</p>
                             </div>
 
-                            <div className="p-8">
+                            <div className="p-4 md:p-8">
                                 {/* Бейджи для направлений */}
                                 {renderBadges(getCurrentContent())}
 

@@ -551,7 +551,7 @@ export default function Header() {
 
                         {/* 360 View Link */}
                         <a
-                            href="https://emuni.uz/tour_360/"
+                            href="https://old.emuni.uz/tour_360/"
                             className="hidden md:flex flex-col items-center justify-center text-white"
                         >
                             <div className="flex items-center justify-center w-8 h-8 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 transition-all">
@@ -592,7 +592,7 @@ export default function Header() {
                 >
                     <div className="py-4 px-4">
                         {/* Student Platform and Timetable Mobile Buttons */}
-                        <div className="flex flex-col gap-3 mb-5 bg-[#4a1050] p-4 rounded-xl">
+                        <div className="flex flex-col gap-3 mb-5 bg-[#9c3f84] p-4 rounded-xl">
                             <h3 className="text-white text-sm font-semibold flex items-center mb-2">
                                 <GraduationCap className="w-4 h-4 mr-2" />
                                 {isUzLang ? "Talaba zonasi" : "Студенческая зона"}
@@ -779,7 +779,7 @@ export default function Header() {
                                 ) : (
                                     <a
                                         href={isUzLang ? item.href_uz : item.href}
-                                        className="inline-block px-4 py-1 hover:bg-[#7a407f] rounded-lg transition-colors"
+                                        className="inline-block px-4 py-1 hover:bg-[#9c3f84] rounded-lg transition-colors"
                                     >
                                         {isUzLang ? item.name_uz : item.name}
                                     </a>

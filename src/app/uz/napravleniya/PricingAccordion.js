@@ -21,9 +21,12 @@ const PricingAccordion = () => {
         initializeModal();
     }, []);
 
-    const brandColor = '#631463';
-    const brandColorLight = '#8a3c8a';
-    const brandColorLighter = '#f7eef7';
+    // const brandColor = '#631463';
+    // const brandColorLight = '#8a3c8a';
+    // const brandColorLighter = '#f7eef7';
+    const brandColor = '#6b0e55';         // Основной — глубокий пурпурно-розовый
+    const brandColorLight = '#9c3f84';    // Светлее — более мягкий, но всё ещё насыщенный
+    const brandColorLighter = '#f6eaf2';  // Самый светлый — почти белый с розовым оттенком
 
     // URL изображения
     const pricingImage = 'http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/emu-tariffication-ru-scaled.jpg';
