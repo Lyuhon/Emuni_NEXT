@@ -1,11 +1,31 @@
+// uz/vacancy/page.js
 import React from 'react';
 import { Mail, MapPin, Clock, Award, CheckCircle, Send, Calendar, BookOpen, Users, PartyPopper } from 'lucide-react';
 
+// SEO Metadata
+export const metadata = {
+    title: "Ko‘p so‘raladigan savollar - EMU University",
+    description: "EMU University Toshkentdagi qabul, ta’lim dasturlari, narxlar va bitiruvchilarning imkoniyatlari haqida tez-tez so‘raladigan savollarga javoblar oling.",
+    keywords: "EMU University FAQ, universitet haqida savollar, EMUga qabul, Toshkentda ta’lim, EMU savol-javoblar",
+    openGraph: {
+        title: "Ko‘p so‘raladigan savollar - EMU University",
+        description: "EMU Universitydagi qabul, ta’lim va bitiruvchilarning imkoniyatlari haqida eng ko‘p beriladigan savollarga javoblar",
+        images: ['https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/emu-university-open-graph-logo-min.png'],
+    },
+};
+
+export async function generateStaticParams() {
+    return [];
+}
+
+// ISR configuration
+export const revalidate = 86400; // Revalidate every 24 hours
+
 const VacanciesPage = () => {
     // Фирменные цвета
-    const brandColor = '#631463';
-    const brandColorLight = '#8a3c8a';
-    const brandColorLighter = '#f7eef7';
+    const brandColor = '#6b0e55';
+    const brandColorLight = '#8f3178';
+    const brandColorLighter = '#f9eef5';
 
     // Преимущества работы
     const benefits = [
@@ -21,7 +41,7 @@ const VacanciesPage = () => {
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
             <div className="relative h-80 flex items-center justify-center overflow-hidden" style={{
-                background: `linear-gradient(rgba(99, 20, 99, 0.60), rgba(99, 20, 99, 0.70)), url('http://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/vacancy-hero.webp')`,
+                background: `linear-gradient(rgba(107, 14, 85, 0.60), rgba(107, 14, 85, 0.70)), url('http://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/vacancy-hero.webp')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}>
@@ -44,6 +64,31 @@ const VacanciesPage = () => {
 
             {/* Main Content */}
             <div className="max-w-screen-xl mx-auto px-6 py-12">
+                {/* Structured Data for SEO */}
+                <script type="application/ld+json" dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "JobPosting",
+                        "title": "EMU University o'qituvchisi",
+                        "description": "EMU University yetakchi tibbiyot universitetining jamoasiga qo'shilishga iste'dodli o'qituvchilarni taklif qiladi.",
+                        "datePosted": new Date().toISOString(),
+                        "employmentType": "FULL_TIME",
+                        "hiringOrganization": {
+                            "@type": "Organization",
+                            "name": "EMU University",
+                            "sameAs": "https://emuni.uz"
+                        },
+                        "jobLocation": {
+                            "@type": "Place",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressCountry": "O'zbekiston",
+                                "addressLocality": "Toshkent"
+                            }
+                        }
+                    })
+                }} />
+
                 {/* Vacancies Section */}
                 <div className="bg-white rounded-lg shadow-md p-8 mb-10 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-40 h-40 rounded-full opacity-5" style={{ backgroundColor: brandColor, transform: 'translate(20%, -20%)' }}></div>
@@ -70,7 +115,7 @@ const VacanciesPage = () => {
                         </div>
                     </div>
 
-                    <div className="p-5 bg-purple-50 rounded-lg mb-8 border-l-4" style={{ borderColor: brandColor }}>
+                    <div className="p-5 bg-purple-50 rounded-lg mb-8 border-l-4" style={{ borderColor: brandColor, backgroundColor: brandColorLighter }}>
                         <p className="font-medium">Unda bizning safimizga qo'shiling!</p>
                         <p className="mt-2">EMU University Sizning ta'lim sohasiga bo'lgan yuqori intellektual qarashlaringizni tubdan o'zgartiradi.</p>
                     </div>
@@ -102,7 +147,7 @@ const VacanciesPage = () => {
 
                     <p className="text-center font-medium text-lg mb-8">Biz o'ziga, o'z kelajagiga ishongan har bir insonni safimizga chorlaymiz. Biz siz bilan rivojlanish sari qadam tashlashga tayyormiz!</p>
 
-                    <div className="p-6 bg-purple-50 rounded-lg border border-purple-100 flex flex-col md:flex-row items-center justify-between">
+                    <div className="p-6 bg-purple-50 rounded-lg border border-purple-100 flex flex-col md:flex-row items-center justify-between" style={{ backgroundColor: brandColorLighter, borderColor: `${brandColor}30` }}>
                         <div className="flex items-center mb-4 md:mb-0">
                             <Send size={24} className="mr-3" style={{ color: brandColor }} />
                             <span>O'zingiz haqida qisqa ma'lumot va CV (ma'lumotnoma) yuboring:</span>
@@ -126,7 +171,7 @@ const VacanciesPage = () => {
                     <p className="mb-6">Bizning jamoamiz shifokorlar va pedagoglarning qayta tayyorlov o'tishlari va malaka oshirishlari uchun baza tayyorlash ustida faol ish olib borishmoqda. Yaqin kunlarda qisqa va uzoq muddatli malaka oshirish kurslari o'z faoliyatini boshlaydi.</p>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="bg-purple-50 p-6 rounded-lg border-t-4" style={{ borderColor: brandColor }}>
+                        <div className="bg-purple-50 p-6 rounded-lg border-t-4" style={{ borderColor: brandColor, backgroundColor: brandColorLighter }}>
                             <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'white' }}>
                                 <BookOpen size={24} style={{ color: brandColor }} />
                             </div>
@@ -134,7 +179,7 @@ const VacanciesPage = () => {
                             <p>Zamonaviy metodikalar va yetakchi xalqaro tibbiyot universitetlarining ilg'or tajribasi</p>
                         </div>
 
-                        <div className="bg-purple-50 p-6 rounded-lg border-t-4" style={{ borderColor: brandColor }}>
+                        <div className="bg-purple-50 p-6 rounded-lg border-t-4" style={{ borderColor: brandColor, backgroundColor: brandColorLighter }}>
                             <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'white' }}>
                                 <Clock size={24} style={{ color: brandColor }} />
                             </div>
@@ -142,7 +187,7 @@ const VacanciesPage = () => {
                             <p>Stajirovkani asosiy ish bilan birgalikda olib borish imkoniyati qulay dars jadvallari tufayli</p>
                         </div>
 
-                        <div className="bg-purple-50 p-6 rounded-lg border-t-4" style={{ borderColor: brandColor }}>
+                        <div className="bg-purple-50 p-6 rounded-lg border-t-4" style={{ borderColor: brandColor, backgroundColor: brandColorLighter }}>
                             <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'white' }}>
                                 <Award size={24} style={{ color: brandColor }} />
                             </div>

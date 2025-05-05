@@ -1,5 +1,4 @@
-// contacts/contactsIfo.js
-
+// uz/contacts/contactsIfo.js
 'use client';
 
 import React, { useState } from 'react';
@@ -24,7 +23,7 @@ const ContactInfo = ({ locations, brandColor, brandColorLighter }) => {
     if (!locations || !locations.main || !locations.clinic) {
         return (
             <div className="text-red-500 text-center p-4 bg-white rounded-xl shadow-md">
-                Ошибка: Данные о локациях недоступны. Проверьте API.
+                Xato: Joylashuv ma'lumotlari mavjud emas. API-ni tekshiring.
             </div>
         );
     }
@@ -59,7 +58,7 @@ const ContactInfo = ({ locations, brandColor, brandColorLighter }) => {
                     <div className="flex border-b">
                         <button
                             className={`flex-1 text-center py-4 font-medium ${activeLocation === 'main'
-                                ? 'bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white'
+                                ? 'bg-gradient-to-r from-[#6b0e55] to-[#8f3178] text-white'
                                 : 'bg-gray-50 text-gray-700'
                                 }`}
                             onClick={() => changeLocation('main')}
@@ -68,7 +67,7 @@ const ContactInfo = ({ locations, brandColor, brandColorLighter }) => {
                         </button>
                         <button
                             className={`flex-1 text-center py-4 font-medium ${activeLocation === 'clinic'
-                                ? 'bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white'
+                                ? 'bg-gradient-to-r from-[#6b0e55] to-[#8f3178] text-white'
                                 : 'bg-gray-50 text-gray-700'
                                 }`}
                             onClick={() => changeLocation('clinic')}
@@ -112,9 +111,9 @@ const ContactInfo = ({ locations, brandColor, brandColorLighter }) => {
                                         </div>
                                         <div>
                                             <p className="font-medium text-gray-800">Telefon:</p>
-                                            <a
-                                                href={`tel:${currentLocation.phone.replace(/[^0-9+]/g, '')}`}
-                                                className="text-gray-600 hover:text-[#631463] transition-colors"
+
+                                            <a href={`tel:${currentLocation.phone.replace(/[^0-9+]/g, '')}`}
+                                                className="text-gray-600 hover:text-[#6b0e55] transition-colors"
                                             >
                                                 {currentLocation.phone}
                                             </a>
@@ -129,9 +128,9 @@ const ContactInfo = ({ locations, brandColor, brandColorLighter }) => {
                                         </div>
                                         <div>
                                             <p className="font-medium text-gray-800">Email:</p>
-                                            <a
-                                                href={`mailto:${currentLocation.email}`}
-                                                className="text-gray-600 hover:text-[#631463] transition-colors"
+
+                                            <a href={`mailto:${currentLocation.email}`}
+                                                className="text-gray-600 hover:text-[#6b0e55] transition-colors"
                                             >
                                                 {currentLocation.email}
                                             </a>
@@ -151,11 +150,11 @@ const ContactInfo = ({ locations, brandColor, brandColorLighter }) => {
                                     </li>
                                 </ul>
 
-                                <a
-                                    href={`https://3.redirect.appmetrica.yandex.com/route?end-lat=${currentLocation.mapPosition.lat}&end-lon=${currentLocation.mapPosition.lng}&appmetrica_tracking_id=1178268795219780156`}
+
+                                <a href={`https://3.redirect.appmetrica.yandex.com/route?end-lat=${currentLocation.mapPosition.lat}&end-lon=${currentLocation.mapPosition.lng}&appmetrica_tracking_id=1178268795219780156`}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block w-full bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white font-bold py-3 px-4 rounded-md shadow-md hover:shadow-lg transition-all text-center mt-4"
+                                    className="block w-full bg-gradient-to-r from-[#6b0e55] to-[#8f3178] text-white font-bold py-3 px-4 rounded-md shadow-md hover:shadow-lg transition-all text-center mt-4"
                                 >
                                     <ExternalLink size={18} className="inline mr-2" />
                                     Taksi buyurtma qiling
@@ -190,7 +189,7 @@ const ContactInfo = ({ locations, brandColor, brandColorLighter }) => {
                             ></iframe>
                         ) : (
                             <div className="text-red-500 text-center p-4 bg-white h-full flex items-center justify-center">
-                                Ошибка: Неверные координаты карты. Проверьте данные API.
+                                Xato: Xarita koordinatalari noto'g'ri. API ma'lumotlarini tekshiring.
                             </div>
                         )}
                     </div>

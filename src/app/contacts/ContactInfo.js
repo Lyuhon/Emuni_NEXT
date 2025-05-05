@@ -1,5 +1,4 @@
 // // contacts/contactsIfo.js
-
 // 'use client';
 
 // import React, { useState } from 'react';
@@ -151,15 +150,25 @@
 //                                     </li>
 //                                 </ul>
 
-//                                 <a
-//                                     href={`https://3.redirect.appmetrica.yandex.com/route?end-lat=${currentLocation.mapPosition.lat}&end-lon=${currentLocation.mapPosition.lng}&appmetrica_tracking_id=1178268795219780156`}
-//                                     target="_blank"
-//                                     rel="noopener noreferrer"
-//                                     className="block w-full bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white font-bold py-3 px-4 rounded-md shadow-md hover:shadow-lg transition-all text-center mt-4"
-//                                 >
-//                                     <ExternalLink size={18} className="inline mr-2" />
-//                                     Заказать такси
-//                                 </a>
+//                                 <div className="space-y-3">
+//                                     <a
+//                                         href={`https://3.redirect.appmetrica.yandex.com/route?end-lat=${currentLocation.mapPosition.lat}&end-lon=${currentLocation.mapPosition.lng}&appmetrica_tracking_id=1178268795219780156`}
+//                                         target="_blank"
+//                                         rel="noopener noreferrer"
+//                                         className="block w-full bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white font-bold py-3 px-4 rounded-md shadow-md hover:shadow-lg transition-all text-center"
+//                                     >
+//                                         <ExternalLink size={18} className="inline mr-2" />
+//                                         Заказать такси
+//                                     </a>
+
+//                                     <a
+//                                         href={`tel:${currentLocation.phone.replace(/[^0-9+]/g, '')}`}
+//                                         className="block w-full bg-gradient-to-r from-[#427a42] to-[#549c54] text-white font-bold py-3 px-4 rounded-md shadow-md hover:shadow-lg transition-all text-center"
+//                                     >
+//                                         <Phone size={18} className="inline mr-2" />
+//                                         Позвонить
+//                                     </a>
+//                                 </div>
 //                             </motion.div>
 //                         </AnimatePresence>
 //                     </div>
@@ -203,6 +212,7 @@
 // export default ContactInfo;
 
 
+// contacts/contactsIfo.js
 'use client';
 
 import React, { useState } from 'react';
@@ -262,7 +272,7 @@ const ContactInfo = ({ locations, brandColor, brandColorLighter }) => {
                     <div className="flex border-b">
                         <button
                             className={`flex-1 text-center py-4 font-medium ${activeLocation === 'main'
-                                ? 'bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white'
+                                ? 'bg-gradient-to-r from-[#6b0e55] to-[#8f3178] text-white'
                                 : 'bg-gray-50 text-gray-700'
                                 }`}
                             onClick={() => changeLocation('main')}
@@ -271,7 +281,7 @@ const ContactInfo = ({ locations, brandColor, brandColorLighter }) => {
                         </button>
                         <button
                             className={`flex-1 text-center py-4 font-medium ${activeLocation === 'clinic'
-                                ? 'bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white'
+                                ? 'bg-gradient-to-r from-[#6b0e55] to-[#8f3178] text-white'
                                 : 'bg-gray-50 text-gray-700'
                                 }`}
                             onClick={() => changeLocation('clinic')}
@@ -315,9 +325,9 @@ const ContactInfo = ({ locations, brandColor, brandColorLighter }) => {
                                         </div>
                                         <div>
                                             <p className="font-medium text-gray-800">Телефон:</p>
-                                            <a
-                                                href={`tel:${currentLocation.phone.replace(/[^0-9+]/g, '')}`}
-                                                className="text-gray-600 hover:text-[#631463] transition-colors"
+
+                                            <a href={`tel:${currentLocation.phone.replace(/[^0-9+]/g, '')}`}
+                                                className="text-gray-600 hover:text-[#6b0e55] transition-colors"
                                             >
                                                 {currentLocation.phone}
                                             </a>
@@ -332,9 +342,9 @@ const ContactInfo = ({ locations, brandColor, brandColorLighter }) => {
                                         </div>
                                         <div>
                                             <p className="font-medium text-gray-800">Email:</p>
-                                            <a
-                                                href={`mailto:${currentLocation.email}`}
-                                                className="text-gray-600 hover:text-[#631463] transition-colors"
+
+                                            <a href={`mailto:${currentLocation.email}`}
+                                                className="text-gray-600 hover:text-[#6b0e55] transition-colors"
                                             >
                                                 {currentLocation.email}
                                             </a>
@@ -355,18 +365,18 @@ const ContactInfo = ({ locations, brandColor, brandColorLighter }) => {
                                 </ul>
 
                                 <div className="space-y-3">
-                                    <a
-                                        href={`https://3.redirect.appmetrica.yandex.com/route?end-lat=${currentLocation.mapPosition.lat}&end-lon=${currentLocation.mapPosition.lng}&appmetrica_tracking_id=1178268795219780156`}
+
+                                    <a href={`https://3.redirect.appmetrica.yandex.com/route?end-lat=${currentLocation.mapPosition.lat}&end-lon=${currentLocation.mapPosition.lng}&appmetrica_tracking_id=1178268795219780156`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="block w-full bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white font-bold py-3 px-4 rounded-md shadow-md hover:shadow-lg transition-all text-center"
+                                        className="block w-full bg-gradient-to-r from-[#6b0e55] to-[#8f3178] text-white font-bold py-3 px-4 rounded-md shadow-md hover:shadow-lg transition-all text-center"
                                     >
                                         <ExternalLink size={18} className="inline mr-2" />
                                         Заказать такси
                                     </a>
 
-                                    <a
-                                        href={`tel:${currentLocation.phone.replace(/[^0-9+]/g, '')}`}
+
+                                    <a href={`tel:${currentLocation.phone.replace(/[^0-9+]/g, '')}`}
                                         className="block w-full bg-gradient-to-r from-[#427a42] to-[#549c54] text-white font-bold py-3 px-4 rounded-md shadow-md hover:shadow-lg transition-all text-center"
                                     >
                                         <Phone size={18} className="inline mr-2" />
@@ -375,12 +385,12 @@ const ContactInfo = ({ locations, brandColor, brandColorLighter }) => {
                                 </div>
                             </motion.div>
                         </AnimatePresence>
-                    </div>
-                </div>
-            </motion.div>
+                    </div >
+                </div >
+            </motion.div >
 
             {/* Карта */}
-            <motion.div
+            < motion.div
                 initial="hidden"
                 animate="visible"
                 variants={slideInFromRight}
@@ -408,8 +418,8 @@ const ContactInfo = ({ locations, brandColor, brandColorLighter }) => {
                         )}
                     </div>
                 </div>
-            </motion.div>
-        </div>
+            </motion.div >
+        </div >
     );
 };
 
