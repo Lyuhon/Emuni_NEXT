@@ -757,7 +757,7 @@ export default function Header() {
                                         <a
                                             href="#"
                                             onClick={(e) => handleDropdownToggle(index, e)}
-                                            className="inline-flex items-center px-4 py-1 hover:bg-[#7a407f] rounded-lg transition-colors"
+                                            className="inline-flex items-center px-4 py-1 hover:bg-[#9c3f84] rounded-lg transition-colors"
                                         >
                                             {isUzLang ? item.name_uz : item.name}
                                             <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${openDropdown === index ? 'rotate-180' : ''}`} />
@@ -768,7 +768,7 @@ export default function Header() {
                                                     <a
                                                         key={subItem.name}
                                                         href={isUzLang ? subItem.href_uz : subItem.href}
-                                                        className="block px-4 py-2 text-[#6B0E55] hover:bg-[#6B0E55] hover:text-white transition-colors"
+                                                        className="block px-4 py-2 text-[#9c3f84] hover:bg-[#9c3f84] hover:text-white transition-colors"
                                                     >
                                                         {isUzLang ? subItem.name_uz : subItem.name}
                                                     </a>

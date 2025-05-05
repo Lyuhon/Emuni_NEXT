@@ -412,7 +412,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                                                 borderLeft: activeDirection === direction ? `4px solid ${brandColor}` : '4px solid transparent',
                                             }}
                                         >
-                                            <div className="bg-[#7d3382] p-[7px] rounded-full mr-3">
+                                            <div className="bg-[#8d1d72] p-[7px] rounded-full mr-3">
                                                 <Image src={directions[direction].title_icon} alt={`${direction} icon`} width={20} height={20} className="" />
                                             </div>
                                             <span
@@ -435,7 +435,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                                             }}
                                         >
                                             {item.title_icon ? (
-                                                <div className="bg-[#7d3382] p-[7px] rounded-full mr-3">
+                                                <div className="bg-[#8d1d72] p-[7px] rounded-full mr-3">
                                                     <Image src={item.title_icon} alt={`${item.accordion_title} icon`} width={20} height={20} className="" />
                                                 </div>
                                             ) : (

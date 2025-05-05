@@ -56,15 +56,15 @@ const LicenseSection = () => {
     return (
         <section className="py-16 md:py-24 relative overflow-hidden">
             {/* Градиентный фиолетовый фон */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#631463] to-[#3a0d5c] z-0"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-[#6b0e55] to-[#450940] z-0"></div>
 
             {/* Декоративные элементы */}
-            <div className="absolute top-0 right-0 w-full h-64 bg-[#8a3c8a] opacity-20 blur-3xl -z-10"></div>
-            <div className="absolute bottom-0 left-0 w-full h-64 bg-[#470e47] opacity-20 blur-3xl -z-10"></div>
+            <div className="absolute top-0 right-0 w-full h-64 bg-[#8f3178] opacity-20 blur-3xl -z-10"></div>
+            <div className="absolute bottom-0 left-0 w-full h-64 bg-[#4d0a3f] opacity-20 blur-3xl -z-10"></div>
 
             {/* Декоративные круги */}
-            <div className="absolute top-20 right-20 w-40 h-40 rounded-full bg-[#8a3c8a] opacity-10"></div>
-            <div className="absolute bottom-40 left-10 w-60 h-60 rounded-full bg-[#470e47] opacity-10"></div>
+            <div className="absolute top-20 right-20 w-40 h-40 rounded-full bg-[#8f3178] opacity-10"></div>
+            <div className="absolute bottom-40 left-10 w-60 h-60 rounded-full bg-[#4d0a3f] opacity-10"></div>
 
             {/* Сетка */}
             <div className="absolute inset-0 opacity-5">
@@ -195,16 +195,6 @@ const LicenseSection = () => {
                             </p>
                         </div>
 
-                        {/* <motion.button
-                            whileHover={{ scale: 1.05, boxShadow: "0 15px 30px -5px rgba(255, 255, 255, 0.3)" }}
-                            whileTap={{ scale: 0.95 }}
-                            className="mt-8 bg-white text-[#631463] py-3 px-8 rounded-full font-medium shadow-lg transition-all duration-300 flex items-center self-start hover:bg-[#f7eef7]"
-                        >
-                            Подробнее о лицензии
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </motion.button> */}
                     </motion.div>
 
 
@@ -214,7 +204,7 @@ const LicenseSection = () => {
             {/* Модальное окно для увеличенного изображения */}
             {selectedImage && (
                 <motion.div
-                    className="fixed inset-0 bg-black/80 flex items-center justify-center z-[1000] p-4"
+                    className="fixed inset-0 bg-black/80 flex items-center justify-center z-[20000] p-4"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -237,14 +227,14 @@ const LicenseSection = () => {
                             />
                         </div>
                         <div className="p-4 bg-white">
-                            <h3 className="text-xl font-bold text-[#631463] mb-2">{selectedImage.title}</h3>
+                            <h3 className="text-xl font-bold text-[#6b0e55] mb-2">{selectedImage.title}</h3>
                             <p className="text-gray-600">{selectedImage.alt}</p>
                         </div>
                         <button
                             className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg"
                             onClick={closeModal}
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#631463]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#6b0e55]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
@@ -256,7 +246,7 @@ const LicenseSection = () => {
             <style jsx global>{`
                 .license-swiper .swiper-button-next,
                 .license-swiper .swiper-button-prev {
-                    color: #631463;
+                    color: #6b0e55;
                     background: white;
                     width: 40px;
                     height: 40px;
@@ -271,7 +261,7 @@ const LicenseSection = () => {
                 
                 .license-swiper .swiper-button-next:hover,
                 .license-swiper .swiper-button-prev:hover {
-                    background: #f7eef7;
+                    background: #f9eef5;
                 }
             `}</style>
         </section>

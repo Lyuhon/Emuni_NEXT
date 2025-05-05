@@ -7,12 +7,9 @@ import { useState, useEffect } from 'react';
 import TestimonialsSection from './TestimonialsSection';
 
 import Testimon1 from './Testimon1';
-import Faq from './Faq';
 import Stats from './StatsRedesign';
 import LicenseSection from './LicenseSection';
-import ProgramsSlider from './ProgramsSlider';
 import FixedPhoneButton from './FixedPhoneButton';
-import GrantsSlider from './GrantsSlider';
 import CallActionSection from './CallActionSection';
 
 
@@ -21,18 +18,11 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-// import Header from "/src/components/Header";
-// import Footer from "/src/components/Footer";
-
 import PartnersSlider_Home from './PartnersSlider_Home';
 import RectorAppealSlider from './RectorAppealSlider';
 import StudTestimonRedesign from './StudTestimonRedesign_fetch';
 import Recall from './Recall';
 
-
-
-
-import Teachers from './Teachers';
 
 
 // Animations
@@ -268,151 +258,6 @@ export default function Home() {
                 </div>
             </motion.section>
             {/* ФОН КАРТИНКА 2 */}
-
-
-
-
-
-            {/* Goal Section */}
-            <motion.section
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={fadeIn}
-                className="hidden py-6 md:py-20 md:pb-8 px-4 relative overflow-hidden bg-[#FFFFFF]"
-            >
-                {/* Background decorative elements - без анимации для шара */}
-                <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-[#f7eef7] rounded-bl-full opacity-50 z-0 hidden md:block"></div>
-                {/* <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-[#f7eef7] rounded-tr-full opacity-30 z-0 hidden md:block"></div> */}
-
-                <div className="max-w-screen-xl container mx-auto relative z-10 px-2 md:px-4">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5 }}
-                        className="text-center max-w-2xl mx-auto mb-8 md:mb-16"
-                    >
-                        {/* <div className="inline-block mb-3 md:mb-4">
-                            <div className="h-1 w-16 md:w-20 bg-gradient-to-r from-[#6B0E55] to-[#8a3c8a] rounded-full mx-auto"></div>
-                        </div> */}
-                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 relative z-10 mb-3 md:mb-5">
-                            Выбирайте лучшее для своего будущего!
-                        </h2>
-                        {/* <p className="text-gray-600 text-base md:text-lg">
-                            Наш университет, основанный в 2020 году, уже стал лидером в медицинском образовании. Мы — <b>«Лучший медицинский университет 2024»</b> и <b>«Лучший негосударственный университет».</b> Присоединяйтесь к нам, чтобы получить качественное образование и достичь успеха!
-                        </p> */}
-                    </motion.div>
-
-                    <div className="flex flex-col md:flex-row gap-8 md:gap-12 mb-10 md:mb-16 items-center">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                            className="md:w-1/2 w-full"
-                        >
-                            <Swiper
-                                modules={[Navigation, Autoplay]}
-                                spaceBetween={20}
-                                slidesPerView={1}
-                                navigation={{
-                                    nextEl: '.swiper-button-next-custom',
-                                    prevEl: '.swiper-button-prev-custom',
-                                }}
-                                autoplay={{
-                                    delay: 500000,
-                                    disableOnInteraction: false,
-                                }}
-                                className="relative mx-auto max-w-md md:max-w-none"
-                            >
-                                {/* Слайд 1: Первая картинка */}
-                                <SwiperSlide className="p-[20px_20px_20px_30px]">
-                                    <div className="relative">
-                                        <Image
-                                            src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/trgfnic5sz5c7ozhs5pc.jpg"
-                                            alt="Student in lab"
-                                            width={600}
-                                            height={350}
-                                            className="rounded-xl shadow-xl w-full h-auto z-10 relative"
-                                        />
-                                        <div className="absolute -bottom-2 md:-bottom-4 -right-2 md:-right-4 h-full w-full bg-[#6B0E55] rounded-xl z-0"></div>
-                                    </div>
-                                </SwiperSlide>
-
-                                {/* Слайд 2: Вторая картинка (замените URL на ваш) */}
-                                <SwiperSlide className="p-[20px_20px_20px_30px]">
-                                    <div className="relative">
-                                        <Image
-                                            src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/80-1737974836-rpst2023-post-material-large.webp" // Замените на реальный URL
-                                            alt="Another image"
-                                            width={600}
-                                            height={350}
-                                            className="rounded-xl shadow-xl w-full h-auto z-10 relative"
-                                        />
-                                        <div className="absolute -bottom-2 md:-bottom-4 -right-2 md:-right-4 h-full w-full bg-[#6B0E55] rounded-xl z-0"></div>
-                                    </div>
-                                </SwiperSlide>
-
-                                {/* Слайд 3: YouTube видео */}
-                                <SwiperSlide className="p-[20px_20px_20px_30px]">
-                                    <div className="relative">
-                                        <iframe
-                                            src="https://www.youtube.com/embed/xsXxaNVimk0"
-                                            title="YouTube video"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                            className="rounded-xl shadow-xl w-full h-[210px] md:h-[350px] z-10 relative"
-                                        ></iframe>
-                                        <div className="absolute -bottom-2 md:-bottom-4 -right-2 md:-right-4 h-full w-full bg-[#6B0E55] rounded-xl z-0"></div>
-                                    </div>
-                                </SwiperSlide>
-
-                                {/* Кастомные кнопки навигации */}
-                                <div style={{ border: '2px solid #f7eef7', background: '#883088' }}
-                                    className="swiper-button-prev-custom absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2 z-20 w-10 h-10 bg-[#6B0E55] rounded-full flex items-center justify-center cursor-pointer">
-                                    <svg
-                                        className="w-5 h-5 text-white"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
-                                    </svg>
-                                </div>
-                                <div style={{ border: '2px solid #f7eef7', background: '#883088' }}
-                                    className="swiper-button-next-custom absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2 z-20 w-10 h-10 bg-[#6B0E55] rounded-full flex items-center justify-center cursor-pointer">
-                                    <svg
-                                        className="w-5 h-5 text-white"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                </div>
-                            </Swiper>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                            className="md:w-1/2 flex flex-col justify-center"
-                        >
-
-                            <div className="border-l-4 border-[#8a3c8a] pl-3 md:pl-6 mb-5 md:mb-8">
-                                <h3 className="text-lg md:text-3xl font-bold text-gray-800 mb-2 md:mb-3">Современные методики обучения</h3>
-                                <p className="text-sm md:text-xl text-gray-600">
-                                    Наш университет, основанный в 2020 году, уже стал лидером в медицинском образовании. Мы — <b className='text-[#ddb74b]'>«Лучший медицинский университет 2024»</b> и <b className='text-[#ddb74b]'>«Лучший негосударственный университет».</b> Присоединяйтесь к нам, чтобы получить качественное образование и достичь успеха!
-                                </p>
-                            </div>
-                        </motion.div>
-                    </div>
-
-
-                </div>
-            </motion.section>
 
 
 

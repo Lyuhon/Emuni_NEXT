@@ -120,7 +120,7 @@ const ConsultationBlock = () => {
 
                                     <button
                                         type="submit"
-                                        className="w-full bg-[#631463] text-white py-3 px-6 rounded-lg font-medium hover:bg-[#7a2a7a] transition-colors duration-300"
+                                        className="w-full bg-[#6b0e55] text-white py-3 px-6 rounded-lg font-medium hover:bg-[#7f1c68] transition-colors duration-300"
                                     >
                                         Ariza yuborish
                                     </button>
