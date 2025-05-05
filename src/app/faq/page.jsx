@@ -193,11 +193,11 @@ export default async function FAQPage() {
             <div className="max-w-screen-xl mx-auto px-4 md:px-8 py-8 md:py-12 border-t border-gray-200">
                 <h2 className="text-2xl font-bold text-[#6b0e55] mb-6">Дополнительная информация</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <a href="/programs" className="p-4 bg-white rounded-lg shadow hover:shadow-md transition-all">
+                    <a href="/napravleniya" className="p-4 bg-white rounded-lg shadow hover:shadow-md transition-all">
                         <h3 className="font-semibold text-[#6b0e55] mb-2">Образовательные программы</h3>
                         <p className="text-gray-600 text-sm">Узнайте больше о наших программах обучения и специальностях</p>
                     </a>
-                    <a href="/admission" className="p-4 bg-white rounded-lg shadow hover:shadow-md transition-all">
+                    <a href="https://apply.emuni.uz/" className="p-4 bg-white rounded-lg shadow hover:shadow-md transition-all">
                         <h3 className="font-semibold text-[#6b0e55] mb-2">Поступление</h3>
                         <p className="text-gray-600 text-sm">Процесс подачи документов и требования к абитуриентам</p>
                     </a>
