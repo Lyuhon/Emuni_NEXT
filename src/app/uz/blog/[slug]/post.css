@@ -1,0 +1,351 @@
+.post-content-styles h1,
+.post-content-styles h2,
+.post-content-styles h3,
+.post-content-styles h4,
+.post-content-styles h5,
+.post-content-styles h6 {
+    color: #5f1464;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+}
+
+.post-content-styles h1 {
+    font-size: 2em;
+}
+
+.post-content-styles h2 {
+    font-size: 1.75em;
+}
+
+.post-content-styles h3 {
+    font-size: 1.5em;
+}
+
+.post-content-styles h4 {
+    font-size: 1.25em;
+}
+
+.post-content-styles p {
+    margin-bottom: 1.25em;
+    line-height: 1.7;
+}
+
+.post-content-styles ul,
+.post-content-styles ol {
+    margin-left: 1.5em;
+    margin-bottom: 1.25em;
+    padding-left: 1em;
+}
+
+.post-content-styles ul {
+    list-style-type: disc;
+}
+
+.post-content-styles ol {
+    list-style-type: decimal;
+}
+
+.post-content-styles li {
+    margin-bottom: 0.5em;
+    line-height: 1.7;
+}
+
+.post-content-styles a {
+    color: #5f1464;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.post-content-styles a:hover {
+    text-decoration: underline;
+}
+
+.post-content-styles blockquote {
+    border-left: 4px solid #5f1464;
+    padding-left: 1em;
+    margin-left: 0;
+    font-style: italic;
+    margin-bottom: 1.25em;
+    background-color: rgba(95, 20, 100, 0.05);
+    padding: 1em;
+    border-radius: 0.25em;
+}
+
+.post-content-styles img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5em;
+    margin: 1.5em 0;
+}
+
+.post-content-styles table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.25em;
+}
+
+.post-content-styles th,
+.post-content-styles td {
+    padding: 0.75em;
+    border: 1px solid #e2e8f0;
+}
+
+.post-content-styles th {
+    background-color: rgba(95, 20, 100, 0.1);
+    font-weight: 600;
+}
+
+.post-content-styles figure {
+    margin: 1.5em 0;
+}
+
+.post-content-styles figcaption {
+    font-size: 0.875em;
+    color: #64748b;
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+.post-content-styles code {
+    font-family: monospace;
+    background-color: #f1f5f9;
+    padding: 0.2em 0.4em;
+    border-radius: 0.25em;
+    font-size: 0.875em;
+}
+
+.post-content-styles pre {
+    background-color: #1e293b;
+    color: #fff;
+    padding: 1em;
+    border-radius: 0.5em;
+    overflow-x: auto;
+    margin-bottom: 1.25em;
+}
+
+.post-content-styles pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+.post-content-styles hr {
+    border: none;
+    border-top: 2px solid #e2e8f0;
+    margin: 2em 0;
+}
+
+/* Добавим стили для вложенных списков */
+.post-content-styles ul ul,
+.post-content-styles ol ol,
+.post-content-styles ul ol,
+.post-content-styles ol ul {
+    margin-bottom: 0;
+    margin-top: 0.5em;
+}
+
+/* Исправление для iframe (видео и карт) */
+.post-content-styles iframe {
+    max-width: 100%;
+    border-radius: 0.5em;
+    margin: 1.5em 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.post-content-styles h1,
+.post-content-styles h2,
+.post-content-styles h3,
+.post-content-styles h4,
+.post-content-styles h5,
+.post-content-styles h6 {
+    color: #5f1464;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+}
+
+.post-content-styles h1 {
+    font-size: 2em;
+}
+
+.post-content-styles h2 {
+    font-size: 1.75em;
+}
+
+.post-content-styles h3 {
+    font-size: 1.5em;
+}
+
+.post-content-styles h4 {
+    font-size: 1.25em;
+}
+
+.post-content-styles p {
+    margin-bottom: 1.25em;
+    line-height: 1.7;
+}
+
+.post-content-styles ul,
+.post-content-styles ol {
+    margin-left: 1.5em;
+    margin-bottom: 1.25em;
+    padding-left: 1em;
+}
+
+.post-content-styles ul {
+    list-style-type: disc;
+}
+
+.post-content-styles ol {
+    list-style-type: decimal;
+}
+
+.post-content-styles li {
+    margin-bottom: 0.5em;
+    line-height: 1.7;
+}
+
+.post-content-styles a {
+    color: #5f1464;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.post-content-styles a:hover {
+    text-decoration: underline;
+}
+
+.post-content-styles blockquote {
+    border-left: 4px solid #5f1464;
+    padding-left: 1em;
+    margin-left: 0;
+    font-style: italic;
+    margin-bottom: 1.25em;
+    background-color: rgba(95, 20, 100, 0.05);
+    padding: 1em;
+    border-radius: 0.25em;
+}
+
+.post-content-styles img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5em;
+    margin: 1.5em 0;
+}
+
+.post-content-styles table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.25em;
+}
+
+.post-content-styles th,
+.post-content-styles td {
+    padding: 0.75em;
+    border: 1px solid #e2e8f0;
+}
+
+.post-content-styles th {
+    background-color: rgba(95, 20, 100, 0.1);
+    font-weight: 600;
+}
+
+.post-content-styles figure {
+    margin: 1.5em 0;
+}
+
+.post-content-styles figcaption {
+    font-size: 0.875em;
+    color: #64748b;
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+.post-content-styles code {
+    font-family: monospace;
+    background-color: #f1f5f9;
+    padding: 0.2em 0.4em;
+    border-radius: 0.25em;
+    font-size: 0.875em;
+}
+
+.post-content-styles pre {
+    background-color: #1e293b;
+    color: #fff;
+    padding: 1em;
+    border-radius: 0.5em;
+    overflow-x: auto;
+    margin-bottom: 1.25em;
+}
+
+.post-content-styles pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+.post-content-styles hr {
+    border: none;
+    border-top: 2px solid #e2e8f0;
+    margin: 2em 0;
+}
+
+.post-content-styles ul ul,
+.post-content-styles ol ol,
+.post-content-styles ul ol,
+.post-content-styles ol ul {
+    margin-bottom: 0;
+    margin-top: 0.5em;
+}
+
+.post-content-styles iframe {
+    max-width: 100%;
+    border-radius: 0.5em;
+    margin: 1.5em 0;
+}
+
+/* Gutenberg blocks */
+.post-content-styles .wp-block-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    /* margin-bottom: 1.25em; */
+}
+
+.post-content-styles .wp-block-column {
+    flex: 1;
+    min-width: 0;
+}
+
+.post-content-styles .wp-block-image {
+    margin: 1.5em 0;
+}
+
+.post-content-styles .wp-block-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5em;
+}
+
+@media (max-width: 768px) {
+    .post-content-styles .wp-block-columns {
+        flex-direction: column;
+    }
+
+    .post-content-styles .wp-block-column {
+        flex: none;
+        width: 100%;
+    }
+}

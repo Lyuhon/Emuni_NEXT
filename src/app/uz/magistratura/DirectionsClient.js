@@ -34,26 +34,27 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
     // Преимущества
     const advantages = [
         {
-            title: 'Международная практика',
-            description: 'Стажировка в ведущих клиниках Европы',
+            title: 'Xalqaro amaliyot',
+            description: 'Yevropaning yetakchi klinikalarida stajirovka',
             icon: <Globe size={24} />,
         },
         {
-            title: 'Опытные специалисты',
-            description: 'Обучение под руководством профессионалов',
+            title: 'Tajribalı mutaxassislar',
+            description: 'Kasb ustozlari rahbarligida taʼlim',
             icon: <User size={24} />,
         },
         {
-            title: 'Современное оборудование',
-            description: 'Доступ к передовым технологиям',
+            title: 'Zamonaviy uskunalar',
+            description: 'Ilg‘or texnologiyalarga ega bo‘lish imkoni',
             icon: <Beaker size={24} />,
         },
         {
-            title: 'Помощь в трудоустройстве',
-            description: 'Поддержка в построении карьере',
+            title: 'Ishga joylashishda yordam',
+            description: 'Karyerangizni qurishda ko‘mak',
             icon: <Award size={24} />,
         },
     ];
+
 
     // При изменении активного таба, обновляем активное направление
     useEffect(() => {
@@ -80,8 +81,8 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
         : null;
 
     const tabs = [
-        { id: 'medical', name: acf?.med_napravleniya || 'Медицинская школа' },
-        { id: 'business', name: acf?.business_napravleniya || 'Бизнес и социальная школа' },
+        { id: 'medical', name: acf?.med_napravleniya_uz || 'Медицинская школа' },
+        { id: 'business', name: acf?.business_napravleniya_uz || 'Бизнес и социальная школа' },
     ];
 
     return (
@@ -89,11 +90,15 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
             {/* Hero Section с фоновым изображением */}
             <div className="relative md:h-[40vh] flex items-center justify-center overflow-hidden" style={{ background: `linear-gradient(rgba(99, 20, 99, 0.39), rgba(99, 20, 99, 0.66)), url('https://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/magistratua-hero.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black to-transparent opacity-20"></div>
+
                 <div className="text-center z-10 px-4 mb-10">
-                    <h1 className="text-5xl font-bold text-white mt-6 mb-4">Магистратура/Ординатура</h1>
+                    <h1 className="text-5xl font-bold text-white mt-6 mb-4">Magistratura va Ordinatura</h1>
                     <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
-                    <p className="mb-12 text-xl text-white max-w-3xl">С нами Вы получите востребованную специальность и пройдёте практику в ведущих клиниках и организациях</p>
+                    <p className="mb-12 text-xl text-white max-w-3xl">
+                        Biz bilan siz talab yuqori bo‘lgan mutaxassislikni egallaysiz va yetakchi klinikalar hamda tashkilotlarda amaliyot o‘taysiz
+                    </p>
                 </div>
+
                 <div className="absolute bottom-0 left-0 w-full overflow-hidden transform rotate-180">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12">
                         <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#f8f9fa" opacity=".8"></path>
@@ -156,7 +161,7 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                         <div className="bg-white rounded-lg shadow-md overflow-hidden">
                             <div className="p-5 text-white font-medium text-center relative" style={{ backgroundColor: brandColor }}>
                                 <div className="absolute top-0 right-0 w-20 h-20 rounded-full opacity-10 transform translate-x-1/2 -translate-y-1/2" style={{ backgroundColor: 'white' }}></div>
-                                <h3 className="text-xl font-bold relative z-10">Направления</h3>
+                                <h3 className="text-xl font-bold relative z-10">Yo'nalishlar</h3>
                             </div>
                             <div className="py-2">
                                 {activeTab === 'medical' ? (
@@ -234,7 +239,7 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                                         ? (currentDirection?.title || activeDirection)
                                         : activeDirection}
                                 </h2>
-                                <p className="text-white text-opacity-80 relative z-10 max-w-2xl">Станьте высококвалифицированным специалистом вместе с Университетом EMU!</p>
+                                <p className="text-white text-opacity-80 relative z-10 max-w-2xl">EMU universiteti bilan yuqori malakali mutaxassisga aylaning!</p>
                             </div>
 
                             <div className="p-8">
@@ -257,13 +262,13 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                                             <p className="text-xl font-bold" style={{ color: brandColor }}>
                                                 {acf?.accordion_repeater_2?.find(item => item.accordion_title === activeDirection)?.semester_price || 'Не указано'}
                                             </p>
-                                            <p className="text-gray-600 text-sm">Стоимость за семестр</p>
+                                            <p className="text-gray-600 text-sm">Bir semestr uchun xarajat</p>
                                         </div>
                                         <div className="bg-gray-50 rounded-lg p-4 text-center border border-gray-200">
                                             <p className="text-xl font-bold" style={{ color: brandColor }}>
                                                 {acf?.accordion_repeater_2?.find(item => item.accordion_title === activeDirection)?.full_price || 'Не указано'}
                                             </p>
-                                            <p className="text-gray-600 text-sm">Стоимость за учебный год</p>
+                                            <p className="text-gray-600 text-sm">Bir o'quv yili uchun xarajat</p>
                                         </div>
                                     </div>
                                 )}
@@ -275,13 +280,13 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                                             <Book size={20} style={{ color: brandColor }} />
                                         </div>
                                         <div>
-                                            <h3 className="text-lg font-bold mb-2" style={{ color: brandColor }}>Описание программы</h3>
+                                            <h3 className="text-lg font-bold mb-2" style={{ color: brandColor }}>Dastur tavsifi</h3>
                                             <div className="text-gray-700 direction-fetch-text">
                                                 {activeTab === 'medical'
                                                     ? (currentDirection?.description && parse(currentDirection.description))
                                                     : (acf && acf.accordion_repeater_2 &&
-                                                        acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection)?.text &&
-                                                        parse(acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection).text)
+                                                        acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection)?.text_uz &&
+                                                        parse(acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection).text_uz)
                                                     )
                                                 }
                                             </div>
@@ -295,7 +300,7 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                                         className="pop-form-trigger flex items-center justify-center text-white font-bold py-4 px-12 rounded-lg text-lg shadow-md transition-all hover:shadow-lg"
                                         style={{ background: `linear-gradient(to right, ${brandColor}, ${brandColorLight})` }}
                                     >
-                                        Регистрация
+                                        Roʻyxatdan oʻtish
                                         <ChevronRight size={20} className="ml-2" />
                                     </button>
                                 </div>
@@ -310,36 +315,40 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                     <div className="absolute top-0 right-0 w-16 h-16 rounded-full opacity-5" style={{ backgroundColor: brandColor, transform: 'translate(30%, -30%)' }}></div>
 
                     <p className="mb-4 text-lg leading-relaxed relative z-10">
-                        С нами Вы получите востребованную специальность, пройдёте практику в ведущих частных и государственных клиниках и организациях нашей столицы под руководством опытных специалистов, а также{' '}
-                        <span className="font-semibold" style={{ color: brandColor }}>стажировку в ведущих организациях, клиниках и ВУЗах Европейских стран</span>*
+                        Biz bilan siz talab yuqori bo‘lgan mutaxassislikni egallaysiz, poytaxtimizdagi yetakchi xususiy va davlat klinikalari hamda tashkilotlarida tajribali mutaxassislar rahbarligida amaliyot o‘taysiz, shuningdek{' '}
+                        <span className="font-semibold" style={{ color: brandColor }}>
+                            Yevropa davlatlarining yetakchi tashkilotlari, klinikalari va oliy o‘quv yurtlarida stajirovka o‘tash imkoniga ega bo‘lasiz
+                        </span>*
                     </p>
-                    <p className="font-medium">Не упустите свою возможность в самореализации, мы открываем набор по следующим направлениям бакалавриата:</p>
+
                 </div>
 
                 {/* Contact Info */}
-                {acf?.pricing_info ? (
+                {acf?.pricing_info_uz ? (
                     <div className="mt-12 mb-12 bg-white p-6 rounded-lg shadow-md flex items-center gap-6">
                         <div className="hidden md:flex text-3xl p-4 rounded-full" style={{ backgroundColor: brandColorLighter, color: brandColor }}>
                             ℹ️
                         </div>
                         <div>
-                            <h3 className="text-lg font-bold mb-1" style={{ color: brandColor }}>Нужна консультация?</h3>
-                            <div>{parse(acf.pricing_info)}</div>
+                            <h3 className="text-lg font-bold mb-1" style={{ color: brandColor }}>Maslahat kerakmi?</h3>
+                            <div>{parse(acf.pricing_info_uz)}</div>
                         </div>
                     </div>
+
                 ) : (
                     <div className="mt-12 mb-12 bg-white p-6 rounded-lg shadow-md flex items-center gap-6">
                         <div className="hidden md:flex text-3xl p-4 rounded-full" style={{ backgroundColor: brandColorLighter, color: brandColor }}>
                             ℹ️
                         </div>
                         <div>
-                            <h3 className="text-lg font-bold mb-1" style={{ color: brandColor }}>Нужна консультация?</h3>
+                            <h3 className="text-lg font-bold mb-1" style={{ color: brandColor }}>Maslahat kerakmi?</h3>
                             <p>
-                                Получите консультацию по факультетам, приемной комиссии и вступительным экзаменам позвонив нам:{' '}
+                                Fakultetlar, qabul komissiyasi va kirish imtihonlari bo‘yicha maslahat olish uchun bizga qo‘ng‘iroq qiling:{' '}
                                 <strong style={{ color: brandColor }}>+998(78) 147-00-07</strong>
                             </p>
                         </div>
                     </div>
+
                 )}
             </div>
         </div>

@@ -173,7 +173,7 @@ export default function Home() {
                     >
                         <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
                             <Image
-                                src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/1200x900-emu-web-2-min.jpg"
+                                src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/main-banner-new.webp"
                                 alt="Student"
                                 width={600}
                                 height={400}
@@ -205,9 +205,9 @@ export default function Home() {
                 variants={fadeIn}
                 className="hidden md:flex items-center relative min-h-[600px] md:min-h-[700px] py-20 md:py-32 overflow-hidden"
                 style={{
-                    backgroundImage: `url('http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/emu_hero_banner-scaled.webp')`,
+                    backgroundImage: `url('https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/main-banner-new.webp')`,
                     backgroundSize: 'cover',
-                    backgroundPosition: 'right 0 bottom 10%',
+                    backgroundPosition: 'right 0 top 0',
                 }}
             >
                 {/* Overlay с более светлым наложением */}

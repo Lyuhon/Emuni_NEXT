@@ -25,12 +25,12 @@ async function fetchGalleryData() {
             .filter((video) => video.id_videorolika)
             .map((video) => ({
                 id: video.id_videorolika,
-                title: video.podpis_ru || 'Видео без подписи',
+                title: video.podpis_uz || '',
             }));
 
         // Обработка галереи
         const gallerySections = data.acf.gallereya[0].razdel.map((section) => ({
-            title: section.nazvanie_razdela_ru || 'Без названия',
+            title: section.nazvanie_razdela_uz || 'Без названия',
             images: section.izobrazheniya.map((img) => ({
                 src: img.url,
                 alt: img.title || 'Фотография',

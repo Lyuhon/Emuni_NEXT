@@ -25,7 +25,7 @@ async function fetchGalleryData() {
             .filter((video) => video.id_videorolika)
             .map((video) => ({
                 id: video.id_videorolika,
-                title: video.podpis_ru || 'Видео без подписи',
+                title: video.podpis_ru || '',
             }));
 
         // Обработка галереи

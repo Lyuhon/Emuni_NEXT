@@ -529,7 +529,7 @@ export default function GalleryAccordion({ videos, gallerySections }) {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[1000]"
+                                className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9000]"
                                 onClick={closeLightbox}
                             >
                                 <motion.div
