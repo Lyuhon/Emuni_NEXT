@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Leaf, Wind, Droplets, TreePine, Globe, Users, Book, DollarSign } from 'lucide-react';
 import Image from 'next/image';
 
@@ -9,6 +9,8 @@ export default function Page() {
     const [position, setPosition] = useState(0);
     const [glowIntensity, setGlowIntensity] = useState(0);
     const [pulseSize, setPulseSize] = useState(1);
+    const [activeTab, setActiveTab] = useState(0);
+    const videoRef = useRef(null);
 
     // Эффекты для анимаций
     useEffect(() => {
@@ -34,20 +36,49 @@ export default function Page() {
         };
     }, []);
 
+    // Эффект для управления видео
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.playbackRate = 0.9; // Немного замедляем видео для лучшего эффекта
+        }
+    }, []);
+
     return (
         <main className="min-h-screen font-sans">
-            {/* Новая HERO секция с параллаксом и 3D эффектом */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden">
-                {/* Слои параллакса */}
+            {/* Hero секция с видео-фоном */}
+            <section className="relative py-8 md:py-0 md:h-screen flex items-center overflow-hidden">
+                {/* Видео фон */}
                 <div className="absolute inset-0 z-0">
-                    <div
-                        className="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] bg-cover bg-center"
-                        style={{ transform: 'translateZ(-10px) scale(2)' }}
-                    ></div>
+                    <div className="relative w-full h-full overflow-hidden">
+                        {/* MP4 видео */}
+                        <video
+                            ref={videoRef}
+                            className="absolute w-full h-full object-cover"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            preload="auto"
+                        >
+                            <source src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/green-uni-compressed.mp4" type="video/mp4" />
+                        </video>
+
+                        {/* Закомментированный YouTube iframe для возможного возврата */}
+                        {/* 
+            <iframe
+                ref={videoRef}
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=dQw4w9WgXcQ&mute=1&playsinline=1&enablejsapi=1"
+                className="absolute w-[300%] h-[300%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                title="Зеленый университет Фоновое видео"
+            ></iframe>
+            */}
+                    </div>
                 </div>
 
                 {/* Темный оверлей */}
-                <div className="absolute inset-0 bg-gradient-to-b from-green-950/90 via-green-900/80 to-green-800/70 z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-green-950/95 via-green-900/85 to-green-800/60 z-10"></div>
 
                 {/* Декоративная сетка */}
                 <div className="absolute inset-0 z-20">
@@ -65,64 +96,48 @@ export default function Page() {
                 <div className="absolute bottom-1/4 right-1/3 w-40 h-40 rounded-full bg-green-300/10 blur-3xl animate-float-medium z-20"></div>
                 <div className="absolute top-1/3 right-1/4 w-32 h-32 rounded-full bg-green-400/10 blur-3xl animate-float-fast z-20"></div>
 
-                {/* Главное содержимое */}
-                <div className="relative z-30 max-w-screen-xl mx-auto px-6 text-center">
-                    <div className="relative inline-block mb-4">
-                        <div
-                            className="absolute -inset-1 bg-gradient-to-r from-green-600 via-green-400 to-green-600 rounded-lg blur opacity-30 animate-pulse"
-                        ></div>
-                        <span className="relative px-3 py-1 text-sm font-medium text-white bg-green-800/50 rounded-lg border border-green-600/30 uppercase tracking-wider">
-                            Образование для будущего
-                        </span>
-                    </div>
-
-                    <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-                        Зеленый университет
-                    </h1>
-
-                    <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed">
-                        Ведущий образовательный центр по экологии и устойчивому развитию,
-                        формирующий специалистов для решения глобальных вызовов будущего
-                    </p>
-
-                    <div className="flex flex-wrap gap-6 justify-center">
-                        <button
-                            className="relative group overflow-hidden py-4 px-10 font-bold rounded-full transition-all duration-500 text-lg"
-                            style={{
-                                background: `linear-gradient(${position}deg, #4ade80 0%, #16a34a 25%, #22c55e 50%, #15803d 75%, #4ade80 100%)`,
-                                color: '#022c22',
-                                transform: `scale(${pulseSize})`,
-                            }}
-                        >
-                            <span className="relative z-10">Подробнее</span>
-                            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-0 bg-gradient-to-r from-white/20 to-transparent transition-transform duration-500"></div>
-                        </button>
-
-                        <button className="py-4 px-10 font-bold rounded-full border-2 border-green-500 text-white bg-transparent hover:bg-green-800/30 transition-all duration-300 text-lg">
-                            Подать заявку
-                        </button>
-                    </div>
-                </div>
-
-                {/* Абсолютно позиционированные иконки */}
-                <div className="absolute bottom-10 left-10 w-24 h-24 z-20">
-                    <div className="relative w-full h-full">
-                        <div className="absolute inset-0 rounded-xl border border-green-500/30 backdrop-blur-sm bg-green-900/10 flex items-center justify-center text-white/70">
-                            <Leaf size={32} className="text-green-500" />
+                {/* Главное содержимое - перемещено влево */}
+                <div className="relative z-30 max-w-screen-xl mx-auto px-6 w-full">
+                    <div className="md:max-w-xl">
+                        <div className="relative inline-block mb-4">
+                            <div
+                                className="absolute -inset-1 bg-gradient-to-r from-green-600 via-green-400 to-green-600 rounded-lg blur opacity-30 animate-pulse"
+                            ></div>
+                            <span className="relative px-3 py-1 text-sm font-medium text-white bg-green-800/50 rounded-lg border border-green-600/30 uppercase tracking-wider">
+                                Образование для будущего
+                            </span>
                         </div>
-                    </div>
-                </div>
 
-                <div className="absolute top-10 right-10 w-24 h-24 z-20">
-                    <div className="relative w-full h-full">
-                        <div className="absolute inset-0 rounded-xl border border-green-500/30 backdrop-blur-sm bg-green-900/10 flex items-center justify-center text-white/70">
-                            <Globe size={32} className="text-green-500" />
+                        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg text-left">
+                            Зелёная экономика
+                        </h1>
+
+                        <p className="text-xl text-white/80 mb-12 leading-relaxed text-left">
+                            Практичный подход к использованию ресурсов — меньше отходов, больше пользы.
+                            EMU University делает акцент на устойчивом развитии и обучает студентов тому,
+                            как применять экологические принципы в реальной жизни и профессии.
+                        </p>
+
+                        <div className="flex flex-wrap gap-6 justify-start">
+                            <a
+                                href="#more-info"
+                                className="relative group overflow-hidden py-4 px-10 font-bold rounded-full transition-all duration-500 text-lg inline-block"
+                                style={{
+                                    background: `linear-gradient(${position}deg, #4ade80 0%, #16a34a 25%, #22c55e 50%, #15803d 75%, #4ade80 100%)`,
+                                    color: '#022c22',
+                                    transform: `scale(${pulseSize})`,
+                                }}
+                            >
+                                <span className="relative z-10 text-white">Подробнее</span>
+                                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-0 bg-gradient-to-r from-white/20 to-transparent transition-transform duration-500"></div>
+                            </a>
                         </div>
+
                     </div>
                 </div>
 
                 {/* Индикатор скролла */}
-                <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-50">
+                <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center z-50">
                     <div className="w-0.5 h-16 bg-white/30 mb-2 relative overflow-hidden">
                         <div className="w-full h-1/2 bg-white absolute top-0 animate-scrollDown"></div>
                     </div>
@@ -130,34 +145,94 @@ export default function Page() {
                 </div>
             </section>
 
-            {/* Новая секция "О нас" с уникальным дизайном */}
-            <section className="py-16 md:py-24 px-6 bg-white relative">
+            {/* CSS-анимации для плавающих элементов и скролла */}
+            <style jsx global>{`
+    @keyframes scrollDown {
+        0% { top: -100%; }
+        100% { top: 100%; }
+    }
+    .animate-scrollDown {
+        animation: scrollDown 1.5s infinite;
+    }
+    
+    @keyframes float-slow {
+        0%, 100% { transform: translateY(0) translateX(0); }
+        25% { transform: translateY(-15px) translateX(15px); }
+        50% { transform: translateY(0) translateX(30px); }
+        75% { transform: translateY(15px) translateX(15px); }
+    }
+    
+    @keyframes float-medium {
+        0%, 100% { transform: translateY(0) translateX(0); }
+        33% { transform: translateY(-20px) translateX(-10px); }
+        66% { transform: translateY(10px) translateX(-20px); }
+    }
+    
+    @keyframes float-fast {
+        0%, 100% { transform: translateY(0) translateX(0); }
+        50% { transform: translateY(-10px) translateX(10px); }
+    }
+    
+    .animate-float-slow {
+        animation: float-slow 15s infinite ease-in-out;
+    }
+    
+    .animate-float-medium {
+        animation: float-medium 12s infinite ease-in-out;
+    }
+    
+    .animate-float-fast {
+        animation: float-fast 8s infinite ease-in-out;
+    }
+`}</style>
+
+            {/* Секция "О нас" */}
+            <section id="more-info" className="py-16 md:py-24 px-6 bg-white relative">
                 {/* Декоративные элементы */}
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-green-50 -z-10"></div>
                 <div className="absolute top-1/4 left-10 w-32 h-32 rotate-45 border-4 border-green-100 rounded-3xl -z-10"></div>
                 <div className="absolute bottom-10 right-32 w-16 h-16 bg-green-100 rounded-full -z-10"></div>
 
                 <div className="max-w-screen-xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center md:gap-[50px] gap-[10px]">
                         <div>
-                            <span className="inline-block text-green-700 text-sm font-medium tracking-wider uppercase mb-3">О Зеленом университете</span>
-                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Образование для <span className="text-green-600">устойчивого будущего</span></h2>
+                            <div className="relative inline-block mb-4">
+                                <div
+                                    className="absolute -inset-1 bg-gradient-to-r from-green-600 via-green-400 to-green-600 rounded-lg blur opacity-30 animate-pulse"
+                                ></div>
+                                <span className="relative px-3 py-1 text-sm font-medium text-white bg-green-800/50 rounded-lg border border-green-600/30 uppercase tracking-wider">
+                                    Образование для будущего
+                                </span>
+                            </div>
+
+
+                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">EMU University за <span className="text-green-600">осознанное потребление</span></h2>
 
                             <div className="prose prose-lg max-w-none">
                                 <p className="text-gray-700 mb-6">
-                                    Зеленый университет – это современный образовательный и исследовательский центр,
-                                    сосредоточенный на подготовке специалистов в области экологии, устойчивого развития
-                                    и защиты окружающей среды.
+                                    В университете постепенно внедряются принципы зелёной экономики — меньше бумаги, разумное использование электроэнергии,
+                                    сортировка отходов и бережное отношение к ресурсам стали нормой повседневной жизни на кампусе. Мы не стремимся к показухе,
+                                    просто делаем то, что считаем логичным и нужным.
+                                </p>
+
+                                <p className="text-gray-700 mb-6">
+                                    Отдельное внимание — повседневным мелочам: выключать свет в пустых аудиториях, не печатать лишнего, использовать повторно
+                                    то, что ещё можно использовать. Это всё не требует особых усилий, зато в долгосрочной перспективе даёт результат.
+                                </p>
+
+                                <p className="text-gray-700 mb-6">
+                                    В учебных курсах появляются темы, связанные с устойчивым развитием, энергосбережением и экологией — не как отдельная дисциплина,
+                                    а как часть реальной картины мира. Многие студенты сами выходят с инициативами — организуют акции, проекты, делают что-то на местах.
                                 </p>
 
                                 <p className="text-gray-700 mb-8">
-                                    Наша миссия – сформировать новое поколение профессионалов, способных решать наиболее
-                                    актуальные глобальные экологические вызовы и внедрять принципы устойчивого развития
-                                    во всех сферах деятельности.
+                                    Нам важно, чтобы устойчивый подход был не обязанностью, а частью образа мышления. Без давления, без лозунгов. Просто привычка
+                                    думать наперёд и использовать ресурсы с умом.
                                 </p>
                             </div>
 
-                            <div className="mt-10 grid grid-cols-2 gap-6">
+
+                            {/* <div className="mt-10 grid grid-cols-2 gap-6">
                                 <div className="border border-green-100 bg-green-50 p-5 rounded-lg">
                                     <div className="flex items-start">
                                         <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-green-600 text-white mr-4 shrink-0">
@@ -205,13 +280,13 @@ export default function Page() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="relative">
                             <div className="relative z-10 rounded-lg overflow-hidden shadow-xl">
                                 <Image
-                                    src="/api/placeholder/600/700"
+                                    src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/green_university.webp"
                                     alt="Студенты Зеленого университета"
                                     width={600}
                                     height={700}
@@ -226,15 +301,15 @@ export default function Page() {
                 </div>
             </section>
 
-
-            {/* Barqaror rivojlanish maqsadlari */}
-            <section className="py-16 px-6 bg-white">
+            {/* Цели устойчивого развития */}
+            <section className="py-16 px-6 bg-gray-50">
                 <div className="max-w-screen-xl mx-auto">
                     <div className="text-center mb-16">
-                        <span className="inline-block bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-medium mb-2">BMT maqsadlari</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Barqaror rivojlanish maqsadlari</h2>
+                        <span className="inline-block bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-medium mb-2">Цели ООН</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Цели устойчивого развития</h2>
                         <p className="text-gray-600 max-w-2xl mx-auto">
-                            Yashil Universitet BMT tomonidan belgilangan barqaror rivojlanish maqsadlarini qo'llab-quvvatlaydi va o'z faoliyatida aks ettiradi
+                            Зеленый университет поддерживает и внедряет в свою деятельность цели устойчивого развития,
+                            определенные Организацией Объединенных Наций
                         </p>
                     </div>
 
@@ -242,8 +317,8 @@ export default function Page() {
                         {[
                             {
                                 number: "07",
-                                title: "Arzon va toza energiya",
-                                description: "Qayta tiklanadigan energiya manbalarini rivojlantirish orqali barqaror energiya tizimini yaratish",
+                                title: "Доступная и чистая энергия",
+                                description: "Развитие возобновляемых источников энергии для создания устойчивой энергетической системы",
                                 icon: <Wind size={28} />,
                                 color: "bg-yellow-500",
                                 hover: "group-hover:bg-yellow-400",
@@ -251,8 +326,8 @@ export default function Page() {
                             },
                             {
                                 number: "13",
-                                title: "Iqlim o'zgarishiga qarshi kurash",
-                                description: "Iqlim o'zgarishiga qarshi choralarni ko'rish va ekologik muammolarni bartaraf etish",
+                                title: "Борьба с изменением климата",
+                                description: "Принятие мер по борьбе с изменением климата и устранение экологических проблем",
                                 icon: <Leaf size={28} />,
                                 color: "bg-blue-500",
                                 hover: "group-hover:bg-blue-400",
@@ -260,8 +335,8 @@ export default function Page() {
                             },
                             {
                                 number: "14",
-                                title: "Suv ekotizimini muhofaza qilish",
-                                description: "Dunyo okeanlari, dengizlari va suv resurslarini saqlash, ulardan oqilona foydalanish",
+                                title: "Сохранение водных экосистем",
+                                description: "Сохранение и рациональное использование океанов, морей и морских ресурсов",
                                 icon: <Droplets size={28} />,
                                 color: "bg-blue-700",
                                 hover: "group-hover:bg-blue-600",
@@ -269,8 +344,8 @@ export default function Page() {
                             },
                             {
                                 number: "15",
-                                title: "Quruqlik ekotizimini himoya qilish",
-                                description: "O'rmonlarni va tabiiy ekotizimlarni asrash, cho'llanishga qarshi kurashish",
+                                title: "Сохранение экосистем суши",
+                                description: "Защита и восстановление экосистем суши и борьба с опустыниванием",
                                 icon: <TreePine size={28} />,
                                 color: "bg-green-600",
                                 hover: "group-hover:bg-green-500",
@@ -291,16 +366,16 @@ export default function Page() {
                                     <h3 className="text-xl font-bold text-gray-800 mb-3">{goal.title}</h3>
                                     <p className="text-gray-600">{goal.description}</p>
                                 </div>
-                                <div className="h-1 w-0 bg-gradient-to-r from-green-400 to-green-600 group-hover:w-full transition-all duration-500"></div>
+                                <div className="hidden h-1 w-0 bg-gradient-to-r from-green-400 to-green-600 group-hover:w-full transition-all duration-500"></div>
                             </div>
                         ))}
                     </div>
 
-                    <div className="flex justify-center mt-12">
+                    <div className="flex justify-center mt-12 hidden">
                         <button
                             className="bg-green-700 hover:bg-green-800 text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 flex items-center group"
                         >
-                            <span>Batafsil ma'lumot</span>
+                            <span>Подробная информация</span>
                             <svg
                                 className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
                                 fill="none"
@@ -314,35 +389,35 @@ export default function Page() {
                 </div>
             </section>
 
-            {/* Qo'llab-quvvatlash */}
-            <section className="py-16 px-6 bg-white relative overflow-hidden">
+            {/* Поддержка */}
+            <section className="hidden py-16 px-6 bg-white relative overflow-hidden">
                 <div className="absolute top-40 right-10 w-64 h-64 rounded-full bg-green-800 opacity-5 blur-3xl"></div>
                 <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-green-800 opacity-5 blur-3xl"></div>
 
                 <div className="max-w-screen-xl mx-auto relative z-10">
                     <div className="text-center mb-16">
-                        <span className="inline-block bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-medium mb-2">Yordam</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Natijaga erishish uchun qo'llab-quvvatlaymiz</h2>
+                        <span className="inline-block bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-medium mb-2">Поддержка</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Помогаем достичь результата</h2>
                         <p className="text-gray-600 max-w-2xl mx-auto">
-                            Bizning vazifamiz — shunchaki o'qitish emas, balki kelаjаk mutаxаssislаrini tаyyorlаshdа yordаm berishdir
+                            Наша задача — не просто обучать, но помогать в подготовке будущих специалистов
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
                             {
-                                title: "Talabalar hamjamiyati",
-                                description: "Bizning do'stona jamiyatimiz foydali tanishuvlar o'rnatish, ilmiy to'garaklar va qiziqishlarga qarab tashkil etilgan klubarda qatnashish imkonini beradi.",
+                                title: "Студенческое сообщество",
+                                description: "Наше дружественное сообщество позволяет устанавливать полезные знакомства, участвовать в научных кружках и клубах по интересам.",
                                 icon: "🌐"
                             },
                             {
-                                title: "Qo'shimcha ingliz tili kurslari",
-                                description: "Biz til ko'nikmalarini mustahkamlash va akademik muhitda ishonch bilan yo'naltirishga yordam beradigan maxsus dasturlarni taklif etamiz.",
+                                title: "Дополнительные курсы английского",
+                                description: "Мы предлагаем специальные программы, помогающие укрепить языковые навыки и уверенно ориентироваться в академической среде.",
                                 icon: "📚"
                             },
                             {
-                                title: "Zamonaviy ta'lim metodikalari",
-                                description: "Biz an'anaviy akademik amaliyotlarni innovatsion texnologiyalar bilan birlashtirgan holda ta'lim jarayonini interaktiv qilamiz.",
+                                title: "Современные методы обучения",
+                                description: "Мы делаем учебный процесс интерактивным, сочетая традиционные академические практики с инновационными технологиями.",
                                 icon: "💡"
                             }
                         ].map((support, index) => (
@@ -366,7 +441,7 @@ export default function Page() {
                                     </p>
 
                                     <div className="flex justify-between items-center">
-                                        <span className="text-xs font-medium bg-green-50 text-green-700 py-1 px-3 rounded-full">100% kafolat</span>
+                                        <span className="text-xs font-medium bg-green-50 text-green-700 py-1 px-3 rounded-full">100% гарантия</span>
                                     </div>
                                 </div>
                             </div>
@@ -383,23 +458,22 @@ export default function Page() {
                                 transform: `scale(${pulseSize})`,
                             }}
                         >
-                            Ariza topshirish
+                            Подать заявку
                         </button>
                     </div>
                 </div>
             </section>
 
 
-
             <style jsx global>{`
-        @keyframes scrollDown {
-          0% { top: -100%; }
-          100% { top: 100%; }
-        }
-        .animate-scrollDown {
-          animation: scrollDown 1.5s infinite;
-        }
-      `}</style>
+                @keyframes scrollDown {
+                0% { top: -100%; }
+                100% { top: 100%; }
+                }
+                .animate-scrollDown {
+                animation: scrollDown 1.5s infinite;
+                }
+            `}</style>
         </main>
     );
 }

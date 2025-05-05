@@ -430,6 +430,7 @@ export default function Header() {
                 { name: "Наши кампусы", name_uz: "Bizning kampuslar", href: "/campus", href_uz: "/uz/campus" },
                 { name: "Клинические базы", name_uz: "Klinik bazalar", href: "/clinic-base", href_uz: "/uz/clinic-base" },
                 { name: "Фотогаллерея", name_uz: "Fotogalereya", href: "/photogallery", href_uz: "/uz/photogallery" },
+                { name: "Зеленый Университет", name_uz: "Yashil Universitet", href: "/green", href_uz: "/uz/green" },
                 { name: "Научный журнал", name_uz: "Ilmiy jurnal", href: "/journal", href_uz: "/uz/journal" },
             ]
         },
