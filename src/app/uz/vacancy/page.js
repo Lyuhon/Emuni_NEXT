@@ -21,7 +21,7 @@ const VacanciesPage = () => {
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
             <div className="relative h-80 flex items-center justify-center overflow-hidden" style={{
-                background: `linear-gradient(rgba(99, 20, 99, 0.60), rgba(99, 20, 99, 0.70)), url('https://emuni.uz/wp-content/uploads/2022/06/vakansiya-new-2-min.webp')`,
+                background: `linear-gradient(rgba(99, 20, 99, 0.60), rgba(99, 20, 99, 0.70)), url('http://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/vacancy-hero.webp')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}>

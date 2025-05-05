@@ -115,7 +115,7 @@
 
 //     return (
 //         <>
-//             <header className="fixed top-0 w-full bg-[#5f1464] z-[8000] shadow-lg">
+//             <header className="fixed top-0 w-full bg-[#6B0E55] z-[8000] shadow-lg">
 //                 <div className="max-w-screen-xl mx-auto px-4 py-[40px] md:px-8 h-16 flex items-center justify-between">
 //                     {/* Logo */}
 //                     <Link href={isUzLang ? "/uz" : "/"}>
@@ -196,7 +196,7 @@
 
 //                         <button
 //                             onClick={() => setIsPopupOpen(true)}
-//                             className="pop-form-trigger hidden md:block px-4 py-2 bg-white text-[#5f1464] rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
+//                             className="pop-form-trigger hidden md:block px-4 py-2 bg-white text-[#6B0E55] rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
 //                         >
 //                             {isUzLang ? "Ariza topshirish" : "Подать заявку"}
 //                         </button>
@@ -213,7 +213,7 @@
 
 //                 {/* Mobile Menu */}
 //                 {isMenuOpen && (
-//                     <div className="md:hidden bg-[#5f1464] py-4 px-4">
+//                     <div className="md:hidden bg-[#6B0E55] py-4 px-4">
 //                         {/* Student Platform and Timetable Mobile Buttons */}
 //                         <div className="flex flex-col gap-3 mb-5 bg-[#4a1050] p-4 rounded-xl">
 //                             <h3 className="text-white text-sm font-semibold flex items-center mb-2">
@@ -222,14 +222,14 @@
 //                             </h3>
 //                             <a
 //                                 href="https://edu.emuni.uz/"
-//                                 className="flex items-center px-4 py-2 bg-white/90 text-[#5f1464] rounded-lg text-sm font-medium shadow-md"
+//                                 className="flex items-center px-4 py-2 bg-white/90 text-[#6B0E55] rounded-lg text-sm font-medium shadow-md"
 //                             >
 //                                 <LogIn className="w-4 h-4 mr-2" />
 //                                 {isUzLang ? "Kirish" : "Войти"}
 //                             </a>
 //                             <a
 //                                 href={isUzLang ? "https://emu.edupage.org/timetable" : "https://emu.edupage.org/timetable"}
-//                                 className="flex items-center px-4 py-2 bg-white/90 text-[#5f1464] rounded-lg text-sm font-medium shadow-md"
+//                                 className="flex items-center px-4 py-2 bg-white/90 text-[#6B0E55] rounded-lg text-sm font-medium shadow-md"
 //                             >
 //                                 <CalendarClock className="w-4 h-4 mr-2" />
 //                                 {isUzLang ? "Dars jadvali" : "Расписание"}
@@ -239,7 +239,7 @@
 
 //                         {/* <button
 //                             onClick={() => setIsPopupOpen(true)}
-//                             className="pop-form-trigger flex items-center justify-center px-4 py-2 bg-white/90 text-[#5f1464] rounded-lg text-sm font-medium shadow-md"
+//                             className="pop-form-trigger flex items-center justify-center px-4 py-2 bg-white/90 text-[#6B0E55] rounded-lg text-sm font-medium shadow-md"
 //                         >
 //                             {isUzLang ? "Ariza topshirish" : "Подать заявку"}
 //                         </button> */}
@@ -289,7 +289,7 @@
 //                 )}
 
 //                 {/* Desktop Menu */}
-//                 <div className="hidden md:block bg-[#5f1464] py-3 border-t border-white/30" ref={dropdownRef}>
+//                 <div className="hidden md:block bg-[#6B0E55] py-3 border-t border-white/30" ref={dropdownRef}>
 //                     <ul className="max-w-screen-xl mx-auto px-4 flex flex-wrap justify-center gap-x-4 gap-y-2.5 text-white text-sm">
 //                         {menuItems.map((item, index) => (
 //                             <li key={item.name} className="relative">
@@ -309,7 +309,7 @@
 //                                                     <a
 //                                                         key={subItem.name}
 //                                                         href={isUzLang ? subItem.href_uz : subItem.href}
-//                                                         className="block px-4 py-2 text-[#5f1464] hover:bg-[#5f1464] hover:text-white transition-colors"
+//                                                         className="block px-4 py-2 text-[#6B0E55] hover:bg-[#6B0E55] hover:text-white transition-colors"
 //                                                     >
 //                                                         {isUzLang ? subItem.name_uz : subItem.name}
 //                                                     </a>
@@ -481,7 +481,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="fixed top-0 w-full bg-[#5f1464] z-[8000] shadow-lg">
+            <header className="fixed top-0 w-full bg-[#6B0E55] z-[8000] shadow-lg">
                 <div className="max-w-screen-xl mx-auto px-4 py-[40px] md:px-8 h-16 flex items-center justify-between">
                     {/* Logo */}
                     <Link href={isUzLang ? "/uz" : "/"} onClick={() => setIsMenuOpen(false)}>
@@ -562,7 +562,7 @@ export default function Header() {
 
                         <button
                             onClick={() => setIsPopupOpen(true)}
-                            className="pop-form-trigger hidden md:block px-4 py-2 bg-white text-[#5f1464] rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
+                            className="pop-form-trigger hidden md:block px-4 py-2 bg-white text-[#6B0E55] rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
                         >
                             {isUzLang ? "Ariza topshirish" : "Подать заявку"}
                         </button>
@@ -585,7 +585,7 @@ export default function Header() {
                 {/* Mobile Menu - Animated from Right Side */}
                 <div
                     ref={mobileMenuRef}
-                    className={`md:hidden bg-[#5f1464] fixed top-[78px] right-0 z-[7999] w-[90%] h-[calc(100vh-4rem)] overflow-y-auto shadow-lg transform transition-all duration-300 ease-in-out ${isMenuOpen
+                    className={`md:hidden bg-[#6B0E55] fixed top-[78px] right-0 z-[7999] w-[90%] h-[calc(100vh-4rem)] overflow-y-auto shadow-lg transform transition-all duration-300 ease-in-out ${isMenuOpen
                         ? 'translate-x-0 opacity-100'
                         : 'translate-x-full opacity-0 pointer-events-none'
                         }`}
@@ -599,14 +599,14 @@ export default function Header() {
                             </h3>
                             <a
                                 href="https://edu.emuni.uz/"
-                                className="flex items-center px-4 py-2 bg-white/90 text-[#5f1464] rounded-lg text-sm font-medium shadow-md hover:bg-white transition-colors"
+                                className="flex items-center px-4 py-2 bg-white/90 text-[#6B0E55] rounded-lg text-sm font-medium shadow-md hover:bg-white transition-colors"
                             >
                                 <LogIn className="w-4 h-4 mr-2" />
                                 {isUzLang ? "Kirish" : "Войти"}
                             </a>
                             <a
                                 href={isUzLang ? "https://emu.edupage.org/timetable" : "https://emu.edupage.org/timetable"}
-                                className="flex items-center px-4 py-2 bg-white/90 text-[#5f1464] rounded-lg text-sm font-medium shadow-md hover:bg-white transition-colors"
+                                className="flex items-center px-4 py-2 bg-white/90 text-[#6B0E55] rounded-lg text-sm font-medium shadow-md hover:bg-white transition-colors"
                             >
                                 <CalendarClock className="w-4 h-4 mr-2" />
                                 {isUzLang ? "Dars jadvali" : "Расписание"}
@@ -618,7 +618,7 @@ export default function Header() {
                                 setIsPopupOpen(true);
                                 setIsMenuOpen(false);
                             }}
-                            className="w-full pop-form-trigger flex items-center justify-center px-4 py-3 mb-4 bg-white text-[#5f1464] rounded-lg text-sm font-medium shadow-md hover:bg-gray-100 transition-colors"
+                            className="w-full pop-form-trigger flex items-center justify-center px-4 py-3 mb-4 bg-white text-[#6B0E55] rounded-lg text-sm font-medium shadow-md hover:bg-gray-100 transition-colors"
                         >
                             {isUzLang ? "Ariza topshirish" : "Подать заявку"}
                         </button>
@@ -748,7 +748,7 @@ export default function Header() {
                 </div>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:block bg-[#5f1464] py-3 border-t border-white/30" ref={dropdownRef}>
+                <div className="hidden md:block bg-[#6B0E55] py-3 border-t border-white/30" ref={dropdownRef}>
                     <ul className="max-w-screen-xl mx-auto px-4 flex flex-wrap justify-center gap-x-4 gap-y-2.5 text-white text-sm">
                         {menuItems.map((item, index) => (
                             <li key={item.name} className="relative">
@@ -768,7 +768,7 @@ export default function Header() {
                                                     <a
                                                         key={subItem.name}
                                                         href={isUzLang ? subItem.href_uz : subItem.href}
-                                                        className="block px-4 py-2 text-[#5f1464] hover:bg-[#5f1464] hover:text-white transition-colors"
+                                                        className="block px-4 py-2 text-[#6B0E55] hover:bg-[#6B0E55] hover:text-white transition-colors"
                                                     >
                                                         {isUzLang ? subItem.name_uz : subItem.name}
                                                     </a>

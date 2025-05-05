@@ -94,7 +94,7 @@ export default function Home() {
                 initial="hidden"
                 animate="visible"
                 variants={fadeIn}
-                className="md:hidden flex relative bg-gradient-to-br from-[#631463] to-[#8a3c8a] text-white py-20 md:py-32 overflow-hidden md:mt-[0px] mt-[-50px]"
+                className="md:hidden flex relative bg-gradient-to-br from-[#6B0E55] to-[#8a3c8a] text-white py-20 md:py-32 overflow-hidden md:mt-[0px] mt-[-50px]"
             >
                 {/* Decorative elements */}
                 <div className="absolute inset-0 overflow-hidden">
@@ -126,7 +126,7 @@ export default function Home() {
 
 
 
-                            {/* <div className="absolute -top-8 -left-8 w-16 h-16 rounded-full bg-white opacity-90 md:flex hidden items-center justify-center text-[#631463] font-bold text-xl">
+                            {/* <div className="absolute -top-8 -left-8 w-16 h-16 rounded-full bg-white opacity-90 md:flex hidden items-center justify-center text-[#6B0E55] font-bold text-xl">
                                 EMU
                             </div> */}
                             <h1 className="hidden text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -293,7 +293,7 @@ export default function Home() {
                         className="text-center max-w-2xl mx-auto mb-8 md:mb-16"
                     >
                         {/* <div className="inline-block mb-3 md:mb-4">
-                            <div className="h-1 w-16 md:w-20 bg-gradient-to-r from-[#631463] to-[#8a3c8a] rounded-full mx-auto"></div>
+                            <div className="h-1 w-16 md:w-20 bg-gradient-to-r from-[#6B0E55] to-[#8a3c8a] rounded-full mx-auto"></div>
                         </div> */}
                         <h2 className="text-3xl md:text-5xl font-bold text-gray-900 relative z-10 mb-3 md:mb-5">
                             Выбирайте лучшее для своего будущего!
@@ -334,7 +334,7 @@ export default function Home() {
                                             height={350}
                                             className="rounded-xl shadow-xl w-full h-auto z-10 relative"
                                         />
-                                        <div className="absolute -bottom-2 md:-bottom-4 -right-2 md:-right-4 h-full w-full bg-[#631463] rounded-xl z-0"></div>
+                                        <div className="absolute -bottom-2 md:-bottom-4 -right-2 md:-right-4 h-full w-full bg-[#6B0E55] rounded-xl z-0"></div>
                                     </div>
                                 </SwiperSlide>
 
@@ -348,7 +348,7 @@ export default function Home() {
                                             height={350}
                                             className="rounded-xl shadow-xl w-full h-auto z-10 relative"
                                         />
-                                        <div className="absolute -bottom-2 md:-bottom-4 -right-2 md:-right-4 h-full w-full bg-[#631463] rounded-xl z-0"></div>
+                                        <div className="absolute -bottom-2 md:-bottom-4 -right-2 md:-right-4 h-full w-full bg-[#6B0E55] rounded-xl z-0"></div>
                                     </div>
                                 </SwiperSlide>
 
@@ -362,13 +362,13 @@ export default function Home() {
                                             allowFullScreen
                                             className="rounded-xl shadow-xl w-full h-[210px] md:h-[350px] z-10 relative"
                                         ></iframe>
-                                        <div className="absolute -bottom-2 md:-bottom-4 -right-2 md:-right-4 h-full w-full bg-[#631463] rounded-xl z-0"></div>
+                                        <div className="absolute -bottom-2 md:-bottom-4 -right-2 md:-right-4 h-full w-full bg-[#6B0E55] rounded-xl z-0"></div>
                                     </div>
                                 </SwiperSlide>
 
                                 {/* Кастомные кнопки навигации */}
                                 <div style={{ border: '2px solid #f7eef7', background: '#883088' }}
-                                    className="swiper-button-prev-custom absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2 z-20 w-10 h-10 bg-[#631463] rounded-full flex items-center justify-center cursor-pointer">
+                                    className="swiper-button-prev-custom absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2 z-20 w-10 h-10 bg-[#6B0E55] rounded-full flex items-center justify-center cursor-pointer">
                                     <svg
                                         className="w-5 h-5 text-white"
                                         fill="none"
@@ -380,7 +380,7 @@ export default function Home() {
                                     </svg>
                                 </div>
                                 <div style={{ border: '2px solid #f7eef7', background: '#883088' }}
-                                    className="swiper-button-next-custom absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2 z-20 w-10 h-10 bg-[#631463] rounded-full flex items-center justify-center cursor-pointer">
+                                    className="swiper-button-next-custom absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2 z-20 w-10 h-10 bg-[#6B0E55] rounded-full flex items-center justify-center cursor-pointer">
                                     <svg
                                         className="w-5 h-5 text-white"
                                         fill="none"
@@ -429,7 +429,7 @@ export default function Home() {
                 className="py-10 md:py-20 px-4 relative overflow-hidden bg-white -min-h-screen -md:min-h-[90vh]"
             >
                 {/* Декоративный полукруг */}
-                <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-[#631463]/5 rounded-tl-[100%]"></div>
+                <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-[#6B0E55]/5 rounded-tl-[100%]"></div>
 
                 <div className="max-w-screen-xl container mx-auto relative z-10 px-4">
                     <motion.div
@@ -437,7 +437,7 @@ export default function Home() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white text-center py-4 md:py-6 rounded-lg mb-8 md:mb-12"
+                        className="bg-gradient-to-r from-[#6B0E55] to-[#892c73] text-white text-center py-4 md:py-6 rounded-lg mb-8 md:mb-12"
                     >
                         <h2 className="text-2xl md:text-4xl font-bold">
                             Выбирайте лучшее для своего будущего!
@@ -457,7 +457,7 @@ export default function Home() {
                         >
                             <div className="relative pl-4 md:pl-8">
                                 <div className="absolute left-0 top-0 h-full w-1 bg-[#ddb74b]"></div>
-                                <h3 className="text-lg md:text-2xl font-semibold text-[#631463] mb-3">
+                                <h3 className="text-lg md:text-2xl font-semibold text-[#6B0E55] mb-3">
                                     Современные методики обучения
                                 </h3>
                                 <p className="text-sm md:text-base text-gray-600 mb-4">
@@ -515,7 +515,7 @@ export default function Home() {
                                     <source src="https://emuni.uz/wp-content/uploads/2025/04/rolik.mp4" type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
-                                <div className="absolute top-0 left-0 w-16 h-16 bg-[#631463]/20 rounded-br-full"></div>
+                                <div className="absolute top-0 left-0 w-16 h-16 bg-[#6B0E55]/20 rounded-br-full"></div>
                             </div>
                             <motion.a
                                 href="https://apply.emuni.uz/ru"
@@ -524,7 +524,7 @@ export default function Home() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6 }}
                                 whileHover={{ y: -4, boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)' }}
-                                className="mt-4 w-fit ml-auto md:ml-auto relative px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white rounded-lg text-sm md:text-base text-center overflow-hidden group"
+                                className="mt-4 w-fit ml-auto md:ml-auto relative px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#6B0E55] to-[#8a3c8a] text-white rounded-lg text-sm md:text-base text-center overflow-hidden group"
                             >
                                 <span className="relative z-10 flex items-center justify-center">
                                     Подать заявку
@@ -543,7 +543,7 @@ export default function Home() {
                                 <motion.div
                                     animate={{ scale: [1, 1.02, 1] }}
                                     transition={{ repeat: Infinity, duration: 2 }}
-                                    className="absolute inset-0 bg-gradient-to-r from-[#631463]/50 to-[#8a3c8a]/50 rounded-lg"
+                                    className="absolute inset-0 bg-gradient-to-r from-[#6B0E55]/50 to-[#8a3c8a]/50 rounded-lg"
                                 ></motion.div>
                             </motion.a>
                         </motion.div>
@@ -583,9 +583,9 @@ export default function Home() {
                 className="py-6 md:py-6 md:mb-16 px-4 relative bg-gradient-to-b from-white via-[#f7eef7] to-white overflow-hidden"
             >
                 {/* Декоративные элементы */}
-                <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-[#631463] opacity-5 blur-3xl"></div>
+                <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-[#6B0E55] opacity-5 blur-3xl"></div>
                 <div className="absolute bottom-10 left-20 w-80 h-80 rounded-full bg-[#8a3c8a] opacity-5 blur-3xl"></div>
-                <div className="absolute top-1/3 left-1/4 w-8 h-8 rounded-full bg-[#631463] opacity-15"></div>
+                <div className="absolute top-1/3 left-1/4 w-8 h-8 rounded-full bg-[#6B0E55] opacity-15"></div>
 
                 <div className="max-w-screen-xl container mx-auto relative z-10">
                     <motion.div
@@ -595,7 +595,7 @@ export default function Home() {
                         className="text-center max-w-3xl mx-auto mb-16"
                     >
                         <div className="inline-block mb-4">
-                            <div className="h-1 w-20 bg-gradient-to-r from-[#631463] to-[#8a3c8a] rounded-full mx-auto"></div>
+                            <div className="h-1 w-20 bg-gradient-to-r from-[#6B0E55] to-[#8a3c8a] rounded-full mx-auto"></div>
                         </div>
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                             Преимущества обучения
@@ -644,10 +644,10 @@ export default function Home() {
                                 whileHover={{ y: -10, boxShadow: "0 20px 25px -5px rgba(99, 20, 99, 0.1)" }}
                                 className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300"
                             >
-                                <div className="h-2 w-full bg-gradient-to-r from-[#631463] to-[#8a3c8a]"></div>
+                                <div className="h-2 w-full bg-gradient-to-r from-[#6B0E55] to-[#8a3c8a]"></div>
                                 <div className="p-6">
                                     <div className="w-16 h-16 bg-[#f7eef7] rounded-full flex items-center justify-center mb-6">
-                                        <span className="text-2xl font-bold bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-transparent bg-clip-text">
+                                        <span className="text-2xl font-bold bg-gradient-to-r from-[#6B0E55] to-[#8a3c8a] text-transparent bg-clip-text">
                                             {advantage.number}
                                         </span>
                                     </div>
@@ -689,7 +689,7 @@ export default function Home() {
                             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 relative z-10">
                                 Требования к поступающим
                             </h2>
-                            {/* <div className="absolute -bottom-3 left-0 right-0 h-3 bg-gradient-to-r from-[#631463] to-[#8a3c8a] opacity-70 rounded-full -z-10"></div> */}
+                            {/* <div className="absolute -bottom-3 left-0 right-0 h-3 bg-gradient-to-r from-[#6B0E55] to-[#8a3c8a] opacity-70 rounded-full -z-10"></div> */}
                         </div>
 
                         <p className="text-gray-600 text-lg max-w-3xl mx-auto mt-6">
@@ -709,17 +709,17 @@ export default function Home() {
                             }}
                             className="relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300"
                         >
-                            <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-[#631463] to-[#8a3c8a]"></div>
+                            <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-[#6B0E55] to-[#8a3c8a]"></div>
                             <div className="p-8">
                                 <div className="w-16 h-16 bg-[#f7eef7] rounded-full flex items-center justify-center mb-6">
-                                    <span className="text-2xl font-bold bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-transparent bg-clip-text">01</span>
+                                    <span className="text-2xl font-bold bg-gradient-to-r from-[#6B0E55] to-[#8a3c8a] text-transparent bg-clip-text">01</span>
                                 </div>
 
-                                <h3 className="text-2xl font-bold mb-4 text-[#631463]">Уровень образования</h3>
+                                <h3 className="text-2xl font-bold mb-4 text-[#6B0E55]">Уровень образования</h3>
 
                                 <div className="mt-6 space-y-4">
                                     <div className="flex items-start">
-                                        <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#631463] mr-3 mt-0.5">
+                                        <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#6B0E55] mr-3 mt-0.5">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                             </svg>
@@ -729,7 +729,7 @@ export default function Home() {
                                 </div>
 
                                 <div className="absolute bottom-0 right-0 w-24 h-24 opacity-10">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#631463" className="w-full h-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#6B0E55" className="w-full h-full">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 14l9-5-9-5-9 5 9 5z" />
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 14l9-5-9-5-9 5 9 5zM12 14v10" />
                                     </svg>
@@ -748,21 +748,21 @@ export default function Home() {
                             }}
                             className="relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300"
                         >
-                            <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-[#631463] to-[#8a3c8a]"></div>
+                            <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-[#6B0E55] to-[#8a3c8a]"></div>
                             <div className="p-8">
                                 <div className="w-16 h-16 bg-[#f7eef7] rounded-full flex items-center justify-center mb-6">
-                                    <span className="text-2xl font-bold bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-transparent bg-clip-text">02</span>
+                                    <span className="text-2xl font-bold bg-gradient-to-r from-[#6B0E55] to-[#8a3c8a] text-transparent bg-clip-text">02</span>
                                 </div>
 
-                                <h3 className="text-2xl font-bold mb-4 text-[#631463]">Уровень английского языка</h3>
+                                <h3 className="text-2xl font-bold mb-4 text-[#6B0E55]">Уровень английского языка</h3>
 
                                 <div className="bg-[#f7eef7] rounded-xl p-4 mt-6 relative overflow-hidden">
                                     <div className="relative z-10">
                                         <div className="flex items-center mb-3">
-                                            <div className="flex-shrink-0 h-8 w-8 rounded-full bg-white flex items-center justify-center text-[#631463] mr-3">
+                                            <div className="flex-shrink-0 h-8 w-8 rounded-full bg-white flex items-center justify-center text-[#6B0E55] mr-3">
                                                 <span className="font-bold">A2</span>
                                             </div>
-                                            <span className="font-semibold text-[#631463]">Минимальный уровень</span>
+                                            <span className="font-semibold text-[#6B0E55]">Минимальный уровень</span>
                                         </div>
                                         <p className="text-gray-700 text-sm">
                                             Определяется согласно Общей европейской системе оценки владения языком (CEFR)
@@ -772,7 +772,7 @@ export default function Home() {
 
                                 <div className="mt-6 space-y-4">
                                     <div className="flex items-start">
-                                        <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#631463] mr-3 mt-0.5">
+                                        <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#6B0E55] mr-3 mt-0.5">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                                             </svg>
@@ -780,7 +780,7 @@ export default function Home() {
                                         <p className="text-gray-700">Уровень будет проверен на вступительном тесте</p>
                                     </div>
                                     <div className="flex items-start">
-                                        <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#631463] mr-3 mt-0.5">
+                                        <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f7eef7] flex items-center justify-center text-[#6B0E55] mr-3 mt-0.5">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                             </svg>
@@ -802,18 +802,18 @@ export default function Home() {
                             }}
                             className="relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300"
                         >
-                            <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-[#631463] to-[#8a3c8a]"></div>
+                            <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-[#6B0E55] to-[#8a3c8a]"></div>
                             <div className="p-8">
                                 <div className="w-16 h-16 bg-[#f7eef7] rounded-full flex items-center justify-center mb-6">
-                                    <span className="text-2xl font-bold bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-transparent bg-clip-text">03</span>
+                                    <span className="text-2xl font-bold bg-gradient-to-r from-[#6B0E55] to-[#8a3c8a] text-transparent bg-clip-text">03</span>
                                 </div>
 
-                                <h3 className="text-2xl font-bold mb-4 text-[#631463]">Необходимые документы</h3>
+                                <h3 className="text-2xl font-bold mb-4 text-[#6B0E55]">Необходимые документы</h3>
 
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="pop-form-trigger bg-gradient-to-r from-[#631463] to-[#8a3c8a] text-white py-3 px-6 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center w-full mb-6"
+                                    className="pop-form-trigger bg-gradient-to-r from-[#6B0E55] to-[#8a3c8a] text-white py-3 px-6 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center w-full mb-6"
                                 >
                                     Подать заявку
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -823,25 +823,25 @@ export default function Home() {
 
                                 <div className="space-y-4">
                                     <div className="flex items-start">
-                                        <div className="flex-shrink-0 rounded-full bg-[#631463] bg-opacity-10 text-[#631463] w-7 h-7 flex items-center justify-center font-bold mr-3 mt-0.5">
+                                        <div className="flex-shrink-0 rounded-full bg-[#6B0E55] bg-opacity-10 text-[#6B0E55] w-7 h-7 flex items-center justify-center font-bold mr-3 mt-0.5">
                                             1
                                         </div>
                                         <p className="text-gray-700 text-sm">Академические справки или аттестат о среднем образовании</p>
                                     </div>
                                     <div className="flex items-start">
-                                        <div className="flex-shrink-0 rounded-full bg-[#631463] bg-opacity-10 text-[#631463] w-7 h-7 flex items-center justify-center font-bold mr-3 mt-0.5">
+                                        <div className="flex-shrink-0 rounded-full bg-[#6B0E55] bg-opacity-10 text-[#6B0E55] w-7 h-7 flex items-center justify-center font-bold mr-3 mt-0.5">
                                             2
                                         </div>
                                         <p className="text-gray-700 text-sm">Документ, подтверждающий личность и возраст</p>
                                     </div>
                                     <div className="flex items-start">
-                                        <div className="flex-shrink-0 rounded-full bg-[#631463] bg-opacity-10 text-[#631463] w-7 h-7 flex items-center justify-center font-bold mr-3 mt-0.5">
+                                        <div className="flex-shrink-0 rounded-full bg-[#6B0E55] bg-opacity-10 text-[#6B0E55] w-7 h-7 flex items-center justify-center font-bold mr-3 mt-0.5">
                                             3
                                         </div>
                                         <p className="text-gray-700 text-sm">Удостоверение личности родителя/опекуна</p>
                                     </div>
                                     <div className="flex items-start">
-                                        <div className="flex-shrink-0 rounded-full bg-[#631463] bg-opacity-10 text-[#631463] w-7 h-7 flex items-center justify-center font-bold mr-3 mt-0.5">
+                                        <div className="flex-shrink-0 rounded-full bg-[#6B0E55] bg-opacity-10 text-[#6B0E55] w-7 h-7 flex items-center justify-center font-bold mr-3 mt-0.5">
                                             4
                                         </div>
                                         <p className="text-gray-700 text-sm">Результаты тестирования по модулям <strong>Базовый</strong> и <strong>Продвинутый</strong></p>
@@ -849,7 +849,7 @@ export default function Home() {
                                 </div>
 
                                 <div className="absolute bottom-0 right-0 w-24 h-24 opacity-10">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#631463" className="w-full h-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#6B0E55" className="w-full h-full">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                     </svg>
                                 </div>
@@ -870,15 +870,15 @@ export default function Home() {
             {/* Поддерживаем и помогаем прийти к результату - улучшенная версия */}
             <section id="mission_support" className="py-10 md:py-24 md:pb-6 px-4 relative overflow-hidden bg-gradient-to-b from-white via-[#f7eef7] to-white">
                 {/* Декоративные элементы */}
-                <div className="absolute top-40 right-10 w-64 h-64 rounded-full bg-[#631463] opacity-5 blur-3xl"></div>
-                <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-[#631463] opacity-5 blur-3xl"></div>
-                <div className="absolute top-1/4 left-1/3 w-6 h-6 rounded-full bg-[#631463] opacity-20"></div>
-                <div className="absolute bottom-1/3 right-1/4 w-8 h-8 rounded-full bg-[#631463] opacity-15"></div>
+                <div className="absolute top-40 right-10 w-64 h-64 rounded-full bg-[#6B0E55] opacity-5 blur-3xl"></div>
+                <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-[#6B0E55] opacity-5 blur-3xl"></div>
+                <div className="absolute top-1/4 left-1/3 w-6 h-6 rounded-full bg-[#6B0E55] opacity-20"></div>
+                <div className="absolute bottom-1/3 right-1/4 w-8 h-8 rounded-full bg-[#6B0E55] opacity-15"></div>
 
                 {/* Геометрические фигуры */}
-                <div className="absolute top-20 right-40 w-12 h-12 border-4 border-[#631463] border-opacity-10 rounded-lg transform rotate-45"></div>
-                <div className="absolute bottom-32 left-24 w-10 h-10 border-4 border-[#631463] border-opacity-10 rounded-full"></div>
-                <div className="absolute top-1/3 left-16 w-20 h-3 bg-[#631463] bg-opacity-5 rounded-full transform rotate-45"></div>
+                <div className="absolute top-20 right-40 w-12 h-12 border-4 border-[#6B0E55] border-opacity-10 rounded-lg transform rotate-45"></div>
+                <div className="absolute bottom-32 left-24 w-10 h-10 border-4 border-[#6B0E55] border-opacity-10 rounded-full"></div>
+                <div className="absolute top-1/3 left-16 w-20 h-3 bg-[#6B0E55] bg-opacity-5 rounded-full transform rotate-45"></div>
 
                 <div className="max-w-screen-xl container mx-auto relative z-10">
                     <motion.div
@@ -891,9 +891,9 @@ export default function Home() {
                             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 relative z-10">
                                 Поддерживаем и помогаем
                             </h2>
-                            {/* <div className="absolute -bottom-3 left-0 right-0 h-3 bg-gradient-to-r from-[#631463] to-[#8a3c8a] opacity-70 rounded-full"></div> */}
+                            {/* <div className="absolute -bottom-3 left-0 right-0 h-3 bg-gradient-to-r from-[#6B0E55] to-[#8a3c8a] opacity-70 rounded-full"></div> */}
                         </div>
-                        <h3 className="text-3xl md:text-4xl font-bold text-[#631463] mb-6">прийти к результату</h3>
+                        <h3 className="text-3xl md:text-4xl font-bold text-[#6B0E55] mb-6">прийти к результату</h3>
                         <p className="text-gray-600 text-lg">
                             Наша миссия — не просто обучать, но обеспечить каждому студенту путь к успешному поступлению
                         </p>
@@ -912,16 +912,16 @@ export default function Home() {
                             className="bg-white rounded-2xl shadow-xl transition-all duration-500 group relative overflow-hidden"
                         >
                             {/* Верхний цветной круг */}
-                            <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br from-[#631463] to-[#8a3c8a] group-hover:scale-150 transition-transform duration-500"></div>
+                            <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br from-[#6B0E55] to-[#8a3c8a] group-hover:scale-150 transition-transform duration-500"></div>
 
                             <div className="p-8 relative z-10">
                                 <div className="w-16 h-16 rounded-2xl bg-white shadow-md flex items-center justify-center mb-6 transform -rotate-6 group-hover:rotate-0 transition-all duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#631463]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#6B0E55]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                                     </svg>
                                 </div>
 
-                                <h3 className="text-xl font-bold mb-4 group-hover:text-[#631463] transition-colors duration-300">
+                                <h3 className="text-xl font-bold mb-4 group-hover:text-[#6B0E55] transition-colors duration-300">
                                     Студенческое сообщество
                                 </h3>
 
@@ -930,10 +930,10 @@ export default function Home() {
                                 </p>
 
                                 <div className="flex justify-between items-center">
-                                    <span className="text-xs font-medium bg-[#f7eef7] text-[#631463] py-1 px-3 rounded-full">Гарантия 100%</span>
+                                    <span className="text-xs font-medium bg-[#f7eef7] text-[#6B0E55] py-1 px-3 rounded-full">Гарантия 100%</span>
                                     <motion.button
                                         whileHover={{ x: 5 }}
-                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline hidden"
+                                        className="text-[#6B0E55] font-medium text-sm flex items-center hover:underline hidden"
                                     >
                                         Подробнее
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -956,16 +956,16 @@ export default function Home() {
                             className="bg-white rounded-2xl shadow-xl transition-all duration-500 group relative overflow-hidden"
                         >
                             {/* Верхний цветной круг */}
-                            <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br from-[#631463] to-[#8a3c8a] group-hover:scale-150 transition-transform duration-500"></div>
+                            <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br from-[#6B0E55] to-[#8a3c8a] group-hover:scale-150 transition-transform duration-500"></div>
 
                             <div className="p-8 relative z-10">
                                 <div className="w-16 h-16 rounded-2xl bg-white shadow-md flex items-center justify-center mb-6 transform -rotate-6 group-hover:rotate-0 transition-all duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#631463]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#6B0E55]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                     </svg>
                                 </div>
 
-                                <h3 className="text-xl font-bold mb-4 group-hover:text-[#631463] transition-colors duration-300">
+                                <h3 className="text-xl font-bold mb-4 group-hover:text-[#6B0E55] transition-colors duration-300">
                                     Дополнительные курсы английского языка
                                 </h3>
 
@@ -974,10 +974,10 @@ export default function Home() {
                                 </p>
 
                                 <div className="flex justify-between items-center">
-                                    <span className="text-xs font-medium bg-[#f7eef7] text-[#631463] py-1 px-3 rounded-full">Персонализация</span>
+                                    <span className="text-xs font-medium bg-[#f7eef7] text-[#6B0E55] py-1 px-3 rounded-full">Персонализация</span>
                                     <motion.button
                                         whileHover={{ x: 5 }}
-                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline hidden"
+                                        className="text-[#6B0E55] font-medium text-sm flex items-center hover:underline hidden"
                                     >
                                         Подробнее
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1000,16 +1000,16 @@ export default function Home() {
                             className="bg-white rounded-2xl shadow-xl transition-all duration-500 group relative overflow-hidden"
                         >
                             {/* Верхний цветной круг */}
-                            <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br from-[#631463] to-[#8a3c8a] group-hover:scale-150 transition-transform duration-500"></div>
+                            <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br from-[#6B0E55] to-[#8a3c8a] group-hover:scale-150 transition-transform duration-500"></div>
 
                             <div className="p-8 relative z-10">
                                 <div className="w-16 h-16 rounded-2xl bg-white shadow-md flex items-center justify-center mb-6 transform -rotate-6 group-hover:rotate-0 transition-all duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#631463]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#6B0E55]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                     </svg>
                                 </div>
 
-                                <h3 className="text-xl font-bold mb-4 group-hover:text-[#631463] transition-colors duration-300">
+                                <h3 className="text-xl font-bold mb-4 group-hover:text-[#6B0E55] transition-colors duration-300">
                                     Современные методики обучения
                                 </h3>
 
@@ -1018,10 +1018,10 @@ export default function Home() {
                                 </p>
 
                                 <div className="flex justify-between items-center">
-                                    <span className="text-xs font-medium bg-[#f7eef7] text-[#631463] py-1 px-3 rounded-full">Интерактивность</span>
+                                    <span className="text-xs font-medium bg-[#f7eef7] text-[#6B0E55] py-1 px-3 rounded-full">Интерактивность</span>
                                     <motion.button
                                         whileHover={{ x: 5 }}
-                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline hidden"
+                                        className="text-[#6B0E55] font-medium text-sm flex items-center hover:underline hidden"
                                     >
                                         Подробнее
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1044,16 +1044,16 @@ export default function Home() {
                             className="bg-white rounded-2xl shadow-xl transition-all duration-500 group relative overflow-hidden"
                         >
                             {/* Верхний цветной круг */}
-                            <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br from-[#631463] to-[#8a3c8a] group-hover:scale-150 transition-transform duration-500"></div>
+                            <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br from-[#6B0E55] to-[#8a3c8a] group-hover:scale-150 transition-transform duration-500"></div>
 
                             <div className="p-8 relative z-10">
                                 <div className="w-16 h-16 rounded-2xl bg-white shadow-md flex items-center justify-center mb-6 transform -rotate-6 group-hover:rotate-0 transition-all duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#631463]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#6B0E55]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                                     </svg>
                                 </div>
 
-                                <h3 className="text-xl font-bold mb-4 group-hover:text-[#631463] transition-colors duration-300">
+                                <h3 className="text-xl font-bold mb-4 group-hover:text-[#6B0E55] transition-colors duration-300">
                                     Развитие клинического мышления
                                 </h3>
 
@@ -1062,10 +1062,10 @@ export default function Home() {
                                 </p>
 
                                 <div className="flex justify-between items-center">
-                                    <span className="text-xs font-medium bg-[#f7eef7] text-[#631463] py-1 px-3 rounded-full">Экспертность</span>
+                                    <span className="text-xs font-medium bg-[#f7eef7] text-[#6B0E55] py-1 px-3 rounded-full">Экспертность</span>
                                     <motion.button
                                         whileHover={{ x: 5 }}
-                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline hidden"
+                                        className="text-[#6B0E55] font-medium text-sm flex items-center hover:underline hidden"
                                     >
                                         Подробнее
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1088,16 +1088,16 @@ export default function Home() {
                             className="bg-white rounded-2xl shadow-xl transition-all duration-500 group relative overflow-hidden"
                         >
                             {/* Верхний цветной круг */}
-                            <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br from-[#631463] to-[#8a3c8a] group-hover:scale-150 transition-transform duration-500"></div>
+                            <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br from-[#6B0E55] to-[#8a3c8a] group-hover:scale-150 transition-transform duration-500"></div>
 
                             <div className="p-8 relative z-10">
                                 <div className="w-16 h-16 rounded-2xl bg-white shadow-md flex items-center justify-center mb-6 transform -rotate-6 group-hover:rotate-0 transition-all duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#631463]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#6B0E55]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </div>
 
-                                <h3 className="text-xl font-bold mb-4 group-hover:text-[#631463] transition-colors duration-300">
+                                <h3 className="text-xl font-bold mb-4 group-hover:text-[#6B0E55] transition-colors duration-300">
                                     Квалифицированные преподаватели и передовые лаборатории
                                 </h3>
 
@@ -1106,10 +1106,10 @@ export default function Home() {
                                 </p>
 
                                 <div className="flex justify-between items-center">
-                                    <span className="text-xs font-medium bg-[#f7eef7] text-[#631463] py-1 px-3 rounded-full">Гибкость</span>
+                                    <span className="text-xs font-medium bg-[#f7eef7] text-[#6B0E55] py-1 px-3 rounded-full">Гибкость</span>
                                     <motion.button
                                         whileHover={{ x: 5 }}
-                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline hidden"
+                                        className="text-[#6B0E55] font-medium text-sm flex items-center hover:underline hidden"
                                     >
                                         Подробнее
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1132,16 +1132,16 @@ export default function Home() {
                             className="bg-white rounded-2xl shadow-xl transition-all duration-500 group relative overflow-hidden"
                         >
                             {/* Верхний цветной круг */}
-                            <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br from-[#631463] to-[#8a3c8a] group-hover:scale-150 transition-transform duration-500"></div>
+                            <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br from-[#6B0E55] to-[#8a3c8a] group-hover:scale-150 transition-transform duration-500"></div>
 
                             <div className="p-8 relative z-10">
                                 <div className="w-16 h-16 rounded-2xl bg-white shadow-md flex items-center justify-center mb-6 transform -rotate-6 group-hover:rotate-0 transition-all duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#631463]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#6B0E55]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                     </svg>
                                 </div>
 
-                                <h3 className="text-xl font-bold mb-4 group-hover:text-[#631463] transition-colors duration-300">
+                                <h3 className="text-xl font-bold mb-4 group-hover:text-[#6B0E55] transition-colors duration-300">
                                     Удобная локация и современные кампусы
                                 </h3>
 
@@ -1150,10 +1150,10 @@ export default function Home() {
                                 </p>
 
                                 <div className="flex justify-between items-center">
-                                    <span className="text-xs font-medium bg-[#f7eef7] text-[#631463] py-1 px-3 rounded-full">Развитие</span>
+                                    <span className="text-xs font-medium bg-[#f7eef7] text-[#6B0E55] py-1 px-3 rounded-full">Развитие</span>
                                     <motion.button
                                         whileHover={{ x: 5 }}
-                                        className="text-[#631463] font-medium text-sm flex items-center hover:underline hidden"
+                                        className="text-[#6B0E55] font-medium text-sm flex items-center hover:underline hidden"
                                     >
                                         Подробнее
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">

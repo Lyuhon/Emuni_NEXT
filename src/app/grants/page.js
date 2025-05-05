@@ -34,7 +34,7 @@ const SupportFundPage = () => {
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
             <div className="relative h-80 flex items-center justify-center overflow-hidden" style={{
-                background: `linear-gradient(rgba(99, 20, 99, 0.60), rgba(99, 20, 99, 0.70)), url('https://emuni.uz/wp-content/uploads/2023/05/emu-1536x856.jpg')`,
+                background: `linear-gradient(rgba(99, 20, 99, 0.60), rgba(99, 20, 99, 0.70)), url('http://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/grants-hero-min.jpg')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}>
