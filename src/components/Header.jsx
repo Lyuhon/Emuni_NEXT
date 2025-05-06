@@ -437,7 +437,7 @@ export default function Header() {
 
 
         { name: "Техникум EMU", name_uz: "EMU texnikumi", href: "https://texnikum.emuni.uz/", href_uz: "https://texnikum.emuni.uz/" },
-        { name: "Новости", name_uz: "Yangiliklar", href: "/blog", href_uz: "/uz/news" },
+        { name: "Новости", name_uz: "Yangiliklar", href: "/blog", href_uz: "/uz/blog" },
         { name: "Как нас найти", name_uz: "Bizni qanday topish mumkin", href: "/contacts", href_uz: "/uz/contacts" },
         { name: "FAQ", name_uz: "FAQ", href: "/faq", href_uz: "/uz/faq" },
         { name: "Вакансии", name_uz: "Vakansiyalar", href: "/vacancy", href_uz: "/uz/vacancy" },
