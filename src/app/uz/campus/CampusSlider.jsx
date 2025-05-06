@@ -1,4 +1,3 @@
-// app/components/CampusSlider.jsx
 "use client";
 import React, { useState, useRef } from "react";
 import Slider from "react-slick";
@@ -7,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { ChevronLeft, ChevronRight, X, Maximize, Image as ImageIcon } from "lucide-react";
 import Image from "next/image";
 
-export default function CampusSlider({ campuses, campusIndex }) {
+export default function CampusSlider({ campuses, campusIndex, brandColor }) {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isFullScreen, setIsFullScreen] = useState({
         isOpen: false,
@@ -68,7 +67,7 @@ export default function CampusSlider({ campuses, campusIndex }) {
                                 <button
                                     onClick={() => handleFullScreenOpen(index)}
                                     className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-all"
-                                    aria-label="Открыть в полном размере"
+                                    aria-label="To'liq o'lchamda ochish"
                                 >
                                     <Maximize className="w-5 h-5 text-gray-800" />
                                 </button>
@@ -80,7 +79,7 @@ export default function CampusSlider({ campuses, campusIndex }) {
                     <button
                         onClick={goToPrev}
                         className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-all"
-                        aria-label="Предыдущее изображение"
+                        aria-label="Oldingi rasm"
                     >
                         <ChevronLeft className="w-5 h-5 text-gray-800" />
                     </button>
@@ -88,7 +87,7 @@ export default function CampusSlider({ campuses, campusIndex }) {
                     <button
                         onClick={goToNext}
                         className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-all"
-                        aria-label="Следующее изображение"
+                        aria-label="Keyingi rasm"
                     >
                         <ChevronRight className="w-5 h-5 text-gray-800" />
                     </button>
@@ -100,13 +99,16 @@ export default function CampusSlider({ campuses, campusIndex }) {
                         <button
                             key={index}
                             onClick={() => goToSlide(index)}
-                            className={`flex-shrink-0 w-16 h-16 rounded-md overflow-hidden transition-all ${currentSlide === index ? "ring-2 ring-[#5f1464] opacity-100" : "opacity-60 hover:opacity-100"
+                            className={`flex-shrink-0 w-16 h-16 rounded-md overflow-hidden transition-all ${currentSlide === index ? "ring-2 opacity-100" : "opacity-60 hover:opacity-100"
                                 }`}
+                            style={{
+                                ringColor: brandColor
+                            }}
                         >
                             <div className="relative w-16 h-16">
                                 <Image
                                     src={image}
-                                    alt={`Миниатюра ${index + 1}`}
+                                    alt={`Miniatura ${index + 1}`}
                                     fill
                                     className="object-cover"
                                     crossOrigin="anonymous"
@@ -125,7 +127,7 @@ export default function CampusSlider({ campuses, campusIndex }) {
                         <button
                             onClick={handleCloseFullScreen}
                             className="absolute top-4 right-4 z-10 bg-black/40 backdrop-blur-sm p-2 rounded-full hover:bg-black/60 transition-colors"
-                            aria-label="Закрыть"
+                            aria-label="Yopish"
                         >
                             <X className="w-6 h-6 text-white" />
                         </button>
@@ -152,7 +154,7 @@ export default function CampusSlider({ campuses, campusIndex }) {
                                             : campuses[campusIndex].images.length - 1
                                     }))}
                                     className="p-2 rounded-full hover:bg-white/20 transition-colors"
-                                    aria-label="Предыдущее изображение"
+                                    aria-label="Oldingi rasm"
                                 >
                                     <ChevronLeft className="w-6 h-6" />
                                 </button>
@@ -170,7 +172,7 @@ export default function CampusSlider({ campuses, campusIndex }) {
                                             : 0
                                     }))}
                                     className="p-2 rounded-full hover:bg-white/20 transition-colors"
-                                    aria-label="Следующее изображение"
+                                    aria-label="Keyingi rasm"
                                 >
                                     <ChevronRight className="w-6 h-6" />
                                 </button>

@@ -6,19 +6,24 @@ import { MapPin, Phone, School } from "lucide-react";
 export default function CampusClient({ campuses }) {
     const [activeTab, setActiveTab] = useState(0);
 
+    // Новые фирменные цвета
+    const brandColor = '#6b0e55';
+    const brandColorLight = '#8f3178';
+    const brandColorLighter = '#f9eef5';
+
     return (
         <div className="min-h-screen bg-gray-50">
             {/* HERO Section с более современным дизайном */}
             <div className="bg-white relative overflow-hidden py-16 md:py-24">
                 <div className="absolute inset-0">
-                    <div className="absolute -top-20 right-20 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-pulse" />
-                    <div className="absolute top-40 -left-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-pulse delay-700" />
+                    <div className="absolute -top-20 right-20 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-pulse" style={{ backgroundColor: `${brandColorLighter}` }} />
+                    <div className="absolute top-40 -left-20 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-pulse delay-700" style={{ backgroundColor: `${brandColorLight}40` }} />
                 </div>
 
                 <div className="max-w-5xl mx-auto px-4 md:px-8 relative z-10">
                     <div className="text-center mb-8">
                         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-                            Bizning <span className="text-[#5f1464]">kampuslarimiz</span>
+                            Bizning <span style={{ color: brandColor }}>kampuslarimiz</span>
                         </h1>
                         <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
                             Talabalarning qulay ta'lim olishi va har tomonlama rivojlanishi uchun yaratilgan zamonaviy ta'lim joylari
@@ -33,13 +38,15 @@ export default function CampusClient({ campuses }) {
                                     key={campus.id}
                                     onClick={() => setActiveTab(index)}
                                     className={`flex items-center px-4 py-2 rounded-md transition-all ${activeTab === index
-                                        ? "bg-white shadow-md text-[#5f1464] font-medium"
-                                        : "text-gray-600 hover:text-[#5f1464]"
+                                        ? `bg-white shadow-md font-medium`
+                                        : "text-gray-600 hover:text-gray-800"
                                         }`}
+                                    style={{
+                                        color: activeTab === index ? brandColor : undefined,
+                                    }}
                                 >
                                     <School className="w-4 h-4 mr-2" />
                                     <span className="hidden- md:inline">{campus.title}</span>
-                                    {/* <span className="md:hidden">Кампус {index + 1}</span> */}
                                 </button>
                             ))}
                         </div>
@@ -56,12 +63,13 @@ export default function CampusClient({ campuses }) {
                             <CampusSlider
                                 campuses={campuses}
                                 campusIndex={activeTab}
+                                brandColor={brandColor}
                             />
                         </div>
 
                         {/* Правая колонка - информация занимает 40% ширины на десктопе */}
                         <div className="md:w-2/5 p-6 bg-white">
-                            <h2 className="text-2xl font-bold text-[#5f1464] mb-3">
+                            <h2 className="text-2xl font-bold mb-3" style={{ color: brandColor }}>
                                 {campuses[activeTab].title}
                             </h2>
 
@@ -70,13 +78,13 @@ export default function CampusClient({ campuses }) {
                             </p>
 
                             <div className="flex items-start mb-4">
-                                <MapPin className="w-5 h-5 text-[#5f1464] mt-0.5 mr-2 flex-shrink-0" />
+                                <MapPin className="w-5 h-5 mt-0.5 mr-2 flex-shrink-0" style={{ color: brandColor }} />
                                 <span className="text-gray-700">{campuses[activeTab].location}</span>
                             </div>
 
                             <div className="flex items-center mb-6">
-                                <Phone className="w-5 h-5 text-[#5f1464] mr-2 flex-shrink-0" />
-                                <a href={`tel:${campuses[activeTab].phone}`} className="text-[#5f1464] hover:underline">
+                                <Phone className="w-5 h-5 mr-2 flex-shrink-0" style={{ color: brandColor }} />
+                                <a href={`tel:${campuses[activeTab].phone}`} className="hover:underline" style={{ color: brandColor }}>
                                     {campuses[activeTab].phone}
                                 </a>
                             </div>
@@ -88,7 +96,8 @@ export default function CampusClient({ campuses }) {
                                     {campuses[activeTab].facilities.map((facility, index) => (
                                         <span
                                             key={index}
-                                            className="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                                            className="inline-block px-3 py-1 text-gray-700 text-sm rounded-full"
+                                            style={{ backgroundColor: brandColorLighter }}
                                         >
                                             {facility}
                                         </span>
@@ -116,7 +125,18 @@ export default function CampusClient({ campuses }) {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <a
                                 href={`tel:${campuses[activeTab].phone}`}
-                                className="bg-white border-2 border-[#5f1464] text-[#5f1464] font-medium py-3 px-4 rounded-md hover:bg-[#5f1464]/5 transition-all text-center"
+                                className="bg-white border-2 font-medium py-3 px-4 rounded-md transition-all text-center"
+                                style={{
+                                    borderColor: brandColor,
+                                    color: brandColor,
+                                    backgroundColor: 'white',
+                                }}
+                                onMouseOver={(e) => {
+                                    e.currentTarget.style.backgroundColor = `${brandColorLighter}`;
+                                }}
+                                onMouseOut={(e) => {
+                                    e.currentTarget.style.backgroundColor = 'white';
+                                }}
                             >
                                 <Phone size={18} className="inline mr-2" />
                                 Qo'ng'iroq qiling
@@ -126,7 +146,10 @@ export default function CampusClient({ campuses }) {
                                 href={`https://3.redirect.appmetrica.yandex.com/route?end-lat=41.2794427&end-lon=69.2385207&appmetrica_tracking_id=1178268795219780156`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="bg-gradient-to-r from-[#5f1464] to-[#8a3c8a] text-white font-medium py-3 px-4 rounded-md shadow-md hover:shadow-lg transition-all text-center"
+                                className="font-medium py-3 px-4 rounded-md shadow-md hover:shadow-lg transition-all text-center text-white"
+                                style={{
+                                    background: `linear-gradient(to right, ${brandColor}, ${brandColorLight})`,
+                                }}
                             >
                                 <MapPin size={18} className="inline mr-2" />
                                 Taksi buyurtma qiling

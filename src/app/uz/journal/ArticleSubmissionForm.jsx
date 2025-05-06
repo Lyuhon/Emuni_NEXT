@@ -306,7 +306,7 @@ const ArticleSubmissionForm = ({ isOpen, onClose }) => {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full bg-[#5f1464] text-white p-3 rounded-lg shadow-md hover:bg-[#4a0f4a] transition-all duration-300 transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+                                className="w-full bg-[#6b0e55] text-white p-3 rounded-lg shadow-md hover:bg-[#7a095f] transition-all duration-300 transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
                             >
                                 {isSubmitting ? 'Yuborilmoqda...' : 'Maqolani yuborish'}
                             </button>

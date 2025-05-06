@@ -40,7 +40,7 @@
 // }
 
 
-import FacebookScript from './FacebookScript';
+import Analytics from './Analytics';
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -86,7 +86,11 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
 
-        <FacebookScript pixelId="1350016926067466" />
+        <Analytics
+          yandexId="89860815"
+          pixelId="1157688265576596"
+          gtmId="G-6NWB2GH3G6"
+        />
       </body>
     </html>
   );

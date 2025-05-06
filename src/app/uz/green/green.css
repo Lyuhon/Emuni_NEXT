@@ -1,0 +1,89 @@
+/* CSS-анимации для плавающих элементов и скролла */
+@keyframes scrollDown {
+    0% {
+        top: -100%;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+.animate-scrollDown {
+    animation: scrollDown 1.5s infinite;
+}
+
+@keyframes float-slow {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+
+    25% {
+        transform: translateY(-15px) translateX(15px);
+    }
+
+    50% {
+        transform: translateY(0) translateX(30px);
+    }
+
+    75% {
+        transform: translateY(15px) translateX(15px);
+    }
+}
+
+@keyframes float-medium {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+
+    33% {
+        transform: translateY(-20px) translateX(-10px);
+    }
+
+    66% {
+        transform: translateY(10px) translateX(-20px);
+    }
+}
+
+@keyframes float-fast {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+
+    50% {
+        transform: translateY(-10px) translateX(10px);
+    }
+}
+
+.animate-float-slow {
+    animation: float-slow 15s infinite ease-in-out;
+}
+
+.animate-float-medium {
+    animation: float-medium 12s infinite ease-in-out;
+}
+
+.animate-float-fast {
+    animation: float-fast 8s infinite ease-in-out;
+}
+
+
+@keyframes scrollDown {
+    0% {
+        top: -100%;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+.animate-scrollDown {
+    animation: scrollDown 1.5s infinite;
+}

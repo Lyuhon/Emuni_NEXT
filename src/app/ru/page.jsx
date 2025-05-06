@@ -357,7 +357,7 @@ export default function Home() {
                                     preload="auto"
                                     className="w-full h-auto"
                                 >
-                                    <source src="https://emuni.uz/wp-content/uploads/2025/04/rolik.mp4" type="video/mp4" />
+                                    <source src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/welcome.mp4" type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
                                 <div className="absolute top-0 left-0 w-16 h-16 bg-[#6B0E55]/20 rounded-br-full"></div>

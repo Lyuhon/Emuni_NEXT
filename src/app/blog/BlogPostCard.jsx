@@ -25,7 +25,7 @@ export default function BlogPostCard({ post, categoryName }) {
                     <p className="text-gray-600 text-sm line-clamp-3 flex-grow">
                         {post.description}
                     </p>
-                    <div className="mt-3 pt-2 border-t border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="mt-3 pt-2 border-t border-gray-100 group-hover:opacity-100 transition-opacity">
                         <span className="text-[#5f1464] text-xs font-medium">Подробнее →</span>
                     </div>
                 </div>

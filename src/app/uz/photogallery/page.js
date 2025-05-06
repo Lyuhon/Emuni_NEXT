@@ -1,9 +1,38 @@
 import GalleryAccordion from './GalleryAccordion';
 
+// SEO метаданные на узбекском
+export const metadata = {
+    title: "Fotogalereya - EMU University",
+    description: "EMU University rasmiy fotogalereyasi. Universitet kampusi, tadbirlar, talabalar hayoti va o'quv jarayoni suratlari.",
+    keywords: "fotogalereya, EMU University, talabalar hayoti, tadbirlar, kampus suratlari, universitet videolari",
+    openGraph: {
+        title: "EMU University Fotogalereyasi",
+        description: "EMU University hayotidan suratlari - universitet tadbirlari, kampus va talabalar hayoti",
+        images: ['https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/emu-university-open-graph-logo-min.png'],
+    },
+};
+
+// ISR конфигурация
+export const revalidate = 86400; // Обновление каждые 24 часа
+
+// Структурированные данные для SEO на узбекском
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "EMU University Fotogalereyasi",
+    "description": "Toshkentdagi EMU universiteti rasmiy fotogalereyasi",
+    "url": "https://emu.uz/uz/photogallery",
+    "author": {
+        "@type": "Organization",
+        "name": "EMU University",
+        "url": "https://emu.uz"
+    }
+};
+
 async function fetchGalleryData() {
     try {
         const res = await fetch('https://next.emu.web-perfomance.uz/wp-json/acf/v3/pages/81192', {
-            next: { revalidate: 43200 }, // ISR: кеш на 12 часов (43200 секунд)
+            next: { revalidate: 86400 }, // ISR: кеш на 24 часа (86400 секунд)
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -30,10 +59,10 @@ async function fetchGalleryData() {
 
         // Обработка галереи
         const gallerySections = data.acf.gallereya[0].razdel.map((section) => ({
-            title: section.nazvanie_razdela_uz || 'Без названия',
+            title: section.nazvanie_razdela_uz || 'Nomsiz',
             images: section.izobrazheniya.map((img) => ({
                 src: img.url,
-                alt: img.title || 'Фотография',
+                alt: img.title || 'Surat',
                 width: img.width,
                 height: img.height,
             })),
@@ -50,5 +79,28 @@ async function fetchGalleryData() {
 export default async function PhotoGallery() {
     const { videos, gallerySections } = await fetchGalleryData();
 
-    return <GalleryAccordion videos={videos} gallerySections={gallerySections} />;
+    // Новые фирменные цвета (передаем их в компонент)
+    const brandColors = {
+        primary: '#6b0e55',
+        light: '#8f3178',
+        lighter: '#f9eef5'
+    };
+
+    return (
+        <>
+            {/* Структурированные данные */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(structuredData)
+                }}
+            />
+            <GalleryAccordion
+                videos={videos}
+                gallerySections={gallerySections}
+                brandColors={brandColors}
+                lang="uz"
+            />
+        </>
+    );
 }
