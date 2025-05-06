@@ -76,11 +76,11 @@ const structuredData = {
     "@type": "ImageGallery",
     "name": "Фотогалерея EMU University",
     "description": "Официальная фотогалерея университета EMU в Ташкенте",
-    "url": "https://emu.uz/photo-gallery",
+    "url": "https://emuni.uz/photogallery",
     "author": {
         "@type": "Organization",
         "name": "EMU University",
-        "url": "https://emu.uz"
+        "url": "https://emuni.uz"
     }
 };
 

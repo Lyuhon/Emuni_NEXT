@@ -21,11 +21,11 @@ const structuredData = {
     "@type": "ImageGallery",
     "name": "EMU University Fotogalereyasi",
     "description": "Toshkentdagi EMU universiteti rasmiy fotogalereyasi",
-    "url": "https://emu.uz/uz/photogallery",
+    "url": "https://emuni.uz/uz/photogallery",
     "author": {
         "@type": "Organization",
         "name": "EMU University",
-        "url": "https://emu.uz"
+        "url": "https://emuni.uz"
     }
 };
 

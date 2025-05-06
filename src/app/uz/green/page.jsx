@@ -22,7 +22,7 @@ const structuredData = {
     "@type": "EducationalOrganization",
     "name": "EMU University - Yashil Universitet",
     "description": "EMU University resurslarni ongli ravishda ishlatishni va barqaror rivojlanishni qo'llab-quvvatlaydi",
-    "url": "https://emu.uz/uz/green-university",
+    "url": "https://emuni.uz/uz/green",
     "sameAs": [
         "https://www.facebook.com/emuuniversity",
         "https://www.instagram.com/emuuniversity/"

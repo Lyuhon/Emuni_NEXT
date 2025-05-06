@@ -502,13 +502,14 @@ const TestimonialSlider = () => {
                     {testimonials.map((testimonial) => (
                         <SwiperSlide key={testimonial.id}>
                             <div className="flex flex-col md:flex-row rounded-3xl overflow-hidden h-full bg-white shadow-lg">
-                                <div className="md:hidden w-full relative h-64">
+                                <div className="md:hidden w-full relative h-[350px]">
                                     <Image
                                         src={testimonial.image}
                                         alt={testimonial.name}
                                         width={400}
                                         height={300}
                                         className="w-full h-full object-cover rounded-2xl"
+                                        style={{ objectPosition: 'center 20%' }}
                                     />
                                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#631463] to-transparent p-4 rounded-b-2xl">
                                         <div className="text-white">

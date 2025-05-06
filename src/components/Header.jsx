@@ -418,7 +418,7 @@ export default function Header() {
             subItems: [
                 { name: "Баклавриат", name_uz: "Bakalavriat", href: "/napravleniya", href_uz: "/uz/napravleniya" },
                 { name: "Магистратура", name_uz: "Magistratura", href: "/magistratura", href_uz: "/uz/magistratura" },
-                { name: "Eramus +", name_uz: "Eramus +", href: "/eramus", href_uz: "/uz/eramus" },
+                { name: "Erasmus +", name_uz: "Erasmus +", href: "/erasmus", href_uz: "/uz/erasmus" },
             ]
         },
 

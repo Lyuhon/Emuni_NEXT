@@ -20,7 +20,7 @@ import 'swiper/css/navigation';
 
 import PartnersSlider_Home from './PartnersSlider_Home';
 import RectorAppealSlider from './RectorAppealSlider';
-import StudTestimonRedesign from './StudTestimonRedesign_fetch';
+import StudTestimonRedesign from './StudTestimonRedesign';
 import Recall from './Recall';
 
 

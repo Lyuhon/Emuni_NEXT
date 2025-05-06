@@ -458,7 +458,7 @@ const structuredData = {
     "@type": "EducationalOrganization",
     "name": "EMU University - Зеленый Университет",
     "description": "EMU University за осознанное потребление ресурсов и устойчивое развитие",
-    "url": "https://emu.uz/green-university",
+    "url": "https://emuni.uz/green-university",
     "sameAs": [
         "https://www.facebook.com/emuuniversity",
         "https://www.instagram.com/emuuniversity/"
