@@ -4,12 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronRight, Award, Book, Beaker, Heart, BookOpen, Clock, Globe, DollarSign, User } from 'lucide-react';
 import Image from 'next/image';
 import parse from 'html-react-parser';
-// import PricingAccordion from './PricingAccordion';
-import dynamic from 'next/dynamic';
-
-// Динамический импорт попапов
-const MagistraturaPopup = dynamic(() => import('./MagistraturaPopup'), { ssr: false });
-const OrdinaturaPopup = dynamic(() => import('./OrdinaturaPopup'), { ssr: false });
+import PricingAccordion from './PricingAccordion';
 
 export default function DirectionsClient({ directions, directionContent, acf }) {
     // Для отладки - выводим данные в консоль
@@ -30,42 +25,32 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
 
     const [activeDirection, setActiveDirection] = useState('Фармация');
     const [activeTab, setActiveTab] = useState('medical');
-    const [showPopup, setShowPopup] = useState(false);
 
-    const scrollToDirectionContent = () => {
-        if (window.innerWidth < 768) {
-            const element = document.getElementById('direction-content');
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-    };
-
-    // Фирменные цвета - обновлены!
-    const brandColor = '#6b0e55';
-    const brandColorLight = '#8f3178';
-    const brandColorLighter = '#f9eef5';
+    // Фирменные цвета
+    const brandColor = '#631463';
+    const brandColorLight = '#8a3c8a';
+    const brandColorLighter = '#f7eef7';
 
     // Преимущества
     const advantages = [
         {
-            title: 'Xalqaro amaliyot',
-            description: 'Yevropaning yetakchi klinikalarida stajirovka',
+            title: 'Международная практика',
+            description: 'Стажировка в ведущих клиниках Европы',
             icon: <Globe size={24} />,
         },
         {
-            title: 'Tajribalı mutaxassislar',
-            description: 'Kasb ustozlari rahbarligida taʼlim',
+            title: 'Опытные специалисты',
+            description: 'Обучение под руководством профессионалов',
             icon: <User size={24} />,
         },
         {
-            title: 'Zamonaviy uskunalar',
-            description: 'Ilg‘or texnologiyalarga ega bo‘lish imkoni',
+            title: 'Современное оборудование',
+            description: 'Доступ к передовым технологиям',
             icon: <Beaker size={24} />,
         },
         {
-            title: 'Ishga joylashishda yordam',
-            description: 'Karyerangizni qurishda ko‘mak',
+            title: 'Помощь в трудоустройстве',
+            description: 'Поддержка в построении карьере',
             icon: <Award size={24} />,
         },
     ];
@@ -95,26 +80,19 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
         : null;
 
     const tabs = [
-        { id: 'medical', name: acf?.med_napravleniya_uz || 'Медицинская школа' },
-        { id: 'business', name: acf?.business_napravleniya_uz || 'Бизнес и социальная школа' },
+        { id: 'medical', name: acf?.med_napravleniya || 'Медицинская школа' },
+        { id: 'business', name: acf?.business_napravleniya || 'Бизнес и социальная школа' },
     ];
-
-    // Функция для открытия соответствующего попапа
-    const handleOpenPopup = () => {
-        setShowPopup(true);
-    };
 
     return (
         <div className="bg-gray-50 min-h-screen font-sans">
             {/* Hero Section с фоновым изображением */}
-            <div className="relative md:h-[40vh] flex items-center justify-center overflow-hidden" style={{ background: `linear-gradient(rgba(107, 14, 85, 0.39), rgba(107, 14, 85, 0.66)), url('https://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/magistratua-hero.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="relative md:h-[40vh] flex items-center justify-center overflow-hidden" style={{ background: `linear-gradient(rgba(99, 20, 99, 0.39), rgba(99, 20, 99, 0.66)), url('https://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/magistratua-hero.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black to-transparent opacity-20"></div>
                 <div className="text-center z-10 px-4 mb-10">
-                    <h1 className="text-5xl font-bold text-white mt-6 mb-4">Magistratura va Ordinatura</h1>
+                    <h1 className="text-5xl font-bold text-white mt-6 mb-4">Магистратура/Ординатура</h1>
                     <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
-                    <p className="mb-12 text-xl text-white max-w-3xl">
-                        Biz bilan siz talab yuqori bo‘lgan mutaxassislikni egallaysiz va yetakchi klinikalar hamda tashkilotlarda amaliyot o‘taysiz
-                    </p>
+                    <p className="mb-12 text-xl text-white max-w-3xl">С нами Вы получите востребованную специальность и пройдёте практику в ведущих клиниках и организациях</p>
                 </div>
                 <div className="absolute bottom-0 left-0 w-full overflow-hidden transform rotate-180">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12">
@@ -178,7 +156,7 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                         <div className="bg-white rounded-lg shadow-md overflow-hidden">
                             <div className="p-5 text-white font-medium text-center relative" style={{ backgroundColor: brandColor }}>
                                 <div className="absolute top-0 right-0 w-20 h-20 rounded-full opacity-10 transform translate-x-1/2 -translate-y-1/2" style={{ backgroundColor: 'white' }}></div>
-                                <h3 className="text-xl font-bold relative z-10">Yo'nalishlar</h3>
+                                <h3 className="text-xl font-bold relative z-10">Направления</h3>
                             </div>
                             <div className="py-2">
                                 {activeTab === 'medical' ? (
@@ -186,10 +164,7 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                                     directions && Object.keys(directions).map((direction) => (
                                         <button
                                             key={direction}
-                                            onClick={() => {
-                                                setActiveDirection(direction);
-                                                scrollToDirectionContent();
-                                            }}
+                                            onClick={() => setActiveDirection(direction)}
                                             className="w-full text-left px-4 py-3 flex items-center transition-all relative overflow-hidden"
                                             style={{
                                                 backgroundColor: activeDirection === direction ? brandColorLighter : 'transparent',
@@ -211,10 +186,7 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                                     acf && acf.accordion_repeater_2 && acf.accordion_repeater_2.length > 0 ? acf.accordion_repeater_2.map((item, index) => (
                                         <button
                                             key={index}
-                                            onClick={() => {
-                                                setActiveDirection(item.accordion_title);
-                                                scrollToDirectionContent();
-                                            }}
+                                            onClick={() => setActiveDirection(item.accordion_title)}
                                             className="w-full text-left px-4 py-3 flex items-center transition-all relative overflow-hidden"
                                             style={{
                                                 backgroundColor: activeDirection === item.accordion_title ? brandColorLighter : 'transparent',
@@ -222,7 +194,7 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                                             }}
                                         >
                                             {item.title_icon ? (
-                                                <div className="bg-[#8f3178] p-[7px] rounded-full mr-3">
+                                                <div className="bg-[#7d3382] p-[7px] rounded-full mr-3">
                                                     <Image src={item.title_icon} alt={`${item.accordion_title} icon`} width={20} height={20} className="" />
                                                 </div>
                                             ) : (
@@ -247,7 +219,7 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                     </div>
 
                     {/* Direction Content - с элементами дизайна */}
-                    <div className="md:w-3/4" id="direction-content">
+                    <div className="md:w-3/4">
                         <div className="bg-white rounded-lg shadow-md overflow-hidden">
                             {/* Заголовок с фоном */}
                             <div
@@ -257,15 +229,15 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                                 <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10 transform translate-x-1/2 -translate-y-1/2" style={{ backgroundColor: 'white' }}></div>
                                 <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full opacity-10 transform -translate-x-1/3 translate-y-1/3" style={{ backgroundColor: 'white' }}></div>
 
-                                <h2 className="text-2xl md:text-3xl font-bold mb-3 relative z-10">
+                                <h2 className="text-3xl font-bold mb-3 relative z-10">
                                     {activeTab === 'medical'
                                         ? (currentDirection?.title || activeDirection)
                                         : activeDirection}
                                 </h2>
-                                <p className="text-white text-opacity-80 relative z-10 max-w-2xl">EMU universiteti bilan yuqori malakali mutaxassisga aylaning!</p>
+                                <p className="text-white text-opacity-80 relative z-10 max-w-2xl">Станьте высококвалифицированным специалистом вместе с Университетом EMU!</p>
                             </div>
 
-                            <div className="p-4 md:p-8">
+                            <div className="p-8">
                                 {/* Инфо-карточки */}
                                 {activeTab === 'medical' && currentDirection?.stats && (
                                     <div className="grid md:grid-cols-2 gap-3 mb-8">
@@ -283,15 +255,15 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                                     <div className="grid md:grid-cols-2 gap-3 mb-8">
                                         <div className="bg-gray-50 rounded-lg p-4 text-center border border-gray-200">
                                             <p className="text-xl font-bold" style={{ color: brandColor }}>
-                                                {acf?.accordion_repeater_2?.find(item => item.accordion_title === activeDirection)?.semester_price || 'Ko‘rsatilmagan'}
+                                                {acf?.accordion_repeater_2?.find(item => item.accordion_title === activeDirection)?.semester_price || 'Не указано'}
                                             </p>
-                                            <p className="text-gray-600 text-sm">Semestr uchun narxi</p>
+                                            <p className="text-gray-600 text-sm">Стоимость за семестр</p>
                                         </div>
                                         <div className="bg-gray-50 rounded-lg p-4 text-center border border-gray-200">
                                             <p className="text-xl font-bold" style={{ color: brandColor }}>
-                                                {acf?.accordion_repeater_2?.find(item => item.accordion_title === activeDirection)?.full_price || 'Ko‘rsatilmagan'}
+                                                {acf?.accordion_repeater_2?.find(item => item.accordion_title === activeDirection)?.full_price || 'Не указано'}
                                             </p>
-                                            <p className="text-gray-600 text-sm">O‘quv yili uchun narxi</p>
+                                            <p className="text-gray-600 text-sm">Стоимость за учебный год</p>
                                         </div>
                                     </div>
                                 )}
@@ -303,25 +275,13 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                                             <Book size={20} style={{ color: brandColor }} />
                                         </div>
                                         <div>
-                                            <h3 className="text-lg font-bold mb-2" style={{ color: brandColor }}>Dastur tavsifi</h3>
-                                            <div className="text-gray-700 direction-fetch-text prose prose-headings:text-[#6b0e55] prose-strong:text-[#6b0e55]">
+                                            <h3 className="text-lg font-bold mb-2" style={{ color: brandColor }}>Описание программы</h3>
+                                            <div className="text-gray-700 direction-fetch-text">
                                                 {activeTab === 'medical'
-                                                    ? (currentDirection?.description && parse(currentDirection.description, {
-                                                        replace: domNode => {
-                                                            if (domNode.type === 'tag' && (domNode.name === 'p' || domNode.name === 'ul' || domNode.name === 'ol' || domNode.name === 'li' || domNode.name === 'strong')) {
-                                                                return domNode; // Сохраняем теги p, ul, li и strong
-                                                            }
-                                                        }
-                                                    }))
+                                                    ? (currentDirection?.description && parse(currentDirection.description))
                                                     : (acf && acf.accordion_repeater_2 &&
-                                                        acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection)?.text_uz &&
-                                                        parse(acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection).text_uz, {
-                                                            replace: domNode => {
-                                                                if (domNode.type === 'tag' && (domNode.name === 'p' || domNode.name === 'ul' || domNode.name === 'ol' || domNode.name === 'li' || domNode.name === 'strong')) {
-                                                                    return domNode; // Сохраняем теги p, ul, li и strong
-                                                                }
-                                                            }
-                                                        })
+                                                        acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection)?.text &&
+                                                        parse(acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection).text)
                                                     )
                                                 }
                                             </div>
@@ -329,14 +289,14 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                                     </div>
                                 </div>
 
-                                {/* Кнопка регистрации - обновлена для открытия попапов */}
-                                <div className="flex justify-center mt-4 md:mt-8">
+                                {/* Кнопка регистрации */}
+                                <div className="flex justify-center mt-10">
                                     <button
-                                        className="pop-form-trigger- flex items-center justify-center bg-[#6B0E55] text-white font-medium py-3 px-5 rounded-full text-sm shadow-md transition-all hover:bg-[#5a0b49]"
-                                        onClick={() => setShowPopup(true)}
+                                        className="pop-form-trigger flex items-center justify-center text-white font-bold py-4 px-12 rounded-lg text-lg shadow-md transition-all hover:shadow-lg"
+                                        style={{ background: `linear-gradient(to right, ${brandColor}, ${brandColorLight})` }}
                                     >
-                                        Roʻyxatdan oʻtish
-                                        <ChevronRight size={18} className="ml-2" />
+                                        Регистрация
+                                        <ChevronRight size={20} className="ml-2" />
                                     </button>
                                 </div>
                             </div>
@@ -350,94 +310,38 @@ export default function DirectionsClient({ directions, directionContent, acf }) 
                     <div className="absolute top-0 right-0 w-16 h-16 rounded-full opacity-5" style={{ backgroundColor: brandColor, transform: 'translate(30%, -30%)' }}></div>
 
                     <p className="mb-4 text-lg leading-relaxed relative z-10">
-                        Biz bilan siz talab yuqori bo‘lgan mutaxassislikni egallaysiz, poytaxtimizdagi yetakchi xususiy va davlat klinikalari hamda tashkilotlarida tajribali mutaxassislar rahbarligida amaliyot o‘taysiz, shuningdek{' '}
-                        <span className="font-semibold" style={{ color: brandColor }}>
-                            Yevropa davlatlarining yetakchi tashkilotlari, klinikalari va oliy o‘quv yurtlarida stajirovka o‘tash imkoniga ega bo‘lasiz
-                        </span>*
+                        С нами Вы получите востребованную специальность, пройдёте практику в ведущих частных и государственных клиниках и организациях нашей столицы под руководством опытных специалистов, а также{' '}
+                        <span className="font-semibold" style={{ color: brandColor }}>стажировку в ведущих организациях, клиниках и ВУЗах Европейских стран</span>*
                     </p>
-
+                    <p className="font-medium">Не упустите свою возможность в самореализации, мы открываем набор по следующим направлениям бакалавриата:</p>
                 </div>
 
                 {/* Contact Info */}
-                {acf?.pricing_info_uz ? (
+                {acf?.pricing_info ? (
                     <div className="mt-12 mb-12 bg-white p-6 rounded-lg shadow-md flex items-center gap-6">
                         <div className="hidden md:flex text-3xl p-4 rounded-full" style={{ backgroundColor: brandColorLighter, color: brandColor }}>
                             ℹ️
                         </div>
                         <div>
-                            <h3 className="text-lg font-bold mb-1" style={{ color: brandColor }}>Maslahat kerakmi?</h3>
-                            <div>{parse(acf.pricing_info_uz)}</div>
+                            <h3 className="text-lg font-bold mb-1" style={{ color: brandColor }}>Нужна консультация?</h3>
+                            <div>{parse(acf.pricing_info)}</div>
                         </div>
                     </div>
-
                 ) : (
                     <div className="mt-12 mb-12 bg-white p-6 rounded-lg shadow-md flex items-center gap-6">
                         <div className="hidden md:flex text-3xl p-4 rounded-full" style={{ backgroundColor: brandColorLighter, color: brandColor }}>
                             ℹ️
                         </div>
                         <div>
-                            <h3 className="text-lg font-bold mb-1" style={{ color: brandColor }}>Maslahat kerakmi?</h3>
+                            <h3 className="text-lg font-bold mb-1" style={{ color: brandColor }}>Нужна консультация?</h3>
                             <p>
-                                Fakultetlar, qabul komissiyasi va kirish imtihonlari bo‘yicha maslahat olish uchun bizga qo‘ng‘iroq qiling:{' '}
+                                Получите консультацию по факультетам, приемной комиссии и вступительным экзаменам позвонив нам:{' '}
                                 <strong style={{ color: brandColor }}>+998(78) 147-00-07</strong>
                             </p>
                         </div>
                     </div>
-
                 )}
             </div>
-
-            {/* Попапы регистрации */}
-            {showPopup && activeTab === 'medical' && (
-                <OrdinaturaPopup
-                    isOpen={showPopup}
-                    onClose={() => setShowPopup(false)}
-                    direction={activeDirection}
-                />
-            )}
-
-            {showPopup && activeTab === 'business' && (
-                <MagistraturaPopup
-                    isOpen={showPopup}
-                    onClose={() => setShowPopup(false)}
-                    direction={activeDirection}
-                />
-            )}
-
-            {/* Добавляем стили анимации для попапов и форматирование rich-text контента */}
-            <style jsx global>{`
-                @keyframes fadeIn {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
-                }
-                .animate-fadeIn {
-                    animation: fadeIn 0.3s ease-in-out;
-                }
-                
-                /* Стили для rich-text контента */
-                .direction-fetch-text ul {
-                    list-style-type: disc;
-                    margin-left: 1.5rem;
-                    margin-bottom: 1rem;
-                }
-                .direction-fetch-text ol {
-                    list-style-type: decimal;
-                    margin-left: 1.5rem;
-                    margin-bottom: 1rem;
-                }
-                .direction-fetch-text li {
-                    margin-bottom: 0.5rem;
-                }
-                .direction-fetch-text p {
-                    margin-bottom: 1rem;
-                }
-                .direction-fetch-text strong {
-                    font-weight: 700;
-                }
-                #direction-content {
-                    scroll-margin-top: 90px;
-                }
-            `}</style>
         </div>
     );
 }

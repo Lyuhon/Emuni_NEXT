@@ -631,7 +631,7 @@ export default function Header() {
                                             <a
                                                 href="#"
                                                 onClick={(e) => handleMobileDropdownToggle(index, e)}
-                                                className="w-full flex items-center justify-between px-4 py-2 hover:bg-[#7a407f] rounded-lg transition-colors"
+                                                className="w-full flex items-center justify-between px-4 py-2 hover:bg-[#9c3f84] rounded-lg transition-colors"
                                             >
                                                 <span>{isUzLang ? item.name_uz : item.name}</span>
                                                 <ChevronDown
@@ -722,7 +722,7 @@ export default function Header() {
                         </ul>
 
                         {/* Social Icons Mobile */}
-                        <div className="flex justify-center space-x-6 mt-6 pt-4 border-t- border-white/10">
+                        <div className="flex justify space-x-6 mt-6 pt-4 pl-2 border-t- border-white/10">
                             <a href="https://t.me/emuintash" className="text-white hover:text-gray-200 transition-colors hover:scale-110 transform">
                                 <SiTelegram className="w-6 h-6" />
                             </a>
@@ -738,7 +738,7 @@ export default function Header() {
                         </div>
 
                         {/* Phone Mobile */}
-                        <div className="text-white text-center mt-4 pb-6">
+                        <div className="text-white mt-6 pl-2 pb-16">
                             {/* <p className="text-sm opacity-70">Телефон:</p> */}
                             <a href="tel:+998781470007" className="text-lg font-medium hover:underline">
                                 +998(78) 147-00-07

@@ -46,57 +46,6 @@ const PartnersSlider = () => {
         );
     }
 
-    const renderPartnerItem = (name, partner, link, index) => {
-        const isLinkEmptyOrScroll = !link || link === '#' || link === '#scroll';
-        const commonContent = (
-            <>
-                <div className="h-[110px] flex items-center justify-center mb-3 md:mb-4 p-2 md:p-4 rounded-lg w-full">
-                    {partner && partner.url ? (
-                        <img
-                            src={partner.url}
-                            alt={name}
-                            className="max-h-[110px] w-auto object-contain filter drop-shadow-sm"
-                        />
-                    ) : (
-                        <div className="w-[110px] h-[110px] rounded-full bg-gray-200 flex items-center justify-center">
-                            <span className="text-[#631463] font-medium text-center px-2 text-sm">
-                                {name}
-                            </span>
-                        </div>
-                    )}
-                </div>
-                <p className="partner-title text-center" style={{
-                    textAlign: 'center',
-                    fontSize: '16px',
-                    fontWeight: 500,
-                    color: '#000000',
-                    height: '80px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}>
-                    {name}
-                </p>
-            </>
-        );
-
-        return isLinkEmptyOrScroll ? (
-            <div key={index} className="partner-item flex flex-col items-center mb-4 md:mb-6">
-                {commonContent}
-            </div>
-        ) : (
-            <a
-                key={index}
-                href={link}
-                className="partner-item flex flex-col items-center mb-4 md:mb-6"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                {commonContent}
-            </a>
-        );
-    };
-
     return (
         <section className="partners-section py-16 relative overflow-hidden">
             {/* Background decorative elements */}
@@ -155,9 +104,119 @@ const PartnersSlider = () => {
                                 <div className="partners-card bg-white rounded-2xl shadow-lg overflow-hidden">
                                     <div className="p-4 md:p-6">
                                         <div className="grid grid-cols-1 gap-4 md:gap-6">
-                                            {slideItem.name_ru_1 && renderPartnerItem(slideItem.name_ru_1, slideItem.partner_1, slideItem.link_1, 'partner1')}
-                                            {slideItem.name_ru_2 && renderPartnerItem(slideItem.name_ru_2, slideItem.partner_2, slideItem.link_2, 'partner2')}
-                                            {slideItem.name_ru_3 && renderPartnerItem(slideItem.name_ru_3, slideItem.partner_3, slideItem.link_3, 'partner3')}
+                                            {/* Партнер 1 */}
+                                            {slideItem.name_ru_1 && (
+                                                <a
+                                                    href={slideItem.link_1 || "#"}
+                                                    className="partner-item flex flex-col items-center mb-4 md:mb-6"
+                                                    target={slideItem.link_1 && slideItem.link_1 !== '#' ? "_blank" : "_self"}
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <div className="h-[110px] flex items-center justify-center mb-3 md:mb-4 p-2 md:p-4 rounded-lg w-full">
+                                                        {slideItem.partner_1 && slideItem.partner_1.url ? (
+                                                            <img
+                                                                src={slideItem.partner_1.url}
+                                                                alt={slideItem.name_ru_1}
+                                                                className="max-h-[110px] w-auto object-contain filter drop-shadow-sm"
+                                                            />
+                                                        ) : (
+                                                            <div className="w-[110px] h-[110px] rounded-full bg-gray-200 flex items-center justify-center">
+                                                                <span className="text-[#631463] font-medium text-center px-2 text-sm">
+                                                                    {slideItem.name_ru_1}
+                                                                </span>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                    <p className="partner-title text-center" style={{
+                                                        textAlign: 'center',
+                                                        fontSize: '16px',
+                                                        fontWeight: 500,
+                                                        color: '#000000',
+                                                        height: '80px',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center'
+                                                    }}>
+                                                        {slideItem.name_ru_1}
+                                                    </p>
+                                                </a>
+                                            )}
+
+                                            {/* Партнер 2 */}
+                                            {slideItem.name_ru_2 && (
+                                                <a
+                                                    href={slideItem.link_2 || "#"}
+                                                    className="partner-item flex flex-col items-center mb-4 md:mb-6"
+                                                    target={slideItem.link_2 && slideItem.link_2 !== '#' ? "_blank" : "_self"}
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <div className="h-[110px] flex items-center justify-center mb-3 md:mb-4 p-2 md:p-4 rounded-lg w-full">
+                                                        {slideItem.partner_2 && slideItem.partner_2.url ? (
+                                                            <img
+                                                                src={slideItem.partner_2.url}
+                                                                alt={slideItem.name_ru_2}
+                                                                className="max-h-[110px] w-auto object-contain filter drop-shadow-sm"
+                                                            />
+                                                        ) : (
+                                                            <div className="w-[110px] h-[110px] rounded-full bg-gray-200 flex items-center justify-center">
+                                                                <span className="text-[#631463] font-medium text-center px-2 text-sm">
+                                                                    {slideItem.name_ru_2}
+                                                                </span>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                    <p className="partner-title text-center" style={{
+                                                        textAlign: 'center',
+                                                        fontSize: '16px',
+                                                        fontWeight: 500,
+                                                        color: '#000000',
+                                                        height: '80px',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center'
+                                                    }}>
+                                                        {slideItem.name_ru_2}
+                                                    </p>
+                                                </a>
+                                            )}
+
+                                            {/* Партнер 3 */}
+                                            {slideItem.name_ru_3 && (
+                                                <a
+                                                    href={slideItem.link_3 || "#"}
+                                                    className="partner-item flex flex-col items-center transition-transform"
+                                                    target={slideItem.link_3 && slideItem.link_3 !== '#' ? "_blank" : "_self"}
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <div className="h-[110px] flex items-center justify-center mb-3 md:mb-4 p-2 md:p-4 rounded-lg w-full">
+                                                        {slideItem.partner_3 && slideItem.partner_3.url ? (
+                                                            <img
+                                                                src={slideItem.partner_3.url}
+                                                                alt={slideItem.name_ru_3}
+                                                                className="max-h-[110px] w-auto object-contain filter drop-shadow-sm"
+                                                            />
+                                                        ) : (
+                                                            <div className="w-[110px] h-[110px] rounded-full bg-gray-200 flex items-center justify-center">
+                                                                <span className="text-[#631463] font-medium text-center px-2 text-sm">
+                                                                    {slideItem.name_ru_3}
+                                                                </span>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                    <p className="partner-title text-center" style={{
+                                                        textAlign: 'center',
+                                                        fontSize: '16px',
+                                                        fontWeight: 500,
+                                                        color: '#000000',
+                                                        height: '80px',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center'
+                                                    }}>
+                                                        {slideItem.name_ru_3}
+                                                    </p>
+                                                </a>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

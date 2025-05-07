@@ -1,0 +1,136 @@
+.partners-section {
+    background: linear-gradient(180deg, #ffffff 0%, #f9eef5 50%, #ffffff 100%);
+}
+
+.partners-card {
+    backface-visibility: hidden;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #d1d1d1;
+    opacity: 1;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+    width: 24px;
+    background: #6b0e55;
+}
+
+.loader {
+    position: relative;
+    margin: 0 auto;
+    width: 60px;
+}
+
+.loader:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.circular {
+    animation: rotate 2s linear infinite;
+    height: 100%;
+    transform-origin: center center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.path {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    stroke-linecap: round;
+    stroke: #6b0e55;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+@keyframes color {
+
+    0%,
+    100% {
+        stroke: #6b0e55;
+    }
+
+    40% {
+        stroke: #8f3178;
+    }
+
+    66% {
+        stroke: #6b0e55;
+    }
+
+    80%,
+    90% {
+        stroke: #8f3178;
+    }
+}
+
+/* Additional responsive styles */
+@media (max-width: 640px) {
+    .partner-title {
+        font-size: 14px !important;
+        height: 60px !important;
+    }
+
+    .swiper-button-prev-custom,
+    .swiper-button-next-custom {
+        width: 36px;
+        height: 36px;
+    }
+
+    .swiper-button-prev-custom svg,
+    .swiper-button-next-custom svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+
+
+.swiper.swiper-initialized.swiper-horizontal.partners-swiper {
+    padding: 20px !important;
+}
+
+
+.partners-section {
+    user-select: none;
+}
+
+.partner-title,
+.partner-item span {
+    user-select: none;
+}

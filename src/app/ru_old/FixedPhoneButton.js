@@ -20,7 +20,7 @@ const FixedPhoneButton = () => {
         },
         hover: {
             y: -10, // Подъем при наведении
-            boxShadow: '0 10px 15px -3px rgba(107, 14, 85, 0.3)', // Тень при наведении с новым цветом
+            boxShadow: '0 10px 15px -3px rgba(99, 20, 99, 0.3)', // Тень при наведении
             transition: {
                 duration: 0.3,
                 ease: 'easeOut',
@@ -39,7 +39,7 @@ const FixedPhoneButton = () => {
             animate="animate"
             whileHover="hover"
             whileTap="tap"
-            className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#6b0e55] to-[#8f3178] rounded-full shadow-lg border-2 border-white"
+            className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#631463] to-[#8a3c8a] rounded-full shadow-lg"
             aria-label="Позвонить"
         >
             <svg

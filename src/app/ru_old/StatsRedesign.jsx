@@ -75,7 +75,7 @@ const Counter = ({ target, title, suffix = "", duration = 2000, icon }) => {
     return (
         <motion.div
             ref={counterRef}
-            className="flex flex-row items-center gap-6 p-6 relative rounded-xl border-l-4 border-[#6B0E55] z-[10]"
+            className="flex flex-row items-center gap-6 p-6 relative rounded-xl border-l-4 border-[#6B0E55]"
             variants={itemVariants}
             whileHover={{ x: 5, boxShadow: "0 4px 20px rgba(99, 20, 99, 0.08)" }}
             transition={{ duration: 0.3 }}
@@ -96,7 +96,7 @@ const Counter = ({ target, title, suffix = "", duration = 2000, icon }) => {
 
 const Stats = () => {
     return (
-        <section className="pt-20 pb-8 px-4 relative overflow-hidden">
+        <section className="py-20 px-4 relative overflow-hidden">
             {/* Плавающий фоновый градиент */}
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white via-[#f9f5f9] to-white -z-20"></div>
 
@@ -106,7 +106,7 @@ const Stats = () => {
             {/* <div className="absolute top-1/3 right-1/4 w-40 h-40 rounded-full bg-[#6B0E55] opacity-3"></div> */}
 
             <div className="max-w-screen-xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-16 mb-16">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
                     {/* Левая колонка с заголовком */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
@@ -121,6 +121,15 @@ const Stats = () => {
                             <span className="text-[#6B0E55]">глобальной перспективой</span>
                         </h2>
 
+                        {/* <a href="#mission_support" className="inline-flex items-center group w-fit">
+                            <span className="relative px-6 py-3 bg-[#6B0E55] text-white font-medium rounded-lg overflow-hidden">
+                                <span className="relative z-10">Наша миссия и видение</span>
+                                <span className="absolute inset-0 bg-purple-900 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300"></span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 text-[#6B0E55] group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a> */}
                     </motion.div>
 
                     {/* Правая колонка со счетчиками */}

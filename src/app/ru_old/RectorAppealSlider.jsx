@@ -48,7 +48,7 @@ const RectorAppealSection = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative w-full md:min-h-[90vh] overflow-hidden bg-[#f7f7f7]">
+        <section ref={sectionRef} className="relative w-full min-h-[90vh] overflow-hidden bg-[#f7f7f7]">
             {/* Фоновое изображение */}
             <div className="absolute inset-0">
                 <img
@@ -56,11 +56,17 @@ const RectorAppealSection = () => {
                     alt="EMU University Banner"
                     className="w-full h-full object-cover object-[80%_10%] transform translate-y-[var(--parallax, 0)]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r to-[#6b0e55]/50 from-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-r to-[#631463]/50 from-transparent"></div>
             </div>
 
+            {/* Геометрические линии */}
+            {/* <svg className="absolute top-0 left-0 w-full h-full opacity-10" preserveAspectRatio="none">
+                <line x1="0" y1="10%" x2="100%" y2="90%" stroke="#631463" strokeWidth="2" />
+                <line x1="0" y1="90%" x2="100%" y2="10%" stroke="#631463" strokeWidth="2" />
+            </svg> */}
+
             {/* Контент */}
-            <div className="max-w-screen-xl mx-auto px-4 py-12 md:py-20 flex justify-end items-center md:min-h-[90vh]">
+            <div className="max-w-screen-xl mx-auto px-4 py-12 md:py-20 flex justify-end items-center min-h-[90vh]">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -68,6 +74,22 @@ const RectorAppealSection = () => {
                     transition={{ duration: 0.8 }}
                     className="bg-[#00000030] backdrop-blur-sm p-8 rounded-xl border border-white/20 text-white max-w-xl"
                 >
+                    {/* <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="text-3xl md:text-5xl font-bold text-[#FFF] mb-6"
+                    >
+                        Обращение Основателя
+                        <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: '5rem' }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            className="h-1 bg-[#8a3c8a] mt-2"
+                        ></motion.div>
+                    </motion.h2> */}
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -111,10 +133,10 @@ const RectorAppealSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.8 }}
-                        whileHover={{ scale: 1.05, backgroundColor: '#8f3178' }}
+                        whileHover={{ scale: 1.05, backgroundColor: '#8a3c8a' }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => setVideoModalOpen(true)}
-                        className="flex items-center px-6 py-3 bg-[#6b0e55] text-white rounded-lg shadow-md transition-colors duration-300"
+                        className="flex items-center px-6 py-3 bg-[#631463] text-white rounded-lg shadow-md transition-colors duration-300"
                     >
                         <motion.svg
                             animate={{ x: [0, 5, 0] }}
@@ -174,6 +196,17 @@ const RectorAppealSection = () => {
             <style jsx global>{`
                 section {
                     --parallax: 0px;
+                }
+                @media (max-width: 768px) {
+                    h2 {
+                        font-size: 2rem;
+                    }
+                    p {
+                        font-size: 1rem;
+                    }
+                    .min-h-[90vh] {
+                        min-height: 100vh;
+                    }
                 }
             `}</style>
         </section >
