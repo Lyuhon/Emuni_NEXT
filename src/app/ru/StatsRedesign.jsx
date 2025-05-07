@@ -115,7 +115,7 @@ const Stats = () => {
                         viewport={{ once: true }}
                         className="flex flex-col justify-center"
                     >
-                        <h6 className="text-[#6B0E55] font-semibold mb-3 uppercase tracking-wider text-sm">Статистика EMU University</h6>
+                        <span className="text-[#6B0E55] font-semibold mb-3 uppercase tracking-wider text-sm">Статистика EMU University</span>
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 leading-tight mb-8">
                             Академическое<br />превосходство с<br />
                             <span className="text-[#6B0E55]">глобальной перспективой</span>

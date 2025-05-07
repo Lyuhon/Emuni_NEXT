@@ -26,19 +26,19 @@ const LicenseSection = () => {
         {
             id: 1,
             title: "Государственная лицензия",
-            src: "https://emuni.uz/wp-content/uploads/2024/08/liczenziya-novaya_page-0001-min.jpg", // Замените на реальный путь
+            src: "https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/liczenziya-novaya_page-0001-min.jpg", // Замените на реальный путь
             alt: "Лицензия на образовательную деятельность"
         },
         {
             id: 2,
             title: "Государственная лицензия",
-            src: "https://emuni.uz/wp-content/uploads/2024/08/liczenziya-novaya_page-0002-min.jpg", // Замените на реальный путь
+            src: "https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/liczenziya-novaya_page-0002-min.jpg", // Замените на реальный путь
             alt: "Лицензия на образовательную деятельность"
         },
         {
             id: 3,
             title: "Государственная лицензия",
-            src: "https://emuni.uz/wp-content/uploads/2024/08/liczenziya-novaya_page-0003-min.jpg", // Замените на реальный путь
+            src: "https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/liczenziya-novaya_page-0003-min.jpg", // Замените на реальный путь
             alt: "Лицензия на образовательную деятельность"
         }
     ];
