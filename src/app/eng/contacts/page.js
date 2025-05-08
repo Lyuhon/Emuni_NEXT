@@ -1,5 +1,20 @@
-// contacts/page.js
+// eng/contacts/page.js
 import ContactInfo from './ContactInfo';
+
+// SEO Metadata
+export const metadata = {
+    title: "Contact Us - EMU University",
+    description: "Contact EMU University: contact information, addresses, phone numbers, and directions. Visit our main campus or medical school in Tashkent.",
+    keywords: "EMU University contacts, university address, EMU phone, directions map, medical university Tashkent",
+    openGraph: {
+        title: "Contact Us - EMU University",
+        description: "Contact EMU University: contact information, addresses, phone numbers, and directions. Visit our main campus or medical school in Tashkent.",
+        images: ['https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/emu-university-open-graph-logo-min.png'],
+    },
+};
+
+// ISR configuration
+export const revalidate = 86400; // Revalidate every 24 hours
 
 export default async function ContactsPage() {
     // Fetch data with ISR (revalidate every 1 day = 86400 seconds)
@@ -8,25 +23,25 @@ export default async function ContactsPage() {
     });
     const data = await res.json();
 
-    // Фирменные цвета
-    const brandColor = '#631463';
-    const brandColorLighter = '#f7eef7';
+    // Brand colors
+    const brandColor = '#6b0e55';
+    const brandColorLighter = '#f9eef5';
 
-    // Данные для hero секции
+    // Hero section data
     const heroData = {
-        title: data.acf.sekcziya_hiro.zagolovok_straniczy_ang,
-        description: data.acf.sekcziya_hiro.kratkoe_opisanie_ang,
+        title: data.acf.sekcziya_hiro.zagolovok_straniczy_ang || "Contact Us",
+        description: data.acf.sekcziya_hiro.kratkoe_opisanie_ang || "Find our locations and get in touch with us",
         background: data.acf.sekcziya_hiro.zadnij_fon.url
     };
 
-    // Данные о локациях
+    // Location data
     const locations = {
         main: {
-            title: data.acf.pervyj_adres.kontakty_ang.nazvanie_lokaczii,
-            address: data.acf.pervyj_adres.kontakty_ang.adres,
+            title: data.acf.pervyj_adres.kontakty_ang.nazvanie_lokaczii || "Main Campus",
+            address: data.acf.pervyj_adres.kontakty_ang.adres || data.acf.pervyj_adres.kontakty_ru.adres,
             phone: data.acf.pervyj_adres.telefon,
             email: data.acf.pervyj_adres.email,
-            workingHours: data.acf.pervyj_adres.kontakty_ang.vremya_raboty,
+            workingHours: data.acf.pervyj_adres.kontakty_ang.vremya_raboty || data.acf.pervyj_adres.kontakty_ru.vremya_raboty,
             mapPosition: {
                 lat: parseFloat(data.acf.pervyj_adres.shirota),
                 lng: parseFloat(data.acf.pervyj_adres.dolgota)
@@ -34,11 +49,11 @@ export default async function ContactsPage() {
             zoom: 15
         },
         clinic: {
-            title: data.acf.vtoroj_adres.kontakty_ang.nazvanie_lokaczii,
-            address: data.acf.vtoroj_adres.kontakty_ang.adres,
+            title: data.acf.vtoroj_adres.kontakty_ang.nazvanie_lokaczii || "Medical School",
+            address: data.acf.vtoroj_adres.kontakty_ang.adres || data.acf.vtoroj_adres.kontakty_ru.adres,
             phone: data.acf.vtoroj_adres.telefon,
             email: data.acf.vtoroj_adres.email,
-            workingHours: data.acf.vtoroj_adres.kontakty_ang.vremya_raboty,
+            workingHours: data.acf.vtoroj_adres.kontakty_ang.vremya_raboty || data.acf.vtoroj_adres.kontakty_ru.vremya_raboty,
             mapPosition: {
                 lat: parseFloat(data.acf.vtoroj_adres.shirota),
                 lng: parseFloat(data.acf.vtoroj_adres.dolgota)
@@ -49,11 +64,41 @@ export default async function ContactsPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
+            {/* Structured data for SEO */}
+            <script type="application/ld+json" dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "EducationalOrganization",
+                    "name": "EMU University",
+                    "url": "https://emuni.uz",
+                    "logo": "https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/emu-university-open-graph-logo-min.png",
+                    "description": "EMU University - leading multidisciplinary university in Tashkent",
+                    "telephone": locations.main.phone,
+                    "email": locations.main.email,
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": locations.main.address.split(',')[0],
+                        "addressLocality": "Tashkent",
+                        "addressCountry": "Uzbekistan"
+                    },
+                    "location": {
+                        "@type": "Place",
+                        "geo": {
+                            "@type": "GeoCoordinates",
+                            "latitude": locations.main.mapPosition.lat,
+                            "longitude": locations.main.mapPosition.lng
+                        }
+                    },
+                    "areaServed": "Uzbekistan",
+                    "openingHours": locations.main.workingHours
+                })
+            }} />
+
             {/* Hero Section */}
             <div
                 className="relative h-80 flex items-center justify-center overflow-hidden"
                 style={{
-                    background: `linear-gradient(rgba(99, 20, 99, 0.70), rgba(99, 20, 99, 0.80)), url('${heroData.background}')`,
+                    background: `linear-gradient(rgba(107, 14, 85, 0.70), rgba(107, 14, 85, 0.80)), url('${heroData.background}')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
                 }}

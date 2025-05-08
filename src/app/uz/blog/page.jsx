@@ -367,7 +367,7 @@ export const metadata = {
     openGraph: {
         title: "Blog, yangiliklar, maqolalar va tadbirlar - EMU University",
         description: "EMU University hayotidan dolzarb yangiliklar, foydali maslahatlar va qiziqarli hikoyalarni o‘qing",
-        images: ['/images/blog-cover.jpg'],
+        images: ['https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/emu-university-open-graph-logo-min.png'],
     },
 };
 

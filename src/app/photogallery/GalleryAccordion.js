@@ -491,7 +491,7 @@ export default function GalleryAccordion({ videos, gallerySections, brandColors 
                                                 >
                                                     <Camera size={24} style={{ color: brandColor }} />
                                                 </div>
-                                                <h3 className="text-lg font-medium" style={{ color: brandColor }}>
+                                                <h3 className="textl-left text-lg font-medium" style={{ color: brandColor }}>
                                                     {section.title}
                                                 </h3>
                                             </div>

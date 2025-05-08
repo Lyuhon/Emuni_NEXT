@@ -1,3 +1,4 @@
+// // app/photogallery/GalleryAccordion.js
 'use client';
 
 import { useState } from 'react';
@@ -5,7 +6,7 @@ import Image from 'next/image';
 import { ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Camera, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function GalleryAccordion({ videos, gallerySections, brandColors, lang = 'uz' }) {
+export default function GalleryAccordion({ videos, gallerySections, brandColors }) {
     const [activeAccordion, setActiveAccordion] = useState(0);
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -67,12 +68,6 @@ export default function GalleryAccordion({ videos, gallerySections, brandColors,
         }),
     };
 
-    // Текст для уведомлений об ошибках загрузки
-    const errorText = {
-        videoError: lang === 'uz' ? 'Video materiallar mavjud emas yoki yuklashda xatolik yuz berdi.' : 'Видеоматериалы отсутствуют или произошла ошибка загрузки.',
-        photoError: lang === 'uz' ? 'Suratlar mavjud emas yoki yuklashda xatolik yuz berdi.' : 'Фотографии отсутствуют или произошла ошибка загрузки.'
-    };
-
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
@@ -86,13 +81,13 @@ export default function GalleryAccordion({ videos, gallerySections, brandColors,
             >
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black to-transparent opacity-20"></div>
                 <div className="text-center z-10 px-4">
-                    <h1 className="text-5xl font-bold text-white mb-4">Fotogalereya</h1>
+                    <h1 className="text-5xl font-bold text-white mb-4">Photo Gallery</h1>
                     <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
                     <p className="text-xl text-white max-w-3xl">
-                        Foto va videolar orqali universitetimiz hayoti bilan tanishing
+                        Explore university life through our photo and video materials
                     </p>
                 </div>
-                <div className="absolute bottom-0 left-0 w-full overflow-hidden transform rotate-180 z-[100]">
+                <div className="absolute bottom-0 left-0 w-full overflow-hidden transform rotate-180">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12">
                         <path
                             d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
@@ -117,7 +112,7 @@ export default function GalleryAccordion({ videos, gallerySections, brandColors,
                 {/* Video Section */}
                 <div className="mb-16">
                     <h2 className="text-2xl font-bold mb-8 text-center" style={{ color: brandColor }}>
-                        Video materiallar
+                        Video Materials
                     </h2>
                     {videos.length > 0 ? (
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -149,7 +144,7 @@ export default function GalleryAccordion({ videos, gallerySections, brandColors,
                         </div>
                     ) : (
                         <p className="text-center text-gray-500">
-                            {errorText.videoError}
+                            Videos are missing or failed to load.
                         </p>
                     )}
                 </div>
@@ -157,7 +152,7 @@ export default function GalleryAccordion({ videos, gallerySections, brandColors,
                 {/* Photo Gallery Section */}
                 <div>
                     <h2 className="text-2xl font-bold mb-8 text-center" style={{ color: brandColor }}>
-                        Rasmlar
+                        Photos
                     </h2>
 
                     {/* Accordion */}
@@ -241,7 +236,7 @@ export default function GalleryAccordion({ videos, gallerySections, brandColors,
                             })
                         ) : (
                             <p className="text-center text-gray-500">
-                                {errorText.photoError}
+                                Photos are missing or failed to load.
                             </p>
                         )}
                     </div>
@@ -253,7 +248,7 @@ export default function GalleryAccordion({ videos, gallerySections, brandColors,
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[1000]"
+                                className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9000]"
                                 onClick={closeLightbox}
                             >
                                 <motion.div
@@ -285,6 +280,7 @@ export default function GalleryAccordion({ videos, gallerySections, brandColors,
                                         style={{
                                             backgroundColor: brandColor,
                                             borderColor: 'white',
+                                            hoverBackgroundColor: brandColorLight
                                         }}
                                         onClick={closeLightbox}
                                     >

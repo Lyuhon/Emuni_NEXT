@@ -97,27 +97,6 @@ export default function NotFound() {
                         </Link>
                     </div>
 
-                    {/* Языковые переключатели */}
-                    {/* <div className="mt-8 pt-6 border-t border-gray-100 w-full flex justify-center gap-3">
-                        <Link
-                            href="/not-found"
-                            className={language === 'ru' ? "text-[#6b0e55] font-medium" : "text-gray-400 hover:text-[#6b0e55]"}
-                        >
-                            RU
-                        </Link>
-                        <Link
-                            href="/uz/not-found"
-                            className={language === 'uz' ? "text-[#6b0e55] font-medium" : "text-gray-400 hover:text-[#6b0e55]"}
-                        >
-                            UZ
-                        </Link>
-                        <Link
-                            href="/eng/not-found"
-                            className={language === 'en' ? "text-[#6b0e55] font-medium" : "text-gray-400 hover:text-[#6b0e55]"}
-                        >
-                            EN
-                        </Link>
-                    </div> */}
                 </div>
             </div>
         </div>
