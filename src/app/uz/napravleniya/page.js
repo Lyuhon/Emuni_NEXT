@@ -139,7 +139,7 @@ async function fetchDirections() {
     // Обработка заочных направлений
     if (data.acf.accordion_repeater_3) {
         data.acf.accordion_repeater_3.forEach((item) => {
-            const title = item.accordion_title_uz || item.accordion_title_uz || item.accordion_title_eng || 'Unknown';
+            const title = item.accordion_title_uz || 'Unknown';
             const slug = title.toLowerCase().replace(/\s+/g, '-');
             zaochkaDirections[title] = {
                 title_icon: item.title_icon || '/default-icon.png',
@@ -155,8 +155,8 @@ async function fetchDirections() {
                 key_subjects: item.key_subjects || ['Предметы не указаны'],
                 price: item.price || { semester: 'Не указано', year: 'Не указано' },
                 stats: [
-                    { label: 'Стоиомсть за семестр', value: item.semester_price || 'Не указано' },
-                    { label: 'Стоиомсть за учебный год', value: item.full_price || 'Не указано' },
+                    { label: 'Bir semestr uchun xarajat', value: item.semester_price || 'Belgilanmagan' },
+                    { label: 'Bir o`quv yili uchun xarajat', value: item.full_price || 'Belgilanmagan' },
                 ],
                 title_icon: item.title_icon || '/default-image.png',
                 // Поля для бейджей

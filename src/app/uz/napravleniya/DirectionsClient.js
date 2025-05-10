@@ -65,8 +65,8 @@ export default function DirectionsClient({ directions, directionContent, zaochka
 
         // Если таб "бизнес" и есть бизнес-направления
         if (activeTab === 'business' && acf && acf.accordion_repeater_2 && acf.accordion_repeater_2.length > 0) {
-            console.log("Устанавливаем первое бизнес-направление:", acf.accordion_repeater_2[0].accordion_title);
-            setActiveDirection(acf.accordion_repeater_2[0].accordion_title);
+            console.log("Устанавливаем первое бизнес-направление:", acf.accordion_repeater_2[0].accordion_title_uz);
+            setActiveDirection(acf.accordion_repeater_2[0].accordion_title_uz);
         }
         // Если таб "медицинский" и есть медицинские направления
         else if (activeTab === 'medical' && directions && Object.keys(directions).length > 0) {
@@ -89,14 +89,14 @@ export default function DirectionsClient({ directions, directionContent, zaochka
 
     const currentBusinessDirection = activeTab === 'business' && acf?.accordion_repeater_2
         ? {
-            ...acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection),
+            ...acf.accordion_repeater_2.find(item => item.accordion_title_uz === activeDirection),
             // Обеспечиваем что поля преобразованы в правильный формат (boolean)
-            grant: acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection)?.grant === true,
-            stipendiya: acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection)?.stipendiya === true,
-            '1_smena': acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection)?.['1_smena'] === true,
-            '2_smena': acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection)?.['2_smena'] === true,
-            grant_2_smena: acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection)?.grant_2_smena === true,
-            stipendiya_2_smena: acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection)?.stipendiya_2_smena === true
+            grant: acf.accordion_repeater_2.find(item => item.accordion_title_uz === activeDirection)?.grant === true,
+            stipendiya: acf.accordion_repeater_2.find(item => item.accordion_title_uz === activeDirection)?.stipendiya === true,
+            '1_smena': acf.accordion_repeater_2.find(item => item.accordion_title_uz === activeDirection)?.['1_smena'] === true,
+            '2_smena': acf.accordion_repeater_2.find(item => item.accordion_title_uz === activeDirection)?.['2_smena'] === true,
+            grant_2_smena: acf.accordion_repeater_2.find(item => item.accordion_title_uz === activeDirection)?.grant_2_smena === true,
+            stipendiya_2_smena: acf.accordion_repeater_2.find(item => item.accordion_title_uz === activeDirection)?.stipendiya_2_smena === true
         }
         : null;
 
@@ -110,6 +110,18 @@ export default function DirectionsClient({ directions, directionContent, zaochka
         { id: 'business', name: acf?.business_napravleniya_uz || 'Biznes va ijtimoiy fanlar maktabi' },
         { id: 'zaochka', name: acf?.zaochka_napravleniya_uz || 'Sirtqi taʼlim' },
     ];
+
+    // Количесвто лет обучения
+    const getStudyDuration = () => {
+        if (activeTab === 'medical' && currentDirection) {
+            return currentDirection.duration;
+        } else if (activeTab === 'business' && currentBusinessDirection) {
+            return currentBusinessDirection.duration || currentBusinessDirection.let_obucheniya;
+        } else if (activeTab === 'zaochka' && currentZaochkaDirection) {
+            return currentZaochkaDirection.duration;
+        }
+        return null;
+    };
 
     // Функция для рендеринга бейджей (меток) на основе данных
     const renderBadges = (data) => {
@@ -125,7 +137,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-3 w-3 mr-1">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    1 смена
+                    1 smena
                 </div>
             );
         }
@@ -136,7 +148,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-3 w-3 mr-1">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    2 смена
+                    2 smena
                 </div>
             );
         }
@@ -148,7 +160,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 mr-1">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        Гранты
+                        Grantlar
                     </div>
                     <div className="absolute z-[999] w-48 p-2 bg-gray-800 text-white text-xs rounded-lg shadow-lg transition-opacity duration-300 
                     md:group-hover:opacity-100 md:opacity-0 
@@ -168,7 +180,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 mr-1">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
-                        Стипендии
+                        Stipendiya
                     </div>
                     <div className="absolute z-[999] w-48 p-2 bg-gray-800 text-white text-xs rounded-lg shadow-lg transition-opacity duration-300 
                     md:group-hover:opacity-100 md:opacity-0 
@@ -179,6 +191,26 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                     </div>
                 </div>
             );
+        }
+
+        // Добавляем бейдж с количеством лет обучения, если оно указано
+        const duration = data.duration || data.let_obucheniya;
+        if (duration && duration !== 'Длительность неизвестна') {
+            // Преобразуем в строку и очищаем от пробелов
+            const years = String(duration).trim();
+            // Если после очистки остался текст, и это число, то добавляем бейдж
+            if (years && !isNaN(parseInt(years))) {
+                const yearsText = years === '1' ? 'yil' : (years >= '2' && years <= '4') ? 'yil' : 'yil';
+
+                badges.push(
+                    <div key="duration" className="hidden md:flex items-center bg-[#f3e5f5] text-[#8e24aa] px-3 py-1 rounded-full text-xs font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 mr-1">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {years} {yearsText}
+                    </div>
+                );
+            }
         }
 
         // Если есть бейджи, возвращаем их в контейнере
@@ -202,7 +234,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-3 w-3 mr-1">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                2 смена
+                2 smena
             </div>
         );
 
@@ -214,7 +246,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 mr-1">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        Гранты
+                        Grantlar
                     </div>
                     <div className="absolute z-[999] w-48 p-2 bg-gray-800 text-white text-xs rounded-lg shadow-lg transition-opacity duration-300 
                     md:group-hover:opacity-100 md:opacity-0 
@@ -234,7 +266,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 mr-1">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
-                        Стипендии
+                        Stipendiya
                     </div>
                     <div className="absolute z-[999] w-48 p-2 bg-gray-800 text-white text-xs rounded-lg shadow-lg transition-opacity duration-300 
                     md:group-hover:opacity-100 md:opacity-0 
@@ -267,13 +299,13 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                 <div className="grid md:grid-cols-2 gap-3 mb-8">
                     <div className="bg-gray-50 rounded-lg p-4 text-center border border-gray-200">
                         <p className="text-xl font-bold" style={{ color: brandColor }}>
-                            {data.semester_price_2_smena || 'Не указано'}
+                            {data.semester_price_2_smena || 'Belgilanmagan'}
                         </p>
                         <p className="text-gray-600 text-sm">Bir semestr uchun xarajat</p>
                     </div>
                     <div className="bg-gray-50 rounded-lg p-4 text-center border border-gray-200">
                         <p className="text-xl font-bold" style={{ color: brandColor }}>
-                            {data.full_price_2_smena || 'Не указано'}
+                            {data.full_price_2_smena || 'Belgilanmagan'}
                         </p>
                         <p className="text-gray-600 text-sm">Bir o'quv yili uchun xarajat</p>
                     </div>
@@ -314,8 +346,8 @@ export default function DirectionsClient({ directions, directionContent, zaochka
             return currentDirection?.description && parse(currentDirection.description);
         } else if (activeTab === 'business') {
             return acf && acf.accordion_repeater_2 &&
-                acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection)?.text_uz &&
-                parse(acf.accordion_repeater_2.find(item => item.accordion_title === activeDirection).text_uz);
+                acf.accordion_repeater_2.find(item => item.accordion_title_uz === activeDirection)?.text_uz &&
+                parse(acf.accordion_repeater_2.find(item => item.accordion_title_uz === activeDirection).text_uz);
         } else if (activeTab === 'zaochka') {
             return currentZaochkaDirection?.description && parse(currentZaochkaDirection.description);
         }
@@ -427,16 +459,16 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                                     acf && acf.accordion_repeater_2 && acf.accordion_repeater_2.length > 0 ? acf.accordion_repeater_2.map((item, index) => (
                                         <button
                                             key={index}
-                                            onClick={() => setActiveDirection(item.accordion_title)}
+                                            onClick={() => setActiveDirection(item.accordion_title_uz)}
                                             className="w-full text-left px-4 py-3 flex items-center transition-all relative overflow-hidden"
                                             style={{
-                                                backgroundColor: activeDirection === item.accordion_title ? brandColorLighter : 'transparent',
-                                                borderLeft: activeDirection === item.accordion_title ? `4px solid ${brandColor}` : '4px solid transparent',
+                                                backgroundColor: activeDirection === item.accordion_title_uz ? brandColorLighter : 'transparent',
+                                                borderLeft: activeDirection === item.accordion_title_uz ? `4px solid ${brandColor}` : '4px solid transparent',
                                             }}
                                         >
                                             {item.title_icon ? (
                                                 <div className="bg-[#8d1d72] p-[7px] rounded-full mr-3">
-                                                    <Image src={item.title_icon} alt={`${item.accordion_title} icon`} width={20} height={20} className="" />
+                                                    <Image src={item.title_icon} alt={`${item.accordion_title_uz} icon`} width={20} height={20} className="" />
                                                 </div>
                                             ) : (
                                                 <div className="p-2 rounded-full mr-3" style={{ backgroundColor: brandColorLighter }}>
@@ -444,9 +476,9 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                                                 </div>
                                             )}
                                             <span
-                                                style={{ color: activeDirection === item.accordion_title ? brandColor : '#333', fontWeight: activeDirection === item.accordion_title ? '500' : '400' }}
+                                                style={{ color: activeDirection === item.accordion_title_uz ? brandColor : '#333', fontWeight: activeDirection === item.accordion_title_uz ? '500' : '400' }}
                                             >
-                                                {item.accordion_title}
+                                                {item.accordion_title_uz}
                                             </span>
                                         </button>
                                     )) : (
@@ -490,16 +522,31 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                         <div className="bg-white rounded-lg shadow-md overflow-hidden">
                             {/* Заголовок с фоном */}
                             <div
-                                className="p-8 text-white relative"
+                                // className={`p-6 pt-10 md:pt-8 md:p-8 relative ${activeTab === 'zaochka' ? 'text-[#4a1942]' : 'text-white'}`}
+                                // style={{
+                                //     background: activeTab === 'zaochka'
+                                //         ? 'linear-gradient(to right, #f9e8a0, #d4a73a)'
+                                //         : `linear-gradient(to right, ${brandColor}, ${brandColorLight})`,
+                                //     backgroundSize: 'cover'
+                                // }}
+                                className="p-6 pt-10 md:pt-8 md:p-8 text-white relative"
                                 style={{ background: `linear-gradient(to right, ${brandColor}, ${brandColorLight})`, backgroundSize: 'cover' }}
                             >
                                 <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10 transform translate-x-1/2 -translate-y-1/2" style={{ backgroundColor: 'white' }}></div>
                                 <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full opacity-10 transform -translate-x-1/3 translate-y-1/3" style={{ backgroundColor: 'white' }}></div>
 
+                                {/* Бейдж с количеством лет обучения */}
+                                {getStudyDuration() && (
+                                    <div className="md:hidden absolute top-4 right-4 bg-white text-[#6b0e55] px-3 py-1 rounded-full text-sm font-medium shadow-md z-20 flex items-center">
+                                        <Clock className="w-4 h-4 mr-1" />
+                                        {getStudyDuration()} {getStudyDuration() === '1' ? 'yil' : (getStudyDuration() >= '2' && getStudyDuration() <= '4') ? 'yil' : 'yil'}
+                                    </div>
+                                )}
+
                                 <h2 className="text-3xl font-bold mb-3 relative z-10">
                                     {getCurrentDirectionTitle()}
                                 </h2>
-                                <p className="text-white text-opacity-80 relative z-10 max-w-2xl">EMU universiteti bilan yuqori malakali mutaxassisga aylaning!</p>
+                                <p className="text-white text-opacity-80 relative z-10 max-w-2xl">EMU Universiteti bilan yuqori malakali mutaxassisga aylaning!</p>
                             </div>
 
                             <div className="p-4 md:p-8">
@@ -523,13 +570,13 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                                     <div className="grid md:grid-cols-2 gap-3 mb-8">
                                         <div className="bg-gray-50 rounded-lg p-4 text-center border border-gray-200">
                                             <p className="text-xl font-bold" style={{ color: brandColor }}>
-                                                {currentBusinessDirection.semester_price || 'Не указано'}
+                                                {currentBusinessDirection.semester_price || 'Belgilanmagan'}
                                             </p>
                                             <p className="text-gray-600 text-sm">Bir semestr uchun xarajat</p>
                                         </div>
                                         <div className="bg-gray-50 rounded-lg p-4 text-center border border-gray-200">
                                             <p className="text-xl font-bold" style={{ color: brandColor }}>
-                                                {currentBusinessDirection.full_price || 'Не указано'}
+                                                {currentBusinessDirection.full_price || 'Belgilanmagan'}
                                             </p>
                                             <p className="text-gray-600 text-sm">Bir o'quv yili uchun xarajat</p>
                                         </div>
