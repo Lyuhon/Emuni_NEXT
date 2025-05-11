@@ -22,9 +22,10 @@ export default function BlogPostCard({ post, categoryName }) {
                     <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
                         {post.title}
                     </h3>
-                    <p className="text-gray-600 text-sm line-clamp-3 flex-grow">
-                        {post.description}
-                    </p>
+                    <p
+                        className="text-gray-600 text-sm line-clamp-3 flex-grow"
+                        dangerouslySetInnerHTML={{ __html: post.description }}
+                    />
                     <div className="mt-3 pt-2 border-t border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity">
                         <span className="text-[#5f1464] text-xs font-medium">Подробнее →</span>
                     </div>

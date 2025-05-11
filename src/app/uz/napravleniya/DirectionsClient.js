@@ -6,7 +6,8 @@ import Image from 'next/image';
 import parse from 'html-react-parser';
 import PricingAccordion from './PricingAccordion';
 
-export default function DirectionsClient({ directions, directionContent, zaochkaDirections, zaochkaDirectionContent, acf }) {
+// export default function DirectionsClient({ directions, directionContent, zaochkaDirections, zaochkaDirectionContent, acf }) {
+export default function DirectionsClient({ directions, directionContent, zaochkaDirections, zaochkaDirectionContent, acf, tarifImages }) {
     // Для отладки - выводим данные в консоль
     console.log("Компонент рендерится с данными:");
     console.log("acf:", JSON.stringify(acf));
@@ -186,7 +187,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                     md:group-hover:opacity-100 md:opacity-0 
                     opacity-0 md:opacity-0 
                     top-full mt-1 right-0">
-                        Стипендия — это регулярные выплаты студентам за успехи в учебе, научной деятельности или другие достижения, предоставляемые университетом или другими организациями.
+                        Stipendiya - bu universitet yoki boshqa tashkilotlar tomonidan taqdim etiladigan ilmiy yutuqlar, tadqiqot yoki boshqa yutuqlar uchun talabalarga muntazam to'lov.
                         <div className="absolute right-4 top-[-6px] w-0 h-0 border-l-6 border-r-6 border-b-6 border-l-transparent border-r-transparent border-b-gray-800"></div>
                     </div>
                 </div>
@@ -252,7 +253,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                     md:group-hover:opacity-100 md:opacity-0 
                     opacity-0 md:opacity-0 
                     top-full mt-1 left-0">
-                        Грант — это финансовая поддержка, предоставляемая университетом для покрытия части или полной стоимости обучения, основанная на академических достижениях или других критериях.
+                        Grant - bu akademik yutuqlar yoki boshqa mezonlar asosida oʻqish narxining bir qismini yoki toʻliq qismini qoplash uchun universitet tomonidan taqdim etiladigan moliyaviy yordamdir.
                         <div className="absolute left-4 top-[-6px] w-0 h-0 border-l-6 border-r-6 border-b-6 border-l-transparent border-r-transparent border-b-gray-800"></div>
                     </div>
                 </div>
@@ -395,7 +396,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
             <div className="max-w-screen-xl mx-auto px-6 py-4">
                 {/* Intro text с декоративными элементами */}
                 {/* Pricing Accordion */}
-                <PricingAccordion />
+                <PricingAccordion tarifImages={tarifImages} />
 
                 {/* Tabs - стилизованные */}
                 <div className="mb-10">
@@ -537,7 +538,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
 
                                 {/* Бейдж с количеством лет обучения */}
                                 {getStudyDuration() && (
-                                    <div className="md:hidden absolute top-4 right-4 bg-white text-[#6b0e55] px-3 py-1 rounded-full text-sm font-medium shadow-md z-20 flex items-center">
+                                    <div className="absolute top-4 right-4 bg-white text-[#6b0e55] px-3 py-1 rounded-full text-sm font-medium shadow-md z-20 flex items-center">
                                         <Clock className="w-4 h-4 mr-1" />
                                         {getStudyDuration()} {getStudyDuration() === '1' ? 'yil' : (getStudyDuration() >= '2' && getStudyDuration() <= '4') ? 'yil' : 'yil'}
                                     </div>

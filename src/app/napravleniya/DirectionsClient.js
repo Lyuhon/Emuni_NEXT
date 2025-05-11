@@ -6,7 +6,8 @@ import Image from 'next/image';
 import parse from 'html-react-parser';
 import PricingAccordion from './PricingAccordion';
 
-export default function DirectionsClient({ directions, directionContent, zaochkaDirections, zaochkaDirectionContent, acf }) {
+// export default function DirectionsClient({ directions, directionContent, zaochkaDirections, zaochkaDirectionContent, acf }) {
+export default function DirectionsClient({ directions, directionContent, zaochkaDirections, zaochkaDirectionContent, acf, tarifImages }) {
     // Для отладки - выводим данные в консоль
     console.log("Компонент рендерится с данными:");
     console.log("acf:", JSON.stringify(acf));
@@ -395,7 +396,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
             <div className="max-w-screen-xl mx-auto px-6 py-4">
                 {/* Intro text с декоративными элементами */}
                 {/* Pricing Accordion */}
-                <PricingAccordion />
+                <PricingAccordion tarifImages={tarifImages} />
 
                 {/* Tabs - стилизованные */}
                 <div className="mb-10">
@@ -545,7 +546,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
 
                                 {/* Бейдж с количеством лет обучения */}
                                 {getStudyDuration() && (
-                                    <div className="md:hidden absolute top-4 right-4 bg-white text-[#6b0e55] px-3 py-1 rounded-full text-sm font-medium shadow-md z-20 flex items-center">
+                                    <div className="absolute top-4 right-4 bg-white text-[#6b0e55] px-3 py-1 rounded-full text-sm font-medium shadow-md z-20 flex items-center">
                                         <Clock className="w-4 h-4 mr-1" />
                                         {getStudyDuration()} {getStudyDuration() === '1' ? 'год' : (getStudyDuration() >= '2' && getStudyDuration() <= '4') ? 'года' : 'лет'}
                                     </div>
