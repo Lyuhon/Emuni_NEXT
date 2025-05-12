@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const RectorAppealSection = () => {
     const [videoModalOpen, setVideoModalOpen] = useState(false);
@@ -51,11 +52,42 @@ const RectorAppealSection = () => {
         <section ref={sectionRef} className="relative w-full md:min-h-[90vh] overflow-hidden bg-[#f7f7f7]">
             {/* Фоновое изображение */}
             <div className="absolute inset-0">
-                <img
+                {/* <img
                     src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/emu-web-2.2-min-scaled.jpg"
                     alt="EMU University Banner"
                     className="w-full h-full object-cover object-[80%_10%] transform translate-y-[var(--parallax, 0)]"
-                />
+                /> */}
+                <div className="relative w-full h-full">
+                    <Image
+                        src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/emu-web-2.2-min-scaled.jpg"
+                        alt="EMU University Banner"
+                        fill={true}
+                        sizes="(max-width: 768px) 100vw, 100vw"
+                        className="hidden md:block object-cover object-[80%_10%] transform translate-y-[var(--parallax, 0)]"
+                        priority={true}
+                        quality={85}
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwQDAwQEAwQFBAQFBgoHBgYGBg0JCggKDw0QEA8NDw4RExgUERIXEg4PFRwVFxkZGxsbEBQdHx0aHxgaGxr/2wBDAQQFBQYFBgwHBwwaEQ8RGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhr/wgARCAAIAAgDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAX//xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAEFAn//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAEDAQE/AX//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAECAQE/AX//xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAY/An//xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAE/IX//2gAMAwEAAgADAAAAEP8A/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAwEBPxB//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAgEBPxB//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxB//9k="
+                        style={{
+                            objectPosition: "80% 10%"
+                        }}
+                    />
+
+                    <Image
+                        src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/emu-web-2.2-min-scaled.jpg"
+                        alt="EMU University Banner"
+                        fill={true}
+                        sizes="(max-width: 768px) 100vw, 100vw"
+                        className="md:hidden block object-cover object-[80%_10%] transform translate-y-[var(--parallax, 0)]"
+                        priority={true}
+                        quality={10}
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwQDAwQEAwQFBAQFBgoHBgYGBg0JCggKDw0QEA8NDw4RExgUERIXEg4PFRwVFxkZGxsbEBQdHx0aHxgaGxr/2wBDAQQFBQYFBgwHBwwaEQ8RGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhr/wgARCAAIAAgDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAX//xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAEFAn//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAEDAQE/AX//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAECAQE/AX//xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAY/An//xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAE/IX//2gAMAwEAAgADAAAAEP8A/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAwEBPxB//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAgEBPxB//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxB//9k="
+                        style={{
+                            objectPosition: "80% 10%"
+                        }}
+                    />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-r to-[#6b0e55]/50 from-transparent"></div>
             </div>
 
