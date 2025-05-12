@@ -151,14 +151,15 @@ export default function Footer() {
                     {/* Logo and Address */}
                     <div>
                         <div className="flex items-center mb-4">
-                            <img
+                            <Image
                                 src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/new_emu_logo-min.png"
                                 alt="EMU University Logo"
                                 width={180}
                                 height={50}
                                 className="md:hidden block object-contain"
                             />
-                            <img
+
+                            <Image
                                 src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/emuni-footer-logo.png"
                                 alt="EMU University Logo"
                                 width={546}

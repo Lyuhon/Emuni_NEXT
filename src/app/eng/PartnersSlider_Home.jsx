@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay, Pagination } from 'swiper/modules';
+import Image from 'next/image';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -48,14 +49,20 @@ const PartnersSlider = () => {
 
     const renderPartnerItem = (name, partner, link, index) => {
         const isLinkEmptyOrScroll = !link || link === '#' || link === '#scroll';
+        // Создаем обрезанную версию имени только для атрибута alt
+        const trimmedAlt = name && name.length > 15 ? name.substring(0, 15) + '...' : name;
+
         const commonContent = (
             <>
                 <div className="h-[110px] flex items-center justify-center mb-3 md:mb-4 p-2 md:p-4 rounded-lg w-full">
                     {partner && partner.url ? (
-                        <img
+                        <Image
                             src={partner.url}
-                            alt={name}
+                            alt={trimmedAlt || 'Партнер'} // Используем обрезанное имя для alt
+                            width={110}
+                            height={110}
                             className="max-h-[110px] w-auto object-contain filter drop-shadow-sm"
+                            style={{ objectFit: 'contain' }}
                         />
                     ) : (
                         <div className="w-[110px] h-[110px] rounded-full bg-gray-200 flex items-center justify-center">
@@ -111,9 +118,9 @@ const PartnersSlider = () => {
                     <div className="inline-block mb-4">
                         <div className="h-1 w-20 bg-gradient-to-r from-[#631463] to-[#8a3c8a] rounded-full mx-auto"></div>
                     </div>
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Partners</h2>
+                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Наши партнёры</h2>
                     <p className="text-gray-600 max-w-2xl mx-auto">
-                        Collaboration with leading medical institutions and companies to ensure high-quality education
+                        Сотрудничество с ведущими медицинскими учреждениями и компаниями для обеспечения качественного образования
                     </p>
                 </div>
 
