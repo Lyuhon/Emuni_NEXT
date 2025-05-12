@@ -552,10 +552,24 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                                     </div>
                                 )}
 
-                                <h2 className="text-3xl font-bold mb-3 relative z-10">
+                                <h2
+                                    className="text-3xl font-bold mb-3 relative z-10"
+                                    style={{
+                                        color: activeTab === 'zaochka'
+                                            ? '#f5e0a0'
+                                            : `#ffffff`,
+                                    }}
+                                >
                                     {getCurrentDirectionTitle()}
                                 </h2>
-                                <p className="text-white text-opacity-80 relative z-10 max-w-2xl">Станьте высококвалифицированным специалистом вместе с Университетом EMU!</p>
+                                <p
+                                    className="text-white text-opacity-80 relative z-10 max-w-2xl"
+                                    style={{
+                                        color: activeTab === 'zaochka'
+                                            ? '#f5e0a0'
+                                            : `#ffffff`,
+                                    }}
+                                >Станьте высококвалифицированным специалистом вместе с Университетом EMU!</p>
                             </div>
 
                             <div className="p-4 md:p-8">
