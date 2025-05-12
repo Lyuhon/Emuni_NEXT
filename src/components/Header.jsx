@@ -20,6 +20,7 @@ import {
     Locate
 } from "lucide-react";
 import { SiInstagram, SiTelegram, SiFacebook, SiYoutube } from 'react-icons/si';
+import Image from 'next/image';
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -228,8 +229,8 @@ export default function Header() {
                     {/* Logo */}
                     <Link href={language === 'uz' ? "/uz" : language === 'eng' ? "/eng" : "/"} onClick={() => setIsMenuOpen(false)}>
                         <div className="flex items-center">
-                            <img
-                                src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/new_emu_logo-min.png"
+                            <Image
+                                src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/new_emu_logo-min.png"
                                 alt="EMU University Logo"
                                 width={140}
                                 height={50}

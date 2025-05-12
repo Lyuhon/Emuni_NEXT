@@ -11,7 +11,7 @@ const HeroSection = () => {
                 {/* Фоновое изображение */}
                 <div className="absolute inset-0">
                     <Image
-                        src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/web-banner-2-scaled.webp" // Замените на путь к вашему изображению
+                        src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/web-banner-2-scaled.webp" // Замените на путь к вашему изображению
                         alt="Университетский кампус"
                         fill
                         className="object-cover object-center"
@@ -63,7 +63,7 @@ const HeroSection = () => {
                 {/* Фоновое изображение */}
                 <div className="absolute inset-0">
                     <Image
-                        src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/web-banner-2-scaled.webp"
+                        src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/web-banner-2-scaled.webp"
                         alt="Университетский кампус"
                         fill
                         className="object-cover"

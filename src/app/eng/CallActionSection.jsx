@@ -63,7 +63,7 @@ const HeroSection = () => {
                 {/* Background image */}
                 <div className="absolute inset-0">
                     <Image
-                        src="http://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/web-banner-2-scaled.webp"
+                        src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/web-banner-2-scaled.webp"
                         alt="University campus"
                         fill
                         className="object-cover"
