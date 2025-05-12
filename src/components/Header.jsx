@@ -79,6 +79,17 @@ export default function Header() {
         };
     }, [isMenuOpen]);
 
+
+
+    // // Добавьте этот эффект
+    // useEffect(() => {
+    //     // Закрываем все меню при изменении pathname (переходе на другую страницу)
+    //     setIsMenuOpen(false);
+    //     setOpenDropdown(null);
+    //     setMobileOpenDropdown(null);
+    // }, [pathname]);
+
+
     // Menu structure with sub-items
     const menuItems = [
         { name: "Приём 25-26", name_uz: "Qabul 25-26", name_eng: "Admission 25-26", href: "https://apply.emuni.uz/", href_uz: "https://apply.emuni.uz/", href_eng: "https://apply.emuni.uz/" },
@@ -415,7 +426,8 @@ export default function Header() {
                                                         >
                                                             <Link
                                                                 href={getItemHref(subItem)}
-                                                                className="block px-4 py-2 text-sm hover:bg-[#7a407f] rounded-lg transition-colors"
+                                                                className="block px-4 py-2 text-sm hover:bg-[#9c3f84] rounded-lg transition-colors"
+                                                                onClick={() => setIsMenuOpen(false)} // Добавьте это
                                                             >
                                                                 {getItemName(subItem)}
                                                             </Link>
@@ -448,6 +460,7 @@ export default function Header() {
                                         <Link
                                             href={getItemHref(item)}
                                             className="block px-4 py-2 hover:bg-[#7a407f] rounded-lg transition-colors hover:translate-x-1 transform transition-transform duration-300 ease-in-out"
+                                            onClick={() => setIsMenuOpen(false)} // Добавьте это
                                         >
                                             {getItemName(item)}
                                         </Link>
@@ -503,6 +516,7 @@ export default function Header() {
                                                         key={getItemName(subItem)}
                                                         href={getItemHref(subItem)}
                                                         className="block px-4 py-2 text-[#9c3f84] hover:bg-[#9c3f84] hover:text-white transition-colors"
+                                                        onClick={() => setOpenDropdown(null)}
                                                     >
                                                         {getItemName(subItem)}
                                                     </Link>
