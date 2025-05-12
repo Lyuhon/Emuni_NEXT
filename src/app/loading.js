@@ -80,7 +80,7 @@ export default function Loading() {
         <div className="fixed inset-0 z-[9000] flex items-center justify-center bg-white">
             <div className="flex flex-col items-center">
                 {/* Логотип */}
-                <div className="mb-8 relative">
+                {/* <div className="mb-8 relative">
                     <img
                         src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/emu-university-loading-js.webp"
                         alt="EMU University Logo"
@@ -92,7 +92,7 @@ export default function Loading() {
                         animate={{ opacity: [0, 0.5, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity }}
                     />
-                </div>
+                </div> */}
 
                 {/* Анимированный индикатор загрузки */}
                 <div className="relative h-1 w-48 overflow-hidden bg-gray-200 rounded-full">

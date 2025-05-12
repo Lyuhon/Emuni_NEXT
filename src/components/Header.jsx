@@ -293,21 +293,30 @@ export default function Header() {
                         {/* Language Switch */}
                         <div className="flex items-center space-x-2">
                             <button
-                                onClick={() => switchLanguage('ru')}
+                                onClick={() => {
+                                    switchLanguage('ru');
+                                    setIsMenuOpen(false);
+                                }}
                                 className={`text-white text-sm ${language === 'ru' ? 'font-bold' : ''}`}
                             >
                                 RU
                             </button>
                             <span className="text-white text-sm">|</span>
                             <button
-                                onClick={() => switchLanguage('uz')}
+                                onClick={() => {
+                                    switchLanguage('uz');
+                                    setIsMenuOpen(false);
+                                }}
                                 className={`text-white text-sm ${language === 'uz' ? 'font-bold' : ''}`}
                             >
                                 UZ
                             </button>
                             <span className="text-white text-sm">|</span>
                             <button
-                                onClick={() => switchLanguage('eng')}
+                                onClick={() => {
+                                    switchLanguage('eng');
+                                    setIsMenuOpen(false);
+                                }}
                                 className={`text-white text-sm ${language === 'eng' ? 'font-bold' : ''}`}
                             >
                                 EN
