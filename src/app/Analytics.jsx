@@ -152,7 +152,7 @@ import Script from 'next/script';
  */
 export default function Analytics({
     yandexId = '89860815',
-    pixelId = '1157688265576596',
+    pixelId = '1779278256304726',
     gtmId = 'G-6NWB2GH3G6',
     delay = 1000, // задержка в 1 секунду
 }) {

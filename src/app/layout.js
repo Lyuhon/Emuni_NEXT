@@ -88,7 +88,7 @@ export default function RootLayout({ children }) {
 
         <Analytics
           yandexId="89860815"
-          pixelId="1157688265576596"
+          pixelId="1779278256304726"
           gtmId="G-6NWB2GH3G6"
         />
       </body>

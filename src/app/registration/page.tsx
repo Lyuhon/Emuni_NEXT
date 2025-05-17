@@ -49,11 +49,10 @@ export default function RegistrationPage() {
 
     // Placeholder images for the slider (using the provided image)
     const sliderImages = [
-        'https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/main-banner-new.webp',
-        'https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/main-banner-new.webp',
-        'https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/main-banner-new.webp',
-        'https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/main-banner-new.webp',
-        'https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/main-banner-new.webp',
+        'https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/reg-banner-emu-1.jpg',
+        'https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/reg-banner-emu-2.jpg',
+        'https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/reg-banner-emu-4.jpg',
+        'https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/reg-banner-emu-3.jpg',
     ];
 
     // Custom pagination bullet rendering с JSX inline styles
@@ -91,7 +90,7 @@ export default function RegistrationPage() {
                 }
             `}</style>
 
-            <div className="pt-20 bg-gradient-to-br from-[#6b0e55] to-[#8f3178] min-h-screen relative overflow-hidden">
+            <div className="pt-20 bg-gradient-to-br from-[#6b0e55] to-[#8f3178] min-h-screen relative overflow-hidden z-[20001]">
                 {/* Background Effects */}
                 <div className="absolute inset-0 overflow-hidden">
                     {/* Grid Pattern */}
