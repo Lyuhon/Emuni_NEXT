@@ -78,19 +78,21 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
-      >
-        <Header />
-        {children}
-        <Footer />
 
         <Analytics
           yandexId="89860815"
           pixelId="1779278256304726"
           gtmId="G-6NWB2GH3G6"
         />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
+      >
+
+        <Header />
+        {children}
+        <Footer />
+
       </body>
     </html>
   );
