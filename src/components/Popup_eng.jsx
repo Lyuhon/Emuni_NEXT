@@ -227,7 +227,7 @@ export default function Popup() {
     }, [formData, fields]);
 
     const validateLatinAndSpaces = (value) => /^[A-Za-z\s]*$/.test(value);
-    const validatePassport = (value) => /^[a-z]{2}\d{6}$/i.test(value);
+    const validatePassport = (value) => /^[a-z]{2}\d{7}$/i.test(value);
     const validatePINFL = (value) => /^\d{14}$/.test(value);
 
     const formatDate = (value) => {
@@ -259,7 +259,7 @@ export default function Popup() {
     const formatPassport = (value) => {
         const cleaned = value.replace(/[^a-z0-9]/gi, '');
         const letters = cleaned.slice(0, 2).toLowerCase();
-        const numbers = cleaned.slice(2).replace(/\D/g, '').slice(0, 6);
+        const numbers = cleaned.slice(2).replace(/\D/g, '').slice(0, 7);
         return letters + numbers;
     };
 
@@ -296,7 +296,7 @@ export default function Popup() {
         } else if (field.label === 'Passport series and number') {
             newValue = formatPassport(value);
             if (value && !validatePassport(newValue)) {
-                newErrors[fieldId] = 'Enter passport in format aa999999 (two Latin letters and 6 digits).';
+                newErrors[fieldId] = 'Enter passport in format aa9999999 (two Latin letters and 7 digits).';
             } else {
                 delete newErrors[fieldId];
             }
@@ -473,7 +473,7 @@ export default function Popup() {
                                                     required={field.required === '1'}
                                                     maxLength={
                                                         field.label === 'Passport series and number'
-                                                            ? 8
+                                                            ? 9
                                                             : field.label === 'Phone number' || field.label === 'Second phone number (optional)'
                                                                 ? 13
                                                                 : field.label === 'Date of birth'
