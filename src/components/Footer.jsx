@@ -367,7 +367,7 @@ export default function Footer() {
             top_rat="&col=340F6E&t=ffffff&p=BD6F6F";top_r+="&js="+top_js+"";document.write('<a href="http://www.uz/ru/res/visitor/index?id=46609" target="_top"><img src="http://cnt0.www.uz/counter/collect?'+top_r+top_rat+'" width=88 height=31 border=0 alt="Топ рейтинг www.uz"></a>')
             //-->
         </SCRIPT>
-        
+
         <NOSCRIPT>
             <A href="http://www.uz/ru/res/visitor/index?id=46609" target="_top">
                 <IMG height=31 src="http://cnt0.www.uz/counter/collect?id=46609&pg=http%3A//uzinfocom.uz&&col=340F6E&t=ffffff&p=BD6F6F" width=88 border=0 alt="Топ рейтинг www.uz">
@@ -414,7 +414,7 @@ export default function Footer() {
                             <div dangerouslySetInnerHTML={{ __html: yandexMetrikaCounter }} />
 
                             {/* WWW.UZ Counter */}
-                            <div dangerouslySetInnerHTML={{ __html: wwwUzCounter }} />
+                            {/* <div dangerouslySetInnerHTML={{ __html: wwwUzCounter }} /> */}
                         </div>
                     </div>
 
