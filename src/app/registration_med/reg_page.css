@@ -1,0 +1,8 @@
+header,
+footer {
+    display: none;
+}
+
+body {
+    padding: 0px !important;
+}
