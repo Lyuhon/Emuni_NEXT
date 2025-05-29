@@ -16,16 +16,37 @@ export default function VisitWidget() {
     });
 
     useEffect(() => {
+        // Проверяем кэш в localStorage
+        const cacheKey = 'visit_stats';
+        const cached = localStorage.getItem(cacheKey);
+        const cacheTime = 15 * 60 * 1000; // 15 минут в миллисекундах
+
+        if (cached) {
+            const { data, timestamp } = JSON.parse(cached);
+            const isExpired = Date.now() - timestamp > cacheTime;
+
+            if (!isExpired) {
+                setVisits(data);
+                return; // Используем кэш, не делаем запрос
+            }
+        }
+
+        // Если кэша нет или он устарел - делаем запрос
         fetch('/api/visit')
             .then((res) => res.json())
             .then((data) => {
                 setVisits(data);
+                // Сохраняем в кэш
+                localStorage.setItem(cacheKey, JSON.stringify({
+                    data,
+                    timestamp: Date.now()
+                }));
             })
             .catch((err) => console.error(err));
     }, []);
 
     return (
-        <div className="text-white text-sm">
+        <div className="p-3 text-white text-sm">
             <p>
                 {isUzLang
                     ? `Bugungi tashriflar: ${visits.today}`
