@@ -202,7 +202,7 @@ export default function ThankYouPage() {
 
                     {/* Heading and Text */}
                     <div className="relative inline-block">
-                        <h1 className="font-bold text-4xl my-5 md:text-5xl text-gray-900 relative">
+                        <h1 className="font-bold text-4xl my-8 md:my-5 md:text-5xl text-gray-900 relative">
                             Мы ценим ваше доверие к нам
                             <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#6b0e55]/20 transform skew-x-[12deg]" />
                         </h1>
@@ -215,7 +215,9 @@ export default function ThankYouPage() {
                         >
                             +998(78) 147-00-07
                         </a>
-                        . Пожалуйста, не пропустите звонок.
+                        . Пожалуйста, не пропустите звонок.< br />< br />
+                        То, что начинается в EMU, меняет мир, и все начинается с вас!
+
                     </p>
                     {/* <p className="text-base md:text-xl text-gray-600">
             Мы надеемся, что вы сможете получить балл{' '}
@@ -285,6 +287,6 @@ export default function ThankYouPage() {
                     </a>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

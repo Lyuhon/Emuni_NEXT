@@ -18,7 +18,7 @@ export default function RegistrationPage() {
 
     // Функция переключения языка
     const handleLanguageChange = (lang) => {
-        router.push(`/${lang}/registration`);
+        router.push(`/${lang}/registration_bussines`);
         setIsLanguageOpen(false);
     };
 
@@ -154,17 +154,17 @@ export default function RegistrationPage() {
                         </button>
                         {isLanguageOpen && (
                             <div className="absolute top-12 right-0 w-32 bg-white rounded-lg shadow-lg border border-[#f9eef5] overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
-                                <button
+                                {/* <button
                                     onClick={() => handleLanguageChange('eng')}
                                     className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-[#f9eef5] transition-colors duration-200"
                                 >
                                     English
-                                </button>
+                                </button> */}
                                 <button
-                                    onClick={() => handleLanguageChange('uz')}
+                                    onClick={() => handleLanguageChange('ru')}
                                     className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-[#f9eef5] transition-colors duration-200"
                                 >
-                                    Oʻzbek
+                                    Russian
                                 </button>
                             </div>
                         )}
@@ -204,7 +204,7 @@ export default function RegistrationPage() {
                                 />
                             </svg>
                             <h1 className="font-bold text-3xl text-center lg:text-start lg:mb-8 mb-5 text-white md:text-4xl lg:text-6xl relative">
-                                Лучшее место, чтобы подумать о бизнесе — EMU Business University
+                                Biznes haqida o'ylash uchun eng yaxshi joy - EMU business universiteti
                                 <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#f9eef5]/20 transform skew-x-[12deg]" />
                             </h1>
                             <div className="relative">
@@ -239,11 +239,11 @@ export default function RegistrationPage() {
                         <div className="lg:w-1/3 max-w-[30rem] flex-grow border-2 border-[#f9eef5] rounded-[30px] my-9 md:my-0 lg:mt-0 bg-white sm:mx-auto lg:mx-0 relative">
                             <div className="bg-white p-7 lg:p-10 rounded-[30px]">
                                 <h2 className="font-bold text-center text-xl xl:text-2xl pb-3 text-gray-900">
-                                    Зарегистрируйтесь сейчас, чтобы записаться на экзамен
+                                    Hoziroq biznes yo'nalishlari uchun kirish imtihonlariga yoziling
                                 </h2>
                                 <RegistrationForm />
                                 <p className="text-center mt-4 text-gray-600 opacity-50">
-                                    Абитуриенты, набравшие высокие баллы на вступительных экзаменах, могут воспользоваться грантами, стипендиями и многими другими возможностями.
+                                    Kirish imtihonlarida yuqori ball to'plagan abituriyentlar grant o'rinlari, stipendiya va boshqa bir qancha imkoniyatlardan foydalanishlari mumkun
                                 </p>
                             </div>
                         </div>

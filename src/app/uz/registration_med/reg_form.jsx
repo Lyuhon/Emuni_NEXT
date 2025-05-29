@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function RegistrationForm() {
-    // Состояния для формы
+    // States for the form
     const [fields, setFields] = useState([]);
     const [formData, setFormData] = useState({});
     const [message, setMessage] = useState('');
@@ -12,63 +13,65 @@ export default function RegistrationForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
-    const formId = 451;
+    const formId = 465;
+    const router = useRouter();
 
-    // Соответствия для мед. факультетов
+    // Mappings for medical faculties
     const mappingMed = {
         'Стоматология': 'Стоматология | Стоматология',
         'Фармация': 'Фармация | Фармация',
-        'Лечебное дело': 'Лечебное дело | Даволаش иши',
+        'Даволаш иши': 'Лечебное дело | Даволаш иши',
         'Педиатрия': 'Педиатрия | Педиатрия',
-        'Высшее медсестринское дело': 'Высшее медсестринское дело | Олий ҳамширалик',
-        'Народная медицина': 'Народная медицина | Халқ табобати',
+        'Олий ҳамширалик': 'Высшее медсестринское дело | Олий ҳамширалик',
+        'Халқ табобати': 'Народная медицина | Халқ табобати',
         'Биотехнология': 'Биотехнология | Биотехнология',
-        'Медико-биологическое дело': 'Медико-биологическое дело | Тиббий-биологик иш',
-        'Медико-профилактическое дело': 'Медико-профилактическое дело | Тиббий-профилактика иши',
+        'Тиббий-биологик иш': 'Медико-биологическое дело | Тиббий-биологик иш',
+        'Тиббий-профилактика иши': 'Медико-профилактическое дело | Тиббий-профилактика иши',
         'Биология': 'Биология | Биология',
-        'Химия': 'Химия | Кимё',
-        'Фундаментальная медицина': 'Фундаментальная медицина | Фундаментал тиббиёт',
-        'Косметология': 'Косметология | Косметология'
+        'Кимё': 'Химия | Кимё',
+        'Ветеринария иши': 'Ветеринарное дело | Ветеринария иши',
+        'Косметология': 'Косметология | Косметология',
+        'Фундаментал тиббиёт': 'Фундаментальная медицина | Фундаментал тиббиёт',
     };
 
-    // Соответствия для бизнес факультетов
+    // Mappings for business faculties
     const mappingBus = {
         'Архитектура': 'Архитектура | Архитектура',
-        'Дизайн интерьера': 'Дизайн интерьера | Интерьер дизайни',
-        'Дошкольное образование': 'Дошкольное образование | Мактабгача таълим',
+        'Интерьер дизайни': 'Дизайн интерьера | Интерьер дизайни',
+        'Мактабгача таълим': 'Дошкольное образование | Мактабгача таълим',
         'Логистика': 'Логистика | Логистика',
         'Маркетинг': 'Маркетинг | Маркетинг',
-        'Специальная педагогика (логопедия)': 'Специальная педагогика (логопедия) | Махсус педагогика (логопедия)',
-        'Транспорт (автомобильный транспорт)': 'Транспорт (автомобильный транспорт) | Транспорт (автомобил транспорти)',
+        'Махсус педагогика (логопедия)': 'Специальная педагогика (логопедия) | Махсус педагогика (логопедия)',
+        'Транспорт (автомобил транспорти)': 'Транспорт (автомобильный транспорт) | Транспорт (автомобил транспорти)',
         'Туризм': 'Туризм | Туризм',
-        'Управление бизнесом': 'Управление бизнесом | Бизнес бошқаруви',
+        'Бизнес бошқаруви': 'Управление бизнесом | Бизнес бошқаруви',
         'Филология и лингвистика': 'Филология и лингвистика | Филология и лингвистика',
-        'Финансы и финансовые технологии': 'Финансы и финансовые технологии | Молия ва молиявий технологиялар',
-        'Экономика (по отраслям и секторам обслуживания)': 'Экономика (по отраслям и секторам обслуживания) | Иқтисодиёт (саноат ва хизмат кўрсатиш соҳалари бўйича)',
+        'Молия ва молиявий технологиялар': 'Финансы и финансовые технологии | Молия ва молиявий технологиялар',
+        'Иқтисодиёт (саноат ва хизмат кўрсатиш соҳалари бўйича)': 'Экономика (по отраслям и секторам обслуживания) | Иқтисодиёт (саноат ва хизмат кўрсатиш соҳалари бўйича)',
         'Менеджмент': 'Менеджмент | Менеджмент',
-        'Начальное образование': 'Начальное образование | Бошланғич таълим',
+        'Бошланғич таълим': 'Начальное образование | Бошланғич таълим',
         'Психология': 'Психология | Психология',
         'Педагогика': 'Педагогика | Педагогика',
-        'Налоги и налогообложение': 'Налоги и налогообложение | Солиқлар ва солиққа тортиш',
-        'Банковское дело': 'Банковское дело | Банк иши',
-        'Бухгалтерский учет': 'Бухгалтерский учет | Бухгалтерия хисоби'
+        'Солиқлар ва солиққа тортиш': 'Налоги и налогообложение | Солиқлар ва солиққа тортиш',
+        'Банк иши': 'Банковское дело | Банк иши',
+        'Бухгалтерия хисоби': 'Бухгалтерский учет | Бухгалтерия хисоби',
     };
 
-    // Соответствия для формы обучения
+    // Mappings for study types
     const mappingTime = {
-        '1 смена': `Очная | Kunduzgi ta'lim`,
-        '2 смена': `Вечерняя | Kechki ta'lim`,
-        'Очное обучение': `Очная | Kunduzgi ta'lim`,
-        'Вечернее обучение': `Вечерняя | Kechki ta'lim`,
-        'Заочное обучение': `Заочная | Sirtqi ta'lim`
+        '1 smena': 'Очная | Kunduzgi ta’lim',
+        '2 smena': 'Вечерняя | Kechki ta’lim',
+        'Kunduzgi ta’lim': 'Очная | Kunduzgi ta’lim',
+        'Kechki ta’lim': 'Вечерняя | Kechki ta’lim',
+        'Sirtqi ta’lim': 'Заочная | Sirtqi ta’lim'
     };
 
-    // Функция для очистки номера телефона от специальных символов
+    // Function to sanitize phone numbers
     const sanitizeInput = (value) => {
         return value.replace(/[-()]/g, '');
     };
 
-    // Загрузка полей формы при монтировании компонента
+    // Fetch form fields on component mount
     useEffect(() => {
         async function fetchFormFields() {
             try {
@@ -89,7 +92,7 @@ export default function RegistrationForm() {
         fetchFormFields();
     }, []);
 
-    // Установка текущего URL в поле "Источник"
+    // Set current URL to "Источник" field
     useEffect(() => {
         if (fields.length > 0) {
             const sourceField = fields.find((f) => f.label === 'Источник');
@@ -102,27 +105,23 @@ export default function RegistrationForm() {
         }
     }, [fields]);
 
-    // Эффект для синхронизации данных между связанными полями
+    // Synchronize data between related fields
     useEffect(() => {
         if (fields.length === 0) return;
 
-        let updatedFormData = null;
+        let updatedFormData = { ...formData };
         let needUpdate = false;
 
-        const medFacultyField = fields.find(f => f.label === 'Выберите факультет (MEDICAL SCHOOL)');
-        const busFacultyField = fields.find(f => f.label === 'Выберите факультет (BUSINESS AND SOCIAL SCHOOL)');
+        const medFacultyField = fields.find(f => f.label === 'Fakul\'tetni tanlang (MEDICAL SCHOOL)');
+        const busFacultyField = fields.find(f => f.label === 'Fakul\'tetni tanlang (BUSINESS AND SOCIAL SCHOOL)');
         const directionBitrixField = fields.find(f => f.label === 'BITRIX - Направления');
-        const medTimeField = fields.find(f => f.label === 'Форма обучения (MEDICAL SCHOOL)');
-        const busTimeField = fields.find(f => f.label === 'Форма обучения (BUSINESS AND SOCIAL SCHOOL)');
+        const medTimeField = fields.find(f => f.label === 'Ta\'lim shakli (MEDICAL SCHOOL)');
+        const busTimeField = fields.find(f => f.label === 'Ta\'lim shakli (BUSINESS AND SOCIAL SCHOOL)');
         const timeBitrixField = fields.find(f => f.label === 'BITRIX - Форма обучения');
-        const phone1Field = fields.find(f => f.label === 'Номер телефона');
-        const phone2Field = fields.find(f => f.label === 'Дополнительный номер');
+        const phone1Field = fields.find(f => f.label === 'Telefon raqamingiz');
+        const phone2Field = fields.find(f => f.label === `Qo'shimcha telefon raqam`);
         const bitrixPhone1Field = fields.find(f => f.label === 'BITRIX - Телефон 1');
         const bitrixPhone2Field = fields.find(f => f.label === 'BITRIX - Телефон 2');
-
-        if (!updatedFormData) {
-            updatedFormData = { ...formData };
-        }
 
         if (medFacultyField && directionBitrixField && formData[medFacultyField.id]) {
             const selectedValue = formData[medFacultyField.id];
@@ -145,7 +144,7 @@ export default function RegistrationForm() {
         if (timeBitrixField && ((medTimeField && formData[medTimeField?.id]) || (busTimeField && formData[busTimeField?.id]))) {
             const medTimeValue = formData[medTimeField?.id];
             const busTimeValue = formData[busTimeField?.id];
-            let timeValue = `Очная | Kunduzgi ta'lim`;
+            let timeValue = 'Очная | Kunduzgi ta\'lim';
             if (medTimeValue && mappingTime[medTimeValue]) {
                 timeValue = mappingTime[medTimeValue];
             } else if (busTimeValue && mappingTime[busTimeValue]) {
@@ -178,12 +177,12 @@ export default function RegistrationForm() {
         }
     }, [formData, fields]);
 
-    // Функции валидации
+    // Validation functions
     const validateLatinAndSpaces = (value) => /^[A-Za-z\s]*$/.test(value);
     const validatePassport = (value) => /^[a-z]{2}\d{7}$/i.test(value);
     const validatePINFL = (value) => /^\d{14}$/.test(value);
 
-    // Функции форматирования
+    // Formatting functions
     const formatDate = (value) => {
         const cleaned = value.replace(/\D/g, '').slice(0, 8);
         const day = cleaned.slice(0, 2);
@@ -222,43 +221,43 @@ export default function RegistrationForm() {
         let newErrors = { ...errors };
         let updatedFormData = { ...formData };
 
-        if (field.label === 'Имя' || field.label === 'Фамилия') {
+        if (field.label === 'Ism' || field.label === 'Familiya') {
             if (!validateLatinAndSpaces(value)) {
-                newErrors[fieldId] = 'Пожалуйста, вводите только латинские буквы и пробелы.';
+                newErrors[fieldId] = 'Iltimos, faqat lotin harflari va bo\'shliqlarni kiriting.';
             } else {
                 delete newErrors[fieldId];
             }
             updatedFormData[fieldId] = newValue;
-        } else if (field.label === 'Дата рождения') {
+        } else if (field.label === 'Tug\'ilgan sana') {
             newValue = formatDate(value);
             const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
             if (value && !dateRegex.test(newValue)) {
-                newErrors[fieldId] = 'Введите дату в формате dd/mm/yyyy.';
+                newErrors[fieldId] = 'Sanani dd/mm/yyyy formatida kiriting.';
             } else {
                 delete newErrors[fieldId];
             }
             updatedFormData[fieldId] = newValue;
-        } else if (field.label === 'Номер телефона' || field.label === 'Дополнительный номер') {
+        } else if (field.label === 'Telefon raqamingiz' || field.label === `Qo'shimcha telefon raqam`) {
             newValue = formatPhone(value);
             const phoneRegex = /^\(\d{2}\)\d{3}-\d{2}-\d{2}$/;
             if (field.required === '1' && value && !phoneRegex.test(newValue)) {
-                newErrors[fieldId] = 'Введите номер в формате (99)999-99-99.';
+                newErrors[fieldId] = 'Raqamni (99)999-99-99 formatida kiriting.';
             } else {
                 delete newErrors[fieldId];
             }
             updatedFormData[fieldId] = newValue;
-        } else if (field.label === 'Серия и номер паспорта') {
+        } else if (field.label === 'Pasport seriyasi va raqami') {
             newValue = formatPassport(value);
             if (value && !validatePassport(newValue)) {
-                newErrors[fieldId] = 'Введите паспорт в формате aa9999999 (две латинские буквы и 7 цифр).';
+                newErrors[fieldId] = 'Pasportni aa1234567 formatida kiriting (ikkita lotin harfi va 7 ta raqam).';
             } else {
                 delete newErrors[fieldId];
             }
             updatedFormData[fieldId] = newValue;
-        } else if (field.label === 'ПИНФЛ') {
+        } else if (field.label === 'JShShIR') {
             newValue = value.replace(/\D/g, '').slice(0, 14);
             if (field.required === '1' && value && !validatePINFL(newValue)) {
-                newErrors[fieldId] = 'ПИНФЛ должен содержать ровно 14 цифр.';
+                newErrors[fieldId] = `JShShIR aynan 14 ta raqamdan iborat bo'lishi kerak.`;
             } else {
                 delete newErrors[fieldId];
             }
@@ -272,7 +271,7 @@ export default function RegistrationForm() {
                 updatedFormData[fieldId] = newValue;
             }
             if (field.required === '1' && newValue !== '1') {
-                newErrors[fieldId] = 'Это поле обязательно.';
+                newErrors[fieldId] = 'Ushbu maydon majburiy.';
             } else {
                 delete newErrors[fieldId];
             }
@@ -287,12 +286,12 @@ export default function RegistrationForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (Object.keys(errors).length > 0) {
-            setMessage('Пожалуйста, исправьте ошибки в форме.');
+            setMessage('Iltimos, formada xatolarni tuzating.');
             return;
         }
 
         setIsSubmitting(true);
-        console.log('Отправляемые данные:', JSON.stringify({ form_id: formId, fields: formData }));
+        console.log('Yuborilayotgan ma\'lumotlar:', JSON.stringify({ form_id: formId, fields: formData }));
 
         try {
             const res = await fetch('https://admission.emuni.uz/wp-json/wpforms-api/v1/submit-form', {
@@ -310,43 +309,39 @@ export default function RegistrationForm() {
                 setFormData({});
                 setErrors({});
                 setMessage('');
+                // Редирект на страницу успеха
+                setTimeout(() => {
+                    router.push('/uz/success');
+                }, 0);
             } else {
-                setMessage(`Ошибка: ${result.message || 'Неизвестная ошибка'}`);
+                setMessage(`Xato: ${result.message || 'Noma\'lum xato'}`);
             }
         } catch (error) {
             console.error('Submit error:', error);
-            setMessage('Ошибка сети.');
+            setMessage('Tarmoq xatosi.');
         } finally {
             setIsSubmitting(false);
         }
     };
 
-    // Определяем условия показа полей
-    const directionField = fields.find((f) => f.label === 'Выберите направление');
+    // Conditional field display logic
+    const directionField = fields.find((f) => f.label === 'Yo\'nalishni tanlang');
     const directionValue = formData[directionField?.id] || '';
     const showMedicalFaculty = directionValue === 'MEDICAL SCHOOL';
     const showBusinessFaculty = directionValue === 'BUSINESS AND SOCIAL SCHOOL';
 
-    const agreementField = fields.find((f) => f.label === 'Соглашение');
-    const otherFields = fields.filter((f) => f.label !== 'Соглашение');
+    const agreementField = fields.find((f) => f.label === 'Shartnoma');
+    const otherFields = fields.filter((f) => f.label !== 'Shartnoma');
 
     if (isSubmitted) {
         return (
             <div className="text-center space-y-6">
                 <p className="text-xl font-semibold text-green-600">
-                    Заявка успешно отправлена, ожидайте!
+                    Ariza muvaffaqiyatli yuborildi, kuting!
                 </p>
-                <button
-                    onClick={() => {
-                        setIsSubmitted(false);
-                        setFormData({});
-                        setErrors({});
-                        setMessage('');
-                    }}
-                    className="bg-[#6b0e55] text-white p-3 rounded-lg shadow-md hover:bg-[#500f50] transition-all duration-300 transform hover:scale-105"
-                >
-                    Создать новую заявку
-                </button>
+                <p className="text-gray-600">
+                    Siz bir necha soniya ichida yo'naltirilasiz...
+                </p>
             </div>
         );
     }
@@ -358,13 +353,13 @@ export default function RegistrationForm() {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                <p className="text-[#6b0e55] text-lg">Загрузка полей формы...</p>
+                <p className="text-[#6b0e55] text-lg">Maydonlar yuklanmoqda...</p>
             </div>
         );
     }
 
     if (fields.length === 0) {
-        return <p className="text-gray-500 text-center">Загрузка полей...</p>;
+        return <p className="text-gray-500 text-center">Maydonlar yuklanmoqda...</p>;
     }
 
     return (
@@ -372,10 +367,10 @@ export default function RegistrationForm() {
             <form onSubmit={handleSubmit} className="space-y-4">
                 {otherFields.map((field) => {
                     if (
-                        (field.label === 'Выберите факультет (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
-                        (field.label === 'Выберите факультет (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty) ||
-                        (field.label === 'Форма обучения (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
-                        (field.label === 'Форма обучения (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty)
+                        (field.label === 'Fakul\'tetni tanlang (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
+                        (field.label === 'Fakul\'tetni tanlang (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty) ||
+                        (field.label === 'Ta\'lim shakli (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
+                        (field.label === 'Ta\'lim shakli (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty)
                     ) {
                         return null;
                     }
@@ -403,17 +398,17 @@ export default function RegistrationForm() {
                                     placeholder={field.placeholder || ''}
                                     required={field.required === '1'}
                                     maxLength={
-                                        field.label === 'Серия и номер паспорта'
+                                        field.label === 'Pasport seriyasi va raqami'
                                             ? 9
-                                            : field.label === 'Номер телефона' || field.label === 'Дополнительный номер'
+                                            : field.label === 'Telefon raqamingiz' || field.label === `Qo'shimcha telefon raqam`
                                                 ? 13
-                                                : field.label === 'Дата рождения'
+                                                : field.label === 'Tug\'ilgan sana'
                                                     ? 10
-                                                    : field.label === 'ПИНФЛ'
+                                                    : field.label === 'JShShIR'
                                                         ? 14
                                                         : undefined
                                     }
-                                    className={`w-full border border-[#f9eef5] rounded-lg p-3 focus:ring-2 focus:ring-[#6b0e55] focus:border-[#6b0e55] hover:border-[#8f3178] transition-colors ${errors[field.id] ? 'border-red-500' : 'border-gray-300'}`}
+                                    className={`w-full border border-[#f9eef5] rounded-lg p-3 focus:ring-1 focus:ring-[#3b82f6] focus:border-[#3b82f6] focus-visible:outline-none hover:border-[#8f3178] transition-all duration-300 ${errors[field.id] ? 'border-red-500' : 'border-gray-300'}`}
                                 />
                             )}
                             {field.type === 'select' && (
@@ -421,9 +416,9 @@ export default function RegistrationForm() {
                                     value={formData[field.id] || ''}
                                     onChange={(e) => handleChange(field.id, e.target.value, field)}
                                     required={field.required === '1'}
-                                    className="w-full border border-[#f9eef5] rounded-lg p-3 focus:ring-2 focus:ring-[#6b0e55] focus:border-[#6b0e55] hover:border-[#8f3178] transition-colors appearance-none bg-[url('/images/icons/arrow.svg')] bg-no-repeat bg-[right_1rem_center] bg-[length:16px_16px]"
+                                    className="w-full border border-[#f9eef5] rounded-lg p-3 focus:ring-1 focus:ring-[#3b82f6] focus:border-[#3b82f6] focus-visible:outline-none hover:border-[#8f3178] transition-all duration-300 appearance-none bg-[url('/images/icons/arrow.svg')] bg-no-repeat bg-[right_1rem_center] bg-[length:16px_16px]"
                                 >
-                                    <option value="">{field.placeholder || '- Выбрать -'}</option>
+                                    <option value="">{field.placeholder || '- Tanlang -'}</option>
                                     {Object.values(field.choices).map((choice, index) => (
                                         <option key={index} value={choice.label}>
                                             {choice.label}
@@ -440,7 +435,7 @@ export default function RegistrationForm() {
                                                 checked={formData[field.id] === '1'}
                                                 onChange={(e) => handleChange(field.id, e.target.checked, field)}
                                                 required={field.required === '1' && formData[field.id] !== '1'}
-                                                className="h-5 w-5 text-[#6b0e55] border-gray-300 rounded transition-all duration-200 focus:ring-2 focus:ring-[#6b0e55]"
+                                                className="h-5 w-5 text-[#6b0e55] border-gray-300 rounded transition-all duration-200 focus:ring-1 focus:ring-[#3b82f6] focus-visible:outline-none"
                                             />
                                             <span
                                                 dangerouslySetInnerHTML={{ __html: choice.label }}
@@ -472,7 +467,7 @@ export default function RegistrationForm() {
                                             checked={formData[agreementField.id] === '1'}
                                             onChange={(e) => handleChange(agreementField.id, e.target.checked, agreementField)}
                                             required={agreementField.required === '1' && formData[agreementField.id] !== '1'}
-                                            className="h-5 w-5 text-[#6b0e55] border-gray-300 rounded transition-all duration-200 focus:ring-2 focus:ring-[#6b0e55]"
+                                            className="h-5 w-5 text-[#6b0e55] border-gray-300 rounded transition-all duration-200 focus:ring-1 focus:ring-[#3b82f6] focus-visible:outline-none"
                                         />
                                         <span
                                             dangerouslySetInnerHTML={{ __html: choice.label }}
@@ -492,7 +487,7 @@ export default function RegistrationForm() {
                     type="submit"
                     disabled={isSubmitting}
                     className={`w-full bg-gradient-to-r from-[#6b0e55] to-[#8f3178] text-white py-4 rounded-2xl transition-all duration-300 transform flex items-center justify-center
-                        ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'}`}
+                ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'}`}
                 >
                     {isSubmitting ? (
                         <>
@@ -516,17 +511,17 @@ export default function RegistrationForm() {
                                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                                 ></path>
                             </svg>
-                            Отправка...
+                            Yuborilmoqda...
                         </>
                     ) : (
-                        'Позвоните мне!'
+                        'Menga qo\'ng\'iroq qiling!'
                     )}
                 </button>
             </form>
 
             {message && !isSubmitted && (
                 <p
-                    className={`mt-4 text-center font-medium ${message.includes('успешно') ? 'text-green-600' : 'text-red-600'} animate-fade-in`}
+                    className={`mt-4 text-center font-medium ${message.includes('muvaffaqiyatli') ? 'text-green-600' : 'text-red-600'} animate-fade-in`}
                 >
                     {message}
                 </p>
