@@ -1,4 +1,4 @@
-import { kv } from '@vercel/blob';
+import { kv } from '@vercel/kv';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
@@ -13,9 +13,9 @@ export async function GET() {
         const totalKey = 'visits:total';
 
         await Promise.all([
-            kv.set(todayKey, 1, { ttl: 60 * 60 * 24 }), // Сегодня: 1
-            kv.set(weekKey, 2, { ttl: 60 * 60 * 24 * 7 }), // Неделя: 2
-            kv.set(monthKey, 1761, { ttl: 60 * 60 * 24 * 30 }), // Месяц: 1761
+            kv.set(todayKey, 1, { ex: 60 * 60 * 24 }), // Сегодня: 1
+            kv.set(weekKey, 2, { ex: 60 * 60 * 24 * 7 }), // Неделя: 2
+            kv.set(monthKey, 1761, { ex: 60 * 60 * 24 * 30 }), // Месяц: 1761
             kv.set(totalKey, 403899), // Всего: 403899
         ]);
 

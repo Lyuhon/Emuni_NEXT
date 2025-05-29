@@ -25,7 +25,7 @@ export default function VisitWidget() {
     }, []);
 
     return (
-        <div className="border-2 border-red-600 p-3 bg-gray-100 text-gray-800 rounded">
+        <div className="text-white text-sm">
             <p>
                 {isUzLang
                     ? `Bugungi tashriflar: ${visits.today}`
@@ -47,7 +47,7 @@ export default function VisitWidget() {
                         ? `Visits this month: ${visits.month}`
                         : `Посещений за месяц: ${visits.month}`}
             </p>
-            <p className="text-blue-600">
+            <p>
                 📶{' '}
                 {isUzLang
                     ? `Jami tashriflar: ${visits.total}`

@@ -1,4 +1,4 @@
-import { kv } from '@vercel/blob';
+import { kv } from '@vercel/kv';
 import { NextResponse } from 'next/server';
 
 export async function GET(req) {
@@ -10,7 +10,7 @@ export async function GET(req) {
         const hasVisitedToday = await kv.get(ipDateKey);
 
         if (!hasVisitedToday) {
-            await kv.set(ipDateKey, '1', { ttl: 60 * 60 * 24 }); // 24 часа
+            await kv.set(ipDateKey, '1', { ex: 60 * 60 * 24 }); // 24 часа
 
             const todayKey = `visits:today:${today}`;
             const weekKey = `visits:week:${getWeekNumber(new Date())}`;
