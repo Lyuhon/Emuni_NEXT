@@ -46,7 +46,7 @@ export default function VisitWidget() {
     }, []);
 
     return (
-        <div className="p-3 text-white text-sm">
+        <div className="text-white text-sm">
             <p>
                 {isUzLang
                     ? `Bugungi tashriflar: ${visits.today}`
