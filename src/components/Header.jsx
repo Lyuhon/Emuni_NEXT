@@ -468,7 +468,7 @@ export default function Header() {
                                     ) : (
                                         <Link
                                             href={getItemHref(item)}
-                                            className="block px-4 py-2 hover:bg-[#7a407f] rounded-lg transition-colors hover:translate-x-1 transform transition-transform duration-300 ease-in-out"
+                                            className="block px-4 py-2 hover:bg-[#9c3f84] rounded-lg transition-colors hover:translate-x-1 transform transition-transform duration-300 ease-in-out"
                                             onClick={() => setIsMenuOpen(false)} // Добавьте это
                                         >
                                             {getItemName(item)}
