@@ -1,75 +1,82 @@
-// app/components/Popup_eng.jsx
-// app/components/Popup_eng.jsx
+// app/components/UzPopup.jsx
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function Popup() {
+export default function UzPopup() {
     const [isOpen, setIsOpen] = useState(false);
     const [fields, setFields] = useState([]);
     const [formData, setFormData] = useState({});
     const [message, setMessage] = useState('');
     const [errors, setErrors] = useState({});
-    const [isSubmitted, setIsSubmitted] = useState(false); // State for successful submission
-    const [isSubmitting, setIsSubmitting] = useState(false); // State for loading
-    const [isLoading, setIsLoading] = useState(false); // State for form fields loading
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isLoading, setIsLoading] = useState(false); // Состояние загрузки полей формы
 
-    const formId = 485;
+    const formId = 465;
 
-    // Mappings for medical faculties
+    // Соответствия для мед. факультетов
     const mappingMed = {
-        'Dentistry': 'Стоматология | Стоматология',
-        'Pharmacy': 'Фармация | Фармация',
-        'General Medicine': 'Лечебное дело | Даволаш иши',
-        'Pediatrics': 'Педиатрия | Педиатрия',
-        'Higher nursing': 'Высшее медсестринское дело | Олий ҳамширалик',
-        'Traditional medicine': 'Народная медицина | Халқ табобати',
-        'Biotechnology': 'Биотехнология | Биотехнология',
-        'Biomedical': 'Медико-биологическое дело | Тиббий-биологик иш',
-        'Preventive medicine': 'Медико-профилактическое дело | Тиббий-профилактика иши',
-        'Biology': 'Биология | Биология',
-        'Chemistry': 'Химия | Кимё',
-        'Veterinary in medicine': 'Ветеринарное дело | Ветеринария иши',
-        'Cosmetology': 'Косметология | Косметология',
-        'Fundamental medicine': 'Фундаментальная медицина | Фундаментал тиббиёт',
+        'Стоматология': 'Стоматология | Стоматология',
+        'Фармация': 'Фармация | Фармация',
+        'Даволаш иши': 'Лечебное дело | Даволаш иши',
+        'Педиатрия': 'Педиатрия | Педиатрия',
+        'Олий ҳамширалик': 'Высшее медсестринское дело | Олий ҳамширалик',
+        'Халқ табобати': 'Народная медицина | Халқ табобати',
+        'Биотехнология': 'Биотехнология | Биотехнология',
+        'Тиббий-биологик иш': 'Медико-биологическое дело | Тиббий-биологик иш',
+        'Тиббий-профилактика иши': 'Медико-профилактическое дело | Тиббий-профилактика иши',
+        'Биология': 'Биология | Биология',
+        'Кимё': 'Химия | Кимё',
+        'Ветеринария иши': 'Ветеринарное дело | Ветеринария иши',
+        'Косметология': 'Косметология | Косметология',
+        'Фундаментал тиббиёт': 'Фундаментальная медицина | Фундаментал тиббиёт',
     };
 
-    // Mappings for business faculties
+    // Соответствия для бизнес факультетов
     const mappingBus = {
-        'The Interior Design': 'Дизайн интерьера | Интерьер дизайни',
-        'Marketing': 'Маркетинг | Маркетинг',
-        'Business management': 'Управление бизнесом | Бизнес бошқаруви',
-        'Philology and Linguistics': 'Филология и лингвистика | Филология и лингвистика',
-        'Faculty of Finance and financial technology': 'Финансы и финансовые технологии | Молия ва молиявий технологиялар',
-        'Faculty of Economics (by industry and service sectors)': 'Экономика (по отраслям и секторам обслуживания) | Иқтисодиёт (саноат ва хизмат кўрсатиш соҳалари бўйича)',
-        'Management': 'Менеджмент | Менеджмент',
-        'Psychology': 'Психология | Психология',
-        'Taxes and taxation': 'Налоги и налогообложение | Солиқлар ва солиққа тортиш',
-        'Banking': 'Банковское дело | Банк иши',
-        'Accounting': 'Бухгалтерский учет | Бухгалтерия хисоби'
+        'Архитектура': 'Архитектура | Архитектура',
+        'Интерьер дизайни': 'Дизайн интерьера | Интерьер дизайни',
+        'Мактабгача таълим': 'Дошкольное образование | Мактабгача таълим',
+        'Логистика': 'Логистика | Логистика',
+        'Маркетинг': 'Маркетинг | Маркетинг',
+        'Махсус педагогика (логопедия)': 'Специальная педагогика (логопедия) | Махсус педагогика (логопедия)',
+        'Транспорт (автомобил транспорти)': 'Транспорт (автомобильный транспорт) | Транспорт (автомобил транспорти)',
+        'Туризм': 'Туризм | Туризм',
+        'Бизнес бошқаруви': 'Управление бизнесом | Бизнес бошқаруви',
+        'Филология и лингвистика': 'Филология и лингвистика | Филология и лингвистика',
+        'Молия ва молиявий технологиялар': 'Финансы и финансовые технологии | Молия ва молиявий технологиялар',
+        'Иқтисодиёт (саноат ва хизмат кўрсатиш соҳалари бўйича)': 'Экономика (по отраслям и секторам обслуживания) | Иқтисодиёт (саноат ва хизмат кўрсатиш соҳалари бўйича)',
+        'Менеджмент': 'Менеджмент | Менеджмент',
+        'Бошланғич таълим': 'Начальное образование | Бошланғич таълим',
+        'Психология': 'Психология | Психология',
+        'Педагогика': 'Педагогика | Педагогика',
+        'Солиқлар ва солиққа тортиш': 'Налоги и налогообложение | Солиқлар ва солиққа тортиш',
+        'Банк иши': 'Банковское дело | Банк иши',
+        'Бухгалтерия хисоби': 'Бухгалтерский учет | Бухгалтерия хисоби',
     };
 
-    // Mappings for study forms
+    // Соответствия для формы обучения
     const mappingTime = {
-        '1 shift': `Очная | Kunduzgi ta'lim`,
-        '2 shift': `Вечерняя | Kechki ta'lim`,
-        'Full-time study': `Очная | Kunduzgi ta'lim`,
-        'Evening study': `Вечерняя | Kechki ta'lim`,
-        'Distance study': `Заочная | Sirtqi ta'lim`
+        '1 smena': 'Очная | Kunduzgi ta’lim',
+        '2 smena': 'Вечерняя | Kechki ta’lim',
+        'Kunduzgi ta’lim': 'Очная | Kunduzgi ta’lim',
+        'Kechki ta’lim': 'Вечерняя | Kechki ta’lim',
+        'Sirtqi ta’lim': 'Заочная | Sirtqi ta’lim'
     };
 
-    // Function to sanitize phone number by removing special characters
+    // Функция для очистки номера телефона от специальных символов
     const sanitizeInput = (value) => {
         return value.replace(/[-()]/g, '');
     };
 
-    // Handler for trigger clicks
+    // Обработчик кликов по триггерам
     useEffect(() => {
         const handleTriggerClick = (e) => {
             if (e.target.closest('.pop-form-trigger')) {
                 e.preventDefault();
                 setIsOpen(true);
-                setIsSubmitted(false); // Reset state when opening
+                setIsSubmitted(false);
                 setFormData({});
                 setErrors({});
                 setMessage('');
@@ -82,7 +89,7 @@ export default function Popup() {
         };
     }, []);
 
-    // Managing body scrolling
+    // Управление скроллингом body
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -94,7 +101,7 @@ export default function Popup() {
         };
     }, [isOpen]);
 
-    // Prefetching form fields on component mount
+    // Предварительная загрузка полей формы при монтировании компонента
     useEffect(() => {
         async function prefetchFormFields() {
             try {
@@ -115,7 +122,7 @@ export default function Popup() {
         prefetchFormFields();
     }, []);
 
-    // Fetching form fields when popup opens, if not already loaded
+    // Получение полей формы при открытии попапа, если они еще не загружены
     useEffect(() => {
         if (isOpen && fields.length === 0 && !isLoading) {
             async function fetchFormFields() {
@@ -138,10 +145,10 @@ export default function Popup() {
         }
     }, [isOpen, fields.length, isLoading]);
 
-    // Setting current URL in "Source" field
+    // Установка текущего URL в поле "Источник"
     useEffect(() => {
         if (isOpen) {
-            const sourceField = fields.find((f) => f.label === 'Source');
+            const sourceField = fields.find((f) => f.label === 'Источник');
             if (sourceField) {
                 setFormData(prevData => ({
                     ...prevData,
@@ -151,36 +158,26 @@ export default function Popup() {
         }
     }, [isOpen, fields]);
 
-    // Effect for synchronizing data between related fields and handling international faculty
+    // Эффект для синхронизации данных между связанными полями
     useEffect(() => {
         if (fields.length === 0) return;
 
         let updatedFormData = null;
         let needUpdate = false;
 
-        const medFacultyField = fields.find(f => f.label === 'Choose a faculty (MEDICAL SCHOOL)');
-        const busFacultyField = fields.find(f => f.label === 'Choose a faculty (BUSINESS AND SOCIAL SCHOOL)');
+        const medFacultyField = fields.find(f => f.label === 'Fakul\'tetni tanlang (MEDICAL SCHOOL)');
+        const busFacultyField = fields.find(f => f.label === 'Fakul\'tetni tanlang (BUSINESS AND SOCIAL SCHOOL)');
         const directionBitrixField = fields.find(f => f.label === 'BITRIX - Направления');
-        const medTimeField = fields.find(f => f.label === 'Study form (MEDICAL SCHOOL)');
-        const busTimeField = fields.find(f => f.label === 'Study form (BUSINESS AND SOCIAL SCHOOL)');
+        const medTimeField = fields.find(f => f.label === 'Ta\'lim shakli (MEDICAL SCHOOL)');
+        const busTimeField = fields.find(f => f.label === 'Ta\'lim shakli (BUSINESS AND SOCIAL SCHOOL)');
         const timeBitrixField = fields.find(f => f.label === 'BITRIX - Форма обучения');
-        const phone1Field = fields.find(f => f.label === 'Phone number');
-        const phone2Field = fields.find(f => f.label === 'Second phone number (optional)');
+        const phone1Field = fields.find(f => f.label === 'Telefon raqamingiz');
+        const phone2Field = fields.find(f => f.label === 'Q\'oshimcha telefon raqam');
         const bitrixPhone1Field = fields.find(f => f.label === 'BITRIX - Телефон 1');
         const bitrixPhone2Field = fields.find(f => f.label === 'BITRIX - Телефон 2');
-        const directionField = fields.find(f => f.label === 'Choose a direction');
-        const languageField = fields.find(f => f.label === 'Select language');
 
         if (!updatedFormData) {
             updatedFormData = { ...formData };
-        }
-
-        // Handle international faculty language selection
-        if (directionField && languageField && formData[directionField.id] === 'INTERNATIONAL') {
-            if (formData[languageField.id] !== 'English') {
-                updatedFormData[languageField.id] = 'English';
-                needUpdate = true;
-            }
         }
 
         if (medFacultyField && directionBitrixField && formData[medFacultyField.id]) {
@@ -201,12 +198,12 @@ export default function Popup() {
             }
         }
 
-        if (timeBitrixField && ((medTimeField && formData[medTimeField?.id]) || (busTimeField && formData[busTimeField?.id]))) {
+        if (timeBitrixField && ((medTimeField && formData[medTimeField.id]) || (busTimeField && formData[busTimeField.id]))) {
             const medTimeValue = formData[medTimeField?.id];
             const busTimeValue = formData[busTimeField?.id];
-            let timeValue = `Очная | Kunduzgi ta'lim`;
+            let timeValue = 'Очная | Kunduzgi ta\'lim';
             if (medTimeValue && mappingTime[medTimeValue]) {
-                timeValue = mappingTime[medTimeValue];
+                timeValue = (mappingTime[medTimeValue]);
             } else if (busTimeValue && mappingTime[busTimeValue]) {
                 timeValue = mappingTime[busTimeValue];
             }
@@ -279,43 +276,43 @@ export default function Popup() {
         let newErrors = { ...errors };
         let updatedFormData = { ...formData };
 
-        if (field.label === 'Name' || field.label === 'Second name') {
+        if (field.label === 'Ism' || field.label === 'Familiya') {
             if (!validateLatinAndSpaces(value)) {
-                newErrors[fieldId] = 'Please enter only Latin letters and spaces.';
+                newErrors[fieldId] = 'Iltimos, faqat lotin harflari va bo\'shliqlarni kiriting.';
             } else {
                 delete newErrors[fieldId];
             }
             updatedFormData[fieldId] = newValue;
-        } else if (field.label === 'Date of birth') {
+        } else if (field.label === 'Tug\'ilgan sana') {
             newValue = formatDate(value);
             const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
             if (value && !dateRegex.test(newValue)) {
-                newErrors[fieldId] = 'Enter date in format dd/mm/yyyy.';
+                newErrors[fieldId] = 'Sanani dd/mm/yyyy formatida kiriting.';
             } else {
                 delete newErrors[fieldId];
             }
             updatedFormData[fieldId] = newValue;
-        } else if (field.label === 'Phone number' || field.label === 'Second phone number (optional)') {
+        } else if (field.label === 'Telefon raqamingiz' || field.label === `Qo'shimcha telefon raqam`) {
             newValue = formatPhone(value);
             const phoneRegex = /^\(\d{2}\)\d{3}-\d{2}-\d{2}$/;
             if (field.required === '1' && value && !phoneRegex.test(newValue)) {
-                newErrors[fieldId] = 'Enter number in format (99)999-99-99.';
+                newErrors[fieldId] = 'Raqamni (99)999-99-99 formatida kiriting.';
             } else {
                 delete newErrors[fieldId];
             }
             updatedFormData[fieldId] = newValue;
-        } else if (field.label === 'Passport series and number') {
+        } else if (field.label === 'Pasport seriyasi va raqami') {
             newValue = formatPassport(value);
             if (value && !validatePassport(newValue)) {
-                newErrors[fieldId] = 'Enter passport in format aa9999999 (two Latin letters and 7 digits).';
+                newErrors[fieldId] = 'Pasportni aa1234567 formatida kiriting (ikkita lotin harfi va 7 ta raqam).';
             } else {
                 delete newErrors[fieldId];
             }
             updatedFormData[fieldId] = newValue;
-        } else if (field.label === 'ПИНФЛ') {
-            newValue = value.replace(/\D/g, '').slice(0, 14); // Remove non-numeric characters, limit to 14 characters
+        } else if (field.label === 'JShShIR') {
+            newValue = value.replace(/\D/g, '').slice(0, 14); // Удаляем нечисловые символы, ограничиваем 14 символами
             if (field.required === '1' && value && !validatePINFL(newValue)) {
-                newErrors[fieldId] = 'PINFL must contain exactly 14 digits.';
+                newErrors[fieldId] = 'JShShIR aynan 14 ta raqamdan iborat bo‘lishi kerak.';
             } else {
                 delete newErrors[fieldId];
             }
@@ -329,7 +326,7 @@ export default function Popup() {
                 updatedFormData[fieldId] = newValue;
             }
             if (field.required === '1' && newValue !== '1') {
-                newErrors[fieldId] = 'This field is required.';
+                newErrors[fieldId] = 'Ushbu maydon majburiy.';
             } else {
                 delete newErrors[fieldId];
             }
@@ -350,12 +347,12 @@ export default function Popup() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (Object.keys(errors).length > 0) {
-            setMessage('Please correct the errors in the form.');
+            setMessage('Iltimos, formada xatolarni tuzating.');
             return;
         }
 
-        setIsSubmitting(true); // Enable loading state
-        console.log('Submitting data:', JSON.stringify({ form_id: formId, fields: formData }));
+        setIsSubmitting(true);
+        console.log('Отправляемые данные:', JSON.stringify({ form_id: formId, fields: formData }));
 
         try {
             const res = await fetch('https://admission.emuni.uz/wp-json/wpforms-api/v1/submit-form', {
@@ -369,29 +366,28 @@ export default function Popup() {
             const result = await res.json();
             console.log('API response:', result);
             if (res.ok) {
-                setIsSubmitted(true); // Switch to notification
+                setIsSubmitted(true);
                 setFormData({});
                 setErrors({});
-                setMessage(''); // Clear old message
+                setMessage('');
             } else {
-                setMessage(`Error: ${result.message || 'Unknown error'}`);
+                setMessage(`Xato: ${result.message || 'Noma\'lum xato'}`);
             }
         } catch (error) {
             console.error('Submit error:', error);
-            setMessage('Network error.');
+            setMessage('Tarmoq xatosi.');
         } finally {
-            setIsSubmitting(false); // Turn off loading
+            setIsSubmitting(false);
         }
     };
 
-    const directionField = fields.find((f) => f.label === 'Choose a direction');
+    const directionField = fields.find((f) => f.label === 'Yo\'nalishni tanlang');
     const directionValue = formData[directionField?.id] || '';
     const showMedicalFaculty = directionValue === 'MEDICAL SCHOOL';
     const showBusinessFaculty = directionValue === 'BUSINESS AND SOCIAL SCHOOL';
-    const showInternationalFaculty = directionValue === 'INTERNATIONAL';
 
-    const agreementField = fields.find((f) => f.label === 'Terms of use');
-    const otherFields = fields.filter((f) => f.label !== 'Terms of use');
+    const agreementField = fields.find((f) => f.label === 'Shartnoma');
+    const otherFields = fields.filter((f) => f.label !== 'Shartnoma');
 
     return (
         <AnimatePresence>
@@ -412,7 +408,7 @@ export default function Popup() {
                         transition={{ duration: 0.3 }}
                     >
                         <div className="flex justify-between items-center mb-4">
-                            <h2 className="text-2xl font-bold text-gray-800">Registration</h2>
+                            <h2 className="text-2xl font-bold text-gray-800">Ro'yxatdan o'tish</h2>
                             <button onClick={() => setIsOpen(false)} className="text-gray-500 hover:text-gray-700">
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -422,13 +418,13 @@ export default function Popup() {
                         {isSubmitted ? (
                             <div className="text-center space-y-6">
                                 <p className="text-xl font-semibold text-green-600">
-                                    Application successfully submitted, please wait!
+                                    Ariza muvaffaqiyatli yuborildi, kuting!
                                 </p>
                                 <button
                                     onClick={() => setIsOpen(false)}
                                     className="bg-[#631463] text-white p-3 rounded-lg shadow-md hover:bg-[#500f50] transition-all duration-300 transform hover:scale-105"
                                 >
-                                    Close
+                                    Yopish
                                 </button>
                             </div>
                         ) : isLoading ? (
@@ -437,41 +433,35 @@ export default function Popup() {
                                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
-                                <p className="text-[#631463] text-lg">Loading form fields...</p>
+                                <p className="text-[#631463] text-lg">Maydonlar yuklanmoqda...</p>
                             </div>
                         ) : fields.length === 0 ? (
-                            <p className="text-gray-500 text-center">Loading fields...</p>
+                            <p className="text-gray-500 text-center">Maydonlar yuklanmoqda...</p>
                         ) : (
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 {otherFields.map((field) => {
                                     if (
-                                        (field.label === 'Choose a faculty (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
-                                        (field.label === 'Choose a faculty (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty) ||
-                                        (field.label === 'Study form (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
-                                        (field.label === 'Study form (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty) ||
-                                        (field.label === 'Choose a faculty (INTERNATIONAL)' && !showInternationalFaculty)
+                                        (field.label === 'Fakul\'tetni tanlang (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
+                                        (field.label === 'Fakul\'tetni tanlang (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty) ||
+                                        (field.label === 'Ta\'lim shakli (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
+                                        (field.label === 'Ta\'lim shakli (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty)
                                     ) {
                                         return null;
                                     }
 
                                     const isConditionalField =
-                                        field.label === 'Choose a faculty (MEDICAL SCHOOL)' ||
-                                        field.label === 'Choose a faculty (BUSINESS AND SOCIAL SCHOOL)' ||
-                                        field.label === 'Study form (MEDICAL SCHOOL)' ||
-                                        field.label === 'Study form (BUSINESS AND SOCIAL SCHOOL)' ||
-                                        field.label === 'Choose a faculty (INTERNATIONAL)';
+                                        field.label === 'Fakul\'tetni tanlang (MEDICAL SCHOOL)' ||
+                                        field.label === 'Fakul\'tetni tanlang (BUSINESS AND SOCIAL SCHOOL)' ||
+                                        field.label === 'Ta\'lim shakli (MEDICAL SCHOOL)' ||
+                                        field.label === 'Ta\'lim shakli (BUSINESS AND SOCIAL SCHOOL)';
 
                                     const isBitrixField = [
                                         'BITRIX - Телефон 1',
                                         'BITRIX - Телефон 2',
                                         'BITRIX - Форма обучения',
                                         'BITRIX - Направления',
-                                        'Faculcy',
-                                        'Source'
+                                        'Источник'
                                     ].includes(field.label);
-
-                                    // Check if this is the language field and should be disabled
-                                    const isLanguageFieldDisabled = field.label === 'Select language' && showInternationalFaculty;
 
                                     return (
                                         <div
@@ -489,13 +479,13 @@ export default function Popup() {
                                                     placeholder={field.placeholder || ''}
                                                     required={field.required === '1'}
                                                     maxLength={
-                                                        field.label === 'Passport series and number'
+                                                        field.label === 'Pasport seriyasi va raqami'
                                                             ? 9
-                                                            : field.label === 'Phone number' || field.label === 'Second phone number (optional)'
+                                                            : field.label === 'Telefon raqamingiz' || field.label === `Qo'shimcha telefon raqam`
                                                                 ? 13
-                                                                : field.label === 'Date of birth'
+                                                                : field.label === 'Tug\'ilgan sana'
                                                                     ? 10
-                                                                    : field.label === 'ПИНФЛ'
+                                                                    : field.label === 'JShShIR'
                                                                         ? 14
                                                                         : undefined
                                                     }
@@ -507,14 +497,9 @@ export default function Popup() {
                                                     value={formData[field.id] || ''}
                                                     onChange={(e) => handleChange(field.id, e.target.value, field)}
                                                     required={field.required === '1'}
-                                                    disabled={isLanguageFieldDisabled}
-                                                    className={`w-full p-3 border border-gray-300 rounded-lg shadow-sm transition-all duration-200 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-300 bg-white ${isLanguageFieldDisabled ? 'bg-gray-100 cursor-not-allowed' : ''}`}
+                                                    className="w-full p-3 border border-gray-300 rounded-lg shadow-sm transition-all duration-200 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-300 bg-white"
                                                 >
-                                                    <option value="">{field.placeholder || '- Select -'}</option>
-                                                    {/* Add English option for language field when international is selected */}
-                                                    {isLanguageFieldDisabled && (
-                                                        <option value="English">English</option>
-                                                    )}
+                                                    <option value="">{field.placeholder || '- Tanlang -'}</option>
                                                     {Object.values(field.choices).map((choice, index) => (
                                                         <option key={index} value={choice.label}>
                                                             {choice.label}
@@ -605,17 +590,17 @@ export default function Popup() {
                                                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                                                 ></path>
                                             </svg>
-                                            Sending...
+                                            Yuborilmoqda...
                                         </>
                                     ) : (
-                                        'Submit'
+                                        'Yuborish'
                                     )}
                                 </button>
                             </form>
                         )}
                         {message && !isSubmitted && (
                             <p
-                                className={`mt-4 text-center font-medium ${message.includes('successfully') ? 'text-green-600' : 'text-red-600'} animate-fade-in`}
+                                className={`mt-4 text-center font-medium ${message.includes('muvaffaqiyatli') ? 'text-green-600' : 'text-red-600'} animate-fade-in`}
                             >
                                 {message}
                             </p>

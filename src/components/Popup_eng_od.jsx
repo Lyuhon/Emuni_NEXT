@@ -1,5 +1,4 @@
 // app/components/Popup_eng.jsx
-// app/components/Popup_eng.jsx
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -151,7 +150,7 @@ export default function Popup() {
         }
     }, [isOpen, fields]);
 
-    // Effect for synchronizing data between related fields and handling international faculty
+    // Effect for synchronizing data between related fields
     useEffect(() => {
         if (fields.length === 0) return;
 
@@ -168,19 +167,9 @@ export default function Popup() {
         const phone2Field = fields.find(f => f.label === 'Second phone number (optional)');
         const bitrixPhone1Field = fields.find(f => f.label === 'BITRIX - Телефон 1');
         const bitrixPhone2Field = fields.find(f => f.label === 'BITRIX - Телефон 2');
-        const directionField = fields.find(f => f.label === 'Choose a direction');
-        const languageField = fields.find(f => f.label === 'Select language');
 
         if (!updatedFormData) {
             updatedFormData = { ...formData };
-        }
-
-        // Handle international faculty language selection
-        if (directionField && languageField && formData[directionField.id] === 'INTERNATIONAL') {
-            if (formData[languageField.id] !== 'English') {
-                updatedFormData[languageField.id] = 'English';
-                needUpdate = true;
-            }
         }
 
         if (medFacultyField && directionBitrixField && formData[medFacultyField.id]) {
@@ -388,7 +377,6 @@ export default function Popup() {
     const directionValue = formData[directionField?.id] || '';
     const showMedicalFaculty = directionValue === 'MEDICAL SCHOOL';
     const showBusinessFaculty = directionValue === 'BUSINESS AND SOCIAL SCHOOL';
-    const showInternationalFaculty = directionValue === 'INTERNATIONAL';
 
     const agreementField = fields.find((f) => f.label === 'Terms of use');
     const otherFields = fields.filter((f) => f.label !== 'Terms of use');
@@ -448,8 +436,7 @@ export default function Popup() {
                                         (field.label === 'Choose a faculty (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
                                         (field.label === 'Choose a faculty (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty) ||
                                         (field.label === 'Study form (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
-                                        (field.label === 'Study form (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty) ||
-                                        (field.label === 'Choose a faculty (INTERNATIONAL)' && !showInternationalFaculty)
+                                        (field.label === 'Study form (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty)
                                     ) {
                                         return null;
                                     }
@@ -458,8 +445,7 @@ export default function Popup() {
                                         field.label === 'Choose a faculty (MEDICAL SCHOOL)' ||
                                         field.label === 'Choose a faculty (BUSINESS AND SOCIAL SCHOOL)' ||
                                         field.label === 'Study form (MEDICAL SCHOOL)' ||
-                                        field.label === 'Study form (BUSINESS AND SOCIAL SCHOOL)' ||
-                                        field.label === 'Choose a faculty (INTERNATIONAL)';
+                                        field.label === 'Study form (BUSINESS AND SOCIAL SCHOOL)';
 
                                     const isBitrixField = [
                                         'BITRIX - Телефон 1',
@@ -469,9 +455,6 @@ export default function Popup() {
                                         'Faculcy',
                                         'Source'
                                     ].includes(field.label);
-
-                                    // Check if this is the language field and should be disabled
-                                    const isLanguageFieldDisabled = field.label === 'Select language' && showInternationalFaculty;
 
                                     return (
                                         <div
@@ -507,14 +490,9 @@ export default function Popup() {
                                                     value={formData[field.id] || ''}
                                                     onChange={(e) => handleChange(field.id, e.target.value, field)}
                                                     required={field.required === '1'}
-                                                    disabled={isLanguageFieldDisabled}
-                                                    className={`w-full p-3 border border-gray-300 rounded-lg shadow-sm transition-all duration-200 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-300 bg-white ${isLanguageFieldDisabled ? 'bg-gray-100 cursor-not-allowed' : ''}`}
+                                                    className="w-full p-3 border border-gray-300 rounded-lg shadow-sm transition-all duration-200 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-300 bg-white"
                                                 >
                                                     <option value="">{field.placeholder || '- Select -'}</option>
-                                                    {/* Add English option for language field when international is selected */}
-                                                    {isLanguageFieldDisabled && (
-                                                        <option value="English">English</option>
-                                                    )}
                                                     {Object.values(field.choices).map((choice, index) => (
                                                         <option key={index} value={choice.label}>
                                                             {choice.label}

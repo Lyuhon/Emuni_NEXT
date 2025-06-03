@@ -1,4 +1,6 @@
 // app/components/Popup.jsx
+
+// app/components/Popup.jsx
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -174,9 +176,19 @@ export default function Popup() {
         const phone2Field = fields.find(f => f.label === 'Дополнительный номер');
         const bitrixPhone1Field = fields.find(f => f.label === 'BITRIX - Телефон 1');
         const bitrixPhone2Field = fields.find(f => f.label === 'BITRIX - Телефон 2');
+        const languageField = fields.find(f => f.label === 'Язык обучения');
+        const directionField = fields.find(f => f.label === 'Выберите направление');
 
         if (!updatedFormData) {
             updatedFormData = { ...formData };
+        }
+
+        // Новая логика для INTERNATIONAL направления
+        if (directionField && languageField && formData[directionField.id] === 'INTERNATIONAL') {
+            if (formData[languageField.id] !== 'Английский') {
+                updatedFormData[languageField.id] = 'Английский';
+                needUpdate = true;
+            }
         }
 
         if (medFacultyField && directionBitrixField && formData[medFacultyField.id]) {
@@ -386,6 +398,7 @@ export default function Popup() {
     const directionValue = formData[directionField?.id] || '';
     const showMedicalFaculty = directionValue === 'MEDICAL SCHOOL';
     const showBusinessFaculty = directionValue === 'BUSINESS AND SOCIAL SCHOOL';
+    const showInternationalFaculty = directionValue === 'INTERNATIONAL';
 
     const agreementField = fields.find((f) => f.label === 'Соглашение');
     const otherFields = fields.filter((f) => f.label !== 'Соглашение');
@@ -444,6 +457,7 @@ export default function Popup() {
                                     if (
                                         (field.label === 'Выберите факультет (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
                                         (field.label === 'Выберите факультет (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty) ||
+                                        (field.label === 'Select faculty (INTERNATIONAL)' && !showInternationalFaculty) ||
                                         (field.label === 'Форма обучения (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
                                         (field.label === 'Форма обучения (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty)
                                     ) {
@@ -453,6 +467,7 @@ export default function Popup() {
                                     const isConditionalField =
                                         field.label === 'Выберите факультет (MEDICAL SCHOOL)' ||
                                         field.label === 'Выберите факультет (BUSINESS AND SOCIAL SCHOOL)' ||
+                                        field.label === 'Select faculty (INTERNATIONAL)' ||
                                         field.label === 'Форма обучения (MEDICAL SCHOOL)' ||
                                         field.label === 'Форма обучения (BUSINESS AND SOCIAL SCHOOL)';
 
@@ -463,6 +478,9 @@ export default function Popup() {
                                         'BITRIX - Направления',
                                         'Источник'
                                     ].includes(field.label);
+
+                                    // Проверяем, является ли поле "Язык обучения" и нужно ли его заблокировать
+                                    const isLanguageFieldDisabled = field.label === 'Язык обучения' && showInternationalFaculty;
 
                                     return (
                                         <div
@@ -498,9 +516,14 @@ export default function Popup() {
                                                     value={formData[field.id] || ''}
                                                     onChange={(e) => handleChange(field.id, e.target.value, field)}
                                                     required={field.required === '1'}
-                                                    className="w-full p-3 border border-gray-300 rounded-lg shadow-sm transition-all duration-200 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-300 bg-white"
+                                                    disabled={isLanguageFieldDisabled}
+                                                    className={`w-full p-3 border border-gray-300 rounded-lg shadow-sm transition-all duration-200 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-300 bg-white ${isLanguageFieldDisabled ? 'bg-gray-100 cursor-not-allowed opacity-75' : ''}`}
                                                 >
                                                     <option value="">{field.placeholder || '- Выбрать -'}</option>
+                                                    {/* Для поля "Язык обучения" при INTERNATIONAL добавляем опцию "Английский" */}
+                                                    {field.label === 'Язык обучения' && showInternationalFaculty && (
+                                                        <option value="Английский">Английский</option>
+                                                    )}
                                                     {Object.values(field.choices).map((choice, index) => (
                                                         <option key={index} value={choice.label}>
                                                             {choice.label}

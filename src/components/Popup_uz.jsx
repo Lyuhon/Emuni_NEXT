@@ -1,4 +1,5 @@
 // app/components/UzPopup.jsx
+// app/components/UzPopup.jsx
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -176,8 +177,21 @@ export default function UzPopup() {
         const bitrixPhone1Field = fields.find(f => f.label === 'BITRIX - Телефон 1');
         const bitrixPhone2Field = fields.find(f => f.label === 'BITRIX - Телефон 2');
 
+        // Новые поля для международного факультета
+        const directionField = fields.find(f => f.label === 'Yo\'nalishni tanlang');
+        const languageField = fields.find(f => f.label === 'Tilni tanlang');
+
         if (!updatedFormData) {
             updatedFormData = { ...formData };
+        }
+
+        // Логика для международного факультета
+        if (directionField && languageField && formData[directionField.id] === 'INTERNATIONAL') {
+            // Автоматически устанавливаем "Ingliz" в поле языка
+            if (formData[languageField.id] !== 'Ingliz') {
+                updatedFormData[languageField.id] = 'Ingliz';
+                needUpdate = true;
+            }
         }
 
         if (medFacultyField && directionBitrixField && formData[medFacultyField.id]) {
@@ -385,6 +399,7 @@ export default function UzPopup() {
     const directionValue = formData[directionField?.id] || '';
     const showMedicalFaculty = directionValue === 'MEDICAL SCHOOL';
     const showBusinessFaculty = directionValue === 'BUSINESS AND SOCIAL SCHOOL';
+    const showInternationalFaculty = directionValue === 'INTERNATIONAL';
 
     const agreementField = fields.find((f) => f.label === 'Shartnoma');
     const otherFields = fields.filter((f) => f.label !== 'Shartnoma');
@@ -444,7 +459,8 @@ export default function UzPopup() {
                                         (field.label === 'Fakul\'tetni tanlang (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
                                         (field.label === 'Fakul\'tetni tanlang (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty) ||
                                         (field.label === 'Ta\'lim shakli (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
-                                        (field.label === 'Ta\'lim shakli (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty)
+                                        (field.label === 'Ta\'lim shakli (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty) ||
+                                        (field.label === 'Select faculty (INTERNATIONAL)' && !showInternationalFaculty)
                                     ) {
                                         return null;
                                     }
@@ -453,7 +469,8 @@ export default function UzPopup() {
                                         field.label === 'Fakul\'tetni tanlang (MEDICAL SCHOOL)' ||
                                         field.label === 'Fakul\'tetni tanlang (BUSINESS AND SOCIAL SCHOOL)' ||
                                         field.label === 'Ta\'lim shakli (MEDICAL SCHOOL)' ||
-                                        field.label === 'Ta\'lim shakli (BUSINESS AND SOCIAL SCHOOL)';
+                                        field.label === 'Ta\'lim shakli (BUSINESS AND SOCIAL SCHOOL)' ||
+                                        field.label === 'Select faculty (INTERNATIONAL)';
 
                                     const isBitrixField = [
                                         'BITRIX - Телефон 1',
@@ -462,6 +479,9 @@ export default function UzPopup() {
                                         'BITRIX - Направления',
                                         'Источник'
                                     ].includes(field.label);
+
+                                    // Проверяем, является ли поле языка нередактируемым
+                                    const isLanguageFieldDisabled = field.label === 'Tilni tanlang' && showInternationalFaculty;
 
                                     return (
                                         <div
@@ -497,9 +517,14 @@ export default function UzPopup() {
                                                     value={formData[field.id] || ''}
                                                     onChange={(e) => handleChange(field.id, e.target.value, field)}
                                                     required={field.required === '1'}
-                                                    className="w-full p-3 border border-gray-300 rounded-lg shadow-sm transition-all duration-200 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-300 bg-white"
+                                                    disabled={isLanguageFieldDisabled}
+                                                    className={`w-full p-3 border border-gray-300 rounded-lg shadow-sm transition-all duration-200 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-300 bg-white ${isLanguageFieldDisabled ? 'bg-gray-100 cursor-not-allowed opacity-60' : ''}`}
                                                 >
                                                     <option value="">{field.placeholder || '- Tanlang -'}</option>
+                                                    {/* Для поля языка добавляем опцию "Ingliz" если выбран INTERNATIONAL */}
+                                                    {field.label === 'Tilni tanlang' && showInternationalFaculty && (
+                                                        <option value="Ingliz">Ingliz</option>
+                                                    )}
                                                     {Object.values(field.choices).map((choice, index) => (
                                                         <option key={index} value={choice.label}>
                                                             {choice.label}
