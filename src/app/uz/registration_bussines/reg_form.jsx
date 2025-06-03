@@ -905,7 +905,8 @@ export default function RegistrationForm() {
                         (field.label === 'Fakul\'tetni tanlang (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
                         (field.label === 'Fakul\'tetni tanlang (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty) ||
                         (field.label === 'Ta\'lim shakli (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
-                        (field.label === 'Ta\'lim shakli (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty)
+                        (field.label === 'Ta\'lim shakli (BUSINESS AND SOCIAL SCHOOL)' && !showBusinessFaculty) ||
+                        field.label === 'Select faculty (INTERNATIONAL)'
                     ) {
                         return null;
                     }
@@ -954,11 +955,19 @@ export default function RegistrationForm() {
                                     className="w-full border border-[#f9eef5] rounded-lg p-3 focus:ring-1 focus:ring-[#3b82f6] focus:border-[#3b82f6] focus-visible:outline-none hover:border-[#8f3178] transition-all duration-300 appearance-none bg-[url('/images/icons/arrow.svg')] bg-no-repeat bg-[right_1rem_center] bg-[length:16px_16px]"
                                 >
                                     <option value="">{field.placeholder || '- Tanlang -'}</option>
-                                    {Object.values(field.choices).map((choice, index) => (
-                                        <option key={index} value={choice.label}>
-                                            {choice.label}
-                                        </option>
-                                    ))}
+                                    {Object.values(field.choices)
+                                        .filter(choice => {
+                                            // Скрываем "INTERNATIONAL" только для поля "Выберите направление"
+                                            if (field.label === "Yo'nalishni tanlang" && choice.label === 'INTERNATIONAL') {
+                                                return false;
+                                            }
+                                            return true;
+                                        })
+                                        .map((choice, index) => (
+                                            <option key={index} value={choice.label}>
+                                                {choice.label}
+                                            </option>
+                                        ))}
                                 </select>
                             )}
                             {field.type === 'checkbox' && (
