@@ -502,7 +502,7 @@ export default function Popup() {
                                                     className={`w-full p-3 border rounded-lg shadow-sm transition-all duration-200 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-300 ${errors[field.id] ? 'border-red-500' : 'border-gray-300'}`}
                                                 />
                                             )}
-                                            {field.type === 'select' && (
+                                            {/* {field.type === 'select' && (
                                                 <select
                                                     value={formData[field.id] || ''}
                                                     onChange={(e) => handleChange(field.id, e.target.value, field)}
@@ -511,7 +511,6 @@ export default function Popup() {
                                                     className={`w-full p-3 border border-gray-300 rounded-lg shadow-sm transition-all duration-200 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-300 bg-white ${isLanguageFieldDisabled ? 'bg-gray-100 cursor-not-allowed' : ''}`}
                                                 >
                                                     <option value="">{field.placeholder || '- Select -'}</option>
-                                                    {/* Add English option for language field when international is selected */}
                                                     {isLanguageFieldDisabled && (
                                                         <option value="English">English</option>
                                                     )}
@@ -521,7 +520,54 @@ export default function Popup() {
                                                         </option>
                                                     ))}
                                                 </select>
+                                            )} */}
+
+                                            {field.type === 'select' && (
+                                                <select
+                                                    value={formData[field.id] || ''}
+                                                    onChange={(e) => handleChange(field.id, e.target.value, field)}
+                                                    required={field.required === '1'}
+                                                    disabled={isLanguageFieldDisabled}
+                                                    className={`w-full p-3 border border-gray-300 rounded-lg shadow-sm transition-all duration-200 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-300 bg-white ${isLanguageFieldDisabled ? 'bg-gray-100 cursor-not-allowed opacity-75' : ''}`}
+                                                >
+                                                    <option value="">{field.placeholder || '- Choose -'}</option>
+
+                                                    {/* Для поля "Язык обучения" при INTERNATIONAL добавляем опцию "Английский" */}
+                                                    {field.label === 'Select language' && showInternationalFaculty && (
+                                                        <option value="English">English</option>
+                                                    )}
+
+                                                    {/* Специальная логика для поля "Выберите направление" */}
+                                                    {field.label === 'Choose a direction' ? (
+                                                        (() => {
+                                                            const choices = Object.values(field.choices);
+                                                            const internationalChoice = choices.find(choice => choice.label === 'INTERNATIONAL');
+                                                            const medicalChoice = choices.find(choice => choice.label === 'MEDICAL SCHOOL');
+                                                            const otherChoices = choices.filter(choice =>
+                                                                choice.label !== 'INTERNATIONAL' && choice.label !== 'MEDICAL SCHOOL'
+                                                            ).sort((a, b) => a.label.localeCompare(b.label));
+
+                                                            return [
+                                                                ...(internationalChoice ? [internationalChoice] : []),
+                                                                ...(medicalChoice ? [medicalChoice] : []),
+                                                                ...otherChoices
+                                                            ].map((choice, index) => (
+                                                                <option key={index} value={choice.label}>
+                                                                    {choice.label}
+                                                                </option>
+                                                            ));
+                                                        })()
+                                                    ) : (
+                                                        /* Для всех остальных селектов используем стандартную логику */
+                                                        Object.values(field.choices).map((choice, index) => (
+                                                            <option key={index} value={choice.label}>
+                                                                {choice.label}
+                                                            </option>
+                                                        ))
+                                                    )}
+                                                </select>
                                             )}
+
                                             {field.type === 'checkbox' && (
                                                 <div>
                                                     {Object.values(field.choices).map((choice, index) => (

@@ -512,7 +512,7 @@ export default function UzPopup() {
                                                     className={`w-full p-3 border rounded-lg shadow-sm transition-all duration-200 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-300 ${errors[field.id] ? 'border-red-500' : 'border-gray-300'}`}
                                                 />
                                             )}
-                                            {field.type === 'select' && (
+                                            {/* {field.type === 'select' && (
                                                 <select
                                                     value={formData[field.id] || ''}
                                                     onChange={(e) => handleChange(field.id, e.target.value, field)}
@@ -521,7 +521,6 @@ export default function UzPopup() {
                                                     className={`w-full p-3 border border-gray-300 rounded-lg shadow-sm transition-all duration-200 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-300 bg-white ${isLanguageFieldDisabled ? 'bg-gray-100 cursor-not-allowed opacity-60' : ''}`}
                                                 >
                                                     <option value="">{field.placeholder || '- Tanlang -'}</option>
-                                                    {/* Для поля языка добавляем опцию "Ingliz" если выбран INTERNATIONAL */}
                                                     {field.label === 'Tilni tanlang' && showInternationalFaculty && (
                                                         <option value="Ingliz">Ingliz</option>
                                                     )}
@@ -530,6 +529,51 @@ export default function UzPopup() {
                                                             {choice.label}
                                                         </option>
                                                     ))}
+                                                </select>
+                                            )} */}
+                                            {field.type === 'select' && (
+                                                <select
+                                                    value={formData[field.id] || ''}
+                                                    onChange={(e) => handleChange(field.id, e.target.value, field)}
+                                                    required={field.required === '1'}
+                                                    disabled={isLanguageFieldDisabled}
+                                                    className={`w-full p-3 border border-gray-300 rounded-lg shadow-sm transition-all duration-200 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-300 bg-white ${isLanguageFieldDisabled ? 'bg-gray-100 cursor-not-allowed opacity-75' : ''}`}
+                                                >
+                                                    <option value="">{field.placeholder || '- Tanlang -'}</option>
+
+                                                    {/* Для поля "Язык обучения" при INTERNATIONAL добавляем опцию "Английский" */}
+                                                    {field.label === 'Tilni tanlang' && showInternationalFaculty && (
+                                                        <option value="Ingliz">Ingliz</option>
+                                                    )}
+
+                                                    {/* Специальная логика для поля "Выберите направление" */}
+                                                    {field.label === "Yo'nalishni tanlang" ? (
+                                                        (() => {
+                                                            const choices = Object.values(field.choices);
+                                                            const internationalChoice = choices.find(choice => choice.label === 'INTERNATIONAL');
+                                                            const medicalChoice = choices.find(choice => choice.label === 'MEDICAL SCHOOL');
+                                                            const otherChoices = choices.filter(choice =>
+                                                                choice.label !== 'INTERNATIONAL' && choice.label !== 'MEDICAL SCHOOL'
+                                                            ).sort((a, b) => a.label.localeCompare(b.label));
+
+                                                            return [
+                                                                ...(internationalChoice ? [internationalChoice] : []),
+                                                                ...(medicalChoice ? [medicalChoice] : []),
+                                                                ...otherChoices
+                                                            ].map((choice, index) => (
+                                                                <option key={index} value={choice.label}>
+                                                                    {choice.label}
+                                                                </option>
+                                                            ));
+                                                        })()
+                                                    ) : (
+                                                        /* Для всех остальных селектов используем стандартную логику */
+                                                        Object.values(field.choices).map((choice, index) => (
+                                                            <option key={index} value={choice.label}>
+                                                                {choice.label}
+                                                            </option>
+                                                        ))
+                                                    )}
                                                 </select>
                                             )}
                                             {field.type === 'checkbox' && (
