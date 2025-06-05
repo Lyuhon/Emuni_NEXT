@@ -203,7 +203,7 @@ export default function RegistrationPage() {
                                     fill="#fff"
                                 />
                             </svg>
-                            <h1 className="font-bold text-3xl text-center lg:text-start lg:mb-8 mb-5 text-white md:text-4xl lg:text-6xl relative">
+                            <h1 className="mt-6 md:mt-0 font-bold text-3xl text-center lg:text-start lg:mb-8 mb-5 text-white md:text-4xl lg:text-6xl relative">
                                 Ваш путь к карьере врача начинается здесь
                                 <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#f9eef5]/20 transform skew-x-[12deg]" />
                             </h1>
