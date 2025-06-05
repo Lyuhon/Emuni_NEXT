@@ -1,8 +1,20 @@
-'use client';
+// // 'use client';
+
+// import Image from 'next/image';
+// import Link from 'next/link';
+// // import { useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+
+// ISR настройка - страница будет регенерироваться каждые 24 часа
+export const revalidate = 86400; // 24 часа в секундах
+
+// Метаданные страницы
+export const metadata = {
+    title: 'Rahmat - EMU',
+    description: 'Bizga bo\'lgan ishonchingiz uchun rahmat',
+};
 
 export default function ThankYouPage() {
     return (

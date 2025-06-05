@@ -95,7 +95,7 @@ const ZaochkaFlexboxComponent = () => {
                                             </svg>
                                             Grants
                                         </div>
-                                        <div
+                                        {/* <div
                                             className={`absolute z-[999] w-48 p-2 bg-gray-800 text-white text-xs rounded-lg shadow-lg transition-opacity duration-300 
                                             md:group-hover:opacity-100 md:opacity-0 
                                             ${isTooltipVisible[`grant-${index}`] ? "opacity-100" : "opacity-0 md:opacity-0"} 
@@ -103,7 +103,7 @@ const ZaochkaFlexboxComponent = () => {
                                         >
                                             {grantTooltipText}
                                             <div className="absolute left-4 top-[-6px] w-0 h-0 border-l-6 border-r-6 border-b-6 border-l-transparent border-r-transparent border-b-gray-800" />
-                                        </div>
+                                        </div> */}
                                     </div>
                                 )}
                                 {program.stipendiya && (
@@ -128,7 +128,7 @@ const ZaochkaFlexboxComponent = () => {
                                             </svg>
                                             Scholarship
                                         </div>
-                                        <div
+                                        {/* <div
                                             className={`absolute z-[999] w-48 p-2 bg-gray-800 text-white text-xs rounded-lg shadow-lg transition-opacity duration-300 
                                             md:group-hover:opacity-100 md:opacity-0 
                                             ${isTooltipVisible[`stipendiya-${index}`] ? "opacity-100" : "opacity-0 md:opacity-0"} 
@@ -136,7 +136,7 @@ const ZaochkaFlexboxComponent = () => {
                                         >
                                             {stipendiyaTooltipText}
                                             <div className="absolute right-4 top-[-6px] w-0 h-0 border-l-6 border-r-6 border-b-6 border-l-transparent border-r-transparent border-b-gray-800" />
-                                        </div>
+                                        </div> */}
                                     </div>
                                 )}
 

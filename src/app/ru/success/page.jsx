@@ -130,12 +130,23 @@
 // }
 
 
-'use client';
+// // 'use client';
+
+// import Image from 'next/image';
+// import Link from 'next/link';
+// // import { useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
 
+// ISR настройка - страница будет регенерироваться каждые 24 часа
+export const revalidate = 86400; // 24 часа в секундах
+
+// Метаданные страницы
+export const metadata = {
+    title: 'Спасибо  - EMU',
+    description: 'Спасибо за заявку!',
+};
 export default function ThankYouPage() {
     return (
         <div className="pt-20 md:pt-10 pb-20 md:pb-0 bg-white md:min-h-[80wh] relative overflow-hidden">
