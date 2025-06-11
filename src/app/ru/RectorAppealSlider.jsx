@@ -4,6 +4,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
+import { SiInstagram, SiFacebook, SiLinkedin } from 'react-icons/si';
+
+
 const RectorAppealSection = () => {
     const [videoModalOpen, setVideoModalOpen] = useState(false);
     const videoRef = useRef(null);
@@ -137,29 +140,43 @@ const RectorAppealSection = () => {
                         <p className="text-[#fff] text-base md:text-lg">Founder / CEO EMU University</p>
                     </motion.div>
 
-                    {/* Кнопка для открытия видео */}
-                    <motion.button
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.8 }}
-                        whileHover={{ scale: 1.05, backgroundColor: '#8f3178' }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => setVideoModalOpen(true)}
-                        className="flex items-center px-6 py-3 bg-[#6b0e55] text-white rounded-lg shadow-md transition-colors duration-300"
-                    >
-                        <motion.svg
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{ repeat: Infinity, duration: 1.5 }}
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5 mr-2"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
+                    <div className='flex flex-wrap gap-[20px] items-center'>
+                        {/* Кнопка для открытия видео */}
+                        <motion.button
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.8 }}
+                            whileHover={{ scale: 1.05, backgroundColor: '#8f3178' }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => setVideoModalOpen(true)}
+                            className="flex items-center px-6 py-3 bg-[#6b0e55] text-white rounded-lg shadow-md transition-colors duration-300"
                         >
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                        </motion.svg>
-                        Смотреть интервью
-                    </motion.button>
+                            <motion.svg
+                                animate={{ x: [0, 5, 0] }}
+                                transition={{ repeat: Infinity, duration: 1.5 }}
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5 mr-2"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                            >
+                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                            </motion.svg>
+                            Смотреть интервью
+                        </motion.button>
+
+                        <div className="flex space-x-4">
+                            <a href="https://www.instagram.com/gaybullaev_elbek/" className="text-white hover:text-gray-200 transition-colors">
+                                <SiInstagram className="w-5 h-5" />
+                            </a>
+                            <a href="https://www.facebook.com/share/1EpJqyoehs/?mibextid=wwXIfr" className="text-white hover:text-gray-200 transition-colors">
+                                <SiFacebook className="w-5 h-5" />
+                            </a>
+                            <a href="https://www.linkedin.com/in/elbek-gaybullaev-3380b1222/?originalSubdomain=uz" className="text-white hover:text-gray-200 transition-colors">
+                                <SiLinkedin className="w-5 h-5" />
+                            </a>
+                        </div>
+                    </div>
                 </motion.div>
             </div>
 
