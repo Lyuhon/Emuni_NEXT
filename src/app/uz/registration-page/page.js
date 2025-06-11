@@ -2,7 +2,7 @@
 import RegForm from './reg_form';
 
 // UZBEK
-export const metadata_uz = {
+export const metadata = {
     title: "Ro'yxatdan o'tish - EMU University",
     description: "EMU University - Toshkentdagi yetakchi universitetda ro'yxatdan o'ting. Onlayn qabul uchun ariza bering. Toshkent, O'zbekistonda sifatli tibbiy ta'lim.",
     keywords: "EMU University ro'yxatdan o'tish, tibbiy universitetga qabul, EMU arizasi, Toshkent tibbiy ta'lim, O'zbekistondagi universitet",

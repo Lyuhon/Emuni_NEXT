@@ -2,7 +2,7 @@
 import RegForm from './reg_form';
 
 // ENGLISH
-export const metadata_en = {
+export const metadata = {
     title: "Registration - EMU University",
     description: "Register at EMU University - the leading university in Tashkent. Apply for admission online. Quality medical education in Tashkent, Uzbekistan.",
     keywords: "EMU University registration, medical university admission, EMU application, medical education Tashkent, university in Uzbekistan",
