@@ -387,7 +387,7 @@
 
 // С задержкой аналитики
 'use client';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Script from 'next/script';
 
 /**
@@ -467,8 +467,8 @@ export default function Analytics({
     return (
         <>
             {/* Yandex Metrika счетчики */}
-            {yandexIdArray.map((yandexId, index) => (
-                <div key={`yandex-${yandexId}`}>
+            {yandexIdArray.map((yandexId) => (
+                <React.Fragment key={`yandex-${yandexId}`}>
                     <Script
                         id={`yandex-metrika-${yandexId}`}
                         strategy="afterInteractive"
@@ -497,7 +497,7 @@ export default function Analytics({
                             />
                         </div>
                     </noscript>
-                </div>
+                </React.Fragment>
             ))}
 
             {/* Meta Pixel */}
@@ -530,8 +530,8 @@ export default function Analytics({
             </noscript>
 
             {/* Google Analytics/Tag Manager счетчики */}
-            {gtmIdArray.map((gtmId, index) => (
-                <div key={`gtm-${gtmId}`}>
+            {gtmIdArray.map((gtmId) => (
+                <React.Fragment key={`gtm-${gtmId}`}>
                     <Script
                         id={`google-tag-${gtmId}`}
                         strategy="afterInteractive"
@@ -549,12 +549,12 @@ export default function Analytics({
                             `,
                         }}
                     />
-                </div>
+                </React.Fragment>
             ))}
 
             {/* Google Ads/gtag счетчики */}
-            {gtagIdArray.map((gtagId, index) => (
-                <div key={`gtag-${gtagId}`}>
+            {gtagIdArray.map((gtagId) => (
+                <React.Fragment key={`gtag-${gtagId}`}>
                     <Script
                         id={`google-ads-${gtagId}`}
                         strategy="afterInteractive"
@@ -572,7 +572,7 @@ export default function Analytics({
                             `,
                         }}
                     />
-                </div>
+                </React.Fragment>
             ))}
         </>
     );

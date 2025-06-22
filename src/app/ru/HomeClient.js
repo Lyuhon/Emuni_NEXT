@@ -19,32 +19,32 @@ import FixedPhoneButton from './FixedPhoneButton';
 
 export default function HomeClient() {
     // Состояния для анимаций
-    const [position, setPosition] = useState(0);
-    const [glowIntensity, setGlowIntensity] = useState(0);
-    const [pulseSize, setPulseSize] = useState(1);
+    // const [position, setPosition] = useState(0);
+    // const [glowIntensity, setGlowIntensity] = useState(0);
+    // const [pulseSize, setPulseSize] = useState(1);
 
-    useEffect(() => {
-        // Угловой градиент
-        const interval = setInterval(() => {
-            setPosition((prev) => (prev >= 360 ? 0 : prev + 3));
-        }, 40);
+    // useEffect(() => {
+    //     // Угловой градиент
+    //     const interval = setInterval(() => {
+    //         setPosition((prev) => (prev >= 360 ? 0 : prev + 3));
+    //     }, 40);
 
-        // Пульсация свечения
-        const glowInterval = setInterval(() => {
-            setGlowIntensity((prev) => Math.abs(Math.sin(Date.now() / 1000)));
-        }, 50);
+    //     // Пульсация свечения
+    //     const glowInterval = setInterval(() => {
+    //         setGlowIntensity((prev) => Math.abs(Math.sin(Date.now() / 1000)));
+    //     }, 50);
 
-        // Пульсация размера
-        const pulseInterval = setInterval(() => {
-            setPulseSize((prev) => 1 + 0.03 * Math.sin(Date.now() / 500));
-        }, 50);
+    //     // Пульсация размера
+    //     const pulseInterval = setInterval(() => {
+    //         setPulseSize((prev) => 1 + 0.03 * Math.sin(Date.now() / 500));
+    //     }, 50);
 
-        return () => {
-            clearInterval(interval);
-            clearInterval(glowInterval);
-            clearInterval(pulseInterval);
-        };
-    }, []);
+    //     return () => {
+    //         clearInterval(interval);
+    //         clearInterval(glowInterval);
+    //         clearInterval(pulseInterval);
+    //     };
+    // }, []);
 
     return (
         <div className="min-h-screen font-sans">
