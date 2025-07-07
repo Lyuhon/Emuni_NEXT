@@ -153,6 +153,53 @@ export default function Header() {
     // Внутри компонента
     const router = useRouter();
 
+    const switchLanguageWithUTM = (lang) => {
+        // Получаем сохранённые UTM-параметры
+        const utmQuery = typeof window !== 'undefined' ? sessionStorage.getItem('utm_query') : null;
+
+        let newPath = '';
+
+        // Переключение на узбекский
+        if (lang === 'uz' && language !== 'uz') {
+            if (pathname === '/' || pathname === '/ru' || pathname === '/eng') {
+                newPath = '/uz';
+            } else if (pathname.startsWith('/eng')) {
+                newPath = `/uz${pathname.substring(4)}`;
+            } else if (!pathname.startsWith('/uz')) {
+                newPath = `/uz${pathname}`;
+            }
+        }
+        // Переключение на русский
+        else if (lang === 'ru' && language !== 'ru') {
+            if (pathname === '/uz' || pathname === '/eng') {
+                newPath = '/ru';
+            } else if (pathname.startsWith('/uz')) {
+                newPath = pathname.replace('/uz', '') || '/';
+            } else if (pathname.startsWith('/eng')) {
+                newPath = pathname.replace('/eng', '') || '/';
+            }
+        }
+        // Переключение на английский
+        else if (lang === 'eng' && language !== 'eng') {
+            if (pathname === '/' || pathname === '/ru' || pathname === '/uz') {
+                newPath = '/eng';
+            } else if (pathname.startsWith('/uz')) {
+                newPath = `/eng${pathname.substring(3)}`;
+            } else if (!pathname.startsWith('/eng')) {
+                newPath = `/eng${pathname}`;
+            }
+        }
+
+        // Если путь определён, добавляем UTM и переходим
+        if (newPath) {
+            const finalPath = utmQuery ?
+                (newPath.includes('?') ? `${newPath}&${utmQuery.substring(1)}` : `${newPath}${utmQuery}`) :
+                newPath;
+
+            router.push(finalPath);
+        }
+    };
+
     const switchLanguage = (lang) => {
         // Переключение на узбекский
         if (lang === 'uz' && language !== 'uz') {
@@ -294,7 +341,8 @@ export default function Header() {
                         <div className="flex items-center space-x-2">
                             <button
                                 onClick={() => {
-                                    switchLanguage('ru');
+                                    switchLanguageWithUTM('ru');
+                                    // switchLanguage('ru');
                                     setIsMenuOpen(false);
                                 }}
                                 className={`text-white text-sm ${language === 'ru' ? 'font-bold' : ''}`}
@@ -304,7 +352,8 @@ export default function Header() {
                             <span className="text-white text-sm">|</span>
                             <button
                                 onClick={() => {
-                                    switchLanguage('uz');
+                                    switchLanguageWithUTM('uz');
+                                    // switchLanguage('uz');
                                     setIsMenuOpen(false);
                                 }}
                                 className={`text-white text-sm ${language === 'uz' ? 'font-bold' : ''}`}
@@ -314,7 +363,8 @@ export default function Header() {
                             <span className="text-white text-sm">|</span>
                             <button
                                 onClick={() => {
-                                    switchLanguage('eng');
+                                    switchLanguageWithUTM('eng');
+                                    // switchLanguage('eng');
                                     setIsMenuOpen(false);
                                 }}
                                 className={`text-white text-sm ${language === 'eng' ? 'font-bold' : ''}`}
