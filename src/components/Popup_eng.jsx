@@ -1160,7 +1160,7 @@ export default function Popup() {
                         ) : fields.length === 0 ? (
                             <p className="text-gray-500 text-center">Loading fields...</p>
                         ) : (
-                            <form onSubmit={handleSubmit} className="space-y-4">
+                            <form onSubmit={handleSubmit} className="space-y-4 pop-up-form">
                                 {otherFields.map((field) => {
                                     if (
                                         (field.label === 'Choose a faculty (MEDICAL SCHOOL)' && !showMedicalFaculty) ||

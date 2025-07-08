@@ -379,7 +379,7 @@ export default function RegistrationForm() {
 
     return (
         <div className="space-y-4">
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 pop-up-form">
                 {otherFields.map((field) => {
                     if (
                         (field.label === 'Выберите факультет (MEDICAL SCHOOL)' && !showMedicalFaculty) ||

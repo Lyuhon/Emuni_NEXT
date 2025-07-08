@@ -1125,7 +1125,7 @@ export default function DirectionsClient({ directions, directionContent, zaochka
             <div className="max-w-screen-xl mx-auto px-6 py-4">
                 {/* Intro text с декоративными элементами */}
                 {/* Pricing Accordion */}
-                <PricingAccordion tarifImages={tarifImages} />
+                {/* <PricingAccordion tarifImages={tarifImages} /> */}
 
                 {/* Tabs - стилизованные */}
                 <div className="mb-10">

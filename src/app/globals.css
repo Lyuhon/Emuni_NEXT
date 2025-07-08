@@ -310,3 +310,27 @@ body {
 .info_first_shift .second_shift_badge {
   display: none;
 }
+
+
+
+
+
+
+
+/* Принудительно устанавливаем светлую тему для форм в попапе */
+.pop-up-form input,
+.pop-up-form select,
+.pop-up-form textarea {
+  color: #111827 !important;
+  /* темно-серый текст */
+  background-color: #ffffff !important;
+  /* белый фон */
+  color-scheme: light !important;
+  /* принудительно светлая тема */
+}
+
+/* Для option'ов в select */
+.pop-up-form option {
+  color: #111827 !important;
+  background-color: #ffffff !important;
+}

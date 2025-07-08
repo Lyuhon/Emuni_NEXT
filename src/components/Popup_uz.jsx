@@ -2209,7 +2209,7 @@ export default function UzPopup() {
                         ) : fields.length === 0 ? (
                             <p className="text-gray-500 text-center">Maydonlar yuklanmoqda...</p>
                         ) : (
-                            <form onSubmit={handleSubmit} className="space-y-4">
+                            <form onSubmit={handleSubmit} className="space-y-4 pop-up-form">
                                 {otherFields.map((field) => {
                                     if (
                                         (field.label === 'Fakul\'tetni tanlang (MEDICAL SCHOOL)' && !showMedicalFaculty) ||
