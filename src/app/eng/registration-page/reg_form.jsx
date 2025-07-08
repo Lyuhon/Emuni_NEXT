@@ -318,7 +318,7 @@ export default function RegistrationFormEng() {
                 setMessage('');
                 // Redirect to success page
                 setTimeout(() => {
-                    router.push('/eng/success');
+                    router.push('/eng/success-reg');
                 }, 0); // Small delay to show success message
             } else {
                 setMessage(`Error: ${result.message || 'Unknown error'}`);

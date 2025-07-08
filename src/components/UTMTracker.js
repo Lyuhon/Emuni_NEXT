@@ -9,14 +9,14 @@ const UTMTracker = () => {
     useEffect(() => {
         // Проверяем, есть ли уже сохранённые UTM-метки в сессии
         const savedUTM = sessionStorage.getItem('utm_query');
-        console.log('savedUTM:', savedUTM);
+        // console.log('savedUTM:', savedUTM);
 
         if (!savedUTM) {
             // Пробуем два способа получения параметров
 
             // Способ 1: через searchParams
             const utmParams = [];
-            console.log('searchParams entries:', Array.from(searchParams.entries()));
+            // console.log('searchParams entries:', Array.from(searchParams.entries()));
 
             for (const [key, value] of searchParams.entries()) {
                 if (key.startsWith('utm_')) {
@@ -27,7 +27,7 @@ const UTMTracker = () => {
             // Способ 2: через window.location (fallback)
             if (utmParams.length === 0 && typeof window !== 'undefined') {
                 const urlParams = new URLSearchParams(window.location.search);
-                console.log('window.location.search:', window.location.search);
+                // console.log('window.location.search:', window.location.search);
 
                 for (const [key, value] of urlParams.entries()) {
                     if (key.startsWith('utm_')) {
@@ -40,9 +40,9 @@ const UTMTracker = () => {
             if (utmParams.length > 0) {
                 const utmQuery = '?' + utmParams.join('&');
                 sessionStorage.setItem('utm_query', utmQuery);
-                console.log('UTM-фрагмент сохранён:', utmQuery);
+                // console.log('UTM-фрагмент сохранён:', utmQuery);
             } else {
-                console.log('UTM-параметры не найдены');
+                // console.log('UTM-параметры не найдены');
             }
         }
     }, [searchParams]);

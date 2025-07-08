@@ -306,14 +306,25 @@ export default function RegistrationForm() {
             });
             const result = await res.json();
             console.log('API response:', result);
+            // if (res.ok) {
+            //     setIsSubmitted(true);
+            //     setFormData({});
+            //     setErrors({});
+            //     setMessage('');
+            //     // Редирект на страницу успеха
+            //     setTimeout(() => {
+            //         router.push('/uz/success');
+            //     }, 0);
+            // } 
+
+
             if (res.ok) {
-                setIsSubmitted(true);
                 setFormData({});
                 setErrors({});
                 setMessage('');
-                // Редирект на страницу успеха
+
                 setTimeout(() => {
-                    router.push('/uz/success');
+                    router.push('/uz/success-reg');
                 }, 0);
             } else {
                 setMessage(`Xato: ${result.message || 'Noma\'lum xato'}`);

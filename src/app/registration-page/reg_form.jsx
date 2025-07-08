@@ -308,15 +308,26 @@ export default function RegistrationForm() {
             });
             const result = await res.json();
             console.log('API response:', result);
+            // if (res.ok) {
+            //     setIsSubmitted(true);
+            //     setFormData({});
+            //     setErrors({});
+            //     setMessage('');
+            //     // Редирект на страницу успеха
+            //     setTimeout(() => {
+            //         router.push('/ru/success');
+            //     }, 0); // Небольшая задержка для показа сообщения об успехе
+            // }
+
+
             if (res.ok) {
-                setIsSubmitted(true);
                 setFormData({});
                 setErrors({});
                 setMessage('');
-                // Редирект на страницу успеха
+
                 setTimeout(() => {
-                    router.push('/ru/success');
-                }, 0); // Небольшая задержка для показа сообщения об успехе
+                    router.push('/ru/success-reg');
+                }, 0);
             } else {
                 setMessage(`Ошибка: ${result.message || 'Неизвестная ошибка'}`);
             }
