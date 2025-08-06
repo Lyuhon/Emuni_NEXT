@@ -153,7 +153,7 @@ const VacanciesPage = () => {
                             <span>Send your CV and brief information about yourself to:</span>
                         </div>
                         <div className='flex flex-wrap'>
-                            <a href="mailto:vacancy_emuni@emuni.uz" className="font-bold text-lg hover:underline" style={{ color: brandColor }}>vacancy_emuni@emuni.uz</a>,&nbsp;
+                            <a href="https://t.me/vacancy_emuni" className="font-bold text-lg hover:underline" style={{ color: brandColor }}>@vacancy_emuni</a>,&nbsp;
                             <a href="mailto:hr@emuni.uz" className="font-bold text-lg hover:underline" style={{ color: brandColor }}>hr@emuni.uz</a>
                         </div>
                     </div>
