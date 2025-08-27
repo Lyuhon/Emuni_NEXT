@@ -92,6 +92,7 @@ export default function Header() {
 
     // Menu structure with sub-items
     const menuItems = [
+        { name: "Результаты экзамена", name_uz: "Imtihon natijalari", name_eng: "Exam Results", href: "/results", href_uz: "/uz/results", href_eng: "/eng/results", isNew: true },
         { name: "Приём 25-26", name_uz: "Qabul 25-26", name_eng: "Admission 25-26", href: "https://apply.emuni.uz/", href_uz: "https://apply.emuni.uz/", href_eng: "https://apply.emuni.uz/" },
         {
             name: "Направления", name_uz: "Yo'nalishlar", name_eng: "Programs", isDropdown: true,
@@ -452,12 +453,13 @@ export default function Header() {
                                 <li key={getItemName(item)} className="border-b border-white/10 pb-2">
                                     {item.isDropdown ? (
                                         <div>
-                                            <a
-                                                href="#"
+
+                                            <a href="#"
                                                 onClick={(e) => handleMobileDropdownToggle(index, e)}
-                                                className="w-full flex items-center justify-between px-4 py-2 hover:bg-[#9c3f84] rounded-lg transition-colors"
+                                                className="w-full flex items-center justify-between px-4 py-2 hover:bg-[#9c3f84] rounded-lg transition-colors relative"
                                             >
                                                 <span>{getItemName(item)}</span>
+                                                {item.isNew && <div className="mobile-new-badge"></div>}
                                                 <ChevronDown
                                                     className={`w-4 h-4 transition-transform duration-300 ${mobileOpenDropdown === index ? 'rotate-180' : ''}`}
                                                 />
@@ -513,16 +515,103 @@ export default function Header() {
                                                 .animate-spin-once {
                                                     animation: spin-once 0.5s ease-in-out forwards;
                                                 }
+
+                                                /* Красивый мигающий бейдж с волнами */
+                                                @keyframes pulse-glow {
+                                                    0%, 100% { 
+                                                        transform: scale(1);
+                                                        box-shadow: 0 0 5px #ef4444, 0 0 10px #ef4444, 0 0 15px #ef4444;
+                                                    }
+                                                    50% { 
+                                                        transform: scale(1.2);
+                                                        box-shadow: 0 0 10px #ef4444, 0 0 20px #ef4444, 0 0 30px #ef4444;
+                                                    }
+                                                }
+                                                
+                                                @keyframes wave-ripple {
+                                                    0% {
+                                                        transform: scale(0.8);
+                                                        opacity: 1;
+                                                    }
+                                                    100% {
+                                                        transform: scale(2.5);
+                                                        opacity: 0;
+                                                    }
+                                                }
+                                                
+                                                .new-badge {
+                                                    position: absolute;
+                                                    top: -4px;
+                                                    right: -4px;
+                                                    width: 10px;
+                                                    height: 10px;
+                                                    background: linear-gradient(45deg, #ef4444, #dc2626);
+                                                    border-radius: 50%;
+                                                    animation: pulse-glow 1.5s infinite;
+                                                    z-index: 10;
+                                                }
+                                                
+                                                .new-badge::before,
+                                                .new-badge::after {
+                                                    content: '';
+                                                    position: absolute;
+                                                    top: 0%;
+                                                    left: 0%;
+                                                    transform: translate(-50%, -50%);
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    border-radius: 50%;
+                                                    background: rgba(239, 68, 68, 0.4);
+                                                    animation: wave-ripple 2s infinite;
+                                                }
+                                                
+                                                .new-badge::after {
+                                                    animation-delay: -1s;
+                                                }
+                                                
+                                                /* Для мобильного меню - немного другая позиция */
+                                                .mobile-new-badge {
+                                                    position: absolute;
+                                                    top: 8px;
+                                                    right: 8px;
+                                                    width: 8px;
+                                                    height: 8px;
+                                                    background: linear-gradient(45deg, #ef4444, #dc2626);
+                                                    border-radius: 50%;
+                                                    animation: pulse-glow 1.5s infinite;
+                                                    z-index: 10;
+                                                }
+                                                
+                                                .mobile-new-badge::before,
+                                                .mobile-new-badge::after {
+                                                    content: '';
+                                                    position: absolute;
+                                                    top: 0%;
+                                                    left: 0%;
+                                                    transform: translate(-50%, -50%);
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    border-radius: 50%;
+                                                    background: rgba(239, 68, 68, 0.4);
+                                                    animation: wave-ripple 2s infinite;
+                                                }
+                                                
+                                                .mobile-new-badge::after {
+                                                    animation-delay: -1s;
+                                                }
                                             `}</style>
                                         </div>
                                     ) : (
-                                        <Link
-                                            href={getItemHref(item)}
-                                            className="block px-4 py-2 hover:bg-[#9c3f84] rounded-lg transition-colors hover:translate-x-1 transform transition-transform duration-300 ease-in-out"
-                                            onClick={() => setIsMenuOpen(false)} // Добавьте это
-                                        >
-                                            {getItemName(item)}
-                                        </Link>
+                                        <div className="relative">
+                                            <Link
+                                                href={getItemHref(item)}
+                                                className="block px-4 py-2 hover:bg-[#9c3f84] rounded-lg transition-colors hover:translate-x-1 transform transition-transform duration-300 ease-in-out"
+                                                onClick={() => setIsMenuOpen(false)}
+                                            >
+                                                {getItemName(item)}
+                                            </Link>
+                                            {item.isNew && <div className="mobile-new-badge"></div>}
+                                        </div>
                                     )}
                                 </li>
                             ))}
@@ -555,18 +644,19 @@ export default function Header() {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:block bg-[#6B0E55] py-3 border-t border-white/30" ref={dropdownRef}>
-                    <ul className="max-w-screen-xl mx-auto px-4 flex flex-wrap justify-center gap-x-4 gap-y-2.5 text-white text-sm">
+                    <ul className="max-w-screen-3xl mx-auto px-4 flex flex-wrap justify-center gap-x-4 gap-y-2.5 text-white text-sm">
                         {menuItems.map((item, index) => (
                             <li key={getItemName(item)} className="relative">
                                 {item.isDropdown ? (
                                     <div className="relative inline-block">
-                                        <a
-                                            href="#"
+
+                                        <a href="#"
                                             onClick={(e) => handleDropdownToggle(index, e)}
-                                            className="inline-flex items-center px-4 py-1 hover:bg-[#9c3f84] rounded-lg transition-colors"
+                                            className="inline-flex items-center px-4 py-1 hover:bg-[#9c3f84] rounded-lg transition-colors relative"
                                         >
                                             {getItemName(item)}
                                             <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${openDropdown === index ? 'rotate-180' : ''}`} />
+                                            {item.isNew && <div className="new-badge"></div>}
                                         </a>
                                         {openDropdown === index && (
                                             <div className="absolute left-0 top-full mt-1 w-48 bg-white rounded-lg shadow-lg overflow-hidden z-20 animate-fadeIn">
@@ -584,12 +674,15 @@ export default function Header() {
                                         )}
                                     </div>
                                 ) : (
-                                    <Link
-                                        href={getItemHref(item)}
-                                        className="inline-block px-4 py-1 hover:bg-[#9c3f84] rounded-lg transition-colors"
-                                    >
-                                        {getItemName(item)}
-                                    </Link>
+                                    <div className="relative inline-block">
+                                        <Link
+                                            href={getItemHref(item)}
+                                            className="inline-block px-4 py-1 hover:bg-[#9c3f84] rounded-lg transition-colors"
+                                        >
+                                            {getItemName(item)}
+                                        </Link>
+                                        {item.isNew && <div className="new-badge"></div>}
+                                    </div>
                                 )}
                             </li>
                         ))}

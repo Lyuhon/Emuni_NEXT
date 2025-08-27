@@ -1,0 +1,352 @@
+/* Добавьте эти стили в ваш globals.css или в отдельный файл */
+
+/* PDF.js Text Layer Styles */
+.textLayer {
+    position: absolute;
+    text-align: initial;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0.25;
+    line-height: 1;
+    text-size-adjust: none;
+    forced-color-adjust: none;
+    transform-origin: 0 0;
+    caret-color: CanvasText;
+}
+
+.textLayer span,
+.textLayer br {
+    color: transparent;
+    position: absolute;
+    white-space: pre;
+    cursor: text;
+    transform-origin: 0% 0%;
+}
+
+.textLayer span.markedContent {
+    top: 0;
+    height: 0;
+}
+
+.textLayer .highlight {
+    margin: -1px;
+    padding: 1px;
+    background-color: rgba(180, 0, 170, 0.3);
+    border-radius: 4px;
+}
+
+.textLayer .highlight.appended {
+    position: initial;
+}
+
+.textLayer .highlight.begin {
+    border-radius: 4px 0 0 4px;
+}
+
+.textLayer .highlight.end {
+    border-radius: 0 4px 4px 0;
+}
+
+.textLayer .highlight.middle {
+    border-radius: 0;
+}
+
+.textLayer .highlight.selected {
+    background-color: rgba(107, 14, 85, 0.5);
+}
+
+/* Custom search highlight */
+.textLayer .searchHighlight {
+    background-color: rgba(255, 255, 0, 0.6) !important;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(255, 193, 7, 0.8);
+}
+
+.textLayer .currentSearchHighlight {
+    background-color: rgba(255, 193, 7, 0.8) !important;
+    border-radius: 2px;
+    box-shadow: 0 0 0 2px rgba(255, 152, 0, 1);
+}
+
+.searchHighlight {
+    background-color: rgba(255, 255, 0, 0.6) !important;
+    border-radius: 2px;
+}
+
+.currentSearchHighlight {
+    background-color: rgba(255, 193, 7, 0.8) !important;
+    border: 2px solid #ff9800;
+}
+
+/* PDF Container Scrollbars */
+.pdf-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.pdf-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.pdf-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.pdf-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Loading animation for PDF */
+@keyframes pdfLoading {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pdf-loading {
+    animation: pdfLoading 1.5s ease-in-out infinite;
+}
+
+
+
+/* PDF Canvas Fixes */
+canvas {
+    display: block;
+    image-rendering: auto;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    /* Предотвращаем переворачивание */
+    transform: none !important;
+    -webkit-transform: none !important;
+}
+
+.pdf-container canvas {
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* Фиксируем размеры */
+    max-width: none !important;
+    min-height: auto;
+    /* Предотвращаем неожиданные трансформации */
+    transform-origin: top left;
+}
+
+/* Исправление для видимости canvas */
+.pdf-container {
+    contain: layout style paint;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    /* Улучшенная производительность */
+    will-change: transform;
+}
+
+.pdf-container>div {
+    contain: layout;
+    /* Предотвращаем layout shift */
+    min-height: 100px;
+}
+
+/* Убираем мерцание при загрузке */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.pdf-container canvas {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Плавная загрузка страниц */
+.pdf-container canvas[data-loading="true"] {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Стили для поиска */
+.textLayer .searchHighlight {
+    background-color: rgba(255, 255, 0, 0.6) !important;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(255, 193, 7, 0.8);
+}
+
+.textLayer .currentSearchHighlight {
+    background-color: rgba(255, 193, 7, 0.8) !important;
+    border-radius: 2px;
+    box-shadow: 0 0 0 2px rgba(255, 152, 0, 1);
+}
+
+/* Фиксируем текстовый слой */
+.textLayer {
+    position: absolute;
+    text-align: initial;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0.25;
+    line-height: 1;
+    text-size-adjust: none;
+    forced-color-adjust: none;
+    transform-origin: 0 0;
+    caret-color: CanvasText;
+    /* Предотвращаем переворачивание текста */
+    transform: none !important;
+}
+
+.textLayer span {
+    color: transparent;
+    position: absolute;
+    white-space: pre;
+    cursor: text;
+    transform-origin: 0% 0%;
+    /* Фиксируем позиционирование */
+    transform: none !important;
+}
+
+
+
+
+
+
+/* Добавьте эти стили в ваш globals.css */
+
+/* React-PDF Стили */
+.react-pdf__Page {
+    position: relative;
+}
+
+.react-pdf__Page__textContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    opacity: 0.25;
+    line-height: 1.0;
+}
+
+.react-pdf__Page__textContent span {
+    color: transparent;
+    position: absolute;
+    white-space: pre;
+    cursor: text;
+    transform-origin: 0% 0%;
+    /* Поддержка выделения текста */
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+/* Подсветка поиска в React-PDF */
+.react-pdf__Page__textContent span[data-highlight="true"] {
+    background-color: rgba(255, 255, 0, 0.6) !important;
+    color: transparent !important;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(255, 193, 7, 0.8);
+}
+
+.react-pdf__Page__textContent span[data-highlight="current"] {
+    background-color: rgba(255, 193, 7, 0.8) !important;
+    color: transparent !important;
+    border-radius: 2px;
+    box-shadow: 0 0 0 2px rgba(255, 152, 0, 1);
+}
+
+/* Стили для canvas */
+.react-pdf__Page__canvas {
+    display: block;
+    user-select: none;
+}
+
+/* Контейнер документа */
+.react-pdf__Document {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Загрузка */
+.react-pdf__message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Анимации */
+@keyframes highlight-flash {
+    0% {
+        background-color: rgba(255, 193, 7, 1);
+    }
+
+    100% {
+        background-color: rgba(255, 193, 7, 0.8);
+    }
+}
+
+.react-pdf__Page__textContent span[data-highlight="current"] {
+    animation: highlight-flash 0.5s ease-in-out;
+}
+
+/* Улучшенная читаемость */
+.react-pdf__Page {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Респонсивность */
+@media (max-width: 768px) {
+    .react-pdf__Page {
+        margin-bottom: 10px;
+    }
+}
+
+/* Стили скроллбара для PDF контейнера */
+.pdf-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.pdf-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.pdf-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.pdf-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Стили для контекста результатов поиска */
+.search-context {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+}
+
+.search-context mark {
+    background-color: rgba(255, 255, 0, 0.6);
+    padding: 1px 2px;
+    border-radius: 2px;
+    font-weight: 500;
+}
