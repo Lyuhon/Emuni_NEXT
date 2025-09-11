@@ -92,7 +92,7 @@ export default function Header() {
 
     // Menu structure with sub-items
     const menuItems = [
-        { name: "Результаты экзамена", name_uz: "Imtihon natijalari", name_eng: "Exam Results", href: "/results", href_uz: "/uz/results", href_eng: "/eng/results", isNew: true },
+        { name: "Результаты экзамена", name_uz: "Imtihon natijalari", name_eng: "Exam Results", href: "/results", href_uz: "/uz/results", href_eng: "/eng/results", isNew: false },
         { name: "Приём 25-26", name_uz: "Qabul 25-26", name_eng: "Admission 25-26", href: "https://apply.emuni.uz/", href_uz: "https://apply.emuni.uz/", href_eng: "https://apply.emuni.uz/" },
         {
             name: "Направления", name_uz: "Yo'nalishlar", name_eng: "Programs", isDropdown: true,
