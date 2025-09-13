@@ -95,10 +95,11 @@ export default function Header() {
         { name: "Результаты экзамена", name_uz: "Imtihon natijalari", name_eng: "Exam Results", href: "/results", href_uz: "/uz/results", href_eng: "/eng/results", isNew: false },
         { name: "Приём 25-26", name_uz: "Qabul 25-26", name_eng: "Admission 25-26", href: "https://apply.emuni.uz/", href_uz: "https://apply.emuni.uz/", href_eng: "https://apply.emuni.uz/" },
         {
-            name: "Направления", name_uz: "Yo'nalishlar", name_eng: "Programs", isDropdown: true,
+            name: "Направления", name_uz: "Yo'nalishlar", name_eng: "Programs", isDropdown: true, isNew: true,
             subItems: [
                 { name: "Баклавриат", name_uz: "Bakalavriat", name_eng: "Bachelor's Programs", href: "/napravleniya", href_uz: "/uz/napravleniya", href_eng: "/eng/napravleniya" },
                 { name: "Магистратура", name_uz: "Magistratura", name_eng: "Master's Programs", href: "/magistratura", href_uz: "/uz/magistratura", href_eng: "/eng/magistratura" },
+                { name: "Ординатура", name_uz: "Ordinatura", name_eng: "Residency Programs", href: "/ordinatura", href_uz: "/uz/ordinatura", href_eng: "/eng/ordinatura", isNew: true },
                 { name: "Erasmus +", name_uz: "Erasmus +", name_eng: "Erasmus +", href: "/erasmus", href_uz: "/uz/erasmus", href_eng: "/eng/erasmus" },
             ]
         },
