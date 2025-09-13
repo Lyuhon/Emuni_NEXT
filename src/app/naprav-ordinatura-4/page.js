@@ -70,7 +70,7 @@ function transformApiData(apiData) {
                         category: categoryInfo.id,
                         description: program.text ? program.text.replace(/<[^>]*>/g, '').substring(0, 200) + '...' : 'Описание программы',
                         semesterPrice: program.semester_price || '0',
-                        yearPrice: program.full_price || (program.semester_price ? (parseInt(program.semester_price) * 2).toString() : '0'),
+                        yearPrice: program.full_price || (program.semester_price ? (parseInt(program.semester_price.replace(/\s/g, '')) * 2).toString() : '0'),
                         shift1Price: program.semester_price || '0',
                         shift2Price: program.semester_price_2_smena || program.semester_price || '0',
                         duration: program.let_obucheniya ? `${program.let_obucheniya} года` : '2 года',
@@ -79,7 +79,8 @@ function transformApiData(apiData) {
                             ...(program.stipendiya ? ['Стипендия'] : [])
                         ],
                         fullDescription: program.text || '',
-                        iconUrl: program.title_icon || null
+                        iconUrl: program.title_icon || null,
+                        availableFor: program.dostupno_dlya_napravlenij ? program.dostupno_dlya_napravlenij.split(',').map(s => s.trim()).filter(s => s) : [],
                     });
                 }
             });

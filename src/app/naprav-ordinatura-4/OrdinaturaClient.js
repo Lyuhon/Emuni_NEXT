@@ -1,5 +1,5 @@
 'use client'
-
+import ApplicationModal from './ApplicationModal';
 import style from './styles.css';
 import { useState, useRef } from 'react';
 import { Search, GraduationCap, Building2, Globe, Users, Clock, Award, ChevronDown, Heart, Stethoscope, Brain, TrendingUp, BarChart3, Target, Globe2, Hospital, ArrowLeft, ChevronRight, BookOpen } from 'lucide-react';
@@ -18,6 +18,9 @@ export default function OrdinaturaClient({ categories, programs }) {
         stomatology: Brain
     };
 
+    // попап
+    const [showApplicationModal, setShowApplicationModal] = useState(false);
+
     const filteredPrograms = programs.filter(program => program.category === selectedCategory);
 
     const getBenefitColor = (benefit) => {
@@ -33,9 +36,13 @@ export default function OrdinaturaClient({ categories, programs }) {
 
     const scrollToPrograms = () => {
         if (programsRef.current) {
-            programsRef.current.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const elementTop = programsRef.current.getBoundingClientRect().top;
+            const offset = window.innerWidth >= 768 ? 160 : 120; // 160px для ПК, 100px для мобилки
+            const offsetPosition = elementTop + window.pageYOffset - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
             });
         }
     };
@@ -45,7 +52,8 @@ export default function OrdinaturaClient({ categories, programs }) {
         setTimeout(() => {
             if (programDetailsRef.current) {
                 const elementTop = programDetailsRef.current.getBoundingClientRect().top;
-                const offsetPosition = elementTop + window.pageYOffset - 160;
+                const offset = window.innerWidth >= 768 ? 160 : 120; // 160px для ПК, 100px для мобилки
+                const offsetPosition = elementTop + window.pageYOffset - offset;
 
                 window.scrollTo({
                     top: offsetPosition,
@@ -138,7 +146,12 @@ export default function OrdinaturaClient({ categories, programs }) {
                             {categories.map((category, index) => (
                                 <button
                                     key={category.id}
-                                    onClick={() => setSelectedCategory(category.id)}
+                                    onClick={() => {
+                                        setSelectedCategory(category.id);
+                                        setTimeout(() => {
+                                            scrollToPrograms();
+                                        }, 300);
+                                    }}
                                     className={`group p-8 bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl hover:border-[#6b0e55] transition-all duration-500 hover:-translate-y-2 hover:scale-105 animate-slide-in-card ${selectedCategory === category.id ? 'ring-2 ring-[#6b0e55] border-[#6b0e55] shadow-lg scale-105' : ''
                                         }`}
                                     style={{
@@ -228,7 +241,7 @@ export default function OrdinaturaClient({ categories, programs }) {
                                         <div className="flex-1">
                                             <h1 className="md:text-2xl text-xl font-bold mb-2 animate-fade-in-up">{selectedProgram.title}</h1>
                                             <p className="md:text-base text-sm opacity-90 animate-fade-in-up-delayed">{selectedProgram.description}</p>
-                                            <div className="flex items-center gap-4 mt-4 text-sm animate-fade-in-up-more-delayed">
+                                            <div className="flex flex-wrap items-center gap-4 mt-4 text-sm animate-fade-in-up-more-delayed">
                                                 {/* <div className="flex items-center gap-1">
                                                     <Clock className="w-4 h-4" />
                                                     {selectedProgram.duration}
@@ -236,6 +249,20 @@ export default function OrdinaturaClient({ categories, programs }) {
                                                 <span className="px-3 py-1 bg-white/20 rounded-full">
                                                     {categories.find(cat => cat.id === selectedProgram.category)?.name}
                                                 </span>
+
+                                                <div className="flex flex-wrap gap-2">
+                                                    {selectedProgram.benefits.map((benefit, index) => (
+                                                        <span
+                                                            key={index}
+                                                            className={`${getBenefitColor(benefit)} hover:scale-110 transition-all duration-300 animate-fade-in cursor-pointer`}
+                                                            style={{
+                                                                animationDelay: `${index * 100}ms`
+                                                            }}
+                                                        >
+                                                            {benefit}
+                                                        </span>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -247,7 +274,7 @@ export default function OrdinaturaClient({ categories, programs }) {
                                         {/* Left Column */}
                                         <div className="space-y-6">
                                             {/* Benefits */}
-                                            {selectedProgram.benefits.length > 0 && (
+                                            {/* {selectedProgram.benefits.length > 0 && (
                                                 <div className="animate-slide-in-left">
                                                     <h3 className="text-lg font-bold text-gray-900 mb-3">Льготы и преимущества</h3>
                                                     <div className="flex flex-wrap gap-2">
@@ -264,12 +291,12 @@ export default function OrdinaturaClient({ categories, programs }) {
                                                         ))}
                                                     </div>
                                                 </div>
-                                            )}
+                                            )} */}
 
                                             {/* Duration Details */}
                                             <div className="animate-slide-in-left-delayed">
                                                 <h3 className="text-lg font-bold text-gray-900 mb-3">Продолжительность обучения</h3>
-                                                <div className="bg-gray-50 rounded-lg p-4">
+                                                <div className="bg-gray-50 rounded-lg p-4 border border-[#6b0e55]/20">
                                                     <div className="flex items-center gap-2">
                                                         <Clock className="w-5 h-5 text-[#6b0e55] animate-spin-slow" />
                                                         <span className="font-semibold text-[#6b0e55]">{selectedProgram.duration}</span>
@@ -280,9 +307,40 @@ export default function OrdinaturaClient({ categories, programs }) {
                                                 </div>
                                             </div>
 
-                                            <div className="space-y-6">
+                                            {/* Available Specialties */}
+                                            {selectedProgram.availableFor && selectedProgram.availableFor.length > 0 && (
+                                                <div className="animate-slide-in-left-delayed">
+                                                    <h3 className="text-lg font-bold text-gray-900 mb-3">Доступно для специалистов получивших диплом бакалавриата в направлении:</h3>
+                                                    <div className="flex flex-wrap gap-2">
+                                                        {selectedProgram.availableFor.map((specialty, index) => {
+                                                            const colors = [
+                                                                'bg-blue-100 text-blue-800',
+                                                                'bg-green-100 text-green-800',
+                                                                'bg-purple-100 text-purple-800',
+                                                                'bg-pink-100 text-pink-800',
+                                                                'bg-indigo-100 text-indigo-800',
+                                                                'bg-yellow-100 text-yellow-800',
+                                                                'bg-red-100 text-red-800',
+                                                                'bg-orange-100 text-orange-800',
+                                                                'bg-teal-100 text-teal-800'
+                                                            ];
+                                                            const colorClass = colors[index % colors.length];
 
-                                            </div>
+                                                            return (
+                                                                <span
+                                                                    key={index}
+                                                                    className={`px-2 py-1 text-xs font-medium rounded-full ${colorClass} hover:scale-110 transition-all duration-300 animate-fade-in cursor-pointer`}
+                                                                    style={{
+                                                                        animationDelay: `${index * 100}ms`
+                                                                    }}
+                                                                >
+                                                                    {specialty}
+                                                                </span>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                </div>
+                                            )}
                                         </div>
 
                                         {/* Right Column */}
@@ -296,13 +354,13 @@ export default function OrdinaturaClient({ categories, programs }) {
                                                             <div className="duration-300">
                                                                 <span className="text-sm text-gray-600">За семестр:</span>
                                                                 <div className="text-xl font-bold text-[#6b0e55] animate-pulse-slow">
-                                                                    {parseInt(selectedProgram.semesterPrice).toLocaleString()} сум
+                                                                    {parseInt(selectedProgram.semesterPrice.replace(/\s/g, '')).toLocaleString()} сум
                                                                 </div>
                                                             </div>
                                                             <div className="duration-300">
                                                                 <span className="text-sm text-gray-600">За год:</span>
                                                                 <div className="text-xl font-bold text-[#6b0e55] animate-pulse-slow">
-                                                                    {parseInt(selectedProgram.yearPrice).toLocaleString()} сум
+                                                                    {parseInt(selectedProgram.yearPrice.replace(/\s/g, '')).toLocaleString()} сум
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -341,12 +399,18 @@ export default function OrdinaturaClient({ categories, programs }) {
                                     {/* Action Buttons */}
                                     <div className="mt-8 pt-6 border-t border-gray-200 animate-fade-in-up-more-delayed">
                                         <div className="flex flex-col sm:flex-row md:gap-8 gap-4">
-                                            <button className="flex-1 bg-[#6b0e55] text-white py-3 px-6 rounded-lg font-medium hover:bg-[#5a0b47] transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:-translate-y-1">
+                                            <button
+                                                onClick={() => setShowApplicationModal(true)}
+                                                className="flex-1 bg-[#6b0e55] text-white py-3 px-6 rounded-lg font-medium hover:bg-[#5a0b47] transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:-translate-y-1"
+                                            >
                                                 Подать документы
                                             </button>
-                                            <button className="flex-1 border border-[#6b0e55] text-[#6b0e55] py-3 px-6 rounded-lg font-medium hover:bg-[#6b0e55] hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:-translate-y-1">
+                                            {/* <button className="flex-1 border border-[#6b0e55] text-[#6b0e55] py-3 px-6 rounded-lg font-medium hover:bg-[#6b0e55] hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:-translate-y-1">
                                                 Получить консультацию
-                                            </button>
+                                            </button> */}
+                                            <a href="tel:+998(78) 147-00-07" className="text-center flex-1 border border-[#6b0e55] text-[#6b0e55] py-3 px-6 rounded-lg font-medium hover:bg-[#6b0e55] hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:-translate-y-1">
+                                                Получить консультацию
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -368,9 +432,9 @@ export default function OrdinaturaClient({ categories, programs }) {
                         <p className="text-gray-600 mb-6 animate-fade-in-up-delayed">
                             Приемная комиссия принимает документы до 25 августа 2025 года. Получите персональную консультацию по выбору программы обучения.
                         </p>
-                        <button className="px-8 py-3 bg-[#6b0e55] text-white rounded-lg font-medium hover:bg-[#5a0b47] transition-all duration-300 hover:scale-110 hover:shadow-lg transform hover:-translate-y-1 animate-fade-in-up-more-delayed">
+                        <a href="tel:+998(78) 147-00-07" className="text-center px-8 py-3 bg-[#6b0e55] text-white rounded-lg font-medium hover:bg-[#5a0b47] transition-all duration-300 hover:scale-110 hover:shadow-lg transform hover:-translate-y-1 animate-fade-in-up-more-delayed">
                             Получить консультацию
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -568,6 +632,15 @@ export default function OrdinaturaClient({ categories, programs }) {
                     margin-bottom: 15px !important;
                 }
             `}</style>
+
+            <ApplicationModal
+                isOpen={showApplicationModal}
+                onClose={() => setShowApplicationModal(false)}
+                programs={programs}
+                categories={categories}
+                selectedProgram={selectedProgram}
+            />
+
         </div>
     );
 }
