@@ -472,7 +472,7 @@ export default function Header() {
                                                     : 'max-h-0 opacity-0'
                                                     }`}
                                             >
-                                                <ul className="mt-1 ml-4 space-y-1 border-l-2 border-white/20 pl-2">
+                                                {/* <ul className="mt-1 ml-4 space-y-1 border-l-2 border-white/20 pl-2">
                                                     {item.subItems.map((subItem, subIndex) => (
                                                         <li
                                                             key={getItemName(subItem)}
@@ -490,6 +490,31 @@ export default function Header() {
                                                                 href={getItemHref(subItem)}
                                                                 className="block px-4 py-2 text-sm hover:bg-[#9c3f84] rounded-lg transition-colors"
                                                                 onClick={() => setIsMenuOpen(false)} // Добавьте это
+                                                            >
+                                                                {getItemName(subItem)}
+                                                            </Link>
+                                                        </li>
+                                                    ))}
+                                                </ul> */}
+                                                <ul className="mt-1 ml-4 space-y-1 border-l-2 border-white/20 pl-2">
+                                                    {item.subItems.map((subItem, subIndex) => (
+                                                        <li
+                                                            key={getItemName(subItem)}
+                                                            className={`transform transition-all duration-300 ease-in-out hover:translate-x-1 ${mobileOpenDropdown === index
+                                                                ? 'translate-x-0 opacity-100'
+                                                                : 'translate-x-8 opacity-0'
+                                                                }`}
+                                                            style={{
+                                                                transitionDelay: mobileOpenDropdown === index
+                                                                    ? `${subIndex * 80}ms`
+                                                                    : '0ms'
+                                                            }}
+                                                        >
+                                                            <Link
+                                                                href={getItemHref(subItem)}
+                                                                className={`block px-4 py-2 text-sm hover:bg-[#9c3f84] rounded-lg transition-colors ${subItem.isNew ? 'pulse-new-item' : ''
+                                                                    }`}
+                                                                onClick={() => setIsMenuOpen(false)}
                                                             >
                                                                 {getItemName(subItem)}
                                                             </Link>
@@ -600,6 +625,43 @@ export default function Header() {
                                                 .mobile-new-badge::after {
                                                     animation-delay: -1s;
                                                 }
+
+
+
+
+                                                /* Анимация пульсации для новых пунктов подменю */
+                                                @keyframes gentle-pulse {
+                                                    0%, 100% { 
+                                                        transform: scale(1) translateX(1px);
+                                                        opacity: 1;
+                                                    }
+                                                    50% { 
+                                                        transform: scale(1.1) translateX(4px);
+                                                        opacity: 0.9;
+                                                    }
+                                                }
+                                                
+                                                .pulse-new-item {
+                                                    animation: gentle-pulse 1s ease-in-out infinite;
+                                                    position: relative;
+                                                }
+                                                
+                                                /* Останавливаем анимацию при ховере для лучшего UX */
+                                                .pulse-new-item:hover {
+                                                    animation: none;
+                                                    transform: scale(1.02) !important;
+                                                }
+                                                
+                                                /* Для мобильной версии - чуть более мягкая анимация */
+                                                // @media (max-width: 768px) {
+                                                //     .pulse-new-item {
+                                                //         animation: gentle-pulse 2.5s ease-in-out infinite;
+                                                //     }
+                                                    
+                                                //     .pulse-new-item:hover {
+                                                //         transform: scale(1.01) !important;
+                                                //     }
+                                                // }
                                             `}</style>
                                         </div>
                                     ) : (
@@ -659,13 +721,28 @@ export default function Header() {
                                             <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${openDropdown === index ? 'rotate-180' : ''}`} />
                                             {item.isNew && <div className="new-badge"></div>}
                                         </a>
-                                        {openDropdown === index && (
+                                        {/* {openDropdown === index && (
                                             <div className="absolute left-0 top-full mt-1 w-48 bg-white rounded-lg shadow-lg overflow-hidden z-20 animate-fadeIn">
                                                 {item.subItems.map((subItem) => (
                                                     <Link
                                                         key={getItemName(subItem)}
                                                         href={getItemHref(subItem)}
                                                         className="block px-4 py-2 text-[#9c3f84] hover:bg-[#9c3f84] hover:text-white transition-colors"
+                                                        onClick={() => setOpenDropdown(null)}
+                                                    >
+                                                        {getItemName(subItem)}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        )} */}
+                                        {openDropdown === index && (
+                                            <div className="absolute left-0 top-full mt-1 w-48 bg-white rounded-lg shadow-lg overflow-hidden z-20 animate-fadeIn">
+                                                {item.subItems.map((subItem) => (
+                                                    <Link
+                                                        key={getItemName(subItem)}
+                                                        href={getItemHref(subItem)}
+                                                        className={`block px-4 py-2 text-[#9c3f84] hover:bg-[#9c3f84] hover:text-white transition-colors ${subItem.isNew ? 'pulse-new-item' : ''
+                                                            }`}
                                                         onClick={() => setOpenDropdown(null)}
                                                     >
                                                         {getItemName(subItem)}

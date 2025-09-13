@@ -10,7 +10,7 @@ export default function OrdinaturaClient({ categories, programs }) {
     const programsRef = useRef(null);
     const programDetailsRef = useRef(null);
 
-    // Дефолтные иконки для каждой категории
+    // Default icons for each category
     const defaultIcons = {
         surgery: Heart,
         pediatric: Users,
@@ -18,14 +18,14 @@ export default function OrdinaturaClient({ categories, programs }) {
         stomatology: Brain
     };
 
-    // попап
+    // modal
     const [showApplicationModal, setShowApplicationModal] = useState(false);
 
     const filteredPrograms = programs.filter(program => program.category === selectedCategory);
 
     const getBenefitColor = (benefit) => {
-        if (benefit.includes('Стипендия') || benefit.includes('Stipendiya')) return 'px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800';
-        if (benefit.includes('Гранты') || benefit.includes('Grant')) return 'px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800';
+        if (benefit.includes('Stipend') || benefit.includes('Scholarship')) return 'px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800';
+        if (benefit.includes('Grants') || benefit.includes('Grant')) return 'px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800';
         return 'px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800';
     };
 
@@ -37,7 +37,7 @@ export default function OrdinaturaClient({ categories, programs }) {
     const scrollToPrograms = () => {
         if (programsRef.current) {
             const elementTop = programsRef.current.getBoundingClientRect().top;
-            const offset = window.innerWidth >= 768 ? 160 : 110; // 160px для ПК, 100px для мобилки
+            const offset = window.innerWidth >= 768 ? 160 : 110; // 160px for desktop, 100px for mobile
             const offsetPosition = elementTop + window.pageYOffset - offset;
 
             window.scrollTo({
@@ -52,7 +52,7 @@ export default function OrdinaturaClient({ categories, programs }) {
         setTimeout(() => {
             if (programDetailsRef.current) {
                 const elementTop = programDetailsRef.current.getBoundingClientRect().top;
-                const offset = window.innerWidth >= 768 ? 160 : 110; // 160px для ПК, 100px для мобилки
+                const offset = window.innerWidth >= 768 ? 160 : 110; // 160px for desktop, 100px for mobile
                 const offsetPosition = elementTop + window.pageYOffset - offset;
 
                 window.scrollTo({
@@ -63,7 +63,7 @@ export default function OrdinaturaClient({ categories, programs }) {
         }, 500);
     };
 
-    // Функция для получения иконки программы
+    // Function to get program icon
     const getProgramIcon = (program) => {
         if (program.iconUrl) {
             return () => (
@@ -74,7 +74,7 @@ export default function OrdinaturaClient({ categories, programs }) {
                 />
             );
         }
-        // Возвращаем дефолтную иконку на основе категории
+        // Return default icon based on category
         return defaultIcons[program.category] || BookOpen;
     };
 
@@ -88,10 +88,10 @@ export default function OrdinaturaClient({ categories, programs }) {
             }}>
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black to-transparent opacity-20"></div>
                 <div className="text-center z-10 px-4">
-                    <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Ordinatura dasturlari</h1>
+                    <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Residency Programs</h1>
                     <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
                     <p className="text-lg md:text-xl text-white max-w-3xl">
-                        Diplomdan keyingi professional tibbiy ta'lim dasturlari
+                        Professional postgraduate medical education programs
                     </p>
                 </div>
                 <div className="absolute bottom-0 left-0 w-full overflow-hidden transform rotate-180 z-[1000] mb-[-1px]">
@@ -111,7 +111,7 @@ export default function OrdinaturaClient({ categories, programs }) {
                             onClick={resetToCategories}
                             className="hover:text-[#6b0e55] transition-colors duration-300"
                         >
-                            Kategoriyalar
+                            Categories
                         </button>
                         {selectedCategory && (
                             <>
@@ -139,8 +139,8 @@ export default function OrdinaturaClient({ categories, programs }) {
                     : 'opacity-100 translate-y-0 scale-100'
                     }`}>
                     <div className="text-center">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-2">Yo'nalishni tanlang</h2>
-                        <p className="text-gray-600 mb-8">Sizni qiziqtirgan o'quv sohasini tanlang</p>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-2">Choose Your Field</h2>
+                        <p className="text-gray-600 mb-8">Select the field of study that interests you</p>
 
                         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
                             {categories.map((category, index) => (
@@ -175,10 +175,10 @@ export default function OrdinaturaClient({ categories, programs }) {
                         <div>
                             <div className="text-center mb-8 mt-12">
                                 <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                                    "{categories.find(cat => cat.id === selectedCategory)?.name}" kategoriyasidan yo'nalishni tanlang
+                                    Select a program in "{categories.find(cat => cat.id === selectedCategory)?.name}" category
                                 </h2>
                                 <p className="text-gray-600">
-                                    <span className="font-semibold text-[#6b0e55]">{filteredPrograms.length}</span> ta yo'nalish topildi
+                                    Found <span className="font-semibold text-[#6b0e55]">{filteredPrograms.length}</span> programs
                                 </p>
                             </div>
 
@@ -205,11 +205,10 @@ export default function OrdinaturaClient({ categories, programs }) {
                                                 {program.description}
                                             </p>
 
-
                                             <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
                                                 <div className="text-right">
                                                     <div className="text-sm font-semibold text-[#6b0e55]">
-                                                        {parseInt(program.yearPrice.replace(/\s/g, '')).toLocaleString()} <span className='text-xs font-[400] text-gray-500'> so'm/ yil</span>
+                                                        {parseInt(program.yearPrice.replace(/\s/g, '')).toLocaleString()} <span className='text-xs font-[400] text-gray-500'>UZS per year</span>
                                                     </div>
                                                 </div>
                                                 <div className="flex items-center gap-1">
@@ -272,14 +271,14 @@ export default function OrdinaturaClient({ categories, programs }) {
                                         <div className="space-y-6">
                                             {/* Duration Details */}
                                             <div>
-                                                <h3 className="text-lg font-bold text-gray-900 mb-3">O'quv muddati</h3>
+                                                <h3 className="text-lg font-bold text-gray-900 mb-3">Program Duration</h3>
                                                 <div className="bg-gray-50 rounded-lg p-4 border border-[#6b0e55]/20">
                                                     <div className="flex items-center gap-2">
                                                         <Clock className="w-5 h-5 text-[#6b0e55]" />
                                                         <span className="font-semibold text-[#6b0e55]">{selectedProgram.duration}</span>
                                                     </div>
                                                     <p className="text-sm text-gray-600 mt-1">
-                                                        Amaliyot va diplom loyihasi bilan to'liq dastur
+                                                        Complete program with practice and thesis project
                                                     </p>
                                                 </div>
                                             </div>
@@ -287,7 +286,7 @@ export default function OrdinaturaClient({ categories, programs }) {
                                             {/* Available Specialties */}
                                             {selectedProgram.availableFor && selectedProgram.availableFor.length > 0 && (
                                                 <div>
-                                                    <h3 className="text-lg font-bold text-gray-900 mb-3">Quyidagi yo'nalishlarda bakalavr diplomiga ega mutaxassislar uchun mavjud:</h3>
+                                                    <h3 className="text-lg font-bold text-gray-900 mb-3">Available for specialists with bachelor's degree in:</h3>
                                                     <div className="flex flex-wrap gap-2">
                                                         {selectedProgram.availableFor.map((specialty, index) => {
                                                             const colors = [
@@ -321,20 +320,20 @@ export default function OrdinaturaClient({ categories, programs }) {
                                         <div className="space-y-6">
                                             {/* Pricing */}
                                             <div>
-                                                <h3 className="text-lg font-bold text-gray-900 mb-3">O'qish narxi</h3>
+                                                <h3 className="text-lg font-bold text-gray-900 mb-3">Tuition Fees</h3>
                                                 <div className="space-y-4">
                                                     <div className="bg-[#6b0e55]/5 rounded-lg p-4 border border-[#6b0e55]/20">
                                                         <div className="grid grid-cols-2 gap-4">
                                                             <div>
-                                                                <span className="text-sm text-gray-600">Semestr uchun:</span>
+                                                                <span className="text-sm text-gray-600">Per semester:</span>
                                                                 <div className="md:text-xl text-sx font-bold text-[#6b0e55]">
-                                                                    {parseInt(selectedProgram.semesterPrice.replace(/\s/g, '')).toLocaleString()} <span className='text-sm md:md:text-xl'>so'm</span>
+                                                                    {parseInt(selectedProgram.semesterPrice.replace(/\s/g, '')).toLocaleString()} <span className='text-sm md:md:text-xl'>UZS</span>
                                                                 </div>
                                                             </div>
                                                             <div>
-                                                                <span className="text-sm text-gray-600">Yil uchun:</span>
+                                                                <span className="text-sm text-gray-600">Per year:</span>
                                                                 <div className="md:text-xl text-sx font-bold text-[#6b0e55]">
-                                                                    {parseInt(selectedProgram.yearPrice.replace(/\s/g, '')).toLocaleString()} <span className='text-sm md:md:text-xl'>so'm</span>
+                                                                    {parseInt(selectedProgram.yearPrice.replace(/\s/g, '')).toLocaleString()} <span className='text-sm md:md:text-xl'>UZS</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -347,7 +346,7 @@ export default function OrdinaturaClient({ categories, programs }) {
                                     {/* Full Description */}
                                     {selectedProgram.fullDescription && (
                                         <div>
-                                            <h3 className="text-lg font-bold text-gray-900 mt-4 mb-3">Dastur tavsifi</h3>
+                                            <h3 className="text-lg font-bold text-gray-900 mt-4 mb-3">Program Description</h3>
                                             <div
                                                 className="text-sm text-gray-900 prose prose-sm max-w-none desc-content"
                                                 dangerouslySetInnerHTML={{ __html: selectedProgram.fullDescription }}
@@ -362,10 +361,10 @@ export default function OrdinaturaClient({ categories, programs }) {
                                                 onClick={() => setShowApplicationModal(true)}
                                                 className="flex-1 bg-[#6b0e55] text-white py-3 px-6 rounded-lg font-medium hover:bg-[#5a0b47] transition-all duration-300"
                                             >
-                                                Hujjat topshirish
+                                                Submit Documents
                                             </button>
                                             <a href="tel:+998(78) 147-00-07" className="text-center flex-1 border border-[#6b0e55] text-[#6b0e55] py-3 px-6 rounded-lg font-medium hover:bg-[#6b0e55] hover:text-white transition-all duration-300">
-                                                Maslahat olish
+                                                Get Consultation
                                             </a>
                                         </div>
                                     </div>
@@ -375,7 +374,7 @@ export default function OrdinaturaClient({ categories, programs }) {
                     )}
                 </div>
 
-                {/* Bottom CTA - показываем только на первом этапе */}
+                {/* Bottom CTA - show only on first step */}
                 <div className={`mt-16 text-center bg-white rounded-2xl p-8 shadow-sm border hover:shadow-lg transition-all duration-500 ${!selectedCategory
                     ? 'opacity-100 translate-y-0 scale-100'
                     : 'opacity-0 translate-y-8 scale-95 pointer-events-none p-0 m-0 h-0 overflow-hidden'
@@ -383,13 +382,13 @@ export default function OrdinaturaClient({ categories, programs }) {
                     <div className="max-w-2xl mx-auto">
                         <Award className="w-12 h-12 text-[#6b0e55] mx-auto mb-4" />
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                            2025/2026 o'quv yili uchun hujjat topshirish
+                            Document Submission for 2025/2026 Academic Year
                         </h2>
                         <p className="text-gray-600 mb-6">
-                            Qabul komissiyasi 2025 yil 25 avgustgacha hujjatlarni qabul qiladi. O'quv dasturini tanlash bo'yicha shaxsiy maslahat oling.
+                            Admissions office accepts documents until August 25, 2025. Get personal consultation on choosing your study program.
                         </p>
                         <a href="tel:+998(78) 147-00-07" className="text-center px-8 py-3 bg-[#6b0e55] text-white rounded-lg font-medium hover:bg-[#5a0b47] transition-all duration-300">
-                            Maslahat olish
+                            Get Consultation
                         </a>
                     </div>
                 </div>

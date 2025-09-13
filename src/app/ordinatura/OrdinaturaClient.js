@@ -730,7 +730,7 @@ export default function OrdinaturaClient({ categories, programs }) {
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
             <div className="relative h-80 flex items-center justify-center overflow-hidden" style={{
-                background: `linear-gradient(rgba(107, 14, 85, 0.60), rgba(107, 14, 85, 0.70)), url('https://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/bakalavriat-hero.jpg')`,
+                background: `linear-gradient(rgba(107, 14, 85, 0.60), rgba(107, 14, 85, 0.70)), url('https://next.emu.web-perfomance.uz/wp-content/uploads/2025/04/magistratua-hero.jpg')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}>
@@ -803,7 +803,7 @@ export default function OrdinaturaClient({ categories, programs }) {
                                     className={`group p-8 bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl hover:border-[#6b0e55] transition-all duration-300 ${selectedCategory === category.id ? 'ring-2 ring-[#6b0e55] border-[#6b0e55] shadow-lg' : ''
                                         }`}
                                 >
-                                    <h3 className="text-sx font-[600] text-gray-900 group-hover:text-[#6b0e55] transition-colors duration-300 mb-2">
+                                    <h3 className="text-sx font-[600] text-gray-900 group-hover:text-[#6b0e55] transition-colors duration-300">
                                         {category.name}
                                     </h3>
                                 </button>
@@ -852,6 +852,18 @@ export default function OrdinaturaClient({ categories, programs }) {
                                             <p className="text-sm text-gray-600 mt-2 line-clamp-2 group-hover:text-gray-700 transition-colors duration-300">
                                                 {program.description}
                                             </p>
+
+                                            <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
+                                                <div className="text-right">
+                                                    <div className="text-sm font-semibold text-[#6b0e55]">
+                                                        {parseInt(program.yearPrice.replace(/\s/g, '')).toLocaleString()} <span className='text-xs font-[400] text-gray-500'>сум в год</span>
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-center gap-1">
+                                                    <Clock className="w-4 h-4 text-gray-500" />
+                                                    <span className="text-xs text-gray-600">{program.duration}</span>
+                                                </div>
+                                            </div>
                                         </button>
                                     );
                                 })}
