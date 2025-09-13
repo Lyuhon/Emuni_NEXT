@@ -152,7 +152,7 @@ export default function OrdinaturaClient({ categories, programs }) {
                                             scrollToPrograms();
                                         }, 300);
                                     }}
-                                    className={`group p-8 bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl hover:border-[#6b0e55] transition-all duration-300 ${selectedCategory === category.id ? 'ring-2 ring-[#6b0e55] border-[#6b0e55] shadow-lg' : ''
+                                    className={`group p-8 bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl hover:border-[#6b0e55] transition-all duration-300 ${selectedCategory === category.id ? 'ring-1 ring-[#6b0e55] border-[#6b0e55] shadow-lg' : ''
                                         }`}
                                 >
                                     <h3 className="text-sx font-[600] text-gray-900 group-hover:text-[#6b0e55] transition-colors duration-300">
@@ -189,31 +189,33 @@ export default function OrdinaturaClient({ categories, programs }) {
                                         <button
                                             key={program.id}
                                             onClick={() => selectProgram(program)}
-                                            className={`group p-6 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-xl hover:border-[#6b0e55] transition-all duration-300 text-left animate-slide-in-program-card ${selectedProgram?.id === program.id ? 'ring-1 ring-[#6b0e55] border-[#6b0e55] shadow-lg' : ''
+                                            className={`group relative p-6 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-xl hover:border-[#6b0e55] transition-all duration-300 text-left animate-slide-in-program-card ${selectedProgram?.id === program.id ? 'ring-1 ring-[#6b0e55] border-[#6b0e55] shadow-lg' : ''
                                                 }`}
                                             style={{
                                                 animationDelay: `${index * 100}ms`
                                             }}
                                         >
+                                            {/* Продолжительность в правом верхнем углу */}
+                                            <div className="absolute top-6 right-6 flex items-center gap-1 bg-[#6b0e55]/10 px-2 py-1 rounded-md">
+                                                <Clock className="w-3 h-3 text-[#6b0e55] mt-[-1px]" />
+                                                <span className="text-xs text-[#6b0e55] font-medium">{program.duration}</span>
+                                            </div>
+
                                             <div className="w-12 h-12 bg-[#6b0e55]/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#6b0e55]/20 transition-all duration-300">
                                                 <IconComponent className="w-6 h-6 text-[#6b0e55]" />
                                             </div>
-                                            <h3 className="font-bold text-gray-900 group-hover:text-[#6b0e55] transition-colors duration-300">
+
+                                            <h3 className="font-bold text-gray-900 group-hover:text-[#6b0e55] transition-colors duration-300 pr-16">
                                                 {program.title}
                                             </h3>
+
                                             <p className="text-sm text-gray-600 mt-2 line-clamp-2 group-hover:text-gray-700 transition-colors duration-300">
                                                 {program.description}
                                             </p>
 
-                                            <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
-                                                <div className="text-right">
-                                                    <div className="text-sm font-semibold text-[#6b0e55]">
-                                                        {parseInt(program.yearPrice.replace(/\s/g, '')).toLocaleString()} <span className='text-xs font-[400] text-gray-500'>UZS per year</span>
-                                                    </div>
-                                                </div>
-                                                <div className="flex items-center gap-1">
-                                                    <Clock className="w-4 h-4 text-gray-500" />
-                                                    <span className="text-xs text-gray-600">{program.duration}</span>
+                                            <div className="mt-3 pt-3 border-t border-gray-100">
+                                                <div className="text-sm font-semibold text-[#6b0e55]">
+                                                    {parseInt(program.yearPrice.replace(/\s/g, '')).toLocaleString()} <span className='text-xs font-[400] text-gray-500'>UZS per year</span>
                                                 </div>
                                             </div>
                                         </button>
