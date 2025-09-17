@@ -67,12 +67,12 @@ const categoryMapping = {
     },
     'accordion_repeater_2': {
         id: 'pediatric',
-        name: 'Pediatric Specializations',
+        name: 'Therapeutic Specializations',
         color: 'bg-green-500'
     },
     'accordion_repeater_3': {
         id: 'therapeutic',
-        name: 'Therapeutic Specializations',
+        name: 'Pediatric Specializations',
         color: 'bg-blue-500'
     },
     'accordion_repeater_4': {

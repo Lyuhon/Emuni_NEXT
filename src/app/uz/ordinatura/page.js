@@ -184,12 +184,12 @@ const categoryMapping = {
     },
     'accordion_repeater_2': {
         id: 'pediatric',
-        name: 'Pediatriya yo\'nalishlari',
+        name: 'Terapevtik yo\'nalishlar',
         color: 'bg-green-500'
     },
     'accordion_repeater_3': {
         id: 'therapeutic',
-        name: 'Terapevtik yo\'nalishlar',
+        name: 'Pediatriya yo\'nalishlari',
         color: 'bg-blue-500'
     },
     'accordion_repeater_4': {

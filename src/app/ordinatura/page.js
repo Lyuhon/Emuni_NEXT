@@ -183,12 +183,12 @@ const categoryMapping = {
     },
     'accordion_repeater_2': {
         id: 'pediatric',
-        name: 'Педиатрические направления',
+        name: 'Терапевтические направления',
         color: 'bg-green-500'
     },
     'accordion_repeater_3': {
         id: 'therapeutic',
-        name: 'Терапевтические направления',
+        name: 'Педиатрические направления',
         color: 'bg-blue-500'
     },
     'accordion_repeater_4': {
