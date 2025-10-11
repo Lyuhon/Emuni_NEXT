@@ -115,7 +115,7 @@ export default function Header() {
             ]
         },
         { name: "Техникум EMU", name_uz: "EMU texnikumi", name_eng: "EMU College", href: "https://texnikum.emuni.uz/", href_uz: "https://texnikum.emuni.uz/uz/asosiy/", href_eng: "https://texnikum.emuni.uz/en/main-eng/" },
-        { name: "Повышение квалификации", name_uz: "Malaka oshirish", name_eng: "Professional Development", href: "/page/advanced-training", href_uz: "/uz/page/advanced-training", href_eng: "/eng/page/advanced-training" },
+        { name: "Центр непрерывного образования", name_uz: "Uzluksiz kasbiy ta'lim markazi", name_eng: "Center for Continuous Professional Education", href: "/page/advanced-training", href_uz: "/uz/page/advanced-training", href_eng: "/eng/page/advanced-training" },
         { name: "Новости", name_uz: "Yangiliklar", name_eng: "News", href: "/blog", href_uz: "/uz/blog", href_eng: "/eng/blog" },
         { name: "Как нас найти", name_uz: "Bizni qanday topish mumkin", name_eng: "How to Find Us", href: "/contacts", href_uz: "/uz/contacts", href_eng: "/eng/contacts" },
         { name: "FAQ", name_uz: "FAQ", name_eng: "FAQ", href: "/faq", href_uz: "/uz/faq", href_eng: "/eng/faq" },
