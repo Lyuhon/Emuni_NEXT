@@ -142,7 +142,7 @@ export default function Home() {
                                 whileTap={{ scale: 0.95 }}
                                 animate={{ scale: pulseSize }}
                                 transition={{ duration: 0.2 }}
-                                className="pop-form-trigger mt-8 mb-10 py-4 px-10 text-[#4a1942] font-bold rounded-full shadow-xl border-2 border-[#f1d875] transition-all duration-300 text-lg"
+                                className="pop-form-trigger mt-8 mb-1 py-4 px-10 text-[#4a1942] font-bold rounded-full shadow-xl border-2 border-[#f1d875] transition-all duration-300 text-lg"
                                 style={{
                                     background: `linear-gradient(${position}deg, 
                                     #f7e282 0%, 
@@ -156,6 +156,17 @@ export default function Home() {
                             >
                                 Ariza yuboring
                             </motion.button>
+
+                            <motion.a
+                                href="https://pre-foundation.emuni.uz/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="mt-8 mb-10 py-4 px-10 bg-white text-[#6b0e55] font-bold rounded-full shadow-xl border-2 border-white hover:bg-opacity-90 transition-all duration-300 text-lg"
+                            >
+                                EMU Pre-foundation Kursi
+                            </motion.a>
 
                         </div>
 
@@ -173,7 +184,7 @@ export default function Home() {
                     >
                         <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
                             <Image
-                                src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/main-banner-new.webp"
+                                src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/11/biznes.webp"
                                 alt="Student"
                                 width={600}
                                 height={400}
@@ -205,7 +216,7 @@ export default function Home() {
                 variants={fadeIn}
                 className="hidden md:flex items-center relative min-h-[600px] md:min-h-[700px] py-20 md:py-32 overflow-hidden"
                 style={{
-                    backgroundImage: `url('https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/main-banner-new.webp')`,
+                    backgroundImage: `url('https://next.emu.web-perfomance.uz/wp-content/uploads/2025/11/biznes.webp')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'right 0 top 0',
                 }}
@@ -258,6 +269,17 @@ export default function Home() {
                             >
                                 Ariza yuboring
                             </motion.button>
+
+                            <motion.a
+                                href="https://pre-foundation.emuni.uz/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="py-4 px-10 bg-white text-[#6b0e55] font-bold rounded-full shadow-xl hover:bg-opacity-90 transition-all duration-300 text-lg"
+                            >
+                                EMU Pre-foundation Kursi
+                            </motion.a>
 
                             <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
                                 <span className="text-sm md:text-base font-medium">

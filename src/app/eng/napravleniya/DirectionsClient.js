@@ -1369,9 +1369,9 @@ export default function DirectionsClient({ directions, directionContent, zaochka
                         <span className="font-semibold" style={{ color: brandColor }}>internships in leading organizations, clinics, and universities in European countries</span>*
                     </p>
                     <p className="mb-6 font-semibold text-sm bg-gray-100 p-4 rounded-lg border-l-4--" style={{ borderColor: brandColor }}>
-                        * Students with the highest academic performance results will intern at the expense of the institution's support fund.
+                        * Students with the highest academic performance results will intern at the expense of the institution&apos;s support fund.
                     </p>
-                    <p className="font-medium">Don't miss your opportunity for self-realization, we are opening enrollment for the following bachelor's degree programs:</p>
+                    <p className="font-medium">Don&apos;t miss your opportunity for self-realization, we are opening enrollment for the following bachelor&apos;s degree programs:</p>
                 </div>
 
                 {/* Contact Info */}
