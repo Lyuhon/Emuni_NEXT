@@ -85,7 +85,7 @@ const HeroSection = () => {
                         </p>
                         <div className="flex flex-wrap gap-4">
 
-                            <motion.button
+                            {/* <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 animate={{ scale: pulseSize }}
@@ -102,7 +102,7 @@ const HeroSection = () => {
                                 }}
                             >
                                 Apply Now
-                            </motion.button>
+                            </motion.button> */}
 
                             <motion.a
                                 href="https://pre-foundation.emuni.uz/"
@@ -117,9 +117,9 @@ const HeroSection = () => {
 
                         </div>
 
-                        <span className='font-[500] text-base md:base lg:text-lg'>
+                        {/* <span className='font-[500] text-base md:base lg:text-lg'>
                             EMU University enrollment for 2025-2026
-                        </span>
+                        </span> */}
 
                     </motion.div>
 
@@ -131,17 +131,17 @@ const HeroSection = () => {
                     >
                         <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
                             <Image
-                                src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/11/biznes.webp"
+                                src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/12/tibbiyot-1.webp"
                                 alt="Student"
                                 width={600}
                                 height={400}
                                 className="w-full h-auto"
                             />
                         </div>
-                        <div className="absolute -bottom-6 -right-6 p-4 bg-[#6b0e55] rounded-lg shadow-xl transform -rotate-3 z-20">
+                        {/* <div className="absolute -bottom-6 -right-6 p-4 bg-[#6b0e55] rounded-lg shadow-xl transform -rotate-3 z-20">
                             <div className="text-sm font-bold text-white mb-1">2025-2026</div>
                             <div className="text-xl font-bold text-white">Enrollment Open!</div>
-                        </div>
+                        </div> */}
 
                     </motion.div>
                 </div>
@@ -156,7 +156,7 @@ const HeroSection = () => {
                 className="hidden md:flex items-center relative min-h-[600px] md:min-h-[700px] py-20 md:py-32 overflow-hidden"
                 style={{
                     // backgroundImage: `url('https://next.emu.web-perfomance.uz/wp-content/uploads/2025/05/main-banner-new.webp')`,
-                    backgroundImage: `url('https://next.emu.web-perfomance.uz/wp-content/uploads/2025/11/biznes.webp')`,
+                    backgroundImage: `url('https://next.emu.web-perfomance.uz/wp-content/uploads/2025/12/tibbiyot-1.webp')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'right 0 top 0',
                 }}
@@ -191,7 +191,7 @@ const HeroSection = () => {
                         </p>
 
                         <div className="flex flex-wrap gap-4 items-center">
-                            <motion.button
+                            {/* <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 animate={{ scale: pulseSize }}
@@ -204,7 +204,7 @@ const HeroSection = () => {
                                 }}
                             >
                                 Apply Now
-                            </motion.button>
+                            </motion.button> */}
 
                             <motion.a
                                 href="https://pre-foundation.emuni.uz/"
@@ -217,11 +217,11 @@ const HeroSection = () => {
                                 EMU Pre-foundation Courses
                             </motion.a>
 
-                            <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+                            {/* <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
                                 <span className="text-sm md:text-base font-medium">
                                     EMU University enrollment for 2025-2026
                                 </span>
-                            </div>
+                            </div> */}
                         </div>
                     </motion.div>
                 </div>

@@ -137,7 +137,7 @@ export default function Home() {
                         <div className="flex flex-wrap gap-4">
 
                             {/* https://claude.ai/chat/019a1e84-354b-45bc-8174-ad7a9bc589ea */}
-                            <motion.button
+                            {/* <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 animate={{ scale: pulseSize }}
@@ -155,7 +155,7 @@ export default function Home() {
                                 }}
                             >
                                 Ariza yuboring
-                            </motion.button>
+                            </motion.button> */}
 
                             <motion.a
                                 href="https://pre-foundation.emuni.uz/"
@@ -184,17 +184,17 @@ export default function Home() {
                     >
                         <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
                             <Image
-                                src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/11/biznes.webp"
+                                src="https://next.emu.web-perfomance.uz/wp-content/uploads/2025/12/tibbiyot-1.webp"
                                 alt="Student"
                                 width={600}
                                 height={400}
                                 className="w-full h-auto"
                             />
                         </div>
-                        <div className="absolute -bottom-6 -right-6 p-4 bg-[#470e47] rounded-lg shadow-xl transform -rotate-3 z-20">
+                        {/* <div className="absolute -bottom-6 -right-6 p-4 bg-[#470e47] rounded-lg shadow-xl transform -rotate-3 z-20">
                             <div className="text-sm font-bold text-white mb-1">2025-2026</div>
                             <div className="text-xl font-bold text-white">o'quv yili uchun qabul ochiq!</div>
-                        </div>
+                        </div> */}
 
                     </motion.div>
                 </div>
@@ -216,7 +216,7 @@ export default function Home() {
                 variants={fadeIn}
                 className="hidden md:flex items-center relative min-h-[600px] md:min-h-[700px] py-20 md:py-32 overflow-hidden"
                 style={{
-                    backgroundImage: `url('https://next.emu.web-perfomance.uz/wp-content/uploads/2025/11/biznes.webp')`,
+                    backgroundImage: `url('https://next.emu.web-perfomance.uz/wp-content/uploads/2025/12/tibbiyot-1.webp')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'right 0 top 0',
                 }}
@@ -255,7 +255,7 @@ export default function Home() {
                         </p>
 
                         <div className="flex flex-wrap gap-4 items-center">
-                            <motion.button
+                            {/* <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 animate={{ scale: pulseSize }}
@@ -268,7 +268,7 @@ export default function Home() {
                                 }}
                             >
                                 Ariza yuboring
-                            </motion.button>
+                            </motion.button> */}
 
                             <motion.a
                                 href="https://pre-foundation.emuni.uz/"
@@ -281,11 +281,11 @@ export default function Home() {
                                 EMU Pre-foundation Kursi
                             </motion.a>
 
-                            <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+                            {/* <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
                                 <span className="text-sm md:text-base font-medium">
                                     2025–2026 o'quv yili uchun qabul
                                 </span>
-                            </div>
+                            </div> */}
                         </div>
                     </motion.div>
                 </div>
@@ -904,7 +904,7 @@ export default function Home() {
                                 </svg>
                             </motion.button> */}
 
-                            <motion.button
+                            {/* <motion.button
                                 whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255, 215, 0, 0.5)" }}
                                 whileTap={{ scale: 0.95 }}
                                 className="z-[90] pop-form-trigger flex items-center py-4 px-10 bg-gradient-to-b from-[#f7e282] via-[#dbb845] to-[#c69026] text-[#4a1942] font-bold rounded-full shadow-xl border-2 border-[#f1d875] transition-all duration-300 text-lg"
@@ -920,7 +920,7 @@ export default function Home() {
                                 >
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                 </svg>
-                            </motion.button>
+                            </motion.button> */}
                         </motion.div>
                     </div>
                 </div>
