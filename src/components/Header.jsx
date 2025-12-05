@@ -1,4 +1,4 @@
-// // // app/components/Header.jsx
+// app/components/Header.jsx
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
@@ -120,6 +120,7 @@ export default function Header() {
         { name: "Как нас найти", name_uz: "Bizni qanday topish mumkin", name_eng: "How to Find Us", href: "/contacts", href_uz: "/uz/contacts", href_eng: "/eng/contacts" },
         { name: "FAQ", name_uz: "FAQ", name_eng: "FAQ", href: "/faq", href_uz: "/uz/faq", href_eng: "/eng/faq" },
         { name: "Вакансии", name_uz: "Vakansiyalar", name_eng: "Careers", href: "/vacancy", href_uz: "/uz/vacancy", href_eng: "/eng/vacancy" },
+        { name: "Шаг в будущее", name_uz: "Kelajakka qadam", name_eng: "Step into the future", href: "https://nbu.uz/ru/malyi-biznes/kredity/kredity-yangi-kelajakka-qadam", href_uz: "https://nbu.uz/kichik-biznes/kreditlar/yangi-kelajakka-qadam-kreditlari", href_eng: "https://nbu.uz/en/small-business/loans/kelajakka-qadam-loans", isExternal: true },
     ];
 
     // // Language switching
@@ -667,13 +668,25 @@ export default function Header() {
                                         </div>
                                     ) : (
                                         <div className="relative">
-                                            <Link
-                                                href={getItemHref(item)}
-                                                className="block px-4 py-2 hover:bg-[#9c3f84] rounded-lg transition-colors hover:translate-x-1 transform transition-transform duration-300 ease-in-out"
-                                                onClick={() => setIsMenuOpen(false)}
-                                            >
-                                                {getItemName(item)}
-                                            </Link>
+                                            {item.isExternal ? (
+
+                                                <a href={getItemHref(item)}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="block px-4 py-2 hover:bg-[#9c3f84] rounded-lg transition-colors hover:translate-x-1 transform transition-transform duration-300 ease-in-out"
+                                                    onClick={() => setIsMenuOpen(false)}
+                                                >
+                                                    {getItemName(item)}
+                                                </a>
+                                            ) : (
+                                                <Link
+                                                    href={getItemHref(item)}
+                                                    className="block px-4 py-2 hover:bg-[#9c3f84] rounded-lg transition-colors hover:translate-x-1 transform transition-transform duration-300 ease-in-out"
+                                                    onClick={() => setIsMenuOpen(false)}
+                                                >
+                                                    {getItemName(item)}
+                                                </Link>
+                                            )}
                                             {item.isNew && <div className="mobile-new-badge"></div>}
                                         </div>
                                     )}
@@ -754,12 +767,23 @@ export default function Header() {
                                     </div>
                                 ) : (
                                     <div className="relative inline-block">
-                                        <Link
-                                            href={getItemHref(item)}
-                                            className="inline-block px-4 py-1 hover:bg-[#9c3f84] rounded-lg transition-colors"
-                                        >
-                                            {getItemName(item)}
-                                        </Link>
+                                        {item.isExternal ? (
+
+                                            <a href={getItemHref(item)}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-block px-4 py-1 hover:bg-[#9c3f84] rounded-lg transition-colors"
+                                            >
+                                                {getItemName(item)}
+                                            </a>
+                                        ) : (
+                                            <Link
+                                                href={getItemHref(item)}
+                                                className="inline-block px-4 py-1 hover:bg-[#9c3f84] rounded-lg transition-colors"
+                                            >
+                                                {getItemName(item)}
+                                            </Link>
+                                        )}
                                         {item.isNew && <div className="new-badge"></div>}
                                     </div>
                                 )}
@@ -767,23 +791,26 @@ export default function Header() {
                         ))}
                     </ul>
                 </div>
-            </header>
+            </header >
 
             {/* Background overlay when menu is open */}
-            <div
+            < div
                 className={`md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-[7998] transition-opacity duration-300 ease-in-out ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                    }`}
+                    }`
+                }
                 onClick={() => setIsMenuOpen(false)}
-            ></div>
+            ></div >
 
             {/* Popup - different components for Russian, Uzbek, and English */}
-            {language === 'uz' ? (
-                <PopupUz isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
-            ) : language === 'eng' ? (
-                <PopupEng isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
-            ) : (
-                <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
-            )}
+            {
+                language === 'uz' ? (
+                    <PopupUz isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
+                ) : language === 'eng' ? (
+                    <PopupEng isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
+                ) : (
+                    <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
+                )
+            }
         </>
     );
 }

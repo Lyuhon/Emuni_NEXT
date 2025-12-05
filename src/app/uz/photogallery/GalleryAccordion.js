@@ -225,7 +225,6 @@ export default function GalleryAccordion({ videos, gallerySections, brandColors,
                                                                     height='200'
                                                                     className="w-full h-auto object-cover"
                                                                     loading="lazy"
-                                                                    quality={10}
                                                                 />
                                                                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center group-hover:bg-opacity-30 transition-opacity duration-300">
                                                                     <Camera size={24} className="text-white" />
@@ -276,7 +275,6 @@ export default function GalleryAccordion({ videos, gallerySections, brandColors,
                                                 width={gallerySections[activeAccordion].images[currentImageIndex].width || 1200}
                                                 height={gallerySections[activeAccordion].images[currentImageIndex].height || 800}
                                                 className="max-w-full max-h-full object-contain rounded-lg"
-                                                quality={20}
                                             />
                                         </motion.div>
                                     </AnimatePresence>

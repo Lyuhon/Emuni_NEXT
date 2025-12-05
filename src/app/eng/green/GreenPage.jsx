@@ -4,6 +4,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Leaf, Wind, Droplets, TreePine, Globe, Users, Book, DollarSign } from 'lucide-react';
 import Image from 'next/image';
+import GreenGallery from './GreenGallery';
 import './green.css';
 
 export default function GreenPage() {
@@ -270,6 +271,8 @@ export default function GreenPage() {
                     </div>
                 </div>
             </section>
+
+            <GreenGallery language='eng' />
         </main>
     );
 }
